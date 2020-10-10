@@ -1,5 +1,18 @@
-# To avoid the over-representation of bone remains with more than one measurement per axis (e.g. SD and Bd), it is better to do a priorisation of measurements and only take one per bone remain. In lengths, the first option is GL, then HTC. Regarding the widths, the order of priority is: Bd, BT, Bp, SD. This order maximises the robustness and reliability of the measurements, as priority is given to the most abundant, more replicable, and less age dependent measurements.
-# We first used this method in: Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018). Pre-Roman improvements to agricultural production: Evidence from livestock husbandry in late prehistoric Italy. PloS one, 13(12), e0208109.
+# To avoid the over-representation of bone remains with more than one
+# measurement per axis (e.g. SD and Bd for bone width), it is better to select
+# for each bone remain a single measurement per axis with an appropriate
+# prioritization criterion.
+# We provide the following by-default prioritization:
+# For lengths, the first option is GL, then HTC.
+# For widths, the order of priority is: Bd, BT, Bp, SD.
+# This order maximises the robustness and reliability of the measurements,
+# as priority is given to the most abundant, more replicable, and less age
+# dependent measurements.
+# We first used this method in:
+# Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
+# Pre-Roman improvements to agricultural production: Evidence from livestock
+# husbandry in late prehistoric Italy.
+# PloS one, 13(12), e0208109.
 #' @export
 PrioritizeLogs <- function(
   data,
