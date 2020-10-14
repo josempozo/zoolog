@@ -1,16 +1,65 @@
 Package: zoolog
-Title: What the Package Does (One Line, Title Case)
+Title: Calculate log ratios for the main domesticates (cattle, sheep, pig)
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(c("Jose","M"),
+           "Pozo",
+           role = c("aut"),
+           email = "josmpozo@gmail.com",
+           comment = c(ORCID = "0000-0002-0759-3510"))
+    person("Angela",
+           "Trentacoste",
+           role = c("ctb"),
+           email = "angela.trentacoste@arch.ox.ac.uk")
+    person("Ariadna",
+           "Nieto-Espinet",
+           role = c("ctb"),
+           email = "nose2@gmail.com")
+    person("Silvia",
+           "Guimarães Chiarelli",
+           role = c("ctb"),
+           email = "nose3@gmail.com",
+           comment = c(ORCID = "???"))
+    person("Silvia",
+           "Valenzuela-Lamas",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "svalenzuela@imf.csic.es",
+           comment = c(ORCID = "???"))
+Description: This package is designed to help zooarchaeologists to calculate 
+    log ratios from measurements following: 
+	Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
+	    archaeological sites”, Institut für Palaeoanatomie, 
+	    Domestikationsforschung und Geschichte der Tiermedizin of the 
+	    University of Munich (Vol. 1). Peabody Museum Press.
+	and 
+	Davis, S. J. M. (1992) “A rapid method for recording information about 
+	    mammal bones from archaeological sites”. London: HBMC AM Laboratory 
+	    report 19/92. (for HTC).
+    Functions in zoolog package allow users to read data, calculate the log 
+    ratios and visualize the results. The standards used originate from: 
+    Cattle:
+    Nieto-Espinet A. (2018) Element measure standard biometrical data from a 
+        cow dated to the Early Bronze Age (Minferri, Catalonia) [digital 
+        resource]. Available from: 
+        https://www.researchgate.net/ publication/326010953. 
+        https://doi.org/10.13140/RG.2.2.13512.78081
+    Sheep:
+    Davis S. (1996) Measurements of a group of adult female shetland sheep 
+        skeletons from a single flock: a baseline for zooarchaeologists. 
+        J Archaeol Sci. 23:593–612.
+    Pig:
+    Albarella U, Payne S. (2005) Neolithic pigs from Durrington Walls, 
+        Wiltshire, England: a biometrical database. 
+        J Archaeol Sci. 32(4):589–599.
+    We first used the method of prioritization of measurements in:
+	Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018). 
+	    Pre-Roman improvements to agricultural production: Evidence from 
+	    livestock husbandry in late prehistoric Italy. 
+	    PloS one, 13(12), e0208109.
+License: GPL
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat
