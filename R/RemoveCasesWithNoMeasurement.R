@@ -14,7 +14,7 @@ RemoveCasesWithNoMeasurement <- function(data,measuresName=NULL,prefix=logPrefix
   {
     measuresName=intersect(measuresName,names)
   }
-  data[rowSums(!is.na(data[,measuresName]))>0,]
+  pruneFactors(data[rowSums(!is.na(data[,measuresName]))>0,])
 }
 # The default values allow to remove the rows
 # with no log-ratio available.
