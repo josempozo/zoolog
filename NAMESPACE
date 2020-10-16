@@ -2,4 +2,4 @@
 
 export(LogRatios)
 export(PrioritizeLogs)
-export(RemoveCasesWithNoMeasurement)
+export(RemoveNACases)

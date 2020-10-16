@@ -14,23 +14,23 @@
 # husbandry in late prehistoric Italy.
 # PloS one, 13(12), e0208109.
 #' @export
-PrioritizeLogs <- function(
-  data,
-  priority=list(	Length=c("GL","HTC"),
-                 Width=c("Bd","BT","Bp","SD") ) )
-{
-  summaryMeasures=names(priority)
-  data[,summaryMeasures]=NA
-  for(sumMeasure in summaryMeasures)
+PrioritizeLogs <- function(data,
+                           priority = list(
+                             Length = c("GL", "HTC"),
+                             Width = c("Bd", "BT", "Bp", "SD") )
+                           ) {
+  summaryMeasures <- names(priority)
+  data[, summaryMeasures] <- NA
+  for (sumMeasure in summaryMeasures)
   {
-    alreadySelected=FALSE
-    measuresInData=intersect(priority[[sumMeasure]],colnames(data))
-    for(measure in measuresInData)
+    alreadySelected <- FALSE
+    measuresInData <- intersect(priority[[sumMeasure]], colnames(data))
+    for (measure in measuresInData)
     {
-      logMeasure=paste0(logPrefix,measure)
-      selected = !alreadySelected & !is.na(data[,logMeasure])
-      data[selected,sumMeasure] = data[selected,logMeasure]
-      alreadySelected = alreadySelected | selected
+      logMeasure <- paste0(logPrefix, measure)
+      selected <- !alreadySelected & !is.na(data[, logMeasure])
+      data[selected, sumMeasure] <- data[selected, logMeasure]
+      alreadySelected <- alreadySelected | selected
     }
   }
   data
