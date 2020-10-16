@@ -43,3 +43,6 @@ LogRatios <- function(data,
   }
   data
 }
+
+#Namespace Variable
+logPrefix <- "log"

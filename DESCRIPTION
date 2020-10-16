@@ -56,10 +56,14 @@ Description: This package is designed to help zooarchaeologists to calculate
 	    Pre-Roman improvements to agricultural production: Evidence from 
 	    livestock husbandry in late prehistoric Italy. 
 	    PloS one, 13(12), e0208109.
-License: GPL
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
     testthat
+Depends: 
+    R (>= 2.10)
+Imports: 
+    utils
