@@ -43,13 +43,13 @@ library(zoolog)
 ## Set the path in your computer to find the dataset csv file:
 currentDir=getwd();
 setwd('~/Silvia/Biometry')
-BIOM = read.table("DataExample.csv",
-                  dec=",", sep=";", quote="\"", header=T, na="",
+BIOM = read.csv2("DataExample.csv",
+                  quote="\"", header=TRUE, na="",
                   fileEncoding="UTF-8")
 BIOMwithLog=LogRatios(BIOM);
-BIOMwithLogPruned=RemoveCasesWithNoMeasurement(BIOMwithLog)
-write.table(BIOMwithLogPruned, "LogValuesBIOM.csv", 
-            sep= ";", dec=",", quote=F, row.names=F, na="", 
+BIOMwithLogPruned=RemoveNACases(BIOMwithLog)
+write.csv2(BIOMwithLogPruned, "LogValuesBIOM.csv", 
+            quote=FALSE, row.names=FALSE, na="", 
             fileEncoding="UTF-8")
 setwd(currentDir)
 ```
