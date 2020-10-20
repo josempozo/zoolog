@@ -19,5 +19,6 @@ RemoveNACases <- function(data, measuresName = NULL, prefix = logPrefix)
   # type.convert removes the non-used factors after subsetting the data.frame.
   # It takes also into account if factors in the original data.frame can
   # be considered numeric or logical in the subset one.
-  as.data.frame(lapply(prunedData,utils::type.convert))
+  as.data.frame(lapply(prunedData,
+                       function(x) utils::type.convert(as.character(x))))
 }
