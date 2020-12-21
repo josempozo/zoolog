@@ -4,12 +4,10 @@
 #' @export
 LogRatios <- function(data,
                       ref = referencesLog,
-                      refTaxName = "TAX",
-                      refElementsName = "EL",
+                      refIdentifiers = c("TAX", "EL"),
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
-                      dataTaxName = refTaxName,
-                      dataElementsName = refElementsName) {
+                      dataIdentifiers = refIdentifiers) {
   # Add columns for log ratios.
   # One column for each measure present in both the input data
   # and the reference.
@@ -18,22 +16,14 @@ LogRatios <- function(data,
 
   # Merging tax, element, and measure combinations in a single vector.
   # This combination identifies a single reference value.
-  sepMark <- "--&&--"
-  refIdentification <- paste(ref[, refTaxName],
-    ref[, refElementsName],
-    ref[, refMeasuresName],
-    sep = sepMark
-  )
+  refIdentification <- CollapseColumns(ref[, c(refIdentifiers,
+                                               refMeasuresName)])
 
   # Computation of the log ratios for all tax, elements, and measures.
   for (measure in refMeasuresInData)
   {
-    dataIdentification <- paste(
-      data[, dataTaxName],
-      data[, dataElementsName],
-      measure,
-      sep = sepMark
-    )
+    dataIdentification <- CollapseColumns(data[, dataIdentifiers],
+                                          measure)
     coincident <- match(dataIdentification, refIdentification)
     matched <- !is.na(coincident)
     x <- data[matched, measure]
