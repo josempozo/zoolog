@@ -17,6 +17,7 @@
 #' @examples
 #' RemoveNACases(dataExample, measureNames = exampleMeasuresName)
 #' RemoveNACases(dataExampleWithLog)
+
 #' @export
 RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
 {
