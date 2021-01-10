@@ -7,10 +7,11 @@
 LogRatios(
   data,
   ref = referencesLog,
-  refIdentifiers = c("TAX", "EL"),
+  anatomicalIds = c("TAX", "EL"),
   refMeasuresName = "Measure",
   refValuesName = "Standard",
-  dataIdentifiers = refIdentifiers
+  dataIdentifiers = refIdentifiers,
+  thesaurus = zoologThesaurus
 )
 }
 \arguments{
@@ -19,8 +20,8 @@ LogRatios(
 \item{ref}{A dataframe including the measurement values used as references.
 The default \code{ref = referencesLog} provided as package \code{zoolog} data.}
 
-\item{refIdentifiers}{A vector of column names in \code{ref} identifying
-a type of bone. By default \code{refIdentifiers = c("TAX", "EL")}.}
+\item{anatomicalIds}{A vector of column names in \code{ref} identifying
+a type of bone. By default \code{anatomicalIds = c("TAX", "EL")}.}
 
 \item{refMeasuresName}{The column name in \code{ref} identifying the type of
 bone measurement.}

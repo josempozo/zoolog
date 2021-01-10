@@ -15,20 +15,21 @@
 #' @return A dataframe with the same columns as the input dataframe but
 #' removing the rows with missing values for all measurements in the list.
 #' @examples
-#' RemoveNACases(dataExample, measureNames = exampleMeasuresName)
+#' exampleMeasureNames <- colnames(dataExample)[22:35]
+#' RemoveNACases(dataExample, measureNames = exampleMeasureNames)
 #' RemoveNACases(dataExampleWithLog)
 
 #' @export
 RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
 {
   names <- colnames(data)
-  if (is.null(measuresName))
+  if (is.null(measureNames))
   {
     measureNames <- names[regexpr(prefix, names) == 1]
   }
   else
   {
-    measureNames <- intersect(measuresName, names)
+    measureNames <- intersect(measureNames, names)
   }
   prunedData <- data[rowSums(!is.na(data[, measureNames])) > 0, ]
   rownames(prunedData) <- NULL

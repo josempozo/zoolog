@@ -28,6 +28,7 @@ or selected by a common initial pattern.
 The default values remove the rows with no log-ratio available.
 }
 \examples{
-RemoveNACases(dataExample, measureNames = exampleMeasuresName)
+exampleMeasureNames <- colnames(dataExample)[22:35]
+RemoveNACases(dataExample, measureNames = exampleMeasureNames)
 RemoveNACases(dataExampleWithLog)
 }

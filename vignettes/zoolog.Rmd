@@ -1,5 +1,8 @@
 ---
-title: "zoolog"
+title: "Package ***zoolog***:  \n zooarcheological analysis with log-ratios."
+author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli"
+email: "svalenzuela@imf.csic.es"
+date: "`r format(Sys.Date())`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{zoolog}
@@ -17,3 +20,32 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(zoolog)
 ```
+
+# Introduction
+
+The package *zoolog* includes functions and referencial data to generate and 
+handle log-ratios from typical measurements of zooarcheological bone samples 
+relative to standard reference values.
+The methods included in the package were initially developed for the paper 
+Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
+Pre-Roman improvements to agricultural production: Evidence from livestock 
+husbandry in late prehistoric Italy. PloS one, 13(12), e0208109.
+
+In general zooarcheological datasets are constituted by bone remains of many 
+different anatomical body parts. Measurements of length or width of different 
+anatomical elements cannot be directly compared or aggregated for statistical 
+analysis. This problem can be palliated by extracting the measurement log-ratios 
+with respect to a reference. The resulting log-ratios can be compared and 
+statistically analysed under general reasonable conditions.
+
+# Reference
+
+The log-ratios are calculated with respect to a standard reference. The package
+*zoolog* includes a reference dataset. However, the user can consider other 
+references or the provided reference can be extended and updated integrating
+newer research data. Submission of extended/improved references to be openly 
+included is encourage (contact the mantainer through the provided email address).
+
+The reference is provided as a dataframe named `referencesLog`. It includes 
+reference values for the domestic triad: *bos taurus*, *ovis aries*, and 
+*sus domesticus*.

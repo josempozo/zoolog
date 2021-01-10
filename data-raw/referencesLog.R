@@ -1,8 +1,12 @@
-## code to prepare `referencesLog` dataset goes here
+## Code to prepare `referencesLog` dataset goes here
 
-referencesLog <- read.csv2("inst/extdata/referencesLog.csv",
+source("data-raw/lcCollateC.R")
+lcCollateC({
+  referencesLog <- read.csv2("inst/extdata/referencesLog.csv",
                            quote = "\"", na = "",
                            header = TRUE, stringsAsFactors = TRUE,
-)
+                           fileEncoding = "UTF-8"
+  )
+})
 
 usethis::use_data(referencesLog, overwrite = TRUE)

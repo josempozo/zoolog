@@ -2,4 +2,5 @@
 
 export(CondenseLogs)
 export(LogRatios)
+export(ReadThesaurus)
 export(RemoveNACases)

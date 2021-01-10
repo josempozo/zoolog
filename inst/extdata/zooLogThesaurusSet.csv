@@ -1,0 +1,5 @@
+ThesaurusName;FileName;CaseSensitive;AccentSensitive
+anatomicalId;anatomicalIdThesaurus.csv;FALSE;FALSE
+taxon;taxonThesaurus.csv;FALSE;FALSE
+element;elementThesaurus.csv;FALSE;FALSE
+measure;measureThesaurus.csv;TRUE;FALSE
