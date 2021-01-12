@@ -3,83 +3,98 @@
 # A list of named lists. The
 # The standard nomenclature is expected to coincide with the one used in the
 # reference dataset.
+
+#' Standardize nomenclature
+#'
+#' Function \code{StandardizeNomenclature} standardizes a character vector
+#' according to a given thesaurus.
+#' Function \code{StandardizeDataSet} standardizes column names and values of
+#' a data frame according to a thesaurus set.
+#'
+#' @inheritParams Thesaurus Reader/Writer
+#' @param x Character vector.
+#' @param mark.unknown Logical. If \code{FALSE} (default) the strings not found in the
+#' thesaurus are kept without change. If \code{TRUE} the strings not in the
+#' thesaurus are set to \code{NA}.
+#' @param data A data frame.
+#'
+#' @return
+#' \code{StandardizeNomenclature} returns a vector of the same length as the
+#' input vector. The names present in the thesaurus are set to their
+#' corresponding category. The names not in the thesaurus are kept unchanged if
+#' \code{mark.unknown=FALSE} (default) and set to \code{NA} if
+#' \code{mark.unknown=TRUE}.
+#'
+#' \code{StandardizeDataSet} returns a data frame with the same structure as
+#' the input but standardizing its nomenclature according to a thesaurus set
+#' including appropriate thesauri for its column names and for values of several
+#' of its columns.
+#'
+#' @examples
+#' ## Selecting the thesaurus for taxa present in the thesaurus set
+#' ## \code{zoolog::zoologThesaurus}:
+#' thesaurus <- zoologThesaurus$taxon
+#' thesaurus
+#' ## Standardizing an heterodox vector of taxa:
+#' StandardizeNomenclature(c("bota", "rabbit", "pig", "cattle"),
+#'                         thesaurus)
+#' ## Observe that "rabit" is kept unchanged since it is not included in
+#' ## any thesaurus category.
+#'
+#' ## This \code{thesaurus} is not case sensitive:
+#' attr(thesaurus, "caseSensitive") #  == FALSE
+#' ## Thus, names are recognized independently of their case:
+#' StandardizeNomenclature(c("bota", "BOTA", "Bota", "boTa"),
+#'                         thesaurus)
+#'
+#' ## Loading an example data frame:
+#' dataExample <- read.csv2(system.file("extdata", "dataExample1000.csv",
+#'                                        package="zoolog"),
+#'                          stringsAsFactors = TRUE)
+#' ## Observe mainly the first collumns:
+#' head(dataExample[,1:5])
+#' ## Stadardizing the dataset:
+#' dataStandardized <- StandardizeDataSet(dataExample, zoologThesaurus)
+#' head(dataStandardized[,1:5])
+#'
+#' @seealso
+#' \code{\link{ReadThesaurus}}, \code{\link{AddToThesaurus}}
+
+#' @name StandardizeNomenclature
+
+#' @rdname StandardizeNomenclature
+#' @export
 StandardizeNomenclature <- function(x, thesaurus, mark.unknown = FALSE)
 {
-  if(is.null(thesaurus) || is.null(x)) return(x)
+  if(is.null(thesaurus) || is.null(x) || length(thesaurus)==0) return(x)
   n <- length(x)
   x.isfactor <- is.factor(x)
   if(x.isfactor) x <- as.character(x)
-  textPrep <- c()
-  if(!attr(thesaurus,"caseSensitive")) textPrep <- c(textPrep, "Any-lower")
-  if(!attr(thesaurus,"accentSensitive")) textPrep <- c(textPrep, "Latin-ASCII")
-  xprepared <- x
-  for(id in textPrep)
-  {
-    thesaurus <- lapply(thesaurus, stringi::stri_trans_general, id)
-    xprepared <- stringi::stri_trans_general(xprepared, id)
-  }
-  thesaurus <- lapply(thesaurus, function(a) a[a!=""])
-  y <- sapply(thesaurus, is.element, el = xprepared)
+  normalized <- NormalizeForSensitiveness(thesaurus, x)
+  thesaurus <- lapply(normalized$thesaurus, function(a) a[a!=""])
+  y <- sapply(thesaurus, is.element, el = normalized$x)
   if(mark.unknown) x[] <- NA
-  x[(which(y)-1) %% n + 1] <- colnames(y)[ceiling(which(y)/n)]
+  if(length(x)>1) ynames <- colnames(y) else ynames<-names(y)
+  x[(which(y)-1) %% n + 1] <- ynames[ceiling(which(y)/n)]
   if(x.isfactor) x <- as.factor(x)
   return(x)
 }
 
+#' @rdname StandardizeNomenclature
 #' @export
-ReadThesaurus <- function(file, caseSensitive = FALSE, accentSensitive = FALSE)
+StandardizeDataSet <- function(data, thesaurusSet = zoologThesaurus)
 {
-  thesaurus <- read.csv2(file, stringsAsFactors = FALSE, header = FALSE)
-  names(thesaurus) <- thesaurus[1,]
-  attr(thesaurus, "caseSensitive") <- caseSensitive
-  attr(thesaurus, "accentSensitive") <- accentSensitive
-  if(ThesaurusAmbiguity(thesaurus)) stop(paste0("Ambiguous thesaurus in ", file))
-  return(thesaurus)
-}
-
-#' @export
-ReadZoologThesaurusSet <- function(file)
-{
-  data <- read.csv2(file)
-  dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
-  zoologThesaurusSet <- mapply(ReadThesaurus, filenames,
-                               data$CaseSensitive, data$AccentSensitive)
-  names(zoologThesaurusSet) <- data$ThesaurusName
-  return(zoologThesaurusSet)
-}
-
-StandardizeDataSet <- function(data, thesaurus = zoologThesaurus)
-{
-  names(data) <- StandardizeNomenclature(names(data), thesaurus$anatomicalId)
-  names(data) <- StandardizeNomenclature(names(data), thesaurus$measure)
-  if(!all(names(thesaurus$anatomicalId) %in% names(data)))
+  for(thesaurus in thesaurusSet[attr(thesaurusSet, "applyToColNames")])
   {
-    stop("Data is missing some anatomical identifier.")
+    names(data) <- StandardizeNomenclature(names(data), thesaurus)
   }
-  for(type in names(thesaurus$anatomicalId))
+  for(i in which(attr(thesaurusSet, "applyToColValues") &
+                 names(thesaurusSet) %in% names(data)))
   {
-    data[, type] <- StandardizeNomenclature(data[, type], thesaurus[[type]])
+    type <- names(thesaurusSet)[i]
+    data[, type] <- StandardizeNomenclature(data[, type], thesaurusSet[[type]])
   }
-  data$Measure <- StandardizeNomenclature(data$Measure, thesaurus$measure)
+  data$Measure <- StandardizeNomenclature(data$Measure, thesaurusSet$measure)
   return(data)
 }
 
-ThesaurusAmbiguity <- function(thesaurus)
-{
-  thesaurus <- lapply(thesaurus, function(a) a[a!=""])
-  pairs <- utils::combn(names(thesaurus), 2)
-  ambiguities <- list()
-  for(i in 1:ncol(pairs))
-  {
-    pair.coincidence <- thesaurus[[pairs[1,i]]] %in% thesaurus[[pairs[2,i]]]
-    if(any(pair.coincidence))
-    {
-      ambiguities[[paste0("Ambiguity in pair (\"", pairs[1,i], "\", \"", pairs[2,i], "\")")]] <-
-        thesaurus[[pairs[1,i]]][pair.coincidence]
-    }
-  }
-  res <- length(ambiguities)>0
-  if(res) print(ambiguities)
-  return(res)
-}

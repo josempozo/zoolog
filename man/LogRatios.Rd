@@ -10,8 +10,7 @@ LogRatios(
   anatomicalIds = c("TAX", "EL"),
   refMeasuresName = "Measure",
   refValuesName = "Standard",
-  dataIdentifiers = refIdentifiers,
-  thesaurus = zoologThesaurus
+  thesaurusSet = zoologThesaurus
 )
 }
 \arguments{
@@ -29,8 +28,8 @@ bone measurement.}
 \item{refValuesName}{The column name in \code{ref} giving the measurement
 value.}
 
-\item{dataIdentifiers}{A vector of column names in \code{data} identifying
-a type of bone. By default \code{dataIdentifiers = refIdentifiers}.}
+\item{thesaurusSet}{A thesaurus allowing to merge datasets with different
+nomenclatures. By default \code{thesaurusSet = zoologThesaurus}.}
 }
 \value{
 A dataframe including the input dataframe and additional columns, one

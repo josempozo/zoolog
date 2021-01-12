@@ -13,8 +13,8 @@
 #' bone measurement.
 #' @param refValuesName The column name in \code{ref} giving the measurement
 #' value.
-#' @param dataIdentifiers A vector of column names in \code{data} identifying
-#' a type of bone. By default \code{dataIdentifiers = refIdentifiers}.
+#' @param thesaurusSet A thesaurus allowing to merge datasets with different
+#' nomenclatures. By default \code{thesaurusSet = zoologThesaurus}.
 #' @return A dataframe including the input dataframe and additional columns, one
 #' for each extracted log ratio for each relevant measurement in the reference.
 #' The name of the added columns are constructed prefixing each measurement by
@@ -27,14 +27,16 @@ LogRatios <- function(data,
                       anatomicalIds = c("TAX", "EL"),
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
-                      dataIdentifiers = refIdentifiers,
-                      thesaurus = zoologThesaurus) {
+                      thesaurusSet = zoologThesaurus) {
   # Add columns for log ratios.
   # One column for each measure present in both the input data
   # and the reference.
-  dataStandard <- StandardizeDataSet(data, thesaurus)
-  refStandard <- StandardizeDataSet(ref, thesaurus)
-  anatomicalIds <- StandardizeNomenclature(anatomicalIds, thesaurus$anatomicalId)
+  dataStandard <- StandardizeDataSet(data, thesaurusSet)
+  refStandard <- StandardizeDataSet(ref, thesaurusSet)
+  anatomicalIds <- StandardizeNomenclature(anatomicalIds,
+                                           thesaurusSet$identifier)
+  refMeasuresName <- StandardizeNomenclature(refMeasuresName,
+                                             thesaurusSet$identifier)
   refMeasures <- levels(refStandard[, refMeasuresName])
   refMeasuresInData <- intersect(refMeasures, names(dataStandard))
 

@@ -2,10 +2,10 @@ bos taurus;ovis aries;sus domesticus
 bota;ovar;sudo
 bos;oc;pig
 cattle;sheep;sus
-Cattle;caprine;Pig
-BT;ovis/capra;SS
-bovino;s/g;cerdo
-Grands Bovides Boeuf;sheep/goat;Suides Porc
+BT;caprine;SS
+bovino;ovis/capra;cerdo
+Grands Bovides Boeuf;s/g;Suides Porc
+;sheep/goat;
 ;ovis;
 ;ov;
 ;Sh/G;
