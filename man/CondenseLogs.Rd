@@ -71,6 +71,24 @@ husbandry in late prehistoric Italy.
 PloS one, 13(12), e0208109.
 }
 \examples{
-CondenseLogs(dataExampleWithLogPruned)
-CondenseLogs(dataExampleWithLogPruned, method = "average")
+## Read an example dataset:
+dataFile <- system.file("extdata", "FitxesFaunaTesi_Export2021DEF.csv.gz",
+                        package="zoolog")
+dataExample <- read.csv2(dataFile,
+                         quote = "\"", na = "", header = TRUE,
+                         fileEncoding = "UTF-8")
+## Compute the log-ratios:
+dataExampleWithLogs <- LogRatios(dataExample)
+## We can observe the first lines (excluding some columns for visibility):
+head(dataExampleWithLogs)[, -c(6:20,32:63)]
+
+## Extract the default condensed features with the default "priority" method:
+dataExampleWithSummary <- CondenseLogs(dataExampleWithLogs)
+head(dataExampleWithSummary)[, -c(6:20,32:63)]
+
+## Extract only width with "average" method:
+dataExampleWithSummary2 <- CondenseLogs(dataExampleWithLogs,
+                               grouping = list(Width = c("Bd", "BT", "Bp", "SD")),
+                               method = "average")
+head(dataExampleWithSummary2)[, -c(6:20,32:63)]
 }

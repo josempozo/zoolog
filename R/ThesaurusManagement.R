@@ -1,4 +1,4 @@
-#' Thesaurus management
+#' Thesaurus Management
 #'
 #' Functions to modify and check thesauri.
 #'
@@ -27,12 +27,12 @@
 #' error in case they attempt to read or generate an ambiguous thesaurus.
 #'
 #' @examples
-#' ## Loading an example thesaurus:
+#' ## Load an example thesaurus:
 #' thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurus.csv",
 #'                                        package="zoolog"))
 #' ## with categories
 #' names(thesaurus) #  "bos taurus"  "ovis aries"  "sus domesticus"
-#' ## Adding names to several categories:
+#' ## Add names to several categories:
 #' thesaurusExtended <- AddToThesaurus(thesaurus,
 #'                                     c("vaca", "porc"),
 #'                                     c("bos taurus","sus domesticus"))
@@ -56,7 +56,7 @@
 #' ## Attemp to generate an ambiguous thesaurus
 #' try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 #'
-#' ## Removing repeated names in the same category:
+#' ## Remove repeated names in the same category:
 #' thesaurusWithRepetitions <- AddToThesaurus(thesaurusNew,
 #'                                            c("scarlet", "ruby"), "red")
 #' thesaurusWithRepetitions

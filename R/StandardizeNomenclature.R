@@ -1,14 +1,12 @@
-# Maps the user provided nomenclature into a standard one
-# as defined in a thesaurus. The thesaurus must be in the following format:
-# A list of named lists. The
-# The standard nomenclature is expected to coincide with the one used in the
-# reference dataset.
-
-#' Standardize nomenclature
+#' Standardize Nomenclature
 #'
-#' Function \code{StandardizeNomenclature} standardizes a character vector
+#' Functions to map the user provided nomenclature into a standard one
+#' as defined in a thesaurus.
+#'
+#' \code{StandardizeNomenclature} standardizes a character vector
 #' according to a given thesaurus.
-#' Function \code{StandardizeDataSet} standardizes column names and values of
+#'
+#' \code{StandardizeDataSet} standardizes column names and values of
 #' a data frame according to a thesaurus set.
 #'
 #' @inheritParams Thesaurus Reader/Writer
@@ -20,40 +18,43 @@
 #'
 #' @return
 #' \code{StandardizeNomenclature} returns a vector of the same length as the
-#' input vector. The names present in the thesaurus are set to their
+#' input vector \code{x}. The names present in the thesaurus are set to their
 #' corresponding category. The names not in the thesaurus are kept unchanged if
 #' \code{mark.unknown=FALSE} (default) and set to \code{NA} if
 #' \code{mark.unknown=TRUE}.
 #'
 #' \code{StandardizeDataSet} returns a data frame with the same structure as
-#' the input but standardizing its nomenclature according to a thesaurus set
-#' including appropriate thesauri for its column names and for values of several
-#' of its columns.
+#' the input \code{data}, but standardizing its nomenclature according to a thesaurus set
+#' including appropriate thesauri for its column names and for the values of
+#' a set of columns.
 #'
 #' @examples
-#' ## Selecting the thesaurus for taxa present in the thesaurus set
-#' ## \code{zoolog::zoologThesaurus}:
+#' ## Select the thesaurus for taxa present in the thesaurus set
+#' ## zoolog::zoologThesaurus:
 #' thesaurus <- zoologThesaurus$taxon
 #' thesaurus
-#' ## Standardizing an heterodox vector of taxa:
+#' ## Standardize an heterodox vector of taxa:
 #' StandardizeNomenclature(c("bota", "rabbit", "pig", "cattle"),
 #'                         thesaurus)
-#' ## Observe that "rabit" is kept unchanged since it is not included in
+#' ## Observe that "rabbit" is kept unchanged since it is not included in
 #' ## any thesaurus category.
+#' ## But if mark.unknown is set to TRUE, it is marked as NA:
+#' StandardizeNomenclature(c("bota", "rabbit", "pig", "cattle"),
+#'                         thesaurus, mark.unknown = TRUE)
 #'
-#' ## This \code{thesaurus} is not case sensitive:
+#' ## This thesaurus is not case sensitive:
 #' attr(thesaurus, "caseSensitive") #  == FALSE
 #' ## Thus, names are recognized independently of their case:
 #' StandardizeNomenclature(c("bota", "BOTA", "Bota", "boTa"),
 #'                         thesaurus)
 #'
-#' ## Loading an example data frame:
+#' ## Load an example data frame:
 #' dataExample <- read.csv2(system.file("extdata", "dataExample1000.csv",
 #'                                        package="zoolog"),
 #'                          stringsAsFactors = TRUE)
-#' ## Observe mainly the first collumns:
+#' ## Observe mainly the first columns:
 #' head(dataExample[,1:5])
-#' ## Stadardizing the dataset:
+#' ## Stadardize the dataset:
 #' dataStandardized <- StandardizeDataSet(dataExample, zoologThesaurus)
 #' head(dataStandardized[,1:5])
 #'

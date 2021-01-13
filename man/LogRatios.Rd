@@ -7,7 +7,7 @@
 LogRatios(
   data,
   ref = referencesLog,
-  anatomicalIds = c("TAX", "EL"),
+  identifiers = c("TAX", "EL"),
   refMeasuresName = "Measure",
   refValuesName = "Standard",
   thesaurusSet = zoologThesaurus
@@ -19,8 +19,8 @@ LogRatios(
 \item{ref}{A dataframe including the measurement values used as references.
 The default \code{ref = referencesLog} provided as package \code{zoolog} data.}
 
-\item{anatomicalIds}{A vector of column names in \code{ref} identifying
-a type of bone. By default \code{anatomicalIds = c("TAX", "EL")}.}
+\item{identifiers}{A vector of column names in \code{ref} identifying
+a type of bone. By default \code{identifiers = c("TAX", "EL")}.}
 
 \item{refMeasuresName}{The column name in \code{ref} identifying the type of
 bone measurement.}
@@ -43,5 +43,29 @@ relative to standard reference values.
 By default a reference is provided with the package.
 }
 \examples{
-LogRatios(dataExample)
+## Read an example dataset:
+dataFile <- system.file("extdata", "FitxesFaunaTesi_Export2021DEF.csv.gz",
+                        package="zoolog")
+dataExample <- read.csv2(dataFile,
+                         quote = "\"", na = "", header = TRUE,
+                         fileEncoding = "UTF-8")
+## We can observe the first lines (excluding some columns for visibility):
+head(dataExample)[, -c(6:20,32:63)]
+
+## Compute the log-ratios with respect to the default reference in the
+## package zoolog:
+dataExampleWithLogs <- LogRatios(dataExample)
+## The output data frame include new columns with the log-ratios of the
+## present measurements, in both data and reference, with a "log" prefix:
+head(dataExampleWithLogs)[, -c(6:20,32:63)]
+
+## Read a different reference:
+referenceFile <- system.file("extdata", "referencesLog.csv", ### TO CHANGE
+                             package="zoolog")
+userReferenceLogs <- read.csv2(referenceFile,
+                               quote = "\"", na = "", header = TRUE,
+                               fileEncoding = "UTF-8")
+## Compute the log-ratios with respect to this alternative reference:
+dataExampleWithLogs2 <- LogRatios(dataExample, ref = userReferenceLogs)
+head(dataExampleWithLogs2)[, -c(6:20,32:63)]
 }
