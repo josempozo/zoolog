@@ -1,14 +1,16 @@
-humerus;radius;metacarpus;femur;tibia;calcaneum;astragalus;metatarsus;anterior first phalanx;posterior first phalanx;anterior second phalanx;posterior second phalanx
-HU;RA;MC;FE;TI;CAL;AS;MT;P1 ant;P1 post;P2 ant;P2 post
-hum;rad;metac;fem;tib;calca;talus;metat;fal 1 ant;fal 1 post;fal 2 ant;fal 2 post
-Humerus;Radius;MC1;Femur;Tibia;Calcaneum;Astragalus;MT1;Phalange 1;PH1P;Phalange 2;PH2P
-humer;radi;MC2;femore;TIB;Calcani;AST;MT2;Phalanx 1;;Phalanx 2;
-omero;radio;metacarp;Membre-posterieur Femur;Membre-posterieur tibia;cal;astragalo;metatars;falange 1;;falange 2;
-Membre-anterieur humerus;Membre-anterieur radius;metacarpo;;;calcan;astrag;metatarso;PH1;;PH2;
-;;Metacarpe Canon;;;calcagno;Tarse Talus;Metatarse Canon;PH1A;;PH2A;
-;;;;;Tarse calcaneum;;;phal 1;;phal 2;
-;;;;;;;;Phalange I;;Phalange II;
-;;;;;;;;fal1;;fal 2;
-;;;;;;;;1fal;;2fal;
-;;;;;;;;fal 1;;fal 2;
-;;;;;;;;1 fal;;2 fal;
+scapula;humerus;radius;metacarpus;pelvis;femur;tibia;calcaneum;astragalus;metatarsus;anterior first phalanx;posterior first phalanx;anterior second phalanx;posterior second phalanx
+SC;HU;RA;MC;PE;FE;TI;CAL;AS;MT;P1 ant;P1 post;P2 ant;P2 post
+scapula;hum;rad;metac;coxal;fem;TIB;calca;talus;metat;fal 1 ant;fal 1 post;fal 2 ant;fal 2 post
+scapola;Humerus;radi;MC1;cox;femore;Membre-posterieur tibia;Calcani;AST;MT1;Phalange 1;PH1P;Phalange 2;PH2P
+esc;humer;radio;MC2;;Membre-posterieur Femur;;calcan;astragalo;MT2;Phalanx 1;Phalanx 1 post.;Phalanx 2;Phalanx 2 post.
+scap.;omero;Membre-anterieur radius;metacarp;;;;calcagno;astrag;metatars;falange 1;;falange 2;
+escap.;Membre-anterieur humerus;;metacarpo;;;;Tarse calcaneum;Tarse Talus;metatarso;PH1;;PH2;
+;;;Metacarpe Canon;;;;;;Metatarse Canon;PH1A;;PH2A;
+;;;;;;;;;;phal 1;;phal 2;
+;;;;;;;;;;Phalange I;;Phalange II;
+;;;;;;;;;;fal1;;fal 2;
+;;;;;;;;;;1fal;;2fal;
+;;;;;;;;;;fal 1;;fal 2;
+;;;;;;;;;;1 fal;;2 fal;
+;;;;;;;;;;Phalanx 1 ant./post.;;Phalanx 2 ant./post.;
+;;;;;;;;;;Phalanx 1 ant.;;Phalanx 2 ant.;

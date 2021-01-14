@@ -3,7 +3,7 @@
 \docType{data}
 \name{zoologThesaurus}
 \alias{zoologThesaurus}
-\title{Thesaurus Set for zoolog.}
+\title{Thesaurus Set for zoolog}
 \format{
 A thesaurus set is a list of thesauri with additional attributes:
 \describe{
