@@ -77,5 +77,8 @@ head(dataStandardized[,1:5])
 
 }
 \seealso{
+\code{\link{zoologThesaurus}} for a description of the thesaurus and
+thesaurus set structure,
+
 \code{\link{ReadThesaurus}}, \code{\link{AddToThesaurus}}
 }

@@ -90,6 +90,9 @@ RemoveRepeatedNames(thesaurusWithRepetitions)
 
 }
 \seealso{
+\code{\link{zoologThesaurus}} for a description of the thesaurus and
+thesaurus set structure,
+
 \code{\link{ReadThesaurus}}, \code{\link{WriteThesaurus}},
 \code{\link{StandardizeNomenclature}}
 }

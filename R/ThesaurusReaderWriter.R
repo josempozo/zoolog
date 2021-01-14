@@ -45,6 +45,13 @@
 #' WriteThesaurusSet(thesaurusSet, fileSetExample)
 #' ## It writes the thesaurus-set main data frame and each of the included
 #' ## thesausus files.
+#'
+#' @seealso
+#' \code{\link{zoologThesaurus}} for a description of the thesaurus and
+#' thesaurus set structure,
+#'
+#' \code{\link{Thesaurus Management}},
+#' \code{\link{StandardizeNomenclature}}
 
 #' @name Thesaurus Reader/Writer
 

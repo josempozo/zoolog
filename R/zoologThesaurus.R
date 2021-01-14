@@ -1,0 +1,55 @@
+#' Thesaurus Set for zoolog
+#'
+#' The thesaurus set defined for the package \code{zoolog}.
+#' This is used to make the methods robust to different nomenclatures used
+#' in datasets created by different authors. The user can also use other
+#' thesaurus sets, or can modify the provided thesaurus set (see
+#' \code{\link{Thesaurus Management}} and \code{\link{Thesaurus Reader/Writer}}).
+#'
+#' @format
+#' A thesaurus set is a list of thesauri with additional attributes:
+#' \describe{
+#'   \item{names}{Character vector with the name of each thesaurus.}
+#'   \item{applyToColNames}{Logical vector. Must the thesaurus be applied to
+#'           the column names of the data frame?}
+#'   \item{applyToColValues}{Logical vector. Must the thesaurus be applied to
+#'           the values in the corresponding column of the data frame?}
+#'   \item{filename}{Character vector with the source file of each thesaurus.}
+#' }
+#'
+#' The examples below show the list of four thesauri included in the provided
+#' \code{zoologThesurus}.
+#'
+#' Each thesaurus is a data frame also with additional attributes. Each column
+#' of the data frame is a category of names with equivalent meaning in the
+#' intended application. The column name identifies the category and is used
+#' as the standard in when applying \code{\link{StandardizeNomenclature}}.
+#'
+#' The names in each column (category) must not be included in any other
+#' column, since this would make the thesaurus ambiguous (see
+#' \code{\link{ThesaurusAmbiguity}}).
+#'
+#' Each thesaurus has the following attributes:
+#' \describe{
+#'   \item{names}{The standard name for the categories.}
+#'   \item{class}{"data.frame"}
+#'   \item{row.names}{Irrelevant}
+#'   \item{caseSensitive}{Logical. Should the names in the thesaurus be
+#'           considered case-sensitive?}
+#'   \item{accentSensitive}{Logical. Should the names in the thesaurus be
+#'           differentiated by the presence of accent marks?}
+#' }
+#'
+#' The examples below show the content and characteristics of the first
+#' thesaurus in \code{zoologThesurus}.
+#'
+#' @examples
+#' ## List of thesaurus names and characteristics in the thesaurus set:
+#' attributes(zoologThesaurus)
+#' ## Content of the first thesaurus:
+#' zoologThesaurus$identifier
+#' attributes(zoologThesaurus$identifier)
+#'
+# @source \url{http://www.diamondse.info/}
+"zoologThesaurus"
+
