@@ -22,21 +22,9 @@ knitr::opts_chunk$set(
 
 The package *zoolog* includes functions and referencial data to generate and 
 handle log-ratios from typical measurements of zooarcheological bone samples 
-relative to standard reference values. This follows methods 
-	Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
-	    archaeological sites”, Institut für Palaeoanatomie, 
-	    Domestikationsforschung und Geschichte der Tiermedizin of the 
-	    University of Munich (Vol. 1). Peabody Museum Press.
-	and 
-	Davis, S. J. M. (1992) “A rapid method for recording information about 
-	    mammal bones from archaeological sites”. London: HBMC AM Laboratory 
-	    report 19/92. (for HTC).
-
-
+relative to standard reference values [@von1976guide], [@davis1992rapid].
 The methods included in the package were initially developed for the paper 
-Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
-Pre-Roman improvements to agricultural production: Evidence from livestock 
-husbandry in late prehistoric Italy. PloS one, 13(12), e0208109.
+[@trentacoste2018pre].
 
 In general zooarcheological datasets are constituted by bone remains of many 
 different anatomical body parts. Measurements of length or width of different 
@@ -50,14 +38,14 @@ statistically analysed under general reasonable conditions.
 
 You can install the released version of zoolog from [CRAN](https://CRAN.R-project.org) with:
 
-```{r installation}
+``` r
 install.packages("zoolog")
 ```
 
 And the development version from [GitHub](https://github.com/) with:
 
-```{r installationDev}
-# install.packages("devtools")
+``` r
+install.packages("devtools")
 devtools::install_github("josempozo/zoolog")
 ```
 
@@ -83,16 +71,21 @@ Finally, the resulting dataset is saved in a file in csv format.
 
 ```{r example}
 library(zoolog)
-## Set the path in your computer to find the dataset csv file:
-currentDir=getwd();
-setwd('~/Silvia/Biometry')
-BIOM = read.csv2("DataExample.csv",
-                  quote="\"", header=TRUE, na="",
-                  fileEncoding="UTF-8")
-BIOMwithLog=LogRatios(BIOM);
-BIOMwithLogPruned=RemoveNACases(BIOMwithLog)
-write.csv2(BIOMwithLogPruned, "LogValuesBIOM.csv", 
+## Set the local path where you have the dataset to be analysed (typically a
+## comma-separated value (csv) file). We use here one of the example datasets
+## included in the package:
+dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz", 
+                        package = "zoolog")
+data = read.csv2(dataFile,
+                 quote="\"", header=TRUE, na="",
+                 fileEncoding="UTF-8")
+## Comput the log-ratios.
+dataWithLog=LogRatios(data);
+## Remove the cases with no log-ratio extracted:
+dataWithLogPruned=RemoveNACases(dataWithLog)
+## Write the resulting file in the working directory (which the user should 
+## have set appropriately)
+write.csv2(dataWithLogPruned, "myDataWithLogValues.csv", 
             quote=FALSE, row.names=FALSE, na="", 
             fileEncoding="UTF-8")
-setwd(currentDir)
 ```
