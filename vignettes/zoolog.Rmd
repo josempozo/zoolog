@@ -3,6 +3,7 @@ title: "Package ***zoolog***:  \n zooarcheological analysis with log-ratios."
 author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
+bibliography: zoolog.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{zoolog}
@@ -17,15 +18,21 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(zoolog)
-```
-
 # Introduction
 
 The package *zoolog* includes functions and referencial data to generate and 
 handle log-ratios from typical measurements of zooarcheological bone samples 
-relative to standard reference values.
+relative to standard reference values. This follows methods 
+	Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
+	    archaeological sites”, Institut für Palaeoanatomie, 
+	    Domestikationsforschung und Geschichte der Tiermedizin of the 
+	    University of Munich (Vol. 1). Peabody Museum Press.
+	and 
+	Davis, S. J. M. (1992) “A rapid method for recording information about 
+	    mammal bones from archaeological sites”. London: HBMC AM Laboratory 
+	    report 19/92. (for HTC).
+
+
 The methods included in the package were initially developed for the paper 
 Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
 Pre-Roman improvements to agricultural production: Evidence from livestock 
@@ -38,6 +45,23 @@ analysis. This problem can be palliated by extracting the measurement log-ratios
 with respect to a reference. The resulting log-ratios can be compared and 
 statistically analysed under general reasonable conditions.
 
+
+## Installation
+
+You can install the released version of zoolog from [CRAN](https://CRAN.R-project.org) with:
+
+```{r installation}
+install.packages("zoolog")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+```{r installationDev}
+# install.packages("devtools")
+devtools::install_github("josempozo/zoolog")
+```
+
+
 # Reference
 
 The log-ratios are calculated with respect to a standard reference. The package
@@ -49,3 +73,26 @@ included is encourage (contact the mantainer through the provided email address)
 The reference is provided as a dataframe named `referencesLog`. It includes 
 reference values for the domestic triad: *bos taurus*, *ovis aries*, and 
 *sus domesticus*.
+
+
+# Examples
+
+This example reads a dataset from a file in csv format and compute the
+log-ratios. Then, the cases with no available log-ratios are removed.
+Finally, the resulting dataset is saved in a file in csv format.
+
+```{r example}
+library(zoolog)
+## Set the path in your computer to find the dataset csv file:
+currentDir=getwd();
+setwd('~/Silvia/Biometry')
+BIOM = read.csv2("DataExample.csv",
+                  quote="\"", header=TRUE, na="",
+                  fileEncoding="UTF-8")
+BIOMwithLog=LogRatios(BIOM);
+BIOMwithLogPruned=RemoveNACases(BIOMwithLog)
+write.csv2(BIOMwithLogPruned, "LogValuesBIOM.csv", 
+            quote=FALSE, row.names=FALSE, na="", 
+            fileEncoding="UTF-8")
+setwd(currentDir)
+```

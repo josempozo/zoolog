@@ -44,7 +44,7 @@ By default a reference is provided with the package.
 }
 \examples{
 ## Read an example dataset:
-dataFile <- system.file("extdata", "FitxesFaunaTesi_Export2021DEF.csv.gz",
+dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package="zoolog")
 dataExample <- read.csv2(dataFile,
                          quote = "\"", na = "", header = TRUE,

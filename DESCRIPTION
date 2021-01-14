@@ -7,36 +7,36 @@ Authors@R:
            role = c("aut"),
            email = "josmpozo@gmail.com",
            comment = c(ORCID = "0000-0002-0759-3510"))
+    person("Angela",
+           "Trentacoste",
+           role = c("ctb"),
+           email = "angela.trentacoste@arch.ox.ac.uk",
+           comment = c(ORCID = "0000-0001-7096-5252"))
+    person("Ariadna",
+           "Nieto-Espinet",
+           role = c("ctb"),
+           email = "arinietoespinet@gmail.com",
+           comment = c(ORCID = "0000-0003-2567-1735"))
+    person("Silvia",
+           "Guimarães Chiarelli",
+           role = c("ctb"),
+           email = "biguimaraes@hotmail.com",
+           comment = c(ORCID = "0000-0002-3778-3315"))
     person("Silvia",
            "Valenzuela-Lamas",
            role = c("aut", "cre"),
            email = "svalenzuela@imf.csic.es",
            comment = c(ORCID = "0000-0001-9886-0372"))
-    person("Angela",
-           "Trentacoste",
-           role = c("ctb"),
-           email = "angela.trentacoste@arch.ox.ac.uk”,
-           comment = c(ORCID = "0000-0001-7096-5252"))
-    person("Ariadna",
-           "Nieto-Espinet",
-           role = c("ctb"),
-           email = “arinietoespinet@gmail.com”,
-           comment = c(ORCID = "0000-0003-2567-1735"))
-    person("Silvia",
-           "Guimarães Chiarelli",
-           role = c("ctb"),
-           email = “biguimaraes@hotmail.com",
-           comment = c(ORCID = "0000-0002-3778-3315"))
 Description: This package is designed to help zooarchaeologists to calculate 
     log ratios from measurements following: 
-	Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
-	    archaeological sites”, Institut für Palaeoanatomie, 
-	    Domestikationsforschung und Geschichte der Tiermedizin of the 
-	    University of Munich (Vol. 1). Peabody Museum Press.
-	and 
-	Davis, S. J. M. (1992) “A rapid method for recording information about 
-	    mammal bones from archaeological sites”. London: HBMC AM Laboratory 
-	    report 19/92. (for HTC).
+    Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
+        archaeological sites”, Institut für Palaeoanatomie, 
+        Domestikationsforschung und Geschichte der Tiermedizin of the 
+        University of Munich (Vol. 1). Peabody Museum Press.
+    and 
+    Davis, S. J. M. (1992) “A rapid method for recording information about 
+        mammal bones from archaeological sites”. London: HBMC AM Laboratory 
+        report 19/92. (for HTC).
     Functions in zoolog package allow users to read data, calculate the log 
     ratios and visualize the results. The standards used originate from: 
     Cattle:
@@ -54,16 +54,15 @@ Description: This package is designed to help zooarchaeologists to calculate
         Wiltshire, England: a biometrical database. 
         J Archaeol Sci. 32(4):589–599.
     We first used the method of prioritization of measurements in:
-	Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018). 
-	    Pre-Roman improvements to agricultural production: Evidence from 
-	    livestock husbandry in late prehistoric Italy. 
-	    PloS one, 13(12), e0208109.
+    Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018). 
+        Pre-Roman improvements to agricultural production: Evidence from 
+        livestock husbandry in late prehistoric Italy. 
+        PloS one, 13(12), e0208109.
     Several fellow colleagues helped building the Thesaurus and increasing the robustness
     of the code: Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios
     Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod 
     Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
     their comments and help.
-
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

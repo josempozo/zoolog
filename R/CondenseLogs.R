@@ -54,7 +54,7 @@
 #' \code{grouping}.
 #' @examples
 #' ## Read an example dataset:
-#' dataFile <- system.file("extdata", "FitxesFaunaTesi_Export2021DEF.csv.gz",
+#' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
 #' dataExample <- read.csv2(dataFile,
 #'                          quote = "\"", na = "", header = TRUE,
