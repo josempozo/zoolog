@@ -20,7 +20,7 @@ test_that("CondenseLogs on data example with log-ratios.", {
 
 
 test_that("RemoveNACases on data example.", {
-  exampleMeasureNames <- colnames(dataExample)[22:35]
+  exampleMeasureNames <- colnames(testData)[22:35]
   expect_equal(RemoveNACases(testData,
                              measureNames = exampleMeasureNames),
                testDataPruned,

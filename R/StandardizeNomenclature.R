@@ -85,12 +85,15 @@ StandardizeNomenclature <- function(x, thesaurus, mark.unknown = FALSE)
 #' @export
 StandardizeDataSet <- function(data, thesaurusSet = zoologThesaurus)
 {
+  toColValues <- attr(thesaurusSet, "applyToColValues")
   for(thesaurus in thesaurusSet[attr(thesaurusSet, "applyToColNames")])
   {
     names(data) <- StandardizeNomenclature(names(data), thesaurus)
+    names(thesaurusSet)[toColValues] <- sapply(names(thesaurusSet)[toColValues],
+                                               StandardizeNomenclature,
+                                               thesaurus)
   }
-  for(i in which(attr(thesaurusSet, "applyToColValues") &
-                 names(thesaurusSet) %in% names(data)))
+  for(i in which(toColValues & names(thesaurusSet) %in% names(data)))
   {
     type <- names(thesaurusSet)[i]
     data[, type] <- StandardizeNomenclature(data[, type], thesaurusSet[[type]])
