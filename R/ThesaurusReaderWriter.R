@@ -59,7 +59,7 @@
 #' @export
 ReadThesaurus <- function(file, caseSensitive = FALSE, accentSensitive = FALSE)
 {
-  thesaurus <- read.csv2(file, stringsAsFactors = FALSE, header = FALSE)
+  thesaurus <- utils::read.csv2(file, stringsAsFactors = FALSE, header = FALSE)
   names(thesaurus) <- thesaurus[1,]
   attr(thesaurus, "caseSensitive") <- caseSensitive
   attr(thesaurus, "accentSensitive") <- accentSensitive
@@ -73,7 +73,7 @@ ReadThesaurus <- function(file, caseSensitive = FALSE, accentSensitive = FALSE)
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  data <- read.csv2(file)
+  data <- utils::read.csv2(file)
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
   thesaurusSet <- mapply(ReadThesaurus, filenames,
@@ -89,7 +89,7 @@ ReadThesaurusSet <- function(file)
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
-  write.csv2(thesaurus[-1,], file, row.names = FALSE, quote = FALSE)
+  utils::write.csv2(thesaurus[-1,], file, row.names = FALSE, quote = FALSE)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -105,7 +105,7 @@ WriteThesaurusSet <- function(thesaurusSet, file)
                                  function(x) attr(x, "accentSensitive"))
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
-  write.csv2(data, file, row.names = FALSE, quote = FALSE)
+  utils::write.csv2(data, file, row.names = FALSE, quote = FALSE)
 
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
