@@ -104,3 +104,114 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
             quote=FALSE, row.names=FALSE, na="", 
             fileEncoding="UTF-8")
 ```
+
+
+
+## Examples of different plots for data visualisation
+
+
+
+
+library(zoolog)
+
+```{r}
+## Extract the default condensed features with the default "priority" method:
+dataWithSummary <- CondenseLogs(dataWithLogPruned)
+head(dataWithSummary)[, -c(6:20,32:63)]
+
+
+## We can standardize the data according to the zoologThesaurus
+dataStandardized <- StandardizeDataSet(dataWithSummary)
+## This allows to select the caprine cases by
+dataOC <- subset(dataStandardized, Taxon=="ovis aries")
+
+## For ploting the Width, we can retain the cases including this measure:
+dataOCWithWidth <- RemoveNACases(dataOC, measureNames = "Width")
+## including
+nrow(dataOCWithWidth)
+## cases.
+## For ploting the Width, we can retain the cases including this measure:
+dataOCWithLength <- RemoveNACases(dataOC, measureNames = "Length")
+## including
+nrow(dataOCWithLength)
+## cases.
+
+## Outlier in dataOC[27,] (logSD = 0.4649724)
+
+########### Horizontal Boxplot with dots
+library("ggplot2")
+outFolder <- "~/Silvia/Figures"
+
+ggplot(dataOC, aes(x=Width, y=Jaciment)) +
+  geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
+  geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
+  theme_bw() +
+  ggtitle("Caprine widths") +
+  xlab("Width log-ratio")
+ggsave(file.path(outFolder,"ExampleBoxplotCaprineWidths.pdf"))
+
+ggplot(dataOC, aes(x=Length, y=Jaciment)) +
+  geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
+  geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
+  theme_bw() +
+  ggtitle("Caprine lengths") +
+  xlab("Length log-ratio")
+ggsave(file.path(outFolder,"ExampleBoxplotCaprineLengths.pdf"))
+
+
+########### Histograms Caprines Widths
+pdf(file = file.path(outFolder,"ExampleHistogramCaprineWidths.pdf"),
+    width = 15, height = 8)
+
+ggplot(dataOC, aes(Width)) +
+  geom_histogram(bins=30, na.rm = TRUE) +
+  ggtitle("Caprine widths") +
+  xlab("Width log-ratio") +
+  facet_grid(Jaciment ~.) +
+  theme_bw() +
+  theme(	panel.grid.major.y = element_blank(),
+         panel.grid.minor.y = element_blank()) +
+  theme(plot.title = element_text(hjust=0.5,size=22),
+        axis.title.x = element_text(size=18),
+        axis.title.y = element_text(size=18),
+        axis.text = element_text(size=12) ) +
+  scale_y_continuous(breaks=c(0,10,20,30))
+
+dev.off()
+
+pdf(file = file.path(outFolder,"ExampleHistogramCaprineLengths.pdf"),
+    width = 15, height = 8)
+
+ggplot(dataOC, aes(Length)) +
+  geom_histogram(bins=30, na.rm = TRUE) +
+  ggtitle("Caprine lengths") +
+  xlab("Length log-ratio") +
+  facet_grid(Jaciment ~.) +
+  theme_bw() +
+  theme(	panel.grid.major.y = element_blank(),
+         panel.grid.minor.y = element_blank()) +
+  theme(plot.title = element_text(hjust=0.5,size=22),
+        axis.title.x = element_text(size=18),
+        axis.title.y = element_text(size=18),
+        axis.text = element_text(size=12) ) +
+  scale_y_continuous(breaks=c(0,10,20,30))
+
+dev.off()
+
+
+t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
+
+####################################################
+```
+
+
+
+```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with only *normal* edges, node 1  overlaps node 2 and node 3"}
+ggplot(dataOC, aes(x=Width, y=Jaciment)) +
+  geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
+  geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
+  theme_bw() +
+  ggtitle("Caprine widths") +
+  xlab("Width log-ratio")
+```
+
