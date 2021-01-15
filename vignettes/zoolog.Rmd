@@ -21,17 +21,19 @@ knitr::opts_chunk$set(
 # Introduction
 
 The package ***zoolog*** includes functions and reference data to generate and 
-handle log-ratios from measurements obtained on zooarchaeological material
-following the seminal works from [@von1976guide] and [@davis1992rapid]. The 
-package includes several sets of standard reference values.
+manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts [@meadow1999use]. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard.
 
-The methods included in the package were first developed in the frame of the 
+The methods included in the package were first developed in the framework of the 
 ERC-Starting Grant 716298 ZooMWest (PI S. Valenzuela-Lamas), and were first used 
-in the paper [@trentacoste2018pre].
+in the paper [@trentacoste2018pre]. They are based on the techniques proposed by [@simpson1941large] and [@simpson1960quantitative], which calculates LSI values as such: 
+LSI (log size index) = (log x - log m) = log(x/m)
 
-In general, zooarcheological datasets are composed by bone remains of many  different anatomical body parts. The analysis of measurements from a given  anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is  not always viable due to low sample sizes in some archaeological assemblages. Length and width measurements of different anatomical elements cannot be directly compared or aggregated for statistical analysis. This problem can be palliated by extracting the measurement log-ratios with respect to a reference. The resulting log-ratios can be compared and statistically analysed under general reasonable  conditions [@albarella2002size].
 
-The package also includes a Thesaurus to facilitate its usage by research teams across the globe and working in different languages and with different recording traditions. Consequently, there is no need to use a particular recording code for *zoolog* for it to recognise the names of the species or the anatomical element.  This first version has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the Thesaurus so it can be expanded and adapted to any database.
+The zoolog package is based on the measurements and measurement abbreviations defined in [@von1976guide] and [@davis1992rapid]. Several different sets of standard reference values for calculating the log ratios are included in the package. These standards included several published and widely used biometric datasets (i.e. [@davis1996measurements], [@albarella2005neolithic]) as well as other less known. We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. 
+
+In general, zooarcheological datasets are composed by skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under general reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
+
+The package includes a Thesaurus to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The Thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. ‘Bos taurus’, ‘Bos’, ‘BT’,  ‘bovino’, ‘bota’). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. This first version of has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila. We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the Thesaurus so it can be expanded and adapted to any database.
 
 
 ## Installation
@@ -55,7 +57,7 @@ devtools::install_github("josempozo/zoolog")
 The log-ratios are calculated with respect to a standard reference. The package
 *zoolog* includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the mantainer through the provided email address so the new reference is fully accessible and your name added to the list of contributors. 
 
-The references are provided as dataframe named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
+The references are provided as dataframes named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
 reference values for the main domesticates and reed deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
 
 **ReferenceNietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
@@ -71,12 +73,12 @@ The details of the reference data format are described in \code{\link{References
 # Thesaurus
 
 # Examples
-
-This example reads a dataset from a file in csv format and compute the
+## Reading data and calculating log ratios
+This example reads a dataset from a file in csv format and computes the
 log-ratios. Then, the cases with no available log-ratios are removed.
 Finally, the resulting dataset is saved in a file in csv format.
 
-The first step is to set the local path where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the example dataset from [@valenzuela2008alimentacio] included in the package is used:
+The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the example dataset from [@valenzuela2008alimentacio] included in the package is used:
 
 ```{r}
 library(zoolog)
@@ -87,7 +89,7 @@ data = read.csv2(dataFile,
                  fileEncoding="UTF-8")
 ```
 
-We now calculate the log-ratios using the function LogRatios(). The log values will appear as new columns next to the original ones with raw measurements:
+We now calculate the log-ratios using the function LogRatios(). Only measurements that have an associated standard will be included in this calculation. The log values will appear as new columns following the original ones with raw measurements:
 ```{r}
 dataWithLog=LogRatios(data)
 head(dataWithLog)[,-c(6:20,32:63)]
@@ -105,58 +107,86 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
             fileEncoding="UTF-8")
 ```
 
-
-
-## Examples of different plots for data visualisation
-library(zoolog)
-library("tidyverse")
-
-The function CondenseLogs () condenses the measurements per axis (e.g. 'lenghts', 'widths', 'depths'). The 'priority' method described in [@trentacoste2018pre] has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
+## Condensing log values
+After calculating log ratios using the LogRatios() function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The CondenseLogs() extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in [@trentacoste2018pre] has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
 ```{r}
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 head(dataWithSummary)[, -c(6:20,32:63)]
 ```
 
-The function zoologThesaurus standardizes the data, so it is possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataframe wo there is no need of homogenizing the dataframe before the analysis:
+
+
+## Examples of different plots for data visualisation
+Condensed log values can be visualised as histograms and box plots using ggplot [@wickham2011ggplot2] and tidyverse [@wickham2019welcome]. Here we’ll look at some examples of plotting values from sheep/goat.
+
+### Preparing the data
+???To make the figure legible to a wider audience, we can standardize the data according to the *zoologThesaurus*. 
+???The function zoologThesaurus standardizes the data, so it is possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataframe
+
+In the example data, this will change the code for sheep/goat from ‘oc’ to ‘ovis aries’
 ```{r}
 dataStandardized <- StandardizeDataSet(dataWithSummary)
-## This allows to select the caprine cases by
+```
+
+This allows to select the caprine cases by
+```{r}
 dataOC <- subset(dataStandardized, Taxon=="ovis aries")
+```
 
-## For ploting the Width, we can retain the cases including this measure:
+For plotting the Width, we can retain the cases including this measure:
+```{r}
 dataOCWithWidth <- RemoveNACases(dataOC, measureNames = "Width")
-## including
+```
+ which gives
+```{r}
 nrow(dataOCWithWidth)
-## cases.
-## For ploting the Width, we can retain the cases including this measure:
+```
+cases.
+
+For ploting the Length, we can retain the cases including this measure:
+```{r}
 dataOCWithLength <- RemoveNACases(dataOC, measureNames = "Length")
-## including
+```
+
+which gives 
+```{r}
 nrow(dataOCWithLength)
-## cases.
+```
+cases.
 
-## Outlier in dataOC[27,] (logSD = 0.4649724)
+### Plotting the data
 
-########### Horizontal Boxplot with dots
-library("ggplot2")
-outFolder <- "~/Silvia/Figures"
+#### Horizontal Boxplot with dots
+It is first necessary to load the relevant libraries (ggplot2 and tidyverse). It is also advised to create a folder for the outputs:
+```{r}
+library (ggplot2)
+library(tidyverse)
+outFolder <- "~/Figures"
+```
 
+We can now create a boxplot for the widths: 
+```{r}
 ggplot(dataOC, aes(x=Width, y=Jaciment)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
   theme_bw() +
   ggtitle("Caprine widths") +
   xlab("Width log-ratio")
+```
 
+And another boxplot for the lengths:
+```{r}
 ggplot(dataOC, aes(x=Length, y=Jaciment)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
   theme_bw() +
   ggtitle("Caprine lengths") +
   xlab("Length log-ratio")
+```
 
-
-########### Histograms Caprines Widths
-
+#### Histograms 
+We may choose to plot the width data as an histogram: 
+```{r}
 ggplot(dataOC, aes(Width)) +
   geom_histogram(bins=30, na.rm = TRUE) +
   ggtitle("Caprine widths") +
@@ -165,42 +195,19 @@ ggplot(dataOC, aes(Width)) +
   theme_bw() +
   theme(	panel.grid.major.y = element_blank(),
          panel.grid.minor.y = element_blank()) +
-  theme(plot.title = element_text(hjust=0.5,size=22),
-        axis.title.x = element_text(size=18),
-        axis.title.y = element_text(size=18),
-        axis.text = element_text(size=12) ) +
+  theme(plot.title = element_text(hjust=0.5,size=14),
+        axis.title.x = element_text(size=10),
+        axis.title.y = element_text(size=10),
+        axis.text = element_text(size=10) ) +
   scale_y_continuous(breaks=c(0,10,20,30))
-
-
-ggplot(dataOC, aes(Length)) +
-  geom_histogram(bins=30, na.rm = TRUE) +
-  ggtitle("Caprine lengths") +
-  xlab("Length log-ratio") +
-  facet_grid(Jaciment ~.) +
-  theme_bw() +
-  theme(	panel.grid.major.y = element_blank(),
-         panel.grid.minor.y = element_blank()) +
-  theme(plot.title = element_text(hjust=0.5,size=22),
-        axis.title.x = element_text(size=18),
-        axis.title.y = element_text(size=18),
-        axis.text = element_text(size=12) ) +
-  scale_y_continuous(breaks=c(0,10,20,30))
-
-
-t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
-
-####################################################
 ```
 
+We may run a statistical test (here a Student t-test) to check whether the differences between sites have statistical significance:
+```{r}
+t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
+```
 
-
-```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with only *normal* edges, node 1  overlaps node 2 and node 3"}
-ggplot(dataOC, aes(x=Width, y=Jaciment)) +
-  geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
-  geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
-  theme_bw() +
-  ggtitle("Caprine widths") +
-  xlab("Width log-ratio")
+####################################################
 ```
 
 
