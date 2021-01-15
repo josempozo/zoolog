@@ -1,6 +1,6 @@
 ---
 title: "Package ***zoolog***:  \n zooarcheological analysis with log-ratios."
-author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli"
+author: "Jose M Pozo, Silvia Valenzuela-Lamas, Ariadna Nieto-Espinet, Angela Trentacoste and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: zoolog.bib
@@ -20,18 +20,18 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-The package *zoolog* includes functions and referencial data to generate and 
-handle log-ratios from typical measurements of zooarcheological bone samples 
-relative to standard reference values [@von1976guide], [@davis1992rapid].
-The methods included in the package were initially developed for the paper 
-[@trentacoste2018pre].
+The package ***zoolog*** includes functions and reference data to generate and 
+handle log-ratios from measurements obtained on zooarchaeological material
+following the seminal works from [@von1976guide] and [@davis1992rapid]. The 
+package includes several sets of standard reference values.
 
-In general zooarcheological datasets are constituted by bone remains of many 
-different anatomical body parts. Measurements of length or width of different 
-anatomical elements cannot be directly compared or aggregated for statistical 
-analysis. This problem can be palliated by extracting the measurement log-ratios 
-with respect to a reference. The resulting log-ratios can be compared and 
-statistically analysed under general reasonable conditions.
+The methods included in the package were first developed in the frame of the 
+ERC-Starting Grant 716298 ZooMWest (PI S. Valenzuela-Lamas), and were first used 
+in the paper [@trentacoste2018pre].
+
+In general, zooarcheological datasets are composed by bone remains of many  different anatomical body parts. The analysis of measurements from a given  anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is  not always viable due to low sample sizes in some archaeological assemblages. Length and width measurements of different anatomical elements cannot be directly compared or aggregated for statistical analysis. This problem can be palliated by extracting the measurement log-ratios with respect to a reference. The resulting log-ratios can be compared and statistically analysed under general reasonable  conditions [@albarella2002size].
+
+The package also includes a Thesaurus to facilitate its usage by research teams across the globe and working in different languages and with different recording traditions. Consequently, there is no need to use a particular recording code for *zoolog* for it to recognise the names of the species or the anatomical element.  This first version has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the Thesaurus so it can be expanded and adapted to any database.
 
 
 ## Installation
@@ -53,15 +53,22 @@ devtools::install_github("josempozo/zoolog")
 # Reference
 
 The log-ratios are calculated with respect to a standard reference. The package
-*zoolog* includes a reference dataset. However, the user can consider other 
-references or the provided reference can be extended and updated integrating
-newer research data. Submission of extended/improved references to be openly 
-included is encourage (contact the mantainer through the provided email address).
+*zoolog* includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the mantainer through the provided email address so the new reference is fully accessible and your name added to the list of contributors. 
 
-The reference is provided as a dataframe named `referencesLog`. It includes 
-reference values for the domestic triad: *bos taurus*, *ovis aries*, and 
-*sus domesticus*.
+The references are provided as dataframe named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
+reference values for the main domesticates and reed deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
 
+**ReferenceNietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
+
+**ReferenceBasel** Includes the measurements compiled by Barbara Stopp from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland). The specimens included are: *Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg; withers height: 113 cm), *Ovis musimon* Inv.nr. 2266 (Male; adult), *Capra hircus* Inv.nr. 1597 (Male; adult), *Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg), *Cervus elaphus* Inv.nr. 2271 (male; adult). 
+
+**ReferenceCombi** Includes the measurements from the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Soay sheep males aged and mean measurements from male/female not aged goats from [@clutton1990osteology], the pig measurements from [@albarella2005neolithic], and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.   
+
+The details of the reference data format are described in \code{\link{References}}.
+
+# Functions
+
+# Thesaurus
 
 # Examples
 
@@ -69,22 +76,30 @@ This example reads a dataset from a file in csv format and compute the
 log-ratios. Then, the cases with no available log-ratios are removed.
 Finally, the resulting dataset is saved in a file in csv format.
 
-```{r example}
+The first step is to set the local path where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the example dataset from [@valenzuela2008alimentacio] included in the package is used:
+
+```{r}
 library(zoolog)
-## Set the local path where you have the dataset to be analysed (typically a
-## comma-separated value (csv) file). We use here one of the example datasets
-## included in the package:
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz", 
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote="\"", header=TRUE, na="",
                  fileEncoding="UTF-8")
-## Comput the log-ratios.
-dataWithLog=LogRatios(data);
-## Remove the cases with no log-ratio extracted:
+```
+
+We now calculate the log-ratios using the function LogRatios(). The log values will appear as new columns next to the original ones with raw measurements:
+```{r}
+dataWithLog=LogRatios(data)
+head(dataWithLog)[,-c(6:20,32:63)]
+```
+
+The cases without log-ratios can be removed to ease the later analyses:
+```{r}
 dataWithLogPruned=RemoveNACases(dataWithLog)
-## Write the resulting file in the working directory (which the user should 
-## have set appropriately)
+```
+
+You may want to write the resulting file in the working directory (you need to set it before):
+```{r}
 write.csv2(dataWithLogPruned, "myDataWithLogValues.csv", 
             quote=FALSE, row.names=FALSE, na="", 
             fileEncoding="UTF-8")
