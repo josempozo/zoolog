@@ -60,11 +60,11 @@ The log-ratios are calculated with respect to a standard reference. The package
 The references are provided as dataframes named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
 reference values for the main domesticates and reed deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
 
-**ReferenceNietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
+* **ReferenceNietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
 
-**ReferenceBasel** Includes the measurements compiled by Barbara Stopp from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland). The specimens included are: *Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg; withers height: 113 cm), *Ovis musimon* Inv.nr. 2266 (Male; adult), *Capra hircus* Inv.nr. 1597 (Male; adult), *Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg), *Cervus elaphus* Inv.nr. 2271 (male; adult). 
+* **ReferenceBasel** Includes the measurements compiled by Barbara Stopp from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland). The specimens included are: *Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg; withers height: 113 cm), *Ovis musimon* Inv.nr. 2266 (Male; adult), *Capra hircus* Inv.nr. 1597 (Male; adult), *Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg), *Cervus elaphus* Inv.nr. 2271 (male; adult). 
 
-**ReferenceCombi** Includes the measurements from the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Soay sheep males aged and mean measurements from male/female not aged goats from [@clutton1990osteology], the pig measurements from [@albarella2005neolithic], and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.   
+* **ReferenceCombi** Includes the measurements from the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Soay sheep males aged and mean measurements from male/female not aged goats from [@clutton1990osteology], the pig measurements from [@albarella2005neolithic], and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.   
 
 The details of the reference data format are described in \code{\link{References}}.
 
@@ -101,7 +101,7 @@ dataWithLogPruned=RemoveNACases(dataWithLog)
 ```
 
 You may want to write the resulting file in the working directory (you need to set it before):
-```{r}
+```{r, eval = FALSE}
 write.csv2(dataWithLogPruned, "myDataWithLogValues.csv", 
             quote=FALSE, row.names=FALSE, na="", 
             fileEncoding="UTF-8")
@@ -161,11 +161,10 @@ It is first necessary to load the relevant libraries (ggplot2 and tidyverse). It
 ```{r}
 library (ggplot2)
 library(tidyverse)
-outFolder <- "~/Figures"
 ```
 
 We can now create a boxplot for the widths: 
-```{r}
+```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 ggplot(dataOC, aes(x=Width, y=Jaciment)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
@@ -175,7 +174,7 @@ ggplot(dataOC, aes(x=Width, y=Jaciment)) +
 ```
 
 And another boxplot for the lengths:
-```{r}
+```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 ggplot(dataOC, aes(x=Length, y=Jaciment)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
@@ -186,7 +185,7 @@ ggplot(dataOC, aes(x=Length, y=Jaciment)) +
 
 #### Histograms 
 We may choose to plot the width data as an histogram: 
-```{r}
+```{r, fig.asp = 0.7, fig.width = 6, fig.align="center"}
 ggplot(dataOC, aes(Width)) +
   geom_histogram(bins=30, na.rm = TRUE) +
   ggtitle("Caprine widths") +
@@ -207,25 +206,26 @@ We may run a statistical test (here a Student t-test) to check whether the diffe
 t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
 ```
 
-####################################################
-```
+## Example plots from Angela
 
 
-## Sheep.goat jitter and box plots (from AAS article) ------------------
+Sheep.goat jitter and box plots (from AAS article) ------------------
 
-# From dataframe with all logs (Ndata)
-#DOTPLOT
-# from data select TAX sheep (OVA), goat (CAH), and sheep/goat (O)
-# graph period vs width values
-# vary point colour and shape with TAX
-# set point colour to Ocolour
-# set shapes manually
-# if points are to close together or far apart change 'jitter.width=.3'
-# BOXPLOT
-# from Ndata only graph sheep (OVA) and goat (CAH)
-# outlier.alpha = 0 so ggplot will not plot black dot for outliers
+From dataframe with all logs (Ndata)
 
+### DOTPLOT 
+* from data select TAX sheep (OVA), goat (CAH), and sheep/goat (O)
+* graph period vs width values
+* vary point colour and shape with TAX
+* set point colour to Ocolour
+* set shapes manually
+* if points are to close together or far apart change 'jitter.width=.3'
 
+### BOXPLOT
+* from Ndata only graph sheep (OVA) and goat (CAH)
+* outlier.alpha = 0 so ggplot will not plot black dot for outliers
+
+```{r}
 Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
 
 OC_W_Jitter <- ggplot(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"), 
@@ -245,25 +245,25 @@ OC_W_Jitter <- ggplot(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"),
         plot.title = element_text(size=8)) +
   ggtitle("Sheep/goat LSI width values") 
 OC_W_Jitter
-
+```
 
 
 ## Sheep.goat histogram (from PLOS) -----------------
 
+* Subset dataframe (here called ItalyLogComplemented) to only O, OVA, and CAH in ItalyLogComplemented$TAX
+* make histogram and facet by region and period (period here is called Chron2)
+* alpha=.5 makes the histograms transparent, colours are default
 
-# subset dataframe (here called ItalyLogComplemented) to only O, OVA, and CAH in ItalyLogComplemented$TAX
-# make histogram and facet by region and period (period here is called Chron2)
-# alpha=.5 makes the histograms transparent, colours are default
-
+```{r}
 SGLengthHist <- ggplot(
   subset(ItalyLogComplemented, TAX=="OVA" | TAX=="O" | TAX=="CAH" ), 
   aes(Length, fill=TAX)) + 
   geom_histogram(bins=50,alpha=.5, position="identity") + 
   ggtitle("Sheep/goat Lengths") + facet_grid(Chron2~Region)
+```
 
-
-#To add mean line, calculate log means for each period (here Chron2)
-#columns 23 and 24 in ItalyLogComplemented = ItalyLogComplemented$Length and ItalyLogComplemented$Width (the selected length and eidth logs for each row)
+To add mean line, calculate log means for each period (here Chron2)
+columns 23 and 24 in ItalyLogComplemented = ItalyLogComplemented$Length and ItalyLogComplemented$Width (the selected length and eidth logs for each row)
 # >>>there is probably an easier way to do this in tidyverse using summarise()?
 LogMeansChron2 <- aggregate(ItalyLogComplemented[,23:24], 
                             list(Region = ItalyLogComplemented$Region, 
