@@ -1,178 +1,1 @@
-TAX;OS;Measure;Standard
-BOTA;Scapula;SLC;65,89
-BOTA;Scapula;GLP;83,01
-BOTA;Scapula;LG;66,91
-BOTA;Scapula;BG;58,07
-BOTA;Humerus;Bd;95,34
-BOTA;Humerus;BT;85,23
-BOTA;Humerus;SD;44,75
-BOTA;Radius;Bp;94,14
-BOTA;Radius;SD;52,93
-BOTA;Radius;Bd;90,90
-BOTA;Radius;BFp;83,91
-BOTA;Radius;BFd;77,15
-BOTA;Ulna;DPA;78,92
-BOTA;Ulna;SDO;66,11
-BOTA;Metacarpus;Bp;71,79
-BOTA;Metacarpus;SD;38,69
-BOTA;Metacarpus;DD;28,11
-BOTA;Metacarpus;Bd;66,86
-BOTA;Pelvis;LA;87,59
-BOTA;Femur;Bp;142,45
-BOTA;Femur;DC;54,93
-BOTA;Femur;SD;45,84
-BOTA;Tibia;SD;55,04
-BOTA;Tibia;Bd;77,99
-BOTA;Metatarsus;Bp;62,78
-BOTA;Metatarsus;SD;34,62
-BOTA;Metatarsus;DD;31,95
-BOTA;Metatarsus;Bd;64,73
-BOTA;Astragalus;GLl;82,36
-BOTA;Astragalus;GLm;73,28
-BOTA;Astragalus;Dl;48,21
-BOTA;Astragalus;Bd;53,77
-BOTA;Calcaneus;GL;149,79
-BOTA;Centrotarsale;GB;69,62
-BOTA;Phalanx 1 ant.;Bp;34,69
-BOTA;Phalanx 1 ant.;SD;30,08
-BOTA;Phalanx 1 ant.;Bd;33,30
-BOTA;Phalanx 1 ant.;GLpe;62,06
-BOTA;Phalanx 1 post.;Bp;34,12
-BOTA;Phalanx 1 post.;SD;29,36
-BOTA;Phalanx 1 post.;Bd;30,84
-BOTA;Phalanx 1 post.;GLpe;63,86
-BOTA;Phalanx 2 ant.;Bp;33,13
-BOTA;Phalanx 2 ant.;SD;28,35
-BOTA;Phalanx 2 ant.;Bd;28,99
-BOTA;Phalanx 2 ant.;GLpe;41,43
-BOTA;Phalanx 2 post.;Bp;33,03
-BOTA;Phalanx 2 post.;SD;26,29
-BOTA;Phalanx 2 post.;Bd;26,17
-BOTA;Phalanx 2 post.;GLpe;42,39
-OVAR;Scapula;SLC;22,15
-OVAR;Scapula;GLP;37,75
-OVAR;Scapula;LG;27,10
-OVAR;Scapula;BG;23,10
-OVAR;Humerus;SD;15,75
-OVAR;Humerus;Bd;32,80
-OVAR;Humerus;BT;31,45
-OVAR;Radius;Bp;34,40
-OVAR;Radius;SD;17,65
-OVAR;Radius;BFp;32,80
-OVAR;Radius;BFd;25,80
-OVAR;Radius;Bd;32,05
-OVAR;Ulna;DPA;28,80
-OVAR;Ulna;SDO;24,05
-OVAR;Metacarpus;Bp;24,60
-OVAR;Metacarpus;SD;13,60
-OVAR;Metacarpus;Bd;27,20
-OVAR;Metacarpus;DD;10,60
-OVAR;Pelvis;LA;31,10
-OVAR;Pelvis;LAR;27,30
-OVAR;Femur;Bp;51,05
-OVAR;Femur;DC;22,90
-OVAR;Femur;SD;16,40
-OVAR;Tibia;SD;15,90
-OVAR;Tibia;Bd;27,90
-OVAR;Astragalus;GLl;32,10
-OVAR;Astragalus;GLm;30,35
-OVAR;Astragalus;Bd;19,50
-OVAR;Astragalus;Dl;17,95
-OVAR;Astragalus;Dm;18,25
-OVAR;Calcaneus;GL;65,05
-OVAR;Calcaneus;GB;21,25
-OVAR;Metatarsus;Bp;21,60
-OVAR;Metatarsus;SD;12,50
-OVAR;Metatarsus;Bd;25,80
-OVAR;Metatarsus;DD;10,70
-CAHI;Scapula;SLC;23,75
-CAHI;Scapula;GLP;37,30
-CAHI;Scapula;LG;29,50
-CAHI;Scapula;BG;24,15
-CAHI;Humerus;SD;20,75
-CAHI;Humerus;Bd;33,95
-CAHI;Humerus;BT;31,55
-CAHI;Radius;Bp;33,30
-CAHI;Radius;SD;21,70
-CAHI;Radius;BFp;31,20
-CAHI;Radius;BFd;27,90
-CAHI;Radius;Bd;34,50
-CAHI;Ulna;DPA;30,10
-CAHI;Ulna;SDO;25,60
-CAHI;Metacarpus;Bp;25,60
-CAHI;Metacarpus;SD;17,40
-CAHI;Metacarpus;Bd;29,25
-CAHI;Metacarpus;DD;11,50
-CAHI;Pelvis;LA;34,20
-CAHI;Pelvis;LAR;29,05
-CAHI;Femur;Bp;52,10
-CAHI;Femur;DC;24,00
-CAHI;Femur;SD;21,90
-CAHI;Tibia;SD;18,80
-CAHI;Tibia;Bd;30,60
-CAHI;Astragalus;GLl;30,40
-CAHI;Astragalus;GLm;28,90
-CAHI;Astragalus;Bd;20,80
-CAHI;Astragalus;Dl;18,00
-CAHI;Calcaneus;GL;57,70
-CAHI;Calcaneus;GB;20,90
-CAHI;Metatarsus;Bp;21,85
-CAHI;Metatarsus;SD;14,95
-CAHI;Metatarsus;Bd;27,35
-CAHI;Metatarsus;DD;12,80
-SUDO;Scapula;SLC;28,85
-SUDO;Scapula;GLP;43,95
-SUDO;Scapula;BG;28,80
-SUDO;Humerus;Bp;58,50
-SUDO;Humerus;SD;19,25
-SUDO;Humerus;Bd;47,40
-SUDO;Humerus;BT;35,50
-SUDO;Radius;Bp;34,45
-SUDO;Radius;SD;21,35
-SUDO;Radius;Bd;39,00
-SUDO;Ulna;BPC;25,95
-SUDO;Ulna;DPA;48,15
-SUDO;Ulna;SDO;35,10
-SUDO;Mc 2;Bd;11,85
-SUDO;Mc 3;Bp;22,75
-SUDO;Mc 3;Bd;20,10
-SUDO;Mc 4;Bp;19,40
-SUDO;Mc 4;Bd;18,55
-SUDO;Mc 5;Bd;13,50
-SUDO;Pelvis;LAR;35,10
-SUDO;Pelvis;SH;28,70
-SUDO;Femur;Bp;64,75
-SUDO;Femur;DC;28,40
-SUDO;Femur;Bd;53,00
-SUDO;Tibia;SD;23,25
-SUDO;Tibia;Bd;36,00
-SUDO;Tibia;Bp;57,00
-SUDO;Astragalus;GLl;48,00
-SUDO;Astragalus;GLm;43,70
-SUDO;Calcaneus;GL;91,25
-SUDO;Calcaneus;GB;27,20
-SUDO;Mt 2;Bd;10,25
-SUDO;Mt 3;Bp;16,40
-SUDO;Mt 3;Bd;19,05
-SUDO;Mt 3;LeP;91,75
-SUDO;Mt 4;Bp;17,30
-SUDO;Mt 4;Bd;18,75
-SUDO;Mt 4;LeP;98,15
-SUDO;Mt 5;Bd;11,30
-SUDO;Ph 1;Bp;18,66
-SUDO;Ph 2;Bp;17,93
-CEEL;Scapula;SLC;40,5
-CEEL;Humerus;Bp;76,6
-CEEL;Humerus;Bd;60,0
-CEEL;Radius;Bd;53,0
-CEEL;Radius;Bd;53,0
-CEEL;Ulna;BPC;33,1
-CEEL;Metacarpus;Bd;44,4
-CEEL;Pelvis;LA;55,0
-CEEL;Femur;Bd;76,0
-CEEL;Tibia;Bd;51,5
-CEEL;Astragalus;GLI;58,0
-CEEL;Calcaneus;GL;121,0
-CEEL;Metatarsus;Bd;44,6
-CEEL;Phalanx 1 ant./post.;Bp;21,2
-CEEL;Phalanx 2 ant./post.;Bp;20,7
+TAX;OS;Measure;Standard;bota;HU;GL;259; bota;HU;GLc;234;bota;HU;Bp;78,3;bota;HU;Dp;90,2;bota;HU;SD;29;bota;HU;Bd;74,9;bota;HU;BT;68,3;bota;HU;HTC;30,4;bota;HU;Dd;67,8;bota;RA;GL;248,2;bota;RA;Bp;72,9;bota;RA;BFp;67;bota;RA;Dp;39;bota;RA;SD;33;bota;RA;Bd;69,7;bota;RA;BFd;65,3;bota;RA;Dd;49;bota;MC;GL;176;bota;MC;Bp;45,3;bota;MC;Dp;28,5;bota;MC;SD;24;bota;MC;Bd;47,3;bota;MC;Dd;26,9;bota;FE;GL;328,4;bota;FE;Bp;102;bota;FE;Dp;40;bota;FE;SD;30;bota;FE;Bd;85;bota;FE;Dd;114;bota;TI;GL;328;bota;TI;Bp;85;bota;TI;Dp;80;bota;TI;SD;33;bota;TI;Bd;55,2;bota;TI;Dd;42;bota;CAL;GL;123;bota;AS;GL;62;bota;AS;Bd;39;bota;MT;GL;208;bota;MT;Bp;38,7;bota;MT;Dp;38,5;bota;MT;SD;22,4;bota;MT;Bd;45;bota;MT;Dd;25,4;bota;P1 ant;GL;56;bota;P1 ant;Bp;28;bota;P1 ant;Dp;30;bota;P1 ant;SD;23;bota;P1 ant;Bd;26;bota;P1 ant;Dd;20,3;bota;P1 post;GL;60;bota;P1 post;Bp;26;bota;P1 post;Dp;29,8;bota;P1 post;SD;21;bota;P1 post;Bd;26;bota;P1 post;Dd;29,8;bota;P2 ant;GL;35;bota;P2 ant;Bp;28;bota;P2 ant;Dp;29,2;bota;P2 ant;SD;22,5;bota;P2 ant;Bd;24;bota;P2 ant;Dd;28;bota;P2 post;GL;35,8;bota;P2 post;Bp;25;bota;P2 post;Dp;28,8;bota;P2 post;SD;20,3;bota;P2 post;Bd;22;bota;P2 post;Dd;23,2;OVAR;Scapula;SLC;18,26;OVAR;Scapula;GLP;30,54;OVAR;Scapula;LG;22,95;OVAR;Scapula;BG;19,66;OVAR;Humerus;GL;137,43;OVAR;Humerus;Bp;37,72;OVAR;Humerus;Dp;40,3;OVAR;Humerus;SD;13,82;OVAR;Humerus;Bd;28,62;OVAR;Humerus;Dd;23,76;OVAR;Humerus;BT;27,27;OVAR;Humerus;HTC;15,3;OVAR;Radius;GL;142,4;OVAR;Radius;Bp;29,7;OVAR;Radius;Dp;14,88;OVAR;Radius;SD;16,03;OVAR;Radius;Bd;27,64;OVAR;Radius;Dd;18,47;OVAR;Ulna;DPA;25,15;OVAR;Ulna;BPC;18,05;OVAR;Metacarpus;GL;119,93;OVAR;Metacarpus;Bp;21,74;OVAR;Metacarpus;Dp;16;OVAR;Metacarpus;SD;14,1;OVAR;Metacarpus;Bd;23,7;OVAR;Metacarpus;Dd;15,71;OVAR;Metacarpus;WCM;10,5;OVAR;Pelvis;LA;25,7;OVAR;Femur;GL;166,78;OVAR;Femur;Bp;44,09;OVAR;Femur;DC;19,36;OVAR;Femur;SD;14,6;OVAR;Femur;Bd;36,88;OVAR;Tibia;GL;193,67;OVAR;Tibia;Bp;39,42;OVAR;Tibia;Dp;41,74;OVAR;Tibia;SD;13,84;OVAR;Tibia;Bd;24,75;OVAR;Tibia;Dd;19,62;OVAR;Astragalus;GLl;26,6;OVAR;Astragalus;Bd;17,21;OVAR;Astragalus;Dl;14,41;OVAR;Calcaneus;GL;52,2;OVAR;Calcaneus;GB;18,66;OVAR;Metatarsus;GL;128,66;OVAR;Metatarsus;Bp;19,01;OVAR;Metatarsus;Dp;19,79;OVAR;Metatarsus;SD;11,87;OVAR;Metatarsus;Bd;22,63;OVAR;Metatarsus;Dd;15,42;OVAR;Metatarsus;WCM;9,65;OVAR;P1 ant;GL;34,74;OVAR;P1 ant;Bp;11,9;OVAR;P1 ant;Dp;14,54;OVAR;P1 ant;SD;9,77;OVAR;P1 ant;Bd;11,05;OVAR;P1 post;GL;34,3;OVAR;P1 post;Bp;11,08;OVAR;P1 post;Dp;14;OVAR;P1 post;SD;8,69;OVAR;P1 post;Bd;9,9;OVAR;P2 ant;GL;21,62;OVAR;P2 ant;Bp;11,11;OVAR;P2 ant;Dp;12,27;OVAR;P2 ant;Bd;9,69;OVAR;P2 post;GL;21,14;OVAR;P2 post;Bp;10,25;OVAR;P2 post;Dp;11,14;OVAR;P2 post;Bd;8,47;OVAR;P3;L;25,5;OVAR;P3;H;14,59;CAHI;Scapula;SLC;27,76;CAHI;Scapula;GLP;40;CAHI;Scapula;LG;30,48;CAHI;Scapula;BG;28,43;CAHI;Humerus;GL;190,5;CAHI;Humerus;Bp;50,88;CAHI;Humerus;Dp;54,11;CAHI;Humerus;SD;21;CAHI;Humerus;Bd;38,82;CAHI;Humerus;Dd;31,1;CAHI;Radius;GL;185,4;CAHI;Radius;Bp;38,92;CAHI;Radius;Dp;20,53;CAHI;Radius;SD;23,21;CAHI;Radius;Bd;36,38;CAHI;Radius;Dd;26,75;CAHI;Ulna;DPA;31,46;CAHI;Ulna;BPC;27,87;CAHI;Metacarpus;GL;121,32;CAHI;Metacarpus;Bp;29,69;CAHI;Metacarpus;Dp;19,54;CAHI;Metacarpus;SD;21,95;CAHI;Metacarpus;Bd;33,29;CAHI;Metacarpus;Dd;19,38;CAHI;Metacarpus;WCM;11,53;CAHI;Pelvis;LA;33,64;CAHI;Femur;GL;202,7;CAHI;Femur;Bp;52,05;CAHI;Femur;DC;24,08;CAHI;Femur;SD;20,4;CAHI;Femur;Bd;42,8;CAHI;Tibia;GL;246,3;CAHI;Tibia;Bp;49,62;CAHI;Tibia;Dp;44,19;CAHI;Tibia;SD;18,57;CAHI;Tibia;Bd;31,33;CAHI;Tibia;Dd;22,76;CAHI;Astragalus;GLl;32,66;CAHI;Astragalus;Bd;21,35;CAHI;Calcaneus;GL;66,27;CAHI;Calcaneus;GB;24,1;CAHI;Metatarsus;GL;133,05;CAHI;Metatarsus;Bp;24,04;CAHI;Metatarsus;Dp;23,6;CAHI;Metatarsus;SD;17,45;CAHI;Metatarsus;Bd;30,14;CAHI;Metatarsus;Dd;18,63;CAHI;Metatarsus;WCM;11,14;CAHI;P1;GL;43,91;CAHI;P1;Bp;15,01;CAHI;P1;Dp;16,91;CAHI;P1;SD;12,64;CAHI;P1;Bd;14,44;CAHI;P1;GL;34,3;CAHI;P2;GL;31,06;CAHI;P2;Bp;13,88;CAHI;P2;Dp;14,97;CAHI;P2;Bd;11,85;CAHI;P3;L;33,41;CAHI;P3;H;18,71;SUDO;Scapula;SLC;28,85;SUDO;Scapula;GLP;43,95;SUDO;Scapula;BG;28,8;SUDO;Humerus;Bp;58,5;SUDO;Humerus;SD;19,25;SUDO;Humerus;Bd;47,4;SUDO;Humerus;BT;35,5;SUDO;Radius;Bp;34,45;SUDO;Radius;SD;21,35;SUDO;Radius;Bd;39;SUDO;Ulna;BPC;25,95;SUDO;Ulna;DPA;48,15;SUDO;Ulna;SDO;35,1;SUDO;Mc 2;Bd;11,85;SUDO;Mc 3;Bp;22,75;SUDO;Mc 3;Bd;20,1;SUDO;Mc 4;Bp;19,4;SUDO;Mc 4;Bd;18,55;SUDO;Mc 5;Bd;13,5;SUDO;Pelvis;LAR;35,1;SUDO;Pelvis;SH;28,7;SUDO;Femur;Bp;64,75;SUDO;Femur;DC;28,4;SUDO;Femur;Bd;53;SUDO;Tibia;SD;23,25;SUDO;Tibia;Bd;36;SUDO;Tibia;Bp;57;SUDO;Astragalus;GLl;48;SUDO;Astragalus;GLm;43,7;SUDO;Calcaneus;GL;91,25;SUDO;Calcaneus;GB;27,2;SUDO;Mt 2;Bd;10,25;SUDO;Mt 3;Bp;16,4;SUDO;Mt 3;Bd;19,05;SUDO;Mt 3;LeP;91,75;SUDO;Mt 4;Bp;17,3;SUDO;Mt 4;Bd;18,75;SUDO;Mt 4;LeP;98,15;SUDO;Mt 5;Bd;11,3;SUDO;Ph 1;Bp;18,66;SUDO;Ph 2;Bp;17,93;CEEL;Scapula;SLC;40,5;CEEL;Humerus;Bp;76,6;CEEL;Humerus;Bd;60;CEEL;Radius;Bd;53;CEEL;Radius;Bd;53;CEEL;Ulna;BPC;33,1;CEEL;Metacarpus;Bd;44,4;CEEL;Pelvis;LA;55;CEEL;Femur;Bd;76;CEEL;Tibia;Bd;51,5;CEEL;Astragalus;GLI;58;CEEL;Calcaneus;GL;121;CEEL;Metatarsus;Bd;44,6;CEEL;Phalanx 1 ant./post.;Bp;21,2;CEEL;Phalanx 2 ant./post.;Bp;20,7;
