@@ -2,8 +2,10 @@
 ## For this we need a precomputed test data:
 load(system.file("testdata", "testData.rda", package="zoolog"))
 
+categories = list(ovis = c("ovis", "capra", "oc"))
 test_that("LogRatios provides expected result on data example.", {
-  expect_equal(LogRatios(testData, ref = referenceNietoDavisAlbarella),
+  expect_equal(LogRatios(testData, ref = referenceNietoDavisAlbarella,
+                         joinCategories = categories),
                testDataWithLog, tolerance = 1e-10)
 })
 
@@ -30,6 +32,7 @@ test_that("RemoveNACases on data example.", {
 })
 
 test_that("LogRatios provides expected result on pruned data example.", {
-  expect_equal(LogRatios(testDataPruned, ref = referenceNietoDavisAlbarella),
+  expect_equal(LogRatios(testDataPruned, ref = referenceNietoDavisAlbarella,
+                         joinCategories = categories),
                testDataPrunedWithLog, tolerance=1e-10)
 })

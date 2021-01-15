@@ -56,10 +56,12 @@ LogRatios <- function(data,
   # Add columns for log ratios.
   # One column for each measure present in both the input data
   # and the reference.
+  thesaurusSetForRef <- thesaurusSet
   if(!is.null(joinCategories))
     thesaurusSet <- SmartJoinCategories(thesaurusSet, joinCategories)
   dataStandard <- StandardizeDataSet(data, thesaurusSet)
-  refStandard <- StandardizeDataSet(ref, thesaurusSet)
+  dataStandard <- StandardizeDataSet(dataStandard, thesaurusSetForRef)
+  refStandard <- StandardizeDataSet(ref, thesaurusSetForRef)
   identifiers <- StandardizeNomenclature(identifiers,
                                          thesaurusSet$identifier)
   refMeasuresName <- StandardizeNomenclature(refMeasuresName,

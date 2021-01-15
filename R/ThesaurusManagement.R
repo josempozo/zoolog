@@ -175,7 +175,10 @@ NormalizeForSensitiveness <- function(thesaurus, x = NULL)
 JoinCategories <- function(thesaurus, categories)
 {
   categStandard <- lapply(categories, StandardizeNomenclature,
-                          thesaurus)
+                          thesaurus, mark.unknown = TRUE)
+  if(any(is.na(unlist(categStandard))))
+    stop(paste("The provided categories include names not belonging",
+               "to any category in the thesaurus."))
   thesList <- lapply(thesaurus, function(a) a[a!=""])
   namesToAdd <- lapply(categStandard,
                        function(x) {
@@ -210,10 +213,10 @@ SmartJoinCategories <- function(thesaurusSet, joinCategories)
     })
   })
   if(any(colSums(coincidences)>1))
-    stop(paste("Provided joinCategories are ambiguous:",
+    stop(paste("Provided categories are ambiguous:",
                "Some name is in more than one thesaurus."))
   if(any(colSums(coincidences)<1))
-    stop(paste("Provided joinCategories include one category",
+    stop(paste("Provided categories include one category",
                "not matching any thesaurus."))
   for(th in rownames(coincidences))
   {
