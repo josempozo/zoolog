@@ -1,6 +1,6 @@
 ---
 title: "Package ***zoolog***:  \n zooarcheological analysis with log-ratios."
-author: "Jose M Pozo, Silvia Valenzuela-Lamas, Ariadna Nieto-Espinet, Angela Trentacoste and Silvia Guimarães Chiarelli"
+author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: zoolog.bib
@@ -108,19 +108,17 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
 
 
 ## Examples of different plots for data visualisation
-
-
-
-
 library(zoolog)
+library("tidyverse")
 
+The function CondenseLogs () condenses the measurements per axis (e.g. 'lenghts', 'widths', 'depths'). The 'priority' method described in [@trentacoste2018pre] has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
 ```{r}
-## Extract the default condensed features with the default "priority" method:
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 head(dataWithSummary)[, -c(6:20,32:63)]
+```
 
-
-## We can standardize the data according to the zoologThesaurus
+The function zoologThesaurus standardizes the data, so it is possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataframe wo there is no need of homogenizing the dataframe before the analysis:
+```{r}
 dataStandardized <- StandardizeDataSet(dataWithSummary)
 ## This allows to select the caprine cases by
 dataOC <- subset(dataStandardized, Taxon=="ovis aries")
@@ -204,4 +202,82 @@ ggplot(dataOC, aes(x=Width, y=Jaciment)) +
   ggtitle("Caprine widths") +
   xlab("Width log-ratio")
 ```
+
+
+## Sheep.goat jitter and box plots (from AAS article) ------------------
+
+# From dataframe with all logs (Ndata)
+#DOTPLOT
+# from data select TAX sheep (OVA), goat (CAH), and sheep/goat (O)
+# graph period vs width values
+# vary point colour and shape with TAX
+# set point colour to Ocolour
+# set shapes manually
+# if points are to close together or far apart change 'jitter.width=.3'
+# BOXPLOT
+# from Ndata only graph sheep (OVA) and goat (CAH)
+# outlier.alpha = 0 so ggplot will not plot black dot for outliers
+
+
+Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
+
+OC_W_Jitter <- ggplot(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"), 
+                      aes(x=Period, y=Width)) + 
+  geom_point(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"), 
+             aes(colour=TAX, shape=TAX), alpha=0.7, size=0.8, position = position_jitterdodge(jitter.width=.3)) +
+  scale_colour_manual(values=Ocolour) +
+  scale_shape_manual(values=c(15, 18, 16)) +
+  geom_boxplot(data=subset(Ndata, TAX=="OVA" | TAX=="CAH"), aes(x=Period, y=Width, fill=TAX), 
+               notch=TRUE, alpha=0,  lwd=0.377, outlier.alpha = 0, position=position_dodge(1)) + 
+  theme_bw(base_size = 8) +
+  ylab("LSI value")+
+  theme(axis.text.x = element_text(size=6),
+        axis.text.y = element_text(size=6),
+        axis.title.x = element_text(size=7),
+        axis.title.y = element_text(size=7),
+        plot.title = element_text(size=8)) +
+  ggtitle("Sheep/goat LSI width values") 
+OC_W_Jitter
+
+
+
+## Sheep.goat histogram (from PLOS) -----------------
+
+
+# subset dataframe (here called ItalyLogComplemented) to only O, OVA, and CAH in ItalyLogComplemented$TAX
+# make histogram and facet by region and period (period here is called Chron2)
+# alpha=.5 makes the histograms transparent, colours are default
+
+SGLengthHist <- ggplot(
+  subset(ItalyLogComplemented, TAX=="OVA" | TAX=="O" | TAX=="CAH" ), 
+  aes(Length, fill=TAX)) + 
+  geom_histogram(bins=50,alpha=.5, position="identity") + 
+  ggtitle("Sheep/goat Lengths") + facet_grid(Chron2~Region)
+
+
+#To add mean line, calculate log means for each period (here Chron2)
+#columns 23 and 24 in ItalyLogComplemented = ItalyLogComplemented$Length and ItalyLogComplemented$Width (the selected length and eidth logs for each row)
+# >>>there is probably an easier way to do this in tidyverse using summarise()?
+LogMeansChron2 <- aggregate(ItalyLogComplemented[,23:24], 
+                            list(Region = ItalyLogComplemented$Region, 
+                                 Chron2 = ItalyLogComplemented$Chron2, 
+                                 TAX = ItalyLogComplemented$TAX), 
+                                FUN=mean, na.rm=TRUE)
+
+#Add mean line and label to each facet
+# geom_vline adds a vertical line 
+# only for TAX == OVA and CAH (not interderminate sheep/goat)
+# line type and colour vary with TAX
+# line is placed at mean (xintercept=LogMeansChron2$Length)
+# geom_text adds label with mean only for OVA
+# label is rounded to 3 decimal places
+# label is placed on x-axis at mean value + 0.025, y-axis at 14
+SGLengthHist + geom_vline(data=subset(LogMeansChron2, TAX=="OVA" | TAX=="CAH"), 
+                          aes(xintercept=Length, linetype=TAX, colour=TAX) , size=0.25) + 
+  scale_linetype_manual(values=c("longdash", "solid")) + 
+  geom_text(data=subset(LogMeansChron2, TAX=="OVA"), 
+            aes(label = round(Length, digits=3), y=14, x=Length+0.025), size = 3)
+
+
+
 
