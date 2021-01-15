@@ -6,7 +6,7 @@
 \usage{
 LogRatios(
   data,
-  ref = referencesLog,
+  ref = referenceCombi,
   identifiers = c("TAX", "EL"),
   refMeasuresName = "Measure",
   refValuesName = "Standard",
@@ -17,7 +17,7 @@ LogRatios(
 \item{data}{A dataframe with the input measurements.}
 
 \item{ref}{A dataframe including the measurement values used as references.
-The default \code{ref = referencesLog} provided as package \code{zoolog} data.}
+The default \code{ref = referenceCombi} provided as package \code{zoolog} data.}
 
 \item{identifiers}{A vector of column names in \code{ref} identifying
 a type of bone. By default \code{identifiers = c("TAX", "EL")}.}
@@ -60,7 +60,7 @@ dataExampleWithLogs <- LogRatios(dataExample)
 head(dataExampleWithLogs)[, -c(6:20,32:63)]
 
 ## Read a different reference:
-referenceFile <- system.file("extdata", "referencesLog.csv", ### TO CHANGE
+referenceFile <- system.file("extdata", "referenceCombi.csv", ### TO CHANGE
                              package="zoolog")
 userReferenceLogs <- read.csv2(referenceFile,
                                quote = "\"", na = "", header = TRUE,

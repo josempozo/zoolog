@@ -38,7 +38,7 @@ dataExample <- read.csv2(dataFile,
 head(dataExample)[, -c(6:20,32:63)]
 
 ## Remove the cases not including any measurement present in the reference.
-refMeasureNames <- levels(factor(referencesLog$Measure))
+refMeasureNames <- levels(factor(referenceCombi$Measure))
 refMeasureNames
 dataExamplePruned <- RemoveNACases(dataExample,
                                    measureNames = refMeasureNames)

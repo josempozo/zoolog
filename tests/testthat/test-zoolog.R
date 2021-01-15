@@ -3,7 +3,8 @@
 load(system.file("testdata", "testData.rda", package="zoolog"))
 
 test_that("LogRatios provides expected result on data example.", {
-  expect_equal(LogRatios(testData), testDataWithLog, tolerance = 1e-10)
+  expect_equal(LogRatios(testData, ref = referenceNietoDavisAlbarella),
+               testDataWithLog, tolerance = 1e-10)
 })
 
 test_that("RemoveNACases on data example with log-ratios.", {
@@ -29,5 +30,6 @@ test_that("RemoveNACases on data example.", {
 })
 
 test_that("LogRatios provides expected result on pruned data example.", {
-  expect_equal(LogRatios(testDataPruned), testDataPrunedWithLog, tolerance=1e-10)
+  expect_equal(LogRatios(testDataPruned, ref = referenceNietoDavisAlbarella),
+               testDataPrunedWithLog, tolerance=1e-10)
 })
