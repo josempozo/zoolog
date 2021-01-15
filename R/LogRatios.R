@@ -58,9 +58,11 @@ LogRatios <- function(data,
   dataStandard <- StandardizeDataSet(data, thesaurusSet)
   refStandard <- StandardizeDataSet(ref, thesaurusSet)
   identifiers <- StandardizeNomenclature(identifiers,
-                                           thesaurusSet$identifier)
+                                         thesaurusSet$identifier)
   refMeasuresName <- StandardizeNomenclature(refMeasuresName,
                                              thesaurusSet$identifier)
+  refValuesName <- StandardizeNomenclature(refValuesName,
+                                           thesaurusSet$identifier)
   refMeasures <- levels(as.factor(refStandard[, refMeasuresName]))
   refMeasuresInData <- intersect(refMeasures, names(dataStandard))
 
