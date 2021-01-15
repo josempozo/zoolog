@@ -8,13 +8,10 @@
 <!-- badges: end -->
 
 The goal of zoolog is to help zooarchaeologists to calculate log ratios
-from measurements following: 
-Von den Driesch, A. (1976) “A guide to the
+from measurements following: Von den Driesch, A. (1976) “A guide to the
 measurement of animal bones from archaeological sites”, Institut für
 Palaeoanatomie, Domestikationsforschung und Geschichte der Tiermedizin
-of the University of Munich (Vol. 1). Peabody Museum Press. 
-and 
-Davis,
+of the University of Munich (Vol. 1). Peabody Museum Press. and Davis,
 S. J. M. (1992) “A rapid method for recording information about mammal
 bones from archaeological sites”. London: HBMC AM Laboratory report
 19/92. (for HTC).
@@ -38,7 +35,7 @@ devtools::install_github("josempozo/zoolog")
 ## Example
 
 This example reads a dataset from a file in csv format and compute the
-log-ratios. Consequently, the cases with no available log-ratios are removed.
+log-ratios. Then, the cases with no available log-ratios are removed.
 Finally, the resulting dataset is saved in a file in csv format.
 
 ``` r

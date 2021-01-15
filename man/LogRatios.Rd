@@ -10,7 +10,8 @@ LogRatios(
   identifiers = c("TAX", "EL"),
   refMeasuresName = "Measure",
   refValuesName = "Standard",
-  thesaurusSet = zoologThesaurus
+  thesaurusSet = zoologThesaurus,
+  joinCategories = NULL
 )
 }
 \arguments{

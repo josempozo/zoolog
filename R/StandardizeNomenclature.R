@@ -68,7 +68,8 @@
 
 #' @rdname StandardizeNomenclature
 #' @export
-StandardizeNomenclature <- function(x, thesaurus, mark.unknown = FALSE)
+StandardizeNomenclature <- function(x, thesaurus,
+                                    mark.unknown = FALSE)
 {
   if(is.null(thesaurus) || is.null(x) || length(thesaurus)==0) return(x)
   n <- length(x)

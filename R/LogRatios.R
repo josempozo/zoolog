@@ -51,10 +51,13 @@ LogRatios <- function(data,
                       identifiers = c("TAX", "EL"),
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
-                      thesaurusSet = zoologThesaurus) {
+                      thesaurusSet = zoologThesaurus,
+                      joinCategories = NULL) {
   # Add columns for log ratios.
   # One column for each measure present in both the input data
   # and the reference.
+  if(!is.null(joinCategories))
+    thesaurusSet <- SmartJoinCategories(thesaurusSet, joinCategories)
   dataStandard <- StandardizeDataSet(data, thesaurusSet)
   refStandard <- StandardizeDataSet(ref, thesaurusSet)
   identifiers <- StandardizeNomenclature(identifiers,

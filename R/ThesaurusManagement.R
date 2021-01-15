@@ -171,3 +171,54 @@ NormalizeForSensitiveness <- function(thesaurus, x = NULL)
   if(is.null(x)) return(thesaurus) else
     return(list(thesaurus = thesaurus, x = xprepared))
 }
+
+JoinCategories <- function(thesaurus, categories)
+{
+  categStandard <- lapply(categories, StandardizeNomenclature,
+                          thesaurus)
+  thesList <- lapply(thesaurus, function(a) a[a!=""])
+  namesToAdd <- lapply(categStandard,
+                       function(x) {
+                         y <- thesList[x]
+                         y[is.na(names(y))] <- x[is.na(names(y))]
+                         as.character(unlist(y))
+                       })
+  if(length(namesToAdd) == 1)
+  {
+    namesToAdd[[1]] <- c(names(namesToAdd), namesToAdd[[1]])
+  }
+  else
+  {
+    namesToAdd <- mapply(function(x,y) c(x,y), names(namesToAdd), namesToAdd)
+  }
+  thesList <- thesList[!(names(thesList) %in%
+                           c(names(namesToAdd),
+                             as.character(unlist(categStandard))))]
+  thesList <- c(thesList, namesToAdd)
+  thesNew <- ThesaurusFromList(thesList, attributes(thesaurus))
+  if(ambiguity <- ThesaurusAmbiguity(thesNew))
+    stop(paste0("Joining these categories would result in ambiguous thesaurus.\n",
+                attr(ambiguity, "errmessage")))
+  RemoveRepeatedNames(thesNew)
+}
+
+SmartJoinCategories <- function(thesaurusSet, joinCategories)
+{
+  coincidences <- sapply(joinCategories, function(x) {
+    sapply(thesaurusSet, function(y) {
+      any(x %in% as.character(unlist(lapply(y, function(a) a[a!=""]))))
+    })
+  })
+  if(any(colSums(coincidences)>1))
+    stop(paste("Provided joinCategories are ambiguous:",
+               "Some name is in more than one thesaurus."))
+  if(any(colSums(coincidences)<1))
+    stop(paste("Provided joinCategories include one category",
+               "not matching any thesaurus."))
+  for(th in rownames(coincidences))
+  {
+    thesaurusSet[[th]] <- JoinCategories(thesaurusSet[[th]],
+                                         joinCategories[coincidences[th,]])
+  }
+  return(thesaurusSet)
+}
