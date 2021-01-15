@@ -52,7 +52,8 @@ RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
   {
     measureNames <- intersect(measureNames, names)
   }
-  prunedData <- data[rowSums(!is.na(data[, measureNames])) > 0, ]
+#  prunedData <- data[rowSums(!is.na(data[, measureNames])) > 0, ]
+  prunedData <- data[apply(as.array(!is.na(data[, measureNames])), 1, any), ]
   rownames(prunedData) <- NULL
   # type.convert removes the non-used factors after subsetting the data.frame.
   # It takes also into account if factors in the original data.frame can
