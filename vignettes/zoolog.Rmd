@@ -148,7 +148,6 @@ ggplot(dataOC, aes(x=Width, y=Jaciment)) +
   theme_bw() +
   ggtitle("Caprine widths") +
   xlab("Width log-ratio")
-ggsave(file.path(outFolder,"ExampleBoxplotCaprineWidths.pdf"))
 
 ggplot(dataOC, aes(x=Length, y=Jaciment)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
@@ -156,12 +155,9 @@ ggplot(dataOC, aes(x=Length, y=Jaciment)) +
   theme_bw() +
   ggtitle("Caprine lengths") +
   xlab("Length log-ratio")
-ggsave(file.path(outFolder,"ExampleBoxplotCaprineLengths.pdf"))
 
 
 ########### Histograms Caprines Widths
-pdf(file = file.path(outFolder,"ExampleHistogramCaprineWidths.pdf"),
-    width = 15, height = 8)
 
 ggplot(dataOC, aes(Width)) +
   geom_histogram(bins=30, na.rm = TRUE) +
@@ -177,10 +173,6 @@ ggplot(dataOC, aes(Width)) +
         axis.text = element_text(size=12) ) +
   scale_y_continuous(breaks=c(0,10,20,30))
 
-dev.off()
-
-pdf(file = file.path(outFolder,"ExampleHistogramCaprineLengths.pdf"),
-    width = 15, height = 8)
 
 ggplot(dataOC, aes(Length)) +
   geom_histogram(bins=30, na.rm = TRUE) +
@@ -195,8 +187,6 @@ ggplot(dataOC, aes(Length)) +
         axis.title.y = element_text(size=18),
         axis.text = element_text(size=12) ) +
   scale_y_continuous(breaks=c(0,10,20,30))
-
-dev.off()
 
 
 t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
