@@ -10,9 +10,9 @@
 #' A thesaurus set is a list of thesauri with additional attributes:
 #' \describe{
 #'   \item{names}{Character vector with the name of each thesaurus.}
-#'   \item{applyToColNames}{Logical vector. Must the thesaurus be applied to
+#'   \item{applyToColNames}{Logical vector. Should the thesaurus be applied to
 #'           the column names of the data frame?}
-#'   \item{applyToColValues}{Logical vector. Must the thesaurus be applied to
+#'   \item{applyToColValues}{Logical vector. Should the thesaurus be applied to
 #'           the values in the corresponding column of the data frame?}
 #'   \item{filename}{Character vector with the source file of each thesaurus.}
 #' }
@@ -23,7 +23,7 @@
 #' Each thesaurus is a data frame also with additional attributes. Each column
 #' of the data frame is a category of names with equivalent meaning in the
 #' intended application. The column name identifies the category and is used
-#' as the standard in when applying \code{\link{StandardizeNomenclature}}.
+#' as the standard when applying \code{\link{StandardizeNomenclature}}.
 #'
 #' The names in each column (category) must not be included in any other
 #' column, since this would make the thesaurus ambiguous (see

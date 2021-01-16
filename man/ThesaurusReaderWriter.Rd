@@ -51,12 +51,14 @@ attributes(thesaurus2)
 ## Write the thesarus to a file:
 fileExample <- file.path(tempdir(), "thesaurusExample.csv")
 WriteThesaurus(thesaurus, fileExample)
+## Replace tempdir() for your preferred local path if you want to easily
+## examine the written file.
 
 ## Read a thesaurus set:
 thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
 thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 ## The attributes of the thesaurus set include information of the constituent
-## thesauri: names, source file names and their mode of application on datasets.
+## thesauri: names, source file names, and their mode of application on datasets.
 attributes(thesaurusSet)
 ## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.
 attributes(thesaurusSet$measure)
@@ -65,7 +67,9 @@ attributes(thesaurusSet$measure)
 fileSetExample <- file.path(tempdir(), "thesaurusSetExample.csv")
 WriteThesaurusSet(thesaurusSet, fileSetExample)
 ## It writes the thesaurus-set main data frame and each of the included
-## thesausus files.
+## thesaurus files.
+## Again, replace tempdir() for your preferred local path if you want to
+## easily examine the written files.
 
 }
 \seealso{

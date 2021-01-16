@@ -2,7 +2,7 @@
 % Please edit documentation in R/LogRatios.R
 \name{LogRatios}
 \alias{LogRatios}
-\title{Log-Ratios of Measurements}
+\title{Log Ratios of Measurements}
 \usage{
 LogRatios(
   data,
@@ -29,17 +29,17 @@ bone measurement.}
 \item{refValuesName}{The column name in \code{ref} giving the measurement
 value.}
 
-\item{thesaurusSet}{A thesaurus allowing to merge datasets with different
-nomenclatures. By default \code{thesaurusSet = zoologThesaurus}.}
+\item{thesaurusSet}{A thesaurus allowing datasets with different nomenclatures
+to be merged. By default \code{thesaurusSet = zoologThesaurus}.}
 }
 \value{
 A dataframe including the input dataframe and additional columns, one
 for each extracted log ratio for each relevant measurement in the reference.
-The name of the added columns are constructed prefixing each measurement by
+The name of the added columns are constructed by prefixing each measurement by
 the internal variable \code{logPrefix}.
 }
 \description{
-Function to compute the log Ratios of the measurements
+Function to compute the log ratios of the measurements
 relative to standard reference values.
 By default a reference is provided with the package.
 }

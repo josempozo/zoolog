@@ -1,9 +1,10 @@
-#' Remove Cases Missing All Measurements.
+#' Remove Cases Missing All Measurements
 #'
-#' Function to remove the table rows with all measurements of interest NA.
-#' The measurements name can be explicitly provided
+#' Function to remove the table rows for which all measurements of interest
+#' are non-available (NA).
+#' A particular list of measurement names can be explicitly provided
 #' or selected by a common initial pattern.
-#' The default values remove the rows with no log-ratio available.
+#' The default setting removes the rows with no log-ratio available.
 #'
 #' @inheritParams LogRatios
 #' @param measureNames A vector of characters with the list of measurements

@@ -29,11 +29,11 @@ for each extracted condensed feature, with the corresponding name given in
 \code{grouping}.
 }
 \description{
-This function condenses the measure log-ratios into a reduced number of
-features by grouping the available measures into comparable log-ratios.
-Only one feature is extracted per group. Currently, two methods are possible:
-priority (default) or average. By default the selected groups
-represent a single measurement per axis, i.e. \code{Length} and \code{Width}.
+This function condenses the calculated log ratio values into a reduced number
+of features by grouping log ratio values and selecting or calculating a
+feature value. By default the selected groups represent each a single dimension,
+i.e. \code{Length} and \code{Width}. Only one feature is extracted per group.
+Currently, two methods are possible: priority (default) or average.
 }
 \details{
 This operation is motivated by two circumstances. First, not all measurements

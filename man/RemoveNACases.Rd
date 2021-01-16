@@ -2,7 +2,7 @@
 % Please edit documentation in R/RemoveNACases.R
 \name{RemoveNACases}
 \alias{RemoveNACases}
-\title{Remove Cases Missing All Measurements.}
+\title{Remove Cases Missing All Measurements}
 \usage{
 RemoveNACases(data, measureNames = NULL, prefix = logPrefix)
 }
@@ -22,10 +22,11 @@ A dataframe with the same columns as the input dataframe but
 removing the rows with missing values for all measurements in the list.
 }
 \description{
-Function to remove the table rows with all measurements of interest NA.
-The measurements name can be explicitly provided
+Function to remove the table rows for which all measurements of interest
+are non-available (NA).
+A particular list of measurement names can be explicitly provided
 or selected by a common initial pattern.
-The default values remove the rows with no log-ratio available.
+The default setting removes the rows with no log-ratio available.
 }
 \examples{
 ## Read an example dataset:

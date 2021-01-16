@@ -53,7 +53,7 @@
 #'                                "blue")
 #' thesaurusNew
 #'
-#' ## Attemp to generate an ambiguous thesaurus
+#' ## Attempt to generate an ambiguous thesaurus
 #' try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 #'
 #' ## Remove repeated names in the same category:

@@ -1,6 +1,6 @@
-#' Log-Ratios of Measurements
+#' Log Ratios of Measurements
 #'
-#' Function to compute the log Ratios of the measurements
+#' Function to compute the log ratios of the measurements
 #' relative to standard reference values.
 #' By default a reference is provided with the package.
 #'
@@ -13,11 +13,11 @@
 #' bone measurement.
 #' @param refValuesName The column name in \code{ref} giving the measurement
 #' value.
-#' @param thesaurusSet A thesaurus allowing to merge datasets with different
-#' nomenclatures. By default \code{thesaurusSet = zoologThesaurus}.
+#' @param thesaurusSet A thesaurus allowing datasets with different nomenclatures
+#' to be merged. By default \code{thesaurusSet = zoologThesaurus}.
 #' @return A dataframe including the input dataframe and additional columns, one
 #' for each extracted log ratio for each relevant measurement in the reference.
-#' The name of the added columns are constructed prefixing each measurement by
+#' The name of the added columns are constructed by prefixing each measurement by
 #' the internal variable \code{logPrefix}.
 #' @examples
 #' ## Read an example dataset:
