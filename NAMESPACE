@@ -2,6 +2,7 @@
 
 export(AddToThesaurus)
 export(CondenseLogs)
+export(InCategory)
 export(LogRatios)
 export(NewThesaurus)
 export(ReadThesaurus)
