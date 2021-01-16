@@ -94,6 +94,13 @@ We now calculate the log-ratios using the function LogRatios(). Only measurement
 dataWithLog=LogRatios(data)
 head(dataWithLog)[,-c(6:20,32:63)]
 ```
+We could be interested in obtaining the log ratios of all caprine, including *ovis aries*, *capra hircus*, and *ovis capra*, with respect to the reference for *ovis aries*. This can be set using the argument `joinCategories`.
+```{r}
+categories <- list(ovar = c("sheep", "capra", "oc"))
+dataWithLog=LogRatios(data, joinCategories = categories)
+head(dataWithLog)[,-c(6:20,32:63)]
+```
+Note that this option does not remove the distinction in the data between the different species, just indicates that for any of them the log ratios must be computed from the same reference (`ovar`).
 
 The cases without log-ratios can be removed to ease the later analyses:
 ```{r}
@@ -121,21 +128,31 @@ Condensed log values can be visualised as histograms and box plots using ggplot 
 
 ### Preparing the data
 ???To make the figure legible to a wider audience, we can standardize the data according to the *zoologThesaurus*. 
-???The function zoologThesaurus standardizes the data, so it is possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataframe
+???The function zoologThesaurus standardizes the data, so it is possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataframe. This is especially usefull when different nomenclature for the same concept is found in the same dataset.
 
-In the example data, this will change the code for sheep/goat from ‘oc’ to ‘ovis aries’
+In the example data, this will change for instance `"ovar"` to `"ovis aries"`.
 ```{r}
 dataStandardized <- StandardizeDataSet(dataWithSummary)
+head(dataStandardized)[, -c(6:20,32:63)]
 ```
 
-This allows to select the caprine cases by
+We can be interested in selecting all caprine cases. This can be done even without standardizing the data using the function `InCategory`:
 ```{r}
-dataOC <- subset(dataStandardized, Taxon=="ovis aries")
+dataOC <- subset(dataWithSummary, InCategory(Especie, 
+                                             c("sheep", "capra", "oc"),
+                                             zoologThesaurus$taxon))
+head(dataOC)[, -c(6:20,32:63)]
 ```
+Observe that no standardization is performed in the output subset. To standardize the subset data, `StandardizeDataSet` can be applied either before or after the subsetting.
+```{r}
+dataOCStandardized <- StandardizeDataSet(dataOC)
+head(dataOCStandardized)[, -c(6:20,32:63)]
+```
+Observe also that the distinction between "ovis aries", "capra hircus", and "ovis capra" has not been removed from the data.
 
 For plotting the Width, we can retain the cases including this measure:
 ```{r}
-dataOCWithWidth <- RemoveNACases(dataOC, measureNames = "Width")
+dataOCWithWidth <- RemoveNACases(dataOCStandardized, measureNames = "Width")
 ```
  which gives
 ```{r}
@@ -145,7 +162,7 @@ cases.
 
 For ploting the Length, we can retain the cases including this measure:
 ```{r}
-dataOCWithLength <- RemoveNACases(dataOC, measureNames = "Length")
+dataOCWithLength <- RemoveNACases(dataOCStandardized, measureNames = "Length")
 ```
 
 which gives 
@@ -158,14 +175,14 @@ cases.
 
 #### Horizontal Boxplot with dots
 It is first necessary to load the relevant libraries (ggplot2 and tidyverse). It is also advised to create a folder for the outputs:
-```{r}
+```{r, echo = FALSE}
 library (ggplot2)
 library(tidyverse)
 ```
 
 We can now create a boxplot for the widths: 
 ```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
-ggplot(dataOC, aes(x=Width, y=Jaciment)) +
+ggplot(dataOCStandardized, aes(x=Width, y=Site)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
   theme_bw() +
@@ -175,7 +192,7 @@ ggplot(dataOC, aes(x=Width, y=Jaciment)) +
 
 And another boxplot for the lengths:
 ```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
-ggplot(dataOC, aes(x=Length, y=Jaciment)) +
+ggplot(dataOCStandardized, aes(x=Length, y=Site)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
   geom_jitter(height=.2, width=0, alpha=1/2, color=4, na.rm = TRUE) +
   theme_bw() +
@@ -186,11 +203,11 @@ ggplot(dataOC, aes(x=Length, y=Jaciment)) +
 #### Histograms 
 We may choose to plot the width data as an histogram: 
 ```{r, fig.asp = 0.7, fig.width = 6, fig.align="center"}
-ggplot(dataOC, aes(Width)) +
+ggplot(dataOCStandardized, aes(Width)) +
   geom_histogram(bins=30, na.rm = TRUE) +
   ggtitle("Caprine widths") +
   xlab("Width log-ratio") +
-  facet_grid(Jaciment ~.) +
+  facet_grid(Site ~.) +
   theme_bw() +
   theme(	panel.grid.major.y = element_blank(),
          panel.grid.minor.y = element_blank()) +
@@ -203,17 +220,15 @@ ggplot(dataOC, aes(Width)) +
 
 We may run a statistical test (here a Student t-test) to check whether the differences between sites have statistical significance:
 ```{r}
-t.test(Width ~ Jaciment, dataOC, subset = Jaciment %in% c("TFC", "ALP"))
+t.test(Width ~ Site, dataOCStandardized, 
+       subset = Site %in% c("OLD", "ALP"))
+```
+```{r}
+t.test(Length ~ Site, dataOCStandardized, 
+       subset = Site %in% c("OLD", "ALP"))
 ```
 
-## Example plots from Angela
-
-
-Sheep.goat jitter and box plots (from AAS article) ------------------
-
-From dataframe with all logs (Ndata)
-
-### DOTPLOT 
+## DOTPLOT 
 * from data select TAX sheep (OVA), goat (CAH), and sheep/goat (O)
 * graph period vs width values
 * vary point colour and shape with TAX
@@ -221,30 +236,37 @@ From dataframe with all logs (Ndata)
 * set shapes manually
 * if points are to close together or far apart change 'jitter.width=.3'
 
-### BOXPLOT
-* from Ndata only graph sheep (OVA) and goat (CAH)
-* outlier.alpha = 0 so ggplot will not plot black dot for outliers
+## BOXPLOT
 
+Here we reorder the factor levels of `dataOCStandardized$Taxon` to make 
+the order of the boxplots more intuitive.
 ```{r}
-Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
+levels0 <- levels(dataOCStandardized$Taxon)
+levels0
+```
+```{r}
+dataOCStandardized$Taxon <- factor(dataOCStandardized$Taxon, 
+                                   levels = levels0[c(2,3,1)])
+levels(dataOCStandardized$Taxon)
+```
 
-OC_W_Jitter <- ggplot(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"), 
-                      aes(x=Period, y=Width)) + 
-  geom_point(data=subset(Ndata, TAX=="OVA" | TAX=="O" | TAX=="CAH"), 
-             aes(colour=TAX, shape=TAX), alpha=0.7, size=0.8, position = position_jitterdodge(jitter.width=.3)) +
+```{r, warning = FALSE, fig.asp = 0.6, fig.width = 6, fig.align="center"}
+Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
+ggplot(dataOCStandardized, aes(x=Site, y=Width)) + 
+  geom_boxplot(aes(fill=Taxon), 
+               notch=TRUE, alpha=0, lwd=0.377, outlier.alpha = 0,
+               width = 0.5,
+               position=position_dodge(0.75), na.rm = TRUE,
+               show.legend = FALSE) + 
+  geom_point(aes(colour=Taxon, shape=Taxon), 
+             alpha=0.7, size=0.8, 
+             position = position_jitterdodge(jitter.width=.3),
+             na.rm = TRUE) +
   scale_colour_manual(values=Ocolour) +
   scale_shape_manual(values=c(15, 18, 16)) +
-  geom_boxplot(data=subset(Ndata, TAX=="OVA" | TAX=="CAH"), aes(x=Period, y=Width, fill=TAX), 
-               notch=TRUE, alpha=0,  lwd=0.377, outlier.alpha = 0, position=position_dodge(1)) + 
   theme_bw(base_size = 8) +
-  ylab("LSI value")+
-  theme(axis.text.x = element_text(size=6),
-        axis.text.y = element_text(size=6),
-        axis.title.x = element_text(size=7),
-        axis.title.y = element_text(size=7),
-        plot.title = element_text(size=8)) +
+  ylab("LSI value") +
   ggtitle("Sheep/goat LSI width values") 
-OC_W_Jitter
 ```
 
 
@@ -254,36 +276,18 @@ OC_W_Jitter
 * make histogram and facet by region and period (period here is called Chron2)
 * alpha=.5 makes the histograms transparent, colours are default
 
-```{r}
-SGLengthHist <- ggplot(
-  subset(ItalyLogComplemented, TAX=="OVA" | TAX=="O" | TAX=="CAH" ), 
-  aes(Length, fill=TAX)) + 
-  geom_histogram(bins=50,alpha=.5, position="identity") + 
-  ggtitle("Sheep/goat Lengths") + facet_grid(Chron2~Region)
+```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
+TaxonSiteWidthHist <- ggplot(dataOCStandardized, aes(Width, fill=Taxon)) + 
+  geom_histogram(bins=30, alpha=.5, position="identity") + 
+  ggtitle("Sheep/goat Widths") + facet_grid(Site ~ Taxon)
+TaxonSiteWidthHist
 ```
-
-To add mean line, calculate log means for each period (here Chron2)
-columns 23 and 24 in ItalyLogComplemented = ItalyLogComplemented$Length and ItalyLogComplemented$Width (the selected length and eidth logs for each row)
-# >>>there is probably an easier way to do this in tidyverse using summarise()?
-LogMeansChron2 <- aggregate(ItalyLogComplemented[,23:24], 
-                            list(Region = ItalyLogComplemented$Region, 
-                                 Chron2 = ItalyLogComplemented$Chron2, 
-                                 TAX = ItalyLogComplemented$TAX), 
-                                FUN=mean, na.rm=TRUE)
-
-#Add mean line and label to each facet
-# geom_vline adds a vertical line 
-# only for TAX == OVA and CAH (not interderminate sheep/goat)
-# line type and colour vary with TAX
-# line is placed at mean (xintercept=LogMeansChron2$Length)
-# geom_text adds label with mean only for OVA
-# label is rounded to 3 decimal places
-# label is placed on x-axis at mean value + 0.025, y-axis at 14
-SGLengthHist + geom_vline(data=subset(LogMeansChron2, TAX=="OVA" | TAX=="CAH"), 
-                          aes(xintercept=Length, linetype=TAX, colour=TAX) , size=0.25) + 
-  scale_linetype_manual(values=c("longdash", "solid")) + 
-  geom_text(data=subset(LogMeansChron2, TAX=="OVA"), 
-            aes(label = round(Length, digits=3), y=14, x=Length+0.025), size = 3)
+```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
+TaxonSiteWidthHist <- ggplot(dataOCStandardized, aes(Width, fill=Taxon)) + 
+  geom_histogram(bins=30, alpha=.5, position="identity") + 
+  ggtitle("Sheep/goat Widths") + facet_grid(~Site)
+TaxonSiteWidthHist
+```
 
 
 
