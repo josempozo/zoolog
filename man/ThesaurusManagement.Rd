@@ -60,10 +60,10 @@ thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurus.csv",
 names(thesaurus) #  "bos taurus"  "ovis aries"  "sus domesticus"
 ## Add names to several categories:
 thesaurusExtended <- AddToThesaurus(thesaurus,
-                                    c("vaca", "porc"),
+                                    c("Kuh", "Schwein"),
                                     c("bos taurus","sus domesticus"))
-## This adds the name "vaca" to the category "bos taurus" and
-## the name "porc" to the category "sus domesticus".
+## This adds the name "Kuh" to the category "bos taurus" and
+## the name "Schwein" to the category "sus domesticus".
 
 ## Generate a new thesaurus and populate it with two categories
 ## ("red" and "blue"):
