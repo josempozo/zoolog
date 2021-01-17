@@ -1,5 +1,5 @@
 ---
-title: "Package ***zoolog***:  \n zooarcheological analysis with log-ratios."
+title: "Package ***zoolog***:  \n Zooarcheological Analysis with Log-Ratios."
 author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
@@ -56,7 +56,7 @@ devtools::install_github("josempozo/zoolog")
 # Reference
 
 The log-ratios are calculated with respect to a standard reference. The package
-*zoolog* includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the mantainer through the provided email address so the new reference is fully accessible and your name added to the list of contributors. 
+**zoolog** includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the mantainer through the provided email address so the new reference is fully accessible and your name added to the list of contributors. 
 
 The references are provided as dataframes named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
 reference values for the main domesticates and reed deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
@@ -82,7 +82,7 @@ The full list of functions is available under the 'Help' page of zoolog. Here we
 
 A thesaurus set is defined in order to make the methods robust to different nomenclatures used in datasets created by different authors and in different languages. The user can also use other thesaurus sets, or can modify the provided one. In this later case, please, contact the maintainer at the provided email address so we can include the additions to the new versions of the package. Your name will be added to the list of contributors, as you will help to make the package more robust and comprehensive.
 
-So far, four thesauri are included in zoolog:
+So far, four thesauri are included in **zoolog**:
 
 * **`identifierThesaurus`** refers to the column names that will be considered to calculate the log ratios. So far, it includes the categories 'Taxon', 'Element', 'Measure', and 'Standard'. Each of them have different options (e.g.: 'Taxon' includes Taxon, TAX, species, animal, Specie, GenusSpecies, Especie, see below). This enables the `LogRatios` function to recognise the relevant column and compute the log ratios no matter its name as long as it is included in the relevant Thesaurus (`taxonThesaurus`, `elementThesaurus`, `measureThesaurus`).
 
@@ -160,7 +160,7 @@ head(dataWithSummary)[, -c(6:20,32:63)]
 Condensed log values can be visualised as histograms and box plots using ggplot [@wickham2011ggplot2] and tidyverse [@wickham2019welcome]. Here we’ll look at some examples of plotting values from sheep/goat.
 
 ### Preparing the data
-The function `zoologThesaurus` standardizes the data, so it makes the figure legible to a wider audience, and also makes it possible to consider different names for a given taxon and element (e.g. sheep and ovis; hum and HU) present in the dataset. This is especially useful when different nomenclature for the same concept is found in the same dataset.
+The integration of the thesaurus functionality facilitates the use of datasets with heterogenous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories have been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
 
 In the example data, `zoologThesaurus` will change for instance `"ovar"` to `"ovis aries"`.
 ```{r}
@@ -206,10 +206,9 @@ cases.
 ### Plotting the data
 
 #### Horizontal Boxplot with dots
-It is first necessary to load the relevant libraries (ggplot2 and tidyverse). It is also advised to create a folder for the outputs:
+For the example plots we will use the package **ggplot2**.
 ```{r, echo = FALSE}
-library (ggplot2)
-library(tidyverse)
+library(ggplot2)
 ```
 
 We can now create a boxplot for the widths: 

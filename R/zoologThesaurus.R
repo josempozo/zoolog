@@ -80,6 +80,5 @@
 #' zoologThesaurus$identifier
 #' attributes(zoologThesaurus$identifier)
 #'
-# @source \url{http://www.diamondse.info/}
 "zoologThesaurus"
 
