@@ -69,13 +69,13 @@
 #' @section Content of the References:
 #' Each of the three references includes:
 #' \describe{
-#'   \item{\code{\strong{ReferenceNietoDavisAlbarella}}}{Includes the
+#'   \item{\strong{ReferenceNietoDavisAlbarella}}{Includes the
 #'     measurements from a female cow from Late Neolithic Minferri in Catalonia
 #'     \insertCite{nieto2018element}{zoolog}, the mean values of the adult
 #'     female Shetland sheep measurements described in
 #'     \insertCite{davis1996measurements}{zoolog}, and the pig measurements from
 #'     \insertCite{albarella2005neolithic}{zoolog}.}
-#'   \item{\code{\strong{ReferenceBasel}}}{Includes the measurements compiled
+#'   \item{\strong{ReferenceBasel}}{Includes the measurements compiled
 #'     by Barbara Stopp from the reference collection in the Integrative
 #'     Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University
 #'     of Basel, Switzerland). The specimens included are: \emph{Bos taurus}
@@ -84,7 +84,7 @@
 #'     \emph{Capra hircus} Inv.nr. 1597 (Male; adult), \emph{Sus scrofa} Inv.nr.
 #'     1446 (male; 2-3 years old; life weight: 120 kg), \emph{Cervus elaphus}
 #'     Inv.nr. 2271 (male; adult).}
-#'   \item{\code{\strong{ReferenceCombi}}}{Includes the most comprehensive
+#'   \item{\strong{ReferenceCombi}}{Includes the most comprehensive
 #'     reference for each species so that more measurements can be considered:
 #'     the Late Neolithic female cow from Minferri site in present-day Catalonia
 #'     \insertCite{nieto2018element}{zoolog}, the mean measurements from the
