@@ -18,7 +18,7 @@ LogRatios(
 \item{data}{A dataframe with the input measurements.}
 
 \item{ref}{A dataframe including the measurement values used as references.
-The default \code{ref = referenceCombi} provided as package \code{zoolog} data.}
+The default \code{ref = referenceCombi} provided as package \pkg{zoolog} data.}
 
 \item{identifiers}{A vector of column names in \code{ref} identifying
 a type of bone. By default \code{identifiers = c("TAX", "EL")}.}

@@ -31,7 +31,7 @@
 #'
 #' @param data A dataframe with the input measurements.
 #' @param ref A dataframe including the measurement values used as references.
-#' The default \code{ref = referenceCombi} provided as package \code{zoolog} data.
+#' The default \code{ref = referenceCombi} provided as package \pkg{zoolog} data.
 #' @param identifiers A vector of column names in \code{ref} identifying
 #' a type of bone. By default \code{identifiers = c("TAX", "EL")}.
 #' @param refMeasuresName The column name in \code{ref} identifying the type of

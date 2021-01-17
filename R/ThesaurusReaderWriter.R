@@ -5,8 +5,9 @@
 #' @param file Name of a file.
 #' @param thesaurus A thesaurus object.
 #' @param thesaurusSet A thesaurus set.
-#' @param caseSensitive,accentSensitive Logical. They set the case and accent
-#' sensitivity (\code{FALSE} by default) of the thesaurus.
+#' @param caseSensitive,accentSensitive,punctuationSensitive Logical. They set
+#' the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
+#' the thesaurus.
 #'
 #' @return
 #' \code{WriteThesaurus} and \code{WriteThesaurusSet} create or overwrite the
@@ -19,8 +20,8 @@
 #' ## Read a thesaurus for taxa:
 #' thesaurusFile <- system.file("extdata", "taxonThesaurus.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
-#' ## The attributes of the thesaurus include the fields 'caseSensitive' and
-#' ## 'accentSensitive', both FALSE by default.
+#' ## The attributes of the thesaurus include the fields 'caseSensitive',
+#' ## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
 #' attributes(thesaurus)
 #'
 #' ## Any of them can be set by the user if desired:
@@ -61,12 +62,16 @@
 
 #' @rdname ThesaurusReaderWriter
 #' @export
-ReadThesaurus <- function(file, caseSensitive = FALSE, accentSensitive = FALSE)
+ReadThesaurus <- function(file,
+                          caseSensitive = FALSE,
+                          accentSensitive = FALSE,
+                          punctuationSensitive = FALSE)
 {
   thesaurus <- utils::read.csv2(file, stringsAsFactors = FALSE, header = FALSE)
   names(thesaurus) <- thesaurus[1,]
   attr(thesaurus, "caseSensitive") <- caseSensitive
   attr(thesaurus, "accentSensitive") <- accentSensitive
+  attr(thesaurus, "punctuationSensitive") <- punctuationSensitive
   if(ambiguity <- ThesaurusAmbiguity(thesaurus))
     stop(paste0("Ambiguous thesaurus in ", file , ":\n",
                 attr(ambiguity, "errmessage")))
@@ -81,7 +86,8 @@ ReadThesaurusSet <- function(file)
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
   thesaurusSet <- mapply(ReadThesaurus, filenames,
-                         data$CaseSensitive, data$AccentSensitive)
+                         data$CaseSensitive, data$AccentSensitive,
+                         data$PunctuationSensitive)
   names(thesaurusSet) <- data$ThesaurusName
   attr(thesaurusSet, "applyToColNames") <- data$ApplyToColNames
   attr(thesaurusSet, "applyToColValues") <- data$ApplyToColValues
@@ -107,6 +113,8 @@ WriteThesaurusSet <- function(thesaurusSet, file)
                                function(x) attr(x, "caseSensitive"))
   data$accentSensitive <- sapply(zoologThesaurus,
                                  function(x) attr(x, "accentSensitive"))
+  data$punctuationSensitive <- sapply(zoologThesaurus,
+                                 function(x) attr(x, "punctuationSensitive"))
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
   utils::write.csv2(data, file, row.names = FALSE, quote = FALSE)

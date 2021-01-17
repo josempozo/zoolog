@@ -73,11 +73,13 @@
 
 #' @rdname ThesaurusManagement
 #' @export
-NewThesaurus <- function(caseSensitive = FALSE, accentSensitive = FALSE)
+NewThesaurus <- function(caseSensitive = FALSE, accentSensitive = FALSE,
+                         punctuationSensitive = FALSE)
 {
   thesaurus <- data.frame()
   attr(thesaurus, "caseSensitive") <- caseSensitive
   attr(thesaurus, "accentSensitive") <- accentSensitive
+  attr(thesaurus, "punctuationSensitive") <- punctuationSensitive
   return(thesaurus)
 }
 
@@ -153,23 +155,34 @@ ThesaurusFromList <- function(thesaurusList, attrib)
                              stringsAsFactors = FALSE)
   attr(thesaurus, "caseSensitive") <- attrib$caseSensitive
   attr(thesaurus, "accentSensitive") <- attrib$accentSensitive
+  attr(thesaurus, "punctuationSensitive") <- attrib$punctuationSensitive
   names(thesaurus) <- names(thesaurusList)
   return(thesaurus)
 }
 
 NormalizeForSensitiveness <- function(thesaurus, x = NULL)
 {
-  textPrep <- c()
-  if(!attr(thesaurus,"caseSensitive")) textPrep <- c(textPrep, "Any-lower")
-  if(!attr(thesaurus,"accentSensitive")) textPrep <- c(textPrep, "Latin-ASCII")
+  sensitivenessAttrNames <- c("caseSensitive",
+                              "accentSensitive",
+                              "punctuationSensitive")
+  sensitivenessAttr <- unlist(sapply(sensitivenessAttrNames, attr,
+                                     x = thesaurus))
   xprepared <- x
-  for(id in textPrep)
-  {
-    thesaurus <- lapply(thesaurus, stringi::stri_trans_general, id)
-    xprepared <- stringi::stri_trans_general(xprepared, id)
-  }
+  thesaurus <- lapply(thesaurus, SensitivenessTransformation, sensitivenessAttr)
+  xprepared <- SensitivenessTransformation(xprepared, sensitivenessAttr)
   if(is.null(x)) return(thesaurus) else
     return(list(thesaurus = thesaurus, x = xprepared))
+}
+
+SensitivenessTransformation <- function(x, sensitiveness)
+{
+  if(!sensitiveness["caseSensitive"])
+    x <- stringi::stri_trans_general(x, "Any-lower")
+  if(!sensitiveness["accentSensitive"])
+    x <- stringi::stri_trans_general(x, "Latin-ASCII")
+  if(!sensitiveness["punctuationSensitive"])
+    x <- gsub("[[:punct:][:blank:]]+", "", x)
+  return(x)
 }
 
 JoinCategories <- function(thesaurus, categories)

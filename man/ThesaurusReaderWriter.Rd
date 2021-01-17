@@ -8,7 +8,12 @@
 \alias{WriteThesaurusSet}
 \title{Thesaurus Readers and Writers}
 \usage{
-ReadThesaurus(file, caseSensitive = FALSE, accentSensitive = FALSE)
+ReadThesaurus(
+  file,
+  caseSensitive = FALSE,
+  accentSensitive = FALSE,
+  punctuationSensitive = FALSE
+)
 
 ReadThesaurusSet(file)
 
@@ -19,8 +24,9 @@ WriteThesaurusSet(thesaurusSet, file)
 \arguments{
 \item{file}{Name of a file.}
 
-\item{caseSensitive, accentSensitive}{Logical. They set the case and accent
-sensitivity (\code{FALSE} by default) of the thesaurus.}
+\item{caseSensitive, accentSensitive, punctuationSensitive}{Logical. They set
+the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
+the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 
@@ -40,8 +46,8 @@ Functions to read and write thesauri and thesaurus sets.
 ## Read a thesaurus for taxa:
 thesaurusFile <- system.file("extdata", "taxonThesaurus.csv", package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
-## The attributes of the thesaurus include the fields 'caseSensitive' and
-## 'accentSensitive', both FALSE by default.
+## The attributes of the thesaurus include the fields 'caseSensitive',
+## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
 attributes(thesaurus)
 
 ## Any of them can be set by the user if desired:

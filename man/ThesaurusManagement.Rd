@@ -8,7 +8,11 @@
 \alias{ThesaurusAmbiguity}
 \title{Thesaurus Management}
 \usage{
-NewThesaurus(caseSensitive = FALSE, accentSensitive = FALSE)
+NewThesaurus(
+  caseSensitive = FALSE,
+  accentSensitive = FALSE,
+  punctuationSensitive = FALSE
+)
 
 AddToThesaurus(thesaurus, newName, category)
 
@@ -17,11 +21,17 @@ RemoveRepeatedNames(thesaurus)
 ThesaurusAmbiguity(thesaurus)
 }
 \arguments{
-\item{caseSensitive}{Logical. They set the case and accent
-sensitivity (\code{FALSE} by default) of the thesaurus.}
+\item{caseSensitive}{Logical. They set
+the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
+the thesaurus.}
 
-\item{accentSensitive}{Logical. They set the case and accent
-sensitivity (\code{FALSE} by default) of the thesaurus.}
+\item{accentSensitive}{Logical. They set
+the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
+the thesaurus.}
+
+\item{punctuationSensitive}{Logical. They set
+the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
+the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 

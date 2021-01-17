@@ -1,5 +1,5 @@
-ThesaurusName;FileName;CaseSensitive;AccentSensitive;ApplyToColNames;ApplyToColValues
-identifier;identifierThesaurus.csv;FALSE;FALSE;TRUE;FALSE
-taxon;taxonThesaurus.csv;FALSE;FALSE;FALSE;TRUE
-element;elementThesaurus.csv;FALSE;FALSE;FALSE;TRUE
-measure;measureThesaurus.csv;TRUE;FALSE;TRUE;TRUE
+ThesaurusName;FileName;CaseSensitive;AccentSensitive;PunctuationSensitive;ApplyToColNames;ApplyToColValues
+identifier;identifierThesaurus.csv;FALSE;FALSE;FALSE;TRUE;FALSE
+taxon;taxonThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
+element;elementThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
+measure;measureThesaurus.csv;TRUE;FALSE;TRUE;TRUE;TRUE
