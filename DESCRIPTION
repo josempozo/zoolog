@@ -1,5 +1,5 @@
 Package: zoolog
-Title: Calculate log ratios for the main domesticates (cattle, sheep, pig)
+Title: Calculate log ratios for the main domesticates (cattle, sheep, pig) and red deer.
 Version: 0.0.0.9000
 Authors@R: 
     person(c("Jose","M"),
