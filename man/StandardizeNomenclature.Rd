@@ -66,7 +66,8 @@ StandardizeNomenclature(c("bota", "BOTA", "Bota", "boTa"),
                         thesaurus)
 
 ## Load an example data frame:
-dataExample <- read.csv2(system.file("extdata", "dataExample1000.csv",
+dataExample <- read.csv2(system.file("extdata",
+                                     "dataValenzuelaLamas2008.csv.gz",
                                        package="zoolog"),
                          stringsAsFactors = TRUE)
 ## Observe mainly the first columns:
