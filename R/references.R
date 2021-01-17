@@ -10,7 +10,8 @@
 #'   \item{TAX}{The taxon to which each reference bone belongs.}
 #'   \item{EL}{The skeletal element.}
 #'   \item{Measure}{The type of measurement taken on the bone.}
-#'   \item{Standard}{The value of the measurement taken on the bone.}
+#'   \item{Standard}{The value of the measurement taken on the bone.
+#'     All the measurements are expressed in millimetres.}
 #' }
 #'
 #' @section Data Source:
