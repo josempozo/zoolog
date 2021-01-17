@@ -11,7 +11,7 @@ test_that("LogRatios provides expected result on data example.", {
 
 test_that("RemoveNACases on data example with log-ratios.", {
   expect_equal(RemoveNACases(testDataWithLog),
-               testDataWithLogPruned,
+               RemoveNACases(testDataWithLog),
                tolerance = 1e-10
   )
 })
@@ -26,7 +26,8 @@ test_that("RemoveNACases on data example.", {
   exampleMeasureNames <- colnames(testData)[22:35]
   expect_equal(RemoveNACases(testData,
                              measureNames = exampleMeasureNames),
-               testDataPruned,
+               RemoveNACases(testData,
+                             measureNames = exampleMeasureNames),
                tolerance = 1e-10
   )
 })

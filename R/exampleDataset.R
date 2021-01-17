@@ -57,7 +57,6 @@
 #' }
 #'
 #' @examples
-#' @examples
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
 #' dataExample <- read.csv2(dataFile,

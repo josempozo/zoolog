@@ -3,7 +3,7 @@ Zooarcheological Analysis with Log-Ratios.
 ================
 Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
 Nieto-Espinet and Silvia Guimarães Chiarelli
-2021-01-17
+2021-01-18
 
 # Introduction
 
@@ -79,7 +79,7 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("josempozo/zoolog")
+devtools::install_github("josempozo/zoolog@HEAD")
 ```
 
 # Reference
