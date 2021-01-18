@@ -2,3 +2,13 @@
 .Rhistory
 .RData
 inst/doc
+.DS_Store
+R/.DS_Store
+data/.DS_Store
+inst/.DS_Store
+inst/extdata/.DS_Store
+inst/testdata/.DS_Store
+man/.DS_Store
+tests/.DS_Store
+tests/testthat/.DS_Store
+vignettes/.DS_Store
