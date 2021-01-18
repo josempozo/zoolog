@@ -54,7 +54,7 @@ The package includes a Thesaurus to facilitate its usage by research
 teams across the globe, and working in different languages and with
 different recording traditions. The Thesaurus enables the *zoolog*
 package to recognises many different names for taxa and skeletal
-elements (e.g. ‘Bos taurus’, ‘Bos’, ‘BT’, ‘bovino’, ‘bota’).
+elements (e.g. “Bos taurus”, “Bos”, “BT”, “bovino”, “bota”).
 Consequently, there is no need to use a particular, standardised
 recording code for the names of different taxa or elements. This first
 version of has benefited from the contributions from Moussab Besso,
@@ -260,27 +260,27 @@ thesaurusTax
 thesaurusFile <- system.file("extdata", "elementThesaurus.csv", package="zoolog")
 thesaurusEL <- ReadThesaurus(thesaurusFile)
 thesaurusEL
-#>    scapula                  humerus                  radius      metacarpus
-#> 1  scapula                  humerus                  radius      metacarpus
-#> 2       SC                       HU                      RA              MC
-#> 3  scapula                      hum                     rad           metac
-#> 4  scapola                  Humerus                    radi             MC1
-#> 5      esc                    humer                   radio             MC2
-#> 6    scap.                    omero Membre-anterieur radius        metacarp
-#> 7   escap. Membre-anterieur humerus                               metacarpo
-#> 8                                                           Metacarpe Canon
-#> 9                                                                metacarpal
-#> 10                                                                         
-#> 11                                                                         
-#> 12                                                                         
+#>     scapula                  humerus                  radius      metacarpus
+#> 1   scapula                  humerus                  radius      metacarpus
+#> 2        SC                       HU                      RA              MC
+#> 3   scapula                      hum                     rad           metac
+#> 4   scapola                  Humerus                    radi             MC1
+#> 5       esc                    humer                   radio             MC2
+#> 6     scap.                    omero Membre-anterieur radius        metacarp
+#> 7    escap. Membre-anterieur humerus                               metacarpo
+#> 8  Escapula                   Humero                         Metacarpe Canon
+#> 9                                                                 metacarpal
+#> 10                                                                          
+#> 11                                                                          
+#> 12                                                                          
 #>    metacarpus III metacarpus IV     pelvis                   femur
 #> 1  metacarpus III metacarpus IV     pelvis                   femur
 #> 2  metacarpal III metacarpal IV         PE                      FE
 #> 3          MC III         MC IV      coxal                     fem
 #> 4      metac. III     metac. IV        cox                  femore
 #> 5             MC3           MC4 innominate Membre-posterieur Femur
-#> 6                                                                 
-#> 7                                                                 
+#> 6   metacarpo III  metacarpo IV                                   
+#> 7    metacarp III   metacarp IV                                   
 #> 8                                                                 
 #> 9                                                                 
 #> 10                                                                
@@ -294,9 +294,9 @@ thesaurusEL
 #> 5                                   calcan   astragalo             MT2
 #> 6                                 calcagno      astrag        metatars
 #> 7                          Tarse calcaneum Tarse Talus       metatarso
-#> 8                                Calcaneus             Metatarse Canon
+#> 8                                Calcaneus    astragal Metatarse Canon
 #> 9                                       CA                  metatarsal
-#> 10                                                                    
+#> 10                                calcaneo                            
 #> 11                                                                    
 #> 12                                                                    
 #>    metatarsus III metatarsus IV anterior first phalanx first phalanx
@@ -305,8 +305,8 @@ thesaurusEL
 #> 3          MT III         MT IV         Phalanx 1 ant.     Phalanx 1
 #> 4      metat. III     metat. IV                 P1 ant            P1
 #> 5             MT3           MT4          falange 1 ant     falange 1
-#> 6                                                 PH1A           PH1
-#> 7                                           phal 1 ant        phal 1
+#> 6   metatarso III  metatarso IV                   PH1A           PH1
+#> 7    metatars III   metatars IV             phal 1 ant        phal 1
 #> 8                                  Phalange I anterior    Phalange I
 #> 9                                             fal1 ant          fal1
 #> 10                                            ant 1fal          1fal
@@ -503,8 +503,8 @@ head(dataWithSummary)[, -c(6:20,32:63)]
 ## Examples of different plots for data visualisation
 
 Condensed log values can be visualised as histograms and box plots using
-ggplot (Wickham 2011) and tidyverse (Wickham et al. 2019). Here we’ll
-look at some examples of plotting values from sheep/goat.
+ggplot (Wickham 2011). Here we will look at some examples of plotting
+values from sheep/goat.
 
 ### Preparing the data
 
@@ -875,9 +875,9 @@ Research on Archaeozoological Collections from the Middle East*. na.
 
 Nieto-Espinet, A. 2018. “Element Measure Standard Biometrical Data from
 a Cow Dated to the Early Bronze Age (Minferri, Catalonia)\[digital
-Resource, Available at: Https://Www.researchgate.net/
-Publication/326010953. Https://Doi.org/10.13140/Rg.2.2.13512.78081\].
-2018.”
+Resource, Available at:
+Https://Www.researchgate.net/Publication/326010953.
+Https://Doi.org/10.13140/Rg.2.2.13512.78081\]. 2018.”
 
 </div>
 
@@ -924,15 +924,6 @@ of the University of Munich*. Vol. 1. Peabody Museum Press.
 
 Wickham, Hadley. 2011. “Ggplot2.” *Wiley Interdisciplinary Reviews:
 Computational Statistics* 3 (2): 180–85.
-
-</div>
-
-<div id="ref-wickham2019welcome">
-
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the Tidyverse.” *Journal of Open Source Software* 4 (43):
-1686.
 
 </div>
 
