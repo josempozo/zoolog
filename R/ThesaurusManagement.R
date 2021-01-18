@@ -187,6 +187,7 @@ SensitivenessTransformation <- function(x, sensitiveness)
 
 JoinCategories <- function(thesaurus, categories)
 {
+  if(length(categories) == 0) return(thesaurus)
   categStandard <- lapply(categories, StandardizeNomenclature,
                           thesaurus, mark.unknown = TRUE)
   if(any(is.na(unlist(categStandard))))

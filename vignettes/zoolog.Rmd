@@ -276,13 +276,13 @@ levels(dataOCStandardized$Taxon)
 and assign specific colours for each category:
 ```{r, warning = FALSE, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
-ggplot(dataOCStandardized, aes(x=Site, y=Width)) + 
+ggplot(RemoveNACases(dataOCStandardized, "Width"), aes(x=Site, y=Width)) + 
   geom_boxplot(aes(fill=Taxon), 
                notch=TRUE, alpha=0, lwd=0.377, outlier.alpha = 0,
-               width = 0.5,
-               position=position_dodge(0.75), na.rm = TRUE,
+               width = 0.5, na.rm = TRUE,
+               position=position_dodge(0.75),
                show.legend = FALSE) + 
-  geom_point(aes(colour=Taxon, shape=Taxon), 
+  geom_point(aes(colour=Taxon, shape=Taxon, na.rm = TRUE), 
              alpha=0.7, size=0.8, 
              position = position_jitterdodge(jitter.width=.3),
              na.rm = TRUE) +

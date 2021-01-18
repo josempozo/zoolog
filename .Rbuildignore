@@ -13,3 +13,6 @@
 ^tests/\.DS_Store$
 ^tests/testthat\.DS_Store$
 ^vignettes/\.DS_Store$
+^README_files$
+^README\.md$
+^README\.Rmd$

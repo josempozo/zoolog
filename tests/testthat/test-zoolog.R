@@ -1,5 +1,9 @@
 ## Several tests for the main zoolog functions.
 ## For this we need a precomputed test data:
+
+lc_collocate0 <- Sys.getlocale("LC_COLLATE")
+Sys.setlocale("LC_COLLATE","C")
+
 load(system.file("testdata", "testData.rda", package="zoolog"))
 
 categories = list(ovis = c("ovis", "capra", "oc"))
@@ -11,7 +15,7 @@ test_that("LogRatios provides expected result on data example.", {
 
 test_that("RemoveNACases on data example with log-ratios.", {
   expect_equal(RemoveNACases(testDataWithLog),
-               RemoveNACases(testDataWithLog),
+               testDataWithLogPruned,
                tolerance = 1e-10
   )
 })
@@ -26,8 +30,7 @@ test_that("RemoveNACases on data example.", {
   exampleMeasureNames <- colnames(testData)[22:35]
   expect_equal(RemoveNACases(testData,
                              measureNames = exampleMeasureNames),
-               RemoveNACases(testData,
-                             measureNames = exampleMeasureNames),
+               testDataPruned,
                tolerance = 1e-10
   )
 })
@@ -37,3 +40,5 @@ test_that("LogRatios provides expected result on pruned data example.", {
                          joinCategories = categories),
                testDataPrunedWithLog, tolerance=1e-10)
 })
+
+invisible(Sys.setlocale("LC_COLLATE",lc_collocate0))

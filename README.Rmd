@@ -4,8 +4,8 @@ author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Niet
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: vignettes/zoolog.bib
-output: md_document
-#output: github_document
+#output: md_document
+output: github_document
 vignette: >
   %\VignetteIndexEntry{zoolog}
   %\VignetteEngine{knitr::rmarkdown}
@@ -277,7 +277,7 @@ levels(dataOCStandardized$Taxon)
 and assign specific colours for each category:
 ```{r, warning = FALSE, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
-ggplot(dataOCStandardized, aes(x=Site, y=Width)) + 
+ggplot(RemoveNACases(dataOCStandardized, "Width"), aes(x=Site, y=Width)) + 
   geom_boxplot(aes(fill=Taxon), 
                notch=TRUE, alpha=0, lwd=0.377, outlier.alpha = 0,
                width = 0.5,
