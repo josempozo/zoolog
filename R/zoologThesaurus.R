@@ -53,7 +53,7 @@
 #' semicolon separated format. Thus, they can be examined in any text editor
 #' or imported into any spreadsheet application. The files are:
 #' \describe{
-#'   \item{\code{zooLogThesaurusSet.csv}}{Defines the main structure of the
+#'   \item{\code{zoologThesaurusSet.csv}}{Defines the main structure of the
 #'     thesaurus set. It has a row for each thesaurus and seven columns
 #'     (\emph{ThesaurusName}, \emph{FileName}, \emph{CaseSensitive},
 #'     \emph{AccentSensitive}, \emph{PunctuationSensitive},
