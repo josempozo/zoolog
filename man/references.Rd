@@ -44,9 +44,7 @@ following publications and resources:
 \item{Cattle - Bos taurus}{\enumerate{
 \item Nieto-Espinet, A. (2018). Element measure standard biometrical data
 from a cow dated to the Early Bronze Age (Minferri, Catalonia), digital
-resource, available at:
-\url{https://www.researchgate.net/publication/326010953} or
-\url{https://doi.org/10.13140/RG.2.2.13512.78081}.
+resource, available at \doi{10.13140/RG.2.2.13512.78081}.
 \item \emph{Bos taurus} Inv.nr. 2426: Hinterwälder; female; 17 years old;
 live weight: 340 kg; withers height: 113 cm, from reference collection
 in the Integrative Prähistorische und Naturwissenschaftliche
