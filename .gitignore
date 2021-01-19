@@ -12,3 +12,5 @@ man/.DS_Store
 tests/.DS_Store
 tests/testthat/.DS_Store
 vignettes/.DS_Store
+doc
+Meta
