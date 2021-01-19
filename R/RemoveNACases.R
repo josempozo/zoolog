@@ -60,5 +60,10 @@ RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
   # It takes also into account if factors in the original data.frame can
   # be considered numeric or logical in the subset one.
   as.data.frame(lapply(prunedData,
-                       function(x) utils::type.convert(as.character(x))))
+                       function(x) {
+                         y <- utils::type.convert(as.character(x),
+                                                  as.is = FALSE)
+                         if(is.character(x) & is.factor(y)) y <- x
+                         return(y)
+                       }), stringsAsFactors = FALSE)
 }
