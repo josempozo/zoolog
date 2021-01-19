@@ -60,6 +60,9 @@
 #'                          fileEncoding = "UTF-8")
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExample)[, -c(6:20,32:63)]
+#' ## We keep now only the first 1000 cases to make the example run sufficiently
+#' ## fast. Avoid this step if you want to process the full example dataset.
+#' dataExample <- dataExample[1:1000, ]
 #'
 #' ## Compute the log-ratios with respect to the default reference in the
 #' ## package zoolog:

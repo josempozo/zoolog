@@ -119,7 +119,8 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote="\"", header=TRUE, na="",
-                 fileEncoding="UTF-8")
+                 fileEncoding="UTF-8",
+                 stringsAsFactors = TRUE)
 ```
 
 We now calculate the log-ratios using the function `LogRatios`. Only measurements that have an associated standard will be included in this calculation. The log values will appear as new columns with the prefix 'log' following the original columns with the raw measurements:
@@ -276,13 +277,13 @@ levels(dataOCStandardized$Taxon)
 and assign specific colours for each category:
 ```{r, warning = FALSE, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 Ocolour <- c("#A2A475", "#D8B70A", "#81A88D")
-ggplot(RemoveNACases(dataOCStandardized, "Width"), aes(x=Site, y=Width)) + 
+ggplot(dataOCStandardized, aes(x=Site, y=Width)) + 
   geom_boxplot(aes(fill=Taxon), 
                notch=TRUE, alpha=0, lwd=0.377, outlier.alpha = 0,
                width = 0.5, na.rm = TRUE,
                position=position_dodge(0.75),
                show.legend = FALSE) + 
-  geom_point(aes(colour=Taxon, shape=Taxon, na.rm = TRUE), 
+  geom_point(aes(colour=Taxon, shape=Taxon), 
              alpha=0.7, size=0.8, 
              position = position_jitterdodge(jitter.width=.3),
              na.rm = TRUE) +
