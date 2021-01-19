@@ -4,7 +4,15 @@ author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Niet
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: zoolog.bib
-output: rmarkdown::html_vignette
+## to create the vignettes 'outside' the package, with table of content (toc)
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+## to create the vignettes 'inside' the package, without table of content (toc)
+# output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{zoolog}
   %\VignetteEngine{knitr::rmarkdown}
