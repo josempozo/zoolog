@@ -1,6 +1,6 @@
 #' References
 #'
-#' Several osteometrical references are provided to enable
+#' Several osteometrical references are provided in \pkg{zoolog} to enable
 #' researchers to use the one of their choice. The user can also use their
 #' own osteometrical reference if preferred.
 #'
