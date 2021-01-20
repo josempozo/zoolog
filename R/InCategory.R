@@ -31,5 +31,7 @@ InCategory <- function(x, category, thesaurus)
   thesList <- lapply(thesaurus, function(a) a[a!=""])
   category <- StandardizeNomenclature(category, thesaurus)
   namesInCategory <- as.character(unlist(thesList[category]))
+  namesInCategory <- NormalizeForSensitiveness(thesaurus, namesInCategory)$x
+  x <- NormalizeForSensitiveness(thesaurus, x)$x
   x %in% namesInCategory
 }

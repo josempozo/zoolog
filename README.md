@@ -1,9 +1,9 @@
 ***zoolog***:  
-Zooarcheological Analysis with Log-Ratios.
+Zooarcheological Analysis with Log-Ratios
 ================
 Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
 Nieto-Espinet and Silvia Guimarães Chiarelli
-2021-01-19
+2021-01-20
 
 # Introduction
 
@@ -14,9 +14,6 @@ ratios are used to compare the relative (rather than the absolute)
 dimensions of animals from archaeological contexts. ***zoolog*** is also
 able to seamlessly integrate data and references with heterogeneous
 nomenclature, which is internally managed by a *zoolog* thesaurus.
-
-Find more details in the ***zoolog***
-[documentation](https://josempozo.github.io/zoolog/vignettes/)
 
 ## Installation
 

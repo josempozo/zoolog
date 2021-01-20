@@ -22,23 +22,31 @@ Authors@R: c(
            role = c("ctb"),
            email = "biguimaraes@hotmail.com",
            comment = c(ORCID = "0000-0002-3778-3315")))
-Description: This package is designed to help zooarchaeologists to calculate 
-    log ratios from measurements following: 
+Description: Includes functions and reference data to 
+    generate and manipulate log-ratios (also known as log size index (LSI)
+    values) from measurements obtained on zooarchaeological material. Log
+    ratios are used to compare the relative (rather than the absolute)
+    dimensions of animals from archaeological contexts. ***zoolog*** is also
+    able to seamlessly integrate data and references with heterogeneous
+    nomenclature, which is internally managed by a *zoolog* thesaurus.
+Refereces:    
+    following: 
     Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
         archaeological sites”, Institut für Palaeoanatomie, 
         Domestikationsforschung und Geschichte der Tiermedizin of the 
         University of Munich (Vol. 1). Peabody Museum Press.
+        (<https://www.hup.harvard.edu/catalog.php?isbn=9780873659505> or
+        <https://books.google.es/books/about/A_Guide_to_the_Measurement_of_Animal_Bon.html?id=UogknwEACAAJ&redir_esc=y>)
     and 
     Davis, S. J. M. (1992) “A rapid method for recording information about 
         mammal bones from archaeological sites”. London: HBMC AM Laboratory 
         report 19/92. (for HTC).
-    Functions in zoolog package allow users to read data, calculate the log 
-    ratios and visualize the results. The standards used originate from: 
+        (<https://www.academia.edu/527177/A_rapid_method_for_recording_information_about_mammal_bones_from_archaeological_sites>)
+ The standards used originate from: 
     Cattle:
     Nieto-Espinet A. (2018) Element measure standard biometrical data from a 
         cow dated to the Early Bronze Age (Minferri, Catalonia) [digital 
         resource]. Available from: 
-        <https://www.researchgate.net/ publication/326010953> and 
         <doi:10.13140/RG.2.2.13512.78081>.
     Sheep:
     Davis S. (1996) Measurements of a group of adult female shetland sheep 
@@ -53,10 +61,12 @@ Description: This package is designed to help zooarchaeologists to calculate
         Pre-Roman improvements to agricultural production: Evidence from 
         livestock husbandry in late prehistoric Italy. 
         PloS one, 13(12), e0208109.
-    Several fellow colleagues helped building the Thesaurus and increasing the robustness
-    of the code: Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios
-    Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod 
-    Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
+Acknowledgments:
+    Several fellow colleagues helped building the Thesaurus and tested the
+    code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
+    Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, 
+    Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia 
+    Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
     their comments and help.
 License: GPL-3
 Encoding: UTF-8

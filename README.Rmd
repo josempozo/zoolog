@@ -1,5 +1,5 @@
 ---
-title: "***zoolog***:  \n Zooarcheological Analysis with Log-Ratios."
+title: "***zoolog***:  \n Zooarcheological Analysis with Log-Ratios"
 author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"

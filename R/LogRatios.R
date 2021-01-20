@@ -96,9 +96,6 @@ LogRatios <- function(data,
                       refValuesName = "Standard",
                       thesaurusSet = zoologThesaurus,
                       joinCategories = NULL) {
-  # Add columns for log ratios.
-  # One column for each measure present in both the input data
-  # and the reference.
   thesaurusSetForRef <- thesaurusSet
   if(!is.null(joinCategories))
     thesaurusSet <- SmartJoinCategories(thesaurusSet, joinCategories)
