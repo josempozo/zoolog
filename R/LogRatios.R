@@ -125,7 +125,7 @@ LogRatios <- function(data,
     matched <- !is.na(coincident)
     x <- dataStandard[matched, measure]
     y <- refStandard[coincident[matched], refValuesName]
-    measureUserName <- names(data)[names(dataStandard) == measure]
+    measureUserName <- names(data)[which(names(dataStandard) == measure)]
     logMeasure <- paste0(logPrefix, measureUserName)
     data[matched, logMeasure] <- log10(x / y)
   }
