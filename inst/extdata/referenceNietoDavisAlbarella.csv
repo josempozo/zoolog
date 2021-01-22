@@ -35,7 +35,7 @@ bota;TI;SD;33
 bota;TI;Bd;55,2
 bota;TI;Dd;42
 bota;CAL;GL;123
-bota;AS;GL;62
+bota;AS;GLl;62
 bota;AS;Bd;39
 bota;MT;GL;208
 bota;MT;Bp;38,7
@@ -84,13 +84,13 @@ ovar;TI;SD;11,1
 ovar;TI;Bd;25,3
 ovar;TI;Dd;19,8
 ovar;CAL;GL;52,9
-ovar;AS;GL;27
+ovar;AS;GLl;27
 ovar;AS;Bd;17,8
 ovar;AS;Dl;14,9
 ovar;MT;GL;122,8
 ovar;MT;SD;11
 ovar;MT;Bd;22,8
-sudo;AS;GL;61,6
+sudo;AS;GLl;61,6
 sudo;AS;Bd;37,1
 sudo;TI;Bd;55,2
 sudo;TI;Dd;40,9

@@ -43,7 +43,7 @@
 #' @inheritParams LogRatios
 #' @param grouping A list of named character vectors. The list includes a vector
 #' per selected group. Each vector gives the group of measurements in order of
-#' priority. By default the groups are \code{Length = c("GL", "HTC")} and
+#' priority. By default the groups are \code{Length = c("GL", "GLl", "HTC")} and
 #' \code{Width = c("Bd", "BT", "Bp", "SD")}. The order is irrelevant for
 #' \code{method = "average"}.
 #' @param method Character string indicating which method to use for extracting
@@ -77,7 +77,7 @@
 #' @export
 CondenseLogs <- function(data,
                          grouping = list(
-                             Length = c("GL", "HTC"),
+                             Length = c("GL", "GLl", "HTC"),
                              Width = c("Bd", "BT", "Bp", "SD") ),
                          method = "priority"
                         ) {

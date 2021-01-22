@@ -75,26 +75,26 @@ reference values for the main domesticates and red deer: *Bos taurus*, *Ovis ari
 
 * **ReferenceCombi** Includes the most comprehensive reference for each species so more measurements can be considered: the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Male Soay sheep (of known age) and mean measurements from male/female goats (age unknown) from [@clutton1990osteology], the pig measurements from Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg) from IPNA-Basel, and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.    
 
-The details of the reference data are described in \code{\link{References}}.
+The details of the reference data are described in [References](../help/references).
 
 # Functions
 The full list of functions is available under the 'Help' page of zoolog. Here we present the three main ones and describe their use:
 
-* **`LogRatios`** This function computes the log ratios of the measurements relative to standard reference values. Three references are provided with the package. By default the 'ReferenceCombi' is used, as it is the most comprehensive so far. The function includes the option to 'joinCategories' allowing several taxa (typically Ovis, Capra, and unknown Ovis/Capra) to be considered together.
+* [**LogRatios**](../help/LogRatios) This function computes the log ratios of the measurements relative to standard reference values. Three references are provided with the package. By default the 'ReferenceCombi' is used, as it is the most comprehensive so far. The function includes the option to 'joinCategories' allowing several taxa (typically Ovis, Capra, and unknown Ovis/Capra) to be considered together.
 
-* **`RemoveNACases`** This function removes the table rows for which all measurements of interest are non-available (NA). A particular list of measurement names can be explicitly provided or selected by a common initial pattern (e.g. prefix). The default setting removes the rows with no available log ratios to facilitate subsequent analysis of the data.
+* [**RemoveNACases**](../help/RemoveNACases) This function removes the table rows for which all measurements of interest are non-available (NA). A particular list of measurement names can be explicitly provided or selected by a common initial pattern (e.g. prefix). The default setting removes the rows with no available log ratios to facilitate subsequent analysis of the data.
 
-* **`CondenseLogs`** This function condenses the calculated log ratio values into a reduced number of features by grouping log ratio values and selecting or calculating a feature value. By default the selected groups represent a single dimension, i.e. `Length` and `Width`. Only one feature is extracted per group. Currently, two methods are possible: "priority" (default) or "average". This operation is motivated by two circumstances. First, not all measurements are available for every bone specimen, which obstructs their direct comparison and statistical analysis. Second, several measurements can be strongly correlated (e.g. SD and Bd both represent bone width). Thus, considering them as independent would produce an over-representation of bone remains with multiple measurements per axis. Condensing each group of measurements into a single feature (e.g. one measure per axis) alleviates both problems. The default method ("priority"), selects the first available log ratio in each group. We provide the following by-default group and prioritization: For lengths, the first option is GL, then HTC. For widths, the order of priority is: Bd, BT, Bp, SD. This order maximises the robustness and reliability of the measurements, as priority is given to the most abundant, more replicable, and less age dependent measurements.The method 'average' extracts the mean per group, ignoring the non-available log ratios.
+* [**CondenseLogs**](../help/CondenseLogs) This function condenses the calculated log ratio values into a reduced number of features by grouping log ratio values and selecting or calculating a feature value. By default the selected groups represent a single dimension, i.e. `Length` and `Width`. Only one feature is extracted per group. Currently, two methods are possible: "priority" (default) or "average". This operation is motivated by two circumstances. First, not all measurements are available for every bone specimen, which obstructs their direct comparison and statistical analysis. Second, several measurements can be strongly correlated (e.g. SD and Bd both represent bone width). Thus, considering them as independent would produce an over-representation of bone remains with multiple measurements per axis. Condensing each group of measurements into a single feature (e.g. one measure per axis) alleviates both problems. The default method ("priority"), selects the first available log ratio in each group. We provide the following by-default group and prioritization: For lengths, the first option is GL, then HTC. For widths, the order of priority is: Bd, BT, Bp, SD. This order maximises the robustness and reliability of the measurements, as priority is given to the most abundant, more replicable, and less age dependent measurements.The method 'average' extracts the mean per group, ignoring the non-available log ratios.
 
 # Thesaurus
 
-A thesaurus set is defined in order to make the methods robust to different nomenclatures used in datasets created by different authors and in different languages. The user can also use other thesaurus sets, or can modify the provided one. In this latter case, please, contact the maintainer at the provided email address so we can include the additions to the new versions of the package. Your name will be added to the list of contributors, as you will help to make the package more robust and comprehensive.
+A [thesaurus set](../help/zoologThesaurus) is defined in order to make the methods robust to different nomenclatures used in datasets created by different authors and in different languages. The user can also use other thesaurus sets, or can modify the provided one. In this latter case, please, contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package. Your name will be added to the list of contributors, as you will help to make the package more robust and comprehensive.
 
 So far, four thesauri are included in **zoolog**:
 
 * **`identifierThesaurus`** refers to the column names that will be considered to calculate the log ratios. So far, it includes the categories 'Taxon', 'Element', 'Measure', and 'Standard'. Each of these categories has different options (e.g.: 'Taxon' includes Taxon, TAX, species, animal, Specie, GenusSpecies, Especie, see below). This enables the `LogRatios` function to recognise the relevant column and compute the log ratios regardless of its name as long as it is included in the relevant Thesaurus (`taxonThesaurus`, `elementThesaurus`, `measureThesaurus`).
 
-* **`taxonThesaurus`** refers to the various possibilities for naming taxa when recording animal bones. This enables the `LogRatios` function to recognise the name of each species and to find the relevant biometrical reference no matter what it is called in the database and the reference file (e.g. if in the user database, 'BT' refers to Bos taurus, but this is written 'bota' in the osteometrical reference). The `LogRatios` function correctly matches these terms because both categories ('BT' and 'bota') are included in the 'Bos taurus' category of the `taxonThesaurus`. To facilitate the comparison of names, the function has been made case, punctuation and spacing insensitive by default ('Bos' is considered same as 'bos' and 'Bos.').You can see the categories currently included as follows:
+* **`taxonThesaurus`** refers to the various possibilities for naming taxa when recording animal bones. This enables the `LogRatios` function to recognise the name of each species and to find the relevant biometrical reference no matter what it is called in the database and the reference file (e.g. if in the user database, 'BT' refers to Bos taurus, but this is written 'bota' in the osteometrical reference). The `LogRatios` function correctly matches these terms because both names ('BT' and 'bota') are included in the 'Bos taurus' category of the `taxonThesaurus`. To facilitate the comparison of names, the function has been made case, punctuation and spacing insensitive by default ('Bos' is considered same as 'bos' and 'Bos.'). You can see the categories currently included as follows:
 
 ```{r}
 library(zoolog)
@@ -133,17 +133,34 @@ data = read.csv2(dataFile,
 
 We now calculate the log-ratios using the function `LogRatios`. Only measurements that have an associated standard will be included in this calculation. The log values will appear as new columns with the prefix 'log' following the original columns with the raw measurements:
 ```{r}
-dataWithLog=LogRatios(data)
+dataWithLog <- LogRatios(data)
 head(dataWithLog)[,-c(6:20,32:63)]
 ```
+If we observe more carefully the example dataset, we can see that the *astragali* have been assigned a *GL* measurement, instead of *GLl*. For this we can use the function [InCategory](../help/InCategory), which allows to select cases taking into account the thesaurus:
+```{r}
+AScases <- InCategory(dataWithLog$Os, "talus", zoologThesaurus$element)
+head(dataWithLog[AScases,-c(6:20,32:63)])
+```
+This is a dataset simplification that has been used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+
+The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
+```{r}
+GLandGLl <- list(c("GL", "GLl"))
+dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
+head(dataWithLog[AScases,-c(6:20,32:63)])
+```
+This option allows to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column *logGL*.
+
+## Using same ovis referece for all caprine
 We could be interested in obtaining the log ratios of all caprine, including *ovis aries*, *capra hircus*, and *ovis capra*, with respect to the reference for *ovis aries*. This can be set using the argument `joinCategories`.
 ```{r}
-categories <- list(ovar = c("sheep", "capra", "oc"))
-dataWithLog=LogRatios(data, joinCategories = categories)
+caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
+dataWithLog=LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
 head(dataWithLog)[,-c(6:20,32:63)]
 ```
 Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (`ovar`).
 
+## Pruning the data from cases with no available measure
 The cases without log-ratios can be removed to facilitate subsequent analyses:
 ```{r}
 dataWithLogPruned=RemoveNACases(dataWithLog)
@@ -212,9 +229,8 @@ nrow(dataOCWithLength)
 ```
 cases.
 
-### Plotting the data
+### Horizontal Boxplot with dots
 
-#### Horizontal Boxplot with dots
 For the example plots we will use the package **ggplot2**.
 ```{r, echo = FALSE}
 library(ggplot2)
@@ -240,7 +256,7 @@ ggplot(dataOCStandardized, aes(x=Length, y=Site)) +
   xlab("Length log-ratio")
 ```
 
-#### Histograms 
+### Histograms
 We may choose to plot the width data as an histogram: 
 ```{r, fig.asp = 0.7, fig.width = 6, fig.align="center"}
 ggplot(dataOCStandardized, aes(Width)) +
@@ -258,18 +274,27 @@ ggplot(dataOCStandardized, aes(Width)) +
   scale_y_continuous(breaks=c(0,10,20,30))
 ```
 
-We may run a statistical test (here a Student t-test) to check whether the differences between sites have statistical significance on widths:
-```{r}
-t.test(Width ~ Site, dataOCStandardized, 
-       subset = Site %in% c("OLD", "ALP"))
-```
-and/ or in lengths:
+### Example of statistical test
+We may run a statistical test (here a Student t-test) to check whether the differences between sites have statistical significance on lengths:
 ```{r}
 t.test(Length ~ Site, dataOCStandardized, 
        subset = Site %in% c("OLD", "ALP"))
 ```
 
-#### Another visualisation for boxplot with dots 
+or on widths:
+```{r}
+t.test(Width ~ Site, dataOCStandardized, 
+       subset = Site %in% c("OLD", "ALP"))
+```
+
+For testing all possible pairs, the p-values must be adjusted for multiple comparisons:
+```{r, message=FALSE}
+library(rstatix)
+pairwise_t_test(dataOCStandardized, Width ~ Site, p.adjust.method = "holm")
+```
+
+
+### Another visualisation for boxplot with dots 
 Here we reorder the factor levels of `dataOCStandardized$Taxon` to make
 the order of the boxplots more intuitive.
 
@@ -303,7 +328,7 @@ ggplot(dataOCStandardized, aes(x=Site, y=Width)) +
 ```
 
 
-#### Another visualisation for sheep and goat histograms:  
+### Another visualisation for sheep and goat histograms:  
 
 ```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
 TaxonSiteWidthHist <- ggplot(dataOCStandardized, aes(Width, fill=Taxon)) + 

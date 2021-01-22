@@ -29,38 +29,6 @@ Description: Includes functions and reference data to
     dimensions of animals from archaeological contexts. ***zoolog*** is also
     able to seamlessly integrate data and references with heterogeneous
     nomenclature, which is internally managed by a *zoolog* thesaurus.
-Refereces:    
-    following: 
-    Von den Driesch, A. (1976) “A guide to the measurement of animal bones from 
-        archaeological sites”, Institut für Palaeoanatomie, 
-        Domestikationsforschung und Geschichte der Tiermedizin of the 
-        University of Munich (Vol. 1). Peabody Museum Press.
-        (<https://www.hup.harvard.edu/catalog.php?isbn=9780873659505> or
-        <https://books.google.es/books/about/A_Guide_to_the_Measurement_of_Animal_Bon.html?id=UogknwEACAAJ&redir_esc=y>)
-    and 
-    Davis, S. J. M. (1992) “A rapid method for recording information about 
-        mammal bones from archaeological sites”. London: HBMC AM Laboratory 
-        report 19/92. (for HTC).
-        (<https://www.academia.edu/527177/A_rapid_method_for_recording_information_about_mammal_bones_from_archaeological_sites>)
- The standards used originate from: 
-    Cattle:
-    Nieto-Espinet A. (2018) Element measure standard biometrical data from a 
-        cow dated to the Early Bronze Age (Minferri, Catalonia) [digital 
-        resource]. Available from: 
-        <doi:10.13140/RG.2.2.13512.78081>.
-    Sheep:
-    Davis S. (1996) Measurements of a group of adult female shetland sheep 
-        skeletons from a single flock: a baseline for zooarchaeologists. 
-        J Archaeol Sci. 23:593–612.
-    Pig:
-    Albarella U, Payne S. (2005) Neolithic pigs from Durrington Walls, 
-        Wiltshire, England: a biometrical database. 
-        J Archaeol Sci. 32(4):589–599.
-    We first used the method of prioritization of measurements in:
-    Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018). 
-        Pre-Roman improvements to agricultural production: Evidence from 
-        livestock husbandry in late prehistoric Italy. 
-        PloS one, 13(12), e0208109.
 Acknowledgments:
     Several fellow colleagues helped building the Thesaurus and tested the
     code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
@@ -78,7 +46,8 @@ Suggests:
     knitr,
     rmarkdown,
     stringi,
-    ggplot2
+    ggplot2,
+    rstatix
 Depends: 
     R (>= 3.0)
 Imports: 

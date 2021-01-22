@@ -6,10 +6,11 @@ Sys.setlocale("LC_COLLATE","C")
 
 load(system.file("testdata", "testData.rda", package="zoolog"))
 
-categories = list(ovis = c("ovis", "capra", "oc"))
+caprineCategories = list(ovis = c("ovis", "capra", "oc"))
 test_that("LogRatios provides expected result on data example.", {
   expect_equal(LogRatios(testData, ref = referenceNietoDavisAlbarella,
-                         joinCategories = categories),
+                         joinCategories = caprineCategories,
+                         mergedMeasures = list(c("GL", "GLl"))),
                testDataWithLog, tolerance = 1e-10)
 })
 
@@ -37,7 +38,8 @@ test_that("RemoveNACases on data example.", {
 
 test_that("LogRatios provides expected result on pruned data example.", {
   expect_equal(LogRatios(testDataPruned, ref = referenceNietoDavisAlbarella,
-                         joinCategories = categories),
+                         joinCategories = caprineCategories,
+                         mergedMeasures = list(c("GL", "GLl"))),
                testDataPrunedWithLog, tolerance=1e-10)
 })
 

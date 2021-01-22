@@ -29,6 +29,20 @@
 #' between the different bone types in the data, just indicates that for any
 #' of them the log ratios must be computed from the same reference.
 #'
+#' There are some measures that are restricted to a subset of bones. For
+#' instance, \emph{GLl} is only relevant for the \emph{astragalus}, while
+#' \emph{GL} is not applicable to it. Thus, there cannot be any ambiguity
+#' between both measures since they can be identified by the bone element.
+#' This justifies that some users have simplified datasets where a single column
+#' records indistinctly \emph{GL} or \emph{GLl}. The optional parameter
+#' \code{mergedMeasures} facilitates the processing of this type of simplified
+#' datasets. For the alluded example,
+#' \code{mergedMeasures = list(c("GL", "GLl"))} automatically selects, for each
+#' bone element, the corresponding measure present in the reference.
+#'
+#' Observe that if \code{mergedMeasures} is set to non mutually exclusive
+#' measures, the behaviour is unpredictable.
+#'
 #' @param data A dataframe with the input measurements.
 #' @param ref A dataframe including the measurement values used as references.
 #' The default \code{ref = referenceCombi} provided as package \pkg{zoolog} data.
@@ -44,6 +58,10 @@
 #' by a category in the reference and includes a set of categories in the data
 #' for which to compute the log ratios with respect to that reference.
 #' When \code{NULL} (default) no grouping is considered.
+#' @param mergedMeasures A list of character vectors. Each vector identifies a
+#' set of measures that the data presents merged in the same column, named as
+#' any of them. This practice only makes sense if only one of the
+#' measures can appear in each bone element.
 #'
 #' @return
 #' A dataframe including the input dataframe and additional columns, one
@@ -95,12 +113,12 @@ LogRatios <- function(data,
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
                       thesaurusSet = zoologThesaurus,
-                      joinCategories = NULL) {
+                      joinCategories = NULL,
+                      mergedMeasures = NULL) {
   thesaurusSetForRef <- thesaurusSet
   if(!is.null(joinCategories))
     thesaurusSet <- SmartJoinCategories(thesaurusSet, joinCategories)
   dataStandard <- StandardizeDataSet(data, thesaurusSet)
-  dataStandard <- StandardizeDataSet(dataStandard, thesaurusSetForRef)
   refStandard <- StandardizeDataSet(ref, thesaurusSetForRef)
   identifiers <- StandardizeNomenclature(identifiers,
                                          thesaurusSet$identifier)
@@ -119,15 +137,19 @@ LogRatios <- function(data,
   # Computation of the log ratios for all tax, elements, and measures.
   for (measure in refMeasuresInData)
   {
-    dataIdentification <- CollapseColumns(dataStandard[, identifiers],
-                                          measure)
-    coincident <- match(dataIdentification, refIdentification)
-    matched <- !is.na(coincident)
-    x <- dataStandard[matched, measure]
-    y <- refStandard[coincident[matched], refValuesName]
-    measureUserName <- names(data)[names(dataStandard) == measure]
-    logMeasure <- paste0(logPrefix, measureUserName)
-    data[matched, logMeasure] <- log10(x / y)
+    refMeasures <- GetGroup(measure, mergedMeasures)
+    for(refMeasure in refMeasures)
+    {
+      dataIdentification <- CollapseColumns(dataStandard[, identifiers],
+                                            refMeasure)
+      coincident <- match(dataIdentification, refIdentification)
+      matched <- !is.na(coincident)
+      x <- dataStandard[matched, measure]
+      y <- refStandard[coincident[matched], refValuesName]
+      measureUserName <- names(data)[which(names(dataStandard) == measure)]
+      logMeasure <- paste0(logPrefix, measureUserName)
+      data[matched, logMeasure] <- log10(x / y)
+    }
   }
   return(data)
 }
@@ -136,3 +158,10 @@ LogRatios <- function(data,
 logPrefix <- "log"
 
 
+GetGroup <- function(x, groups)
+{
+  xInGroup <- which(as.logical(lapply(groups, is.element, el=x)))
+  if(length(xInGroup)==0) return(x)
+  if(length(xInGroup)>1) stop(paste(x, "is included in more than one group."))
+  groups[[xInGroup]]
+}
