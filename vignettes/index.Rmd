@@ -289,8 +289,8 @@ t.test(Width ~ Site, dataOCStandardized,
 
 For testing all possible pairs, the p-values must be adjusted for multiple comparisons:
 ```{r, message=FALSE}
-library(rstatix)
-pairwise_t_test(dataOCStandardized, Width ~ Site, p.adjust.method = "holm")
+library(stats)
+pairwise.t.test(dataOCStandardized$Width, dataOCStandardized$Site, pool.sd = FALSE)
 ```
 
 

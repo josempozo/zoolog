@@ -47,7 +47,7 @@ Suggests:
     rmarkdown,
     stringi,
     ggplot2,
-    rstatix
+    stats
 Depends: 
     R (>= 3.0)
 Imports: 
