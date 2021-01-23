@@ -42,10 +42,17 @@ The zoolog package is based on the measurements and measurement abbreviations de
 
 In general, zooarcheological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
 
-The package includes a Thesaurus to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The Thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. This first version of has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila. We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the Thesaurus so it can be expanded and adapted to any database.
+The package includes a Thesaurus to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The Thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. 
+
+## Acknowledgements
+The thesaurus has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila. 
+
+The references include contributions from Sabine Deschler-Erb and Barbara Stopp.
+
+We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the thesaurus and other references so that *zoolog* can be expanded and adapted to any database.
 
 
-## Installation
+# Installation
 
 You can install the released version of zoolog from [CRAN](https://CRAN.R-project.org) with:
 
@@ -57,7 +64,8 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("josempozo/zoolog@HEAD")
+library(devtools)
+devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force = TRUE)
 ```
 
 
