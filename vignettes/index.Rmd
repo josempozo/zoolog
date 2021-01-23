@@ -64,7 +64,7 @@ devtools::install_github("josempozo/zoolog@HEAD")
 # Reference
 
 The log-ratios are calculated with respect to a standard reference. The package
-**zoolog** includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the mantainer through the provided email address so the new reference is fully accessible and your name added to the list of contributors. 
+**zoolog** includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible. 
 
 The references are provided as dataframes named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
 reference values for the main domesticates and red deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
