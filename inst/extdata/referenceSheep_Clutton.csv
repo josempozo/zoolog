@@ -1,0 +1,72 @@
+TAX;EL;Measure;Standard
+OVAR;Scapula;SLC;18,26
+OVAR;Scapula;GLP;30,54
+OVAR;Scapula;LG;22,95
+OVAR;Scapula;BG;19,66
+OVAR;Humerus;GL;137,43
+OVAR;Humerus;Bp;37,72
+OVAR;Humerus;Dp;40,3
+OVAR;Humerus;SD;13,82
+OVAR;Humerus;Bd;28,62
+OVAR;Humerus;Dd;23,76
+OVAR;Humerus;BT;27,27
+OVAR;Humerus;HTC;15,3
+OVAR;Radius;GL;142,4
+OVAR;Radius;Bp;29,7
+OVAR;Radius;Dp;14,88
+OVAR;Radius;SD;16,03
+OVAR;Radius;Bd;27,64
+OVAR;Radius;Dd;18,47
+OVAR;Ulna;DPA;25,15
+OVAR;Ulna;BPC;18,05
+OVAR;Metacarpus;GL;119,93
+OVAR;Metacarpus;Bp;21,74
+OVAR;Metacarpus;Dp;16
+OVAR;Metacarpus;SD;14,1
+OVAR;Metacarpus;Bd;23,7
+OVAR;Metacarpus;Dd;15,71
+OVAR;Metacarpus;WCM;10,5
+OVAR;Pelvis;LA;25,7
+OVAR;Femur;GL;166,78
+OVAR;Femur;Bp;44,09
+OVAR;Femur;DC;19,36
+OVAR;Femur;SD;14,6
+OVAR;Femur;Bd;36,88
+OVAR;Tibia;GL;193,67
+OVAR;Tibia;Bp;39,42
+OVAR;Tibia;Dp;41,74
+OVAR;Tibia;SD;13,84
+OVAR;Tibia;Bd;24,75
+OVAR;Tibia;Dd;19,62
+OVAR;Astragalus;GLl;26,6
+OVAR;Astragalus;Bd;17,21
+OVAR;Astragalus;Dl;14,41
+OVAR;Calcaneus;GL;52,2
+OVAR;Calcaneus;GB;18,66
+OVAR;Metatarsus;GL;128,66
+OVAR;Metatarsus;Bp;19,01
+OVAR;Metatarsus;Dp;19,79
+OVAR;Metatarsus;SD;11,87
+OVAR;Metatarsus;Bd;22,63
+OVAR;Metatarsus;Dd;15,42
+OVAR;Metatarsus;WCM;9,65
+OVAR;P1 ant;GL;34,74
+OVAR;P1 ant;Bp;11,9
+OVAR;P1 ant;Dp;14,54
+OVAR;P1 ant;SD;9,77
+OVAR;P1 ant;Bd;11,05
+OVAR;P1 post;GL;34,3
+OVAR;P1 post;Bp;11,08
+OVAR;P1 post;Dp;14
+OVAR;P1 post;SD;8,69
+OVAR;P1 post;Bd;9,9
+OVAR;P2 ant;GL;21,62
+OVAR;P2 ant;Bp;11,11
+OVAR;P2 ant;Dp;12,27
+OVAR;P2 ant;Bd;9,69
+OVAR;P2 post;GL;21,14
+OVAR;P2 post;Bp;10,25
+OVAR;P2 post;Dp;11,14
+OVAR;P2 post;Bd;8,47
+OVAR;P3;L;25,5
+OVAR;P3;H;14,59
