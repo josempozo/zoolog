@@ -1,0 +1,42 @@
+TAX;EL;Measure;Standard
+SUDO;Scapula;SLC;28,85
+SUDO;Scapula;GLP;43,95
+SUDO;Scapula;BG;28,80
+SUDO;Humerus;Bp;58,50
+SUDO;Humerus;SD;19,25
+SUDO;Humerus;Bd;47,40
+SUDO;Humerus;BT;35,50
+SUDO;Radius;Bp;34,45
+SUDO;Radius;SD;21,35
+SUDO;Radius;Bd;39,00
+SUDO;Ulna;BPC;25,95
+SUDO;Ulna;DPA;48,15
+SUDO;Ulna;SDO;35,10
+SUDO;Mc 2;Bd;11,85
+SUDO;Mc 3;Bp;22,75
+SUDO;Mc 3;Bd;20,10
+SUDO;Mc 4;Bp;19,40
+SUDO;Mc 4;Bd;18,55
+SUDO;Mc 5;Bd;13,50
+SUDO;Pelvis;LAR;35,10
+SUDO;Pelvis;SH;28,70
+SUDO;Femur;Bp;64,75
+SUDO;Femur;DC;28,40
+SUDO;Femur;Bd;53,00
+SUDO;Tibia;SD;23,25
+SUDO;Tibia;Bd;36,00
+SUDO;Tibia;Bp;57,00
+SUDO;Astragalus;GLl;48,00
+SUDO;Astragalus;GLm;43,70
+SUDO;Calcaneus;GL;91,25
+SUDO;Calcaneus;GB;27,20
+SUDO;Mt 2;Bd;10,25
+SUDO;Mt 3;Bp;16,40
+SUDO;Mt 3;Bd;19,05
+SUDO;Mt 3;LeP;91,75
+SUDO;Mt 4;Bp;17,30
+SUDO;Mt 4;Bd;18,75
+SUDO;Mt 4;LeP;98,15
+SUDO;Mt 5;Bd;11,30
+SUDO;Ph 1;Bp;18,66
+SUDO;Ph 2;Bp;17,93

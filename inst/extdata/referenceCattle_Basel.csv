@@ -1,0 +1,51 @@
+TAX;EL;Measure;Standard
+BOTA;Scapula;SLC;65,89
+BOTA;Scapula;GLP;83,01
+BOTA;Scapula;LG;66,91
+BOTA;Scapula;BG;58,07
+BOTA;Humerus;Bd;95,34
+BOTA;Humerus;BT;85,23
+BOTA;Humerus;SD;44,75
+BOTA;Radius;Bp;94,14
+BOTA;Radius;SD;52,93
+BOTA;Radius;Bd;90,90
+BOTA;Radius;BFp;83,91
+BOTA;Radius;BFd;77,15
+BOTA;Ulna;DPA;78,92
+BOTA;Ulna;SDO;66,11
+BOTA;Metacarpus;Bp;71,79
+BOTA;Metacarpus;SD;38,69
+BOTA;Metacarpus;DD;28,11
+BOTA;Metacarpus;Bd;66,86
+BOTA;Pelvis;LA;87,59
+BOTA;Femur;Bp;142,45
+BOTA;Femur;DC;54,93
+BOTA;Femur;SD;45,84
+BOTA;Tibia;SD;55,04
+BOTA;Tibia;Bd;77,99
+BOTA;Metatarsus;Bp;62,78
+BOTA;Metatarsus;SD;34,62
+BOTA;Metatarsus;DD;31,95
+BOTA;Metatarsus;Bd;64,73
+BOTA;Astragalus;GLl;82,36
+BOTA;Astragalus;GLm;73,28
+BOTA;Astragalus;Dl;48,21
+BOTA;Astragalus;Bd;53,77
+BOTA;Calcaneus;GL;149,79
+BOTA;Centrotarsale;GB;69,62
+BOTA;Phalanx 1 ant.;Bp;34,69
+BOTA;Phalanx 1 ant.;SD;30,08
+BOTA;Phalanx 1 ant.;Bd;33,30
+BOTA;Phalanx 1 ant.;GLpe;62,06
+BOTA;Phalanx 1 post.;Bp;34,12
+BOTA;Phalanx 1 post.;SD;29,36
+BOTA;Phalanx 1 post.;Bd;30,84
+BOTA;Phalanx 1 post.;GLpe;63,86
+BOTA;Phalanx 2 ant.;Bp;33,13
+BOTA;Phalanx 2 ant.;SD;28,35
+BOTA;Phalanx 2 ant.;Bd;28,99
+BOTA;Phalanx 2 ant.;GLpe;41,43
+BOTA;Phalanx 2 post.;Bp;33,03
+BOTA;Phalanx 2 post.;SD;26,29
+BOTA;Phalanx 2 post.;Bd;26,17
+BOTA;Phalanx 2 post.;GLpe;42,39
