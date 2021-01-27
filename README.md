@@ -1,3 +1,5 @@
+[![R-CMD-check](https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg)](https://github.com/josempozo/zoolog/actions) [![Build Status](https://travis-ci.org/josempozo/zoolog.svg?branch=master)](https://travis-ci.org/josempozo/zoolog)
+
 ***zoolog***:  
 Zooarcheological Analysis with Log-Ratios
 ================
