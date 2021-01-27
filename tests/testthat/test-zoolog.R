@@ -8,7 +8,7 @@ load(system.file("testdata", "testData.rda", package="zoolog"))
 
 caprineCategories = list(ovis = c("ovis", "capra", "oc"))
 test_that("LogRatios provides expected result on data example.", {
-  expect_equal(LogRatios(testData, ref = referenceNietoDavisAlbarella,
+  expect_equal(LogRatios(testData, ref = reference$NietoDavisAlbarella,
                          joinCategories = caprineCategories,
                          mergedMeasures = list(c("GL", "GLl"))),
                testDataWithLog, tolerance = 1e-10)
@@ -37,7 +37,7 @@ test_that("RemoveNACases on data example.", {
 })
 
 test_that("LogRatios provides expected result on pruned data example.", {
-  expect_equal(LogRatios(testDataPruned, ref = referenceNietoDavisAlbarella,
+  expect_equal(LogRatios(testDataPruned, ref = reference$NietoDavisAlbarella,
                          joinCategories = caprineCategories,
                          mergedMeasures = list(c("GL", "GLl"))),
                testDataPrunedWithLog, tolerance=1e-10)

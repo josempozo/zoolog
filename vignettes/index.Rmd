@@ -3,7 +3,7 @@ title: "***zoolog***:  \n Zooarcheological Analysis with Log-Ratios"
 author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
 email: "svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
-bibliography: zoolog.bib
+bibliography: ../inst/REFERENCES.bib
 ## to create the vignettes 'outside' the package, with table of content (toc)
 #output:
 #  html_document:
@@ -74,21 +74,21 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force 
 The log-ratios are calculated with respect to a standard reference. The package
 **zoolog** includes three reference datasets. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible. 
 
-The references are provided as dataframes named `ReferenceNietoAlbarellaDavis`, `ReferenceBasel`, and `ReferenceCombi`. They include
+The references are provided as dataframes named `Reference$NietoAlbarellaDavis`, `Reference$Basel`, and `Reference$Combi`. They include
 reference values for the main domesticates and red deer: *Bos taurus*, *Ovis aries*, *Capra hircus*, *Sus domesticus*, and *Cervus elaphus*:
 
-* **ReferenceNietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
+* **Reference$NietoDavisAlbarella** Includes the measurements from a female cow from Late Neolithic Minferri in Catalonia [@nieto2018element], the mean values of the adult female Shetland sheep measurements described in [@davis1996measurements], and the pig measurements from [@albarella2005neolithic].
 
-* **ReferenceBasel** Includes the measurements compiled by Barbara Stopp from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland). The specimens included are: *Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg; withers height: 113 cm), *Ovis musimon* Inv.nr. 2266 (Male; adult), *Capra hircus* Inv.nr. 1597 (Male; adult), *Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg), *Cervus elaphus* Inv.nr. 2271 (male; adult). 
+* **Reference$Basel** Includes the measurements compiled by Barbara Stopp from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland). The specimens included are: *Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg; withers height: 113 cm), *Ovis musimon* Inv.nr. 2266 (Male; adult), *Capra hircus* Inv.nr. 1597 (Male; adult), *Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg), *Cervus elaphus* Inv.nr. 2271 (male; adult). 
 
-* **ReferenceCombi** Includes the most comprehensive reference for each species so more measurements can be considered: the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Male Soay sheep (of known age) and mean measurements from male/female goats (age unknown) from [@clutton1990osteology], the pig measurements from Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg) from IPNA-Basel, and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.    
+* **Reference$Combi** Includes the most comprehensive reference for each species so more measurements can be considered: the Late Neolithic female cow from Minferri site in present-day Catalonia [@nieto2018element], the mean measurements from the Male Soay sheep (of known age) and mean measurements from male/female goats (age unknown) from [@clutton1990osteology], the pig measurements from Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg) from IPNA-Basel, and the red deer measurements from Inv.nr.2271 at IPNA-Basel registered by Barbara Stopp.    
 
-The details of the reference data are described in [References](../help/references).
+The details of the reference data are described in [References](../help/referencesDatabase).
 
 # Functions
 The full list of functions is available under the 'Help' page of zoolog. Here we present the three main ones and describe their use:
 
-* [**LogRatios**](../help/LogRatios) This function computes the log ratios of the measurements relative to standard reference values. Three references are provided with the package. By default the 'ReferenceCombi' is used, as it is the most comprehensive so far. The function includes the option to 'joinCategories' allowing several taxa (typically Ovis, Capra, and unknown Ovis/Capra) to be considered together.
+* [**LogRatios**](../help/LogRatios) This function computes the log ratios of the measurements relative to standard reference values. Three references are provided with the package. By default the 'Reference$Combi' is used, as it is the most comprehensive so far. The function includes the option to 'joinCategories' allowing several taxa (typically Ovis, Capra, and unknown Ovis/Capra) to be considered together.
 
 * [**RemoveNACases**](../help/RemoveNACases) This function removes the table rows for which all measurements of interest are non-available (NA). A particular list of measurement names can be explicitly provided or selected by a common initial pattern (e.g. prefix). The default setting removes the rows with no available log ratios to facilitate subsequent analysis of the data.
 

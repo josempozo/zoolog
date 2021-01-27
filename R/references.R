@@ -17,107 +17,121 @@
 #' @section Data Source:
 #' Currently, the references include reference values for the main domesticates
 #' and reed deer (\emph{Bos taurus}, \emph{Ovis aries}, \emph{Capra hircus},
-#' \emph{Sus domesticus}, and \emph{Cervus elaphus}). originated from the
+#' \emph{Sus domesticus}, and \emph{Cervus elaphus}) originated from the
 #' following publications and resources:
 #'
 #' \describe{
-#'   \item{Cattle - Bos taurus}{\enumerate{
-#'     \item Nieto-Espinet, A. (2018). Element measure standard biometrical data
-#'       from a cow dated to the Early Bronze Age (Minferri, Catalonia), digital
-#'       resource, available at \doi{10.13140/RG.2.2.13512.78081}.
-#'     \item \emph{Bos taurus} Inv.nr. 2426: Hinterwälder; female; 17 years old;
-#'       live weight: 340 kg; withers height: 113 cm, from reference collection
-#'       in the Integrative Prähistorische und Naturwissenschaftliche
-#'       Archäologie (IPNA, University of Basel, Switzerland).
-#'       Measurements provided by Barbara Stopp and Sabine Deschler-Erb.
+#'   \item{**Cattle - *Bos taurus***}{\describe{
+#'     \item{Nieto}{Element measure standard biometrical data
+#'       from a female cow dated to the Early Bronze Age (Minferri, Catalonia),
+#'       in \insertCite{nieto2018element;textual}{zoolog}.
+#'     }
+#'     \item{Basel}{*Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+#'       live weight: 340 kg; withers height: 113 cm), from
+#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'   }}
-#'   \item{Sheep - Ovis aries}{\enumerate{
-#'     \item Davis, S. J. (1996). Measurements of a group of adult female
-#'       Shetland sheep skeletons from a single flock: a baseline for
-#'       zooarchaeologists. Journal of archaeological science, 23(4), 593-612.
-#'       Mean values of the adult female Shetland sheep measurements have been
-#'       used.
-#'     \item \emph{Ovis musimon} Inv.nr. 2266 (Male; adult), from reference
-#'       collection in the Integrative Prähistorische und Naturwissenschaftliche
-#'       Archäologie (IPNA, University of Basel, Switzerland). Measurements
-#'       provided by Barbara Stopp and Sabine Deschler-Erb.
-#'     \item Clutton-Brock, J., Dennis-Bryan, K., Armitage, P. L., & Jewell,
-#'       P. A. (1990). Osteology of the Soay sheep. Bulletin of the British
-#'       Museum, Natural History. Zoology, 56(1), 1-56. Mean measurements from
-#'       the Soay sheep males aged.
+#'   \item{**Sheep - *Ovis aries***}{\describe{
+#'     \item{Davis}{Mean values of measurements from a group of adult female
+#'       Shetland sheep skeletons from a single flock
+#'     \insertCite{davis1996measurements}{zoolog}.
+#'     }
+#'     \item{Basel}{*Ovis musimon* Inv.nr. 2266 (male; adult), from
+#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
+#'     \item{Clutton}{Mean measurements from a group of Soay known-age sheep males
+#'       \insertCite{clutton1990osteology}{zoolog}.}
 #'   }}
-#'   \item{Goat - Capra hircus}{\enumerate{
-#'     \item Clutton-Brock, J., Dennis-Bryan, K., Armitage, P. L., & Jewell,
-#'       P. A. (1990). Osteology of the Soay sheep. Bulletin of the British
-#'       Museum, Natural History. Zoology, 56(1), 1-56. Mean measurements from
-#'       the male/female not aged goats.
-#'     \item \emph{Capra hircus} Inv.nr. 1597 (Male; adult), from reference
-#'       collection in the Integrative Prähistorische und Naturwissenschaftliche
-#'       Archäologie (IPNA, University of Basel, Switzerland). Measurements
-#'       provided by Barbara Stopp and Sabine Deschler-Erb.
+#'   \item{**Goat - *Capra hircus***}{\describe{
+#'     \item{Basel}{*Capra hircus* Inv.nr. 1597 (male; adult), from
+#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
+#'     \item{Clutton}{Mean measurements from a group of goats of unknown age
+#'       and sex \insertCite{clutton1990osteology}{zoolog}.}
 #'   }}
-#'   \item{Red deer - Cervus elaphus}{\enumerate{
-#'     \item \emph{Cervus elaphus} Inv.nr.2271 from reference collection in the
-#'       Integrative Prähistorische und Naturwissenschaftliche Archäologie
-#'       (IPNA, University of Basel, Switzerland). Measurements provided by
-#'       Barbara Stopp and Sabine Deschler-Erb.
+#'   \item{**Pig - *Sus domesticus***}{\describe{
+#'     \item{Albarella}{Mean measurements from a group of Late Neolithic
+#'       pigs from Durrington Walls, England
+#'       \insertCite{albarella2005neolithic}{zoolog}.}
+#'     \item{Basel}{*Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life
+#'       weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
+#'   }}
+#'   \item{**Red deer - *Cervus elaphus***}{\describe{
+#'     \item{Basel}{*Cervus elaphus* Inv.nr. 2271 (male; adult) from
+#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'   }}
 #' }
 #'
-#' @section Content of the References:
-#' Each of the three references includes:
-#' \describe{
-#'   \item{\strong{ReferenceNietoDavisAlbarella}}{Includes the
-#'     measurements from a female cow from Late Neolithic Minferri in Catalonia
-#'     \insertCite{nieto2018element}{zoolog}, the mean values of the adult
-#'     female Shetland sheep measurements described in
-#'     \insertCite{davis1996measurements}{zoolog}, and the pig measurements from
-#'     \insertCite{albarella2005neolithic}{zoolog}.}
-#'   \item{\strong{ReferenceBasel}}{Includes the measurements compiled
-#'     by Barbara Stopp from the reference collection in the Integrative
-#'     Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University
-#'     of Basel, Switzerland). The specimens included are: \emph{Bos taurus}
-#'     Inv.nr. 2426 (Hinterwälder; female; 17 years old; live weight: 340 kg;
-#'     withers height: 113 cm), \emph{Ovis musimon} Inv.nr. 2266 (Male; adult),
-#'     \emph{Capra hircus} Inv.nr. 1597 (Male; adult), \emph{Sus scrofa} Inv.nr.
-#'     1446 (male; 2-3 years old; life weight: 120 kg), \emph{Cervus elaphus}
-#'     Inv.nr. 2271 (male; adult).}
-#'   \item{\strong{ReferenceCombi}}{Includes the most comprehensive
-#'     reference for each species so that more measurements can be considered:
-#'     the Late Neolithic female cow from Minferri site in present-day Catalonia
-#'     \insertCite{nieto2018element}{zoolog}, the mean measurements from the
-#'     Soay sheep males aged and mean measurements from male/female not aged
-#'     goats from \insertCite{clutton1990osteology}{zoolog}, the pig
-#'     measurements from Inv.nr. 1446 from IPNA-Basel (male; 2-3 years old; life weight:
-#'     120 kg), and the red deer measurements from Inv.nr.2271 from IPNA-Basel
-#'     registered by
-#'     Barbara Stopp.}
-#' }
+#' The \pkg{zoolog} variable `referencesDatabase` collects all these
+#' references. It is structured as a named list of named lists, following the
+#' hierarchy described above:
+#' ``` {r}
+#' str(referencesDatabase, max.level = 2)
+#' ````
+#'
+#' @section Reference Sets:
+#' The references' database is organized per taxon. However, in general the
+#' data to be analysed includes several taxa. Thus, the reference
+#' dataframe should include one reference specimen for each relevant taxon.
+#' The \pkg{zoolog} variable \code{referenceSets} defines three possible
+#' references:
+#' ``` {r}
+#' referenceSets
+#' ```
+#' Each row defines a reference consisting in a reference source for
+#' each taxon (column). The function
+#' \code{\link{AssembleReference}} allows us to build the reference set
+#' taking the selected taxon-specific references from the
+#' \code{referencesDatabase}.
+#'
+#' The \pkg{zoolog} variable \code{reference} is a named list including the
+#' three references defined by \code{referenceSets}:
+#' ``` {r}
+#' str(reference)
+#' ```
+#'
+#' `reference$Combi` includes the most comprehensive reference for each
+#' species so that more measurements can be considered. It is the default
+#' reference for computing the [log ratios][LogRatios].
+#'
+#' If desired, the user can define their own combinations or can also use
+#' their own references, which must be a dataframe with the format described
+#' above.
 #'
 #' @section File Structure:
-#' The three references are exported variables automatically loaded in
-#' memory. In addition, they are also provided in semicolon separated format
-#' files in the \pkg{zoolog} \code{extdata} folder with corresponding names:
+#' `referencesDatabase`, `refereceSets`, and `reference` are exported variables
+#' automatically loaded in memory. In addition, \pkg{zoolog} provides in the
+#' \code{extdata} folder a set of semicolon separated files (csv), generating
+#' them:
 #' \describe{
-#'   \item{\code{referenceNietoDavisAlbarella.csv}}{}
-#'   \item{\code{referenceBasel.csv}}{}
-#'   \item{\code{referenceCombi.csv}}{}
+#'   \item{`referenceSets.csv`}{Defines `referenceSets`.}
+#'   \item{`referencesDatabase.csv`}{Defines the structure of
+#'     `referencesDatabase`.}
+#'   \item{...}{A csv file for each taxon-specific reference, as named in
+#'     `referencesDatabase.csv`.}
 #' }
+#' ``` {r}
+#' utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
+#'                              package = "zoolog"))
+#' ```
 #'
 #' @references
 #'   \insertAllCited{}
 #'
-#' @name references
-#' @rdname references
-"referenceNietoDavisAlbarella"
+#' @section Acknowledgement:
+#' We are grateful to Barbara Stopp and Sabine
+#' Deschler-Erb for providing the Basel references
+#' \insertCite{stopp2018Basel}{zoolog}
+#' together with the permission to publish them as part of \pkg{zoolog}.
+#'
+#' @name referencesDatabase
+#' @rdname referencesDatabase
+"reference"
 
 #' @format
 #'
-#' @rdname references
-"referenceBasel"
+#' @rdname referencesDatabase
+"referenceSets"
 
 #' @format
 #'
-#' @rdname references
-"referenceCombi"
+#' @rdname referencesDatabase
+"referencesDatabase"
 

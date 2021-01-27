@@ -1,0 +1,11 @@
+Taxon;Source;Filename
+Cattle;Nieto;referenceCattle_Nieto.csv
+Sheep;Davis;referenceSheep_Davis.csv
+Pig;Albarella;referencePig_Albarella.csv
+Cattle;Basel;referenceCattle_Basel.csv
+Goat;Basel;referenceGoat_Basel.csv
+Pig;Basel;referencePig_Basel.csv
+RedDeer;Basel;referenceRedDeer_Basel.csv
+Sheep;Basel;referenceSheep_Basel.csv
+Goat;Clutton;referenceGoat_Clutton.csv
+Sheep;Clutton;referenceSheep_Clutton.csv

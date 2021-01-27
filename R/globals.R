@@ -1,1 +1,1 @@
-utils::globalVariables(c("referenceCombi", "zoologThesaurus"))
+utils::globalVariables(c("reference", "referencesDatabase", "zoologThesaurus"))

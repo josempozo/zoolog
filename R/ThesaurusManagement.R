@@ -176,11 +176,17 @@ NormalizeForSensitiveness <- function(thesaurus, x = NULL)
 
 SensitivenessTransformation <- function(x, sensitiveness)
 {
-  if(!sensitiveness["caseSensitive"])
+  if(is.null(sensitiveness)) return(x)
+  if(is.false.or.na(sensitiveness["caseSensitive"]))
     x <- stringi::stri_trans_general(x, "Any-lower")
-  if(!sensitiveness["accentSensitive"])
+  if(is.false.or.na(sensitiveness["accentSensitive"]))
     x <- stringi::stri_trans_general(x, "Latin-ASCII")
-  if(!sensitiveness["punctuationSensitive"])
+  if(is.false.or.na(sensitiveness["punctuationSensitive"]))
     x <- gsub("[[:punct:][:blank:]]+", "", x)
   return(x)
+}
+
+is.false.or.na <- function(x)
+{
+  is.na(x) || !x
 }

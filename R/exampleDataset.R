@@ -59,9 +59,9 @@
 #' @examples
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
-#' dataExample <- read.csv2(dataFile,
-#'                          quote = "\"", na = "", header = TRUE,
-#'                          fileEncoding = "UTF-8")
+#' dataExample <- utils::read.csv2(dataFile,
+#'                                quote = "\"", na = "", header = TRUE,
+#'                                fileEncoding = "UTF-8")
 #'
 #' @references
 #'   \insertAllCited{}

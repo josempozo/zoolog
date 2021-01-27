@@ -45,7 +45,7 @@
 #'
 #' @param data A dataframe with the input measurements.
 #' @param ref A dataframe including the measurement values used as references.
-#' The default \code{ref = referenceCombi} provided as package \pkg{zoolog} data.
+#' The default \code{ref = reference$Combi} provided as package \pkg{zoolog} data.
 #' @param identifiers A vector of column names in \code{ref} identifying
 #' a type of bone. By default \code{identifiers = c("TAX", "EL")}.
 #' @param refMeasuresName The column name in \code{ref} identifying the type of
@@ -58,10 +58,10 @@
 #' by a category in the reference and includes a set of categories in the data
 #' for which to compute the log ratios with respect to that reference.
 #' When \code{NULL} (default) no grouping is considered.
-#' @param mergedMeasures A list of character vectors. Each vector identifies a
-#' set of measures that the data presents merged in the same column, named as
-#' any of them. This practice only makes sense if only one of the
-#' measures can appear in each bone element.
+#' @param mergedMeasures A list of character vectors or a single character vector.
+#' Each vector identifies a set of measures that the data presents merged in the
+#' same column, named as any of them. This practice only makes sense if only one
+#' of the measures can appear in each bone element.
 #'
 #' @return
 #' A dataframe including the input dataframe and additional columns, one
@@ -73,9 +73,9 @@
 #' ## Read an example dataset:
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
-#' dataExample <- read.csv2(dataFile,
-#'                          quote = "\"", na = "", header = TRUE,
-#'                          fileEncoding = "UTF-8")
+#' dataExample <- utils::read.csv2(dataFile,
+#'                                 quote = "\"", na = "", header = TRUE,
+#'                                 fileEncoding = "UTF-8")
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExample)[, -c(6:20,32:63)]
 #' ## We keep now only the first 1000 cases to make the example run sufficiently
@@ -89,26 +89,28 @@
 #' ## present measurements, in both data and reference, with a "log" prefix:
 #' head(dataExampleWithLogs)[, -c(6:20,32:63)]
 #'
-#' ## Read a different reference:
-#' referenceFile <- system.file("extdata", "referenceBasel.csv",
-#'                              package="zoolog")
-#' userReferenceLogs <- read.csv2(referenceFile,
-#'                                quote = "\"", na = "", header = TRUE,
-#'                                fileEncoding = "UTF-8")
-#' ## Compute the log-ratios with respect to this alternative reference:
-#' dataExampleWithLogs2 <- LogRatios(dataExample, ref = userReferenceLogs)
+#' ## Compute the log-ratios with respect to a different reference:
+#' dataExampleWithLogs2 <- LogRatios(dataExample, ref = reference$Basel)
 #' head(dataExampleWithLogs2)[, -c(6:20,32:63)]
+#'
+#' ## Define an altenative reference combining differently the references'
+#' ## database:
+#' refComb <- list(cattle = "Nieto", sheep = "Davis", Goat = "Clutton",
+#'                 pig = "Albarella", redDeer = "Basel")
+#' userReference <- AssembleReference(refComb)
+#' ## Compute the log-ratios with respect to this alternative reference:
+#' dataExampleWithLogs3 <- LogRatios(dataExample, ref = userReference)
 #'
 #' ## We can be interested in including the first phalanges without
 #' ## identification as posterior or anterior, to compute the log ratios with
 #' ## respect to the anterior first phalanges.
 #' categoriesP1 <- list('P1 ant' = c("P1 ant", "P1"))
-#' dataExampleWithLogs3 <- LogRatios(dataExample,
+#' dataExampleWithLogs4 <- LogRatios(dataExample,
 #'                                   joinCategories = categoriesP1)
-#' head(dataExampleWithLogs3)[, -c(6:20,32:63)]
+#' head(dataExampleWithLogs4)[, -c(6:20,32:63)]
 #' @export
 LogRatios <- function(data,
-                      ref = referenceCombi,
+                      ref = reference$Combi,
                       identifiers = c("TAX", "EL"),
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
@@ -160,6 +162,7 @@ logPrefix <- "log"
 
 GetGroup <- function(x, groups)
 {
+  if(!is.list(groups)) groups <- list(groups)
   xInGroup <- which(as.logical(lapply(groups, is.element, el=x)))
   if(length(xInGroup)==0) return(x)
   if(length(xInGroup)>1) stop(paste(x, "is included in more than one group."))

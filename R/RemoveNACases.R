@@ -19,14 +19,14 @@
 #' ## Read an example dataset:
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
-#' dataExample <- read.csv2(dataFile,
-#'                          quote = "\"", na = "", header = TRUE,
-#'                          fileEncoding = "UTF-8")
+#' dataExample <- utils::read.csv2(dataFile,
+#'                                 quote = "\"", na = "", header = TRUE,
+#'                                 fileEncoding = "UTF-8")
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExample)[, -c(6:20,32:63)]
 #'
 #' ## Remove the cases not including any measurement present in the reference.
-#' refMeasureNames <- levels(factor(referenceCombi$Measure))
+#' refMeasureNames <- levels(factor(reference$Combi$Measure))
 #' refMeasureNames
 #' dataExamplePruned <- RemoveNACases(dataExample,
 #'                                    measureNames = refMeasureNames)
