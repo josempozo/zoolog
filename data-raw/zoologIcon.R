@@ -13,7 +13,7 @@ theme_icon <- function () {
 
 library(png)
 library(grid)
-img <- readPNG("~/Desktop/zoolog9.png")
+img <- readPNG("~/Desktop/zoolog10.png")
 g <- rasterGrob(img, interpolate=TRUE)
 
 library(hexSticker)
@@ -22,7 +22,7 @@ p <- ggplot(iris, aes(Species, Sepal.Length)) +
   theme_icon()
 p.sticker <- sticker(
   p, package=" ", p_size = 3, h_size = 0.5,
-  s_x = 0.99, s_y = 0.99, s_width = 1.6, s_height = 2.2,
+  s_x = 0.99, s_y = 1.08, s_width = 1.6, s_height = 2.2,
   h_color = "#ffffe9", h_fill = "#c8c846",
-  filename = "inst/icon3b.png", dpi = 600
+  filename = "inst/icon4.png", dpi = 600
 )
