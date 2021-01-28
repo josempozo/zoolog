@@ -1,4 +1,4 @@
-![](inst/logos/zoologIcon.png){align=right, width=1in}  
+<img align="right" width="2" src="inst/logos/zoologIcon.png">  
 ***zoolog***:  
 Zooarcheological Analysis with Log-Ratios
 ================
