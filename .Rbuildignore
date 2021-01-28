@@ -14,8 +14,6 @@
 ^tests/testthat\.DS_Store$
 ^vignettes/\.DS_Store$
 ^README_files$
-^README\.md$
-^README\.Rmd$
 ^doc$
 ^Meta$
 ^\.github$
@@ -25,3 +23,4 @@
 ^docs$
 ^pkgdown$
 ^R.backups$
+^_config.yml$
