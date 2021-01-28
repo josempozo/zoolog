@@ -1,4 +1,4 @@
-***zoolog:***   <img align="right" width="120" src="/inst/logos/zoologIcon.png">
+***zoolog:***   <img align="right" width="110" src="/inst/logos/zoologIcon.png">
 Zooarcheological Analysis with Log-Ratios
 ================
 Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
