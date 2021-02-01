@@ -1,0 +1,51 @@
+TAX;EL;Measure;Standard
+Bos primigenius;Scapula;SLC;69
+Bos primigenius;Scapula;LG;70
+Bos primigenius;Scapula;BG;60
+Bos primigenius;Humerus;GL;359
+Bos primigenius;Humerus;GLC;309
+Bos primigenius;Humerus;Bd;97
+Bos primigenius;Humerus;BT;89
+Bos primigenius;Humerus;SD;46
+Bos primigenius;Radius;GL;320
+Bos primigenius;Radius;Bp;100
+Bos primigenius;Radius;SD;56,5
+Bos primigenius;Radius;Bd;92
+Bos primigenius;Radius;BFp;90
+Bos primigenius;Metacarpus;GL;246
+Bos primigenius;Metacarpus;Bp;74
+Bos primigenius;Metacarpus;SD;40
+Bos primigenius;Metacarpus;Bd;73
+Bos primigenius;Femur;GL;445
+Bos primigenius;Femur;Bp;145
+Bos primigenius;Femur;DC;57
+Bos primigenius;Femur;SD;54
+Bos primigenius;Femur;Bd;116
+Bos primigenius;Tibia;GL;420
+Bos primigenius;Tibia;Bp;126
+Bos primigenius;Tibia;SD;52
+Bos primigenius;Tibia;Bd;78
+Bos primigenius;Metatarsus;Bp;62
+Bos primigenius;Metatarsus;SD;35,5
+Bos primigenius;Metatarsus;GL;280
+Bos primigenius;Metatarsus;Bd;68
+Bos primigenius;Astragalus;GLl;83
+Bos primigenius;Astragalus;Bd;52
+Bos primigenius;Calcaneus;GL;165
+Bos primigenius;Centrotarsale;GB;67
+Bos primigenius;Phalanx 1 ant.;Bp;39
+Bos primigenius;Phalanx 1 ant.;SD;33
+Bos primigenius;Phalanx 1 ant.;Bd;34
+Bos primigenius;Phalanx 1 ant.;GLpe;69
+Bos primigenius;Phalanx 1 post.;Bp;35,5
+Bos primigenius;Phalanx 1 post.;SD;29
+Bos primigenius;Phalanx 1 post.;Bd;35
+Bos primigenius;Phalanx 1 post.;GLpe;72
+Bos primigenius;Phalanx 2 ant.;Bp;36
+Bos primigenius;Phalanx 2 ant.;SD;28
+Bos primigenius;Phalanx 2 ant.;Bd;31
+Bos primigenius;Phalanx 2 ant.;GL;50
+Bos primigenius;Phalanx 2 post.;Bp;34
+Bos primigenius;Phalanx 2 post.;SD;27
+Bos primigenius;Phalanx 2 post.;Bd;29
+Bos primigenius;Phalanx 2 post.;GL;47

@@ -1,4 +1,5 @@
-;Cattle;Sheep;Goat;Pig;RedDeer
-NietoDavisAlbarella;Nieto;Davis;;Albarella;
-Basel;Basel;Basel;Basel;Basel;Basel
-Combi;Nieto;Clutton;Clutton;Basel;Basel
+;Bos taurus;Bos primigenius;Ovis aries;Ovis orientalis;Capra hircus;Capra aegagrus;Sus domesticus;Sus scrofa;Cervus elaphus
+NietoDavisAlbarella;Nieto;;Davis;;;;Albarella;;
+Basel;Basel;;;Basel;Basel;;;Basel;Basel
+Combi;Nieto;;Clutton;;Clutton;;;Basel;Basel
+Groningen;;Degerbol;;Uerpmann;;Uerpmann;;Hongo;

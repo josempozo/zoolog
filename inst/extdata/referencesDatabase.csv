@@ -1,11 +1,16 @@
 Taxon;Source;Filename
-Cattle;Nieto;referenceCattle_Nieto.csv
-Sheep;Davis;referenceSheep_Davis.csv
-Pig;Albarella;referencePig_Albarella.csv
-Cattle;Basel;referenceCattle_Basel.csv
-Goat;Basel;referenceGoat_Basel.csv
-Pig;Basel;referencePig_Basel.csv
-RedDeer;Basel;referenceRedDeer_Basel.csv
-Sheep;Basel;referenceSheep_Basel.csv
-Goat;Clutton;referenceGoat_Clutton.csv
-Sheep;Clutton;referenceSheep_Clutton.csv
+Bos taurus;Nieto;referenceCattle_Nieto.csv
+Bos taurus;Basel;referenceCattle_Basel.csv
+Bos primigenius;Degerbol;referenceCattle_Degerbol.csv
+Ovis aries;Davis;referenceSheep_Davis.csv
+Ovis orientalis;Basel;referenceSheep_Basel.csv
+Ovis aries;Clutton;referenceSheep_Clutton.csv
+Ovis orientalis;Uerpmann;referenceSheep_Uerpmann.csv
+Capra hircus;Basel;referenceGoat_Basel.csv
+Capra hircus;Clutton;referenceGoat_Clutton.csv
+Capra aegagrus;Uerpmann;referenceGoat_Uerpmann.csv
+Sus domesticus;Albarella;referencePig_Albarella.csv
+Sus scrofa;Basel;referencePig_Basel.csv
+Sus scrofa;Hongo;referencePig_Hongo.csv
+Sus scrofa;Payne;referencePig_Payne.csv
+Cervus elaphus;Basel;referenceRedDeer_Basel.csv

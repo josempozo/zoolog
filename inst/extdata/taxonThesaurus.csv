@@ -1,1 +1,11 @@
-bos taurus;ovis aries;capra hircus;ovis capra;sus domesticus;cervus elaphusbota;ovar;cahi;oc;sudo;ceelbos;ovis;capra;caprine;sus;cervuscattle;sheep;goat;ovis/capra;pig;red deerBT;OA;CH;s/g;SS;CEbovino;oveja;cabra;sheep/goat;cerdo;ciervoGrands Bovides Boeuf;Ovicaprines Mouton;pecora;Sh/G;Suides Porc;Cervides Cerfvaca;ov;cabra;ovicaprino;porc;CEEB;ovella;CAH;O/C;;cervol;OVA;;Ovicaprines Ovis-Capra;;ciervo;;;ovicapri;;;;;O;;
+bos taurus;bos primigenius;ovis aries;ovis orientalis;capra hircus;capra aegagrus;ovis/capra;sus domesticus;sus scrofa;cervus elaphus
+bota;BP;ovar;ovis musimon;cahi;wild goat;oc;sudo;wild boar;ceel
+bos;bos prim;ovis;muflon;capra;cabra salvatge;caprine;sus;senglar;cervus
+cattle;auroch;sheep;mouflon;goat;cabra selvagem ;s/g;pig;porc senglar;red deer
+BT;urus;OA;;CH;cabra salvaje;sheep/goat;SS;jabali;CE
+bovino;ure;oveja;;cabra;chevre sauvage;Sh/G;cerdo;javali;ciervo
+Grands Bovides Boeuf;uro;Ovicaprines Mouton;;pecora;;ovicaprino;Suides Porc;sanglier;Cervides Cerf
+vaca;auroque;ov;;cabra;;O/C;porc;wss;CEE
+B;;ovella;;CAH;;Ovicaprines Ovis-Capra;;;cervol
+;;OVA;;;;ovicapri;;;ciervo
+;;;;;;O;;;

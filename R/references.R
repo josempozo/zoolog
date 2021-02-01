@@ -21,37 +21,52 @@
 #' following publications and resources:
 #'
 #' \describe{
-#'   \item{**Cattle - *Bos taurus***}{\describe{
-#'     \item{Nieto}{Element measure standard biometrical data
-#'       from a female cow dated to the Early Bronze Age (Minferri, Catalonia),
-#'       in \insertCite{nieto2018element;textual}{zoolog}.
+#'   \item{**Cattle - *Bos***}{\describe{
+#'     \item{Nieto}{*Bos taurus*. Female cow dated to the Early Bronze Age
+#'       (Minferri, Catalonia), in \insertCite{nieto2018element;textual}{zoolog}.
 #'     }
 #'     \item{Basel}{*Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old;
 #'       live weight: 340 kg; withers height: 113 cm), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
+#'     \item{Degerbøl}{*Bos primigenius*. Female aurochs from
+#'       \insertCite{degerbol1970urus;textual}{zoolog}.}
 #'   }}
-#'   \item{**Sheep - *Ovis aries***}{\describe{
-#'     \item{Davis}{Mean values of measurements from a group of adult female
+#'   \item{**Sheep - *Ovis***}{\describe{
+#'     \item{Davis}{*Ovis aries*. Mean values of measurements from a group of adult female
 #'       Shetland sheep skeletons from a single flock
 #'     \insertCite{davis1996measurements}{zoolog}.
 #'     }
 #'     \item{Basel}{*Ovis musimon* Inv.nr. 2266 (male; adult), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Clutton}{Mean measurements from a group of Soay known-age sheep males
+#'     \item{Clutton}{*Ovis aries*. Mean measurements from a group of Soay known-age sheep males
 #'       \insertCite{clutton1990osteology}{zoolog}.}
+#'     \item{Uerpmann}{*Ovis orientalis* Field Museum of Chicago catalogue
+#'       number: FMC 57951 (female; western Iran)
+#'       from \insertCite{uerpmann1994animal;textual}{zoolog}.}
 #'   }}
-#'   \item{**Goat - *Capra hircus***}{\describe{
+#'   \item{**Goat - *Capra***}{\describe{
 #'     \item{Basel}{*Capra hircus* Inv.nr. 1597 (male; adult), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Clutton}{Mean measurements from a group of goats of unknown age
+#'     \item{Clutton}{*Capra hircus*. Mean measurements from a group of goats of unknown age
 #'       and sex \insertCite{clutton1990osteology}{zoolog}.}
+#'     \item{Uerpmann}{Measurements based on female and male *Capra aegagrus*,
+#'       Natural History Museum in London number: BMNH 651 M and L2 (Taurus
+#'       Mountains in southern Turkey) from
+#'       \insertCite{uerpmann1994animal;textual}{zoolog}.}
 #'   }}
-#'   \item{**Pig - *Sus domesticus***}{\describe{
-#'     \item{Albarella}{Mean measurements from a group of Late Neolithic
+#'   \item{**Pig - *Sus***}{\describe{
+#'     \item{Albarella}{*Sus domesticus* Mean measurements from a group of Late Neolithic
 #'       pigs from Durrington Walls, England
 #'       \insertCite{albarella2005neolithic}{zoolog}.}
 #'     \item{Basel}{*Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life
 #'       weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
+#'     \item{Hongo}{*Sus scrofa*. Averaged left and right measurements of a
+#'       female wild board from near Elaziğ, Turkey. Museum of Comparative
+#'       Zoology, Harvard University, specimen #51621
+#'       \insertCite{hongo2000faunal}{zoolog}.}
+#'     \item{Payne}{Measurements based on a sample of modern wild boar,
+#'       *Sus scrofa libycus*, (male and female; Kizilcahamam, Turkey) from
+#'       \insertCite{payne1988components;textual}{zoolog}, Appendix 2.}
 #'   }}
 #'   \item{**Red deer - *Cervus elaphus***}{\describe{
 #'     \item{Basel}{*Cervus elaphus* Inv.nr. 2271 (male; adult) from
@@ -70,11 +85,18 @@
 #' The references' database is organized per taxon. However, in general the
 #' data to be analysed includes several taxa. Thus, the reference
 #' dataframe should include one reference specimen for each relevant taxon.
-#' The \pkg{zoolog} variable \code{referenceSets} defines three possible
+#' The \pkg{zoolog} variable \code{referenceSets} defines four possible
 #' references:
-#' ``` {r}
+#' ``` {r, eval = FALSE}
 #' referenceSets
 #' ```
+#'
+#' ``` {r, echo=FALSE}
+#' refSetsAux <- referenceSets
+#' refSetsAux[is.na(refSetsAux)] <- ""
+#' knitr::kable(refSetsAux)
+#' ```
+#'
 #' Each row defines a reference consisting in a reference source for
 #' each taxon (column). The function
 #' \code{\link{AssembleReference}} allows us to build the reference set
@@ -82,10 +104,10 @@
 #' \code{referencesDatabase}.
 #'
 #' The \pkg{zoolog} variable \code{reference} is a named list including the
-#' three references defined by \code{referenceSets}:
+#' references defined by \code{referenceSets}:
 #' ``` {r}
 #' str(reference)
-#' ```
+#' ````
 #'
 #' `reference$Combi` includes the most comprehensive reference for each
 #' species so that more measurements can be considered. It is the default
@@ -120,6 +142,10 @@
 #' Deschler-Erb for providing the Basel references
 #' \insertCite{stopp2018Basel}{zoolog}
 #' together with the permission to publish them as part of \pkg{zoolog}.
+#'
+#' We thank also to Francesca Slim and Dimitris Filioglou for providing the
+#' Groningen references
+#' \insertCite{degerbol1970urus,uerpmann1994animal,hongo2000faunal}{zoolog}.
 #'
 #' @name referencesDatabase
 #' @rdname referencesDatabase

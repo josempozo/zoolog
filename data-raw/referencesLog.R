@@ -1,4 +1,4 @@
-## Code to prepare the three reference datasets goes here
+## Code to prepare the reference datasets goes here
 
 currentVariables <- ls()
 #######
@@ -18,7 +18,8 @@ lcCollateC({
                              quote = "\"", na.strings = "",
                              header = TRUE, row.names = 1,
                              stringsAsFactors = FALSE,
-                             fileEncoding = "UTF-8")
+                             fileEncoding = "UTF-8",
+                             check.names = FALSE)
 
   reference <- apply(referenceSets, 1, AssembleReference,
                      ref.db = referencesDatabase,
