@@ -17,7 +17,7 @@ dimensions of animals from archaeological contexts. ***zoolog*** is also
 able to seamlessly integrate data and references with heterogeneous
 nomenclature, which is internally managed by a *zoolog* thesaurus.
 
-Find more details in the ***zoolog***  [documentation](https://josempozo.github.io/zoolog/vignettes/)
+Find more details in the ***zoolog***  [documentation](https://josempozo.github.io/zoolog/articles)
 
 ## Installation
 
