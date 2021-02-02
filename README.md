@@ -2,7 +2,7 @@
 [![Build
 Status](https://travis-ci.org/josempozo/zoolog.svg?branch=master)](https://travis-ci.org/josempozo/zoolog)
 
-# <p>***zoolog**:*  <img align="right" width="110" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"> </p> <p>Zooarcheological Analysis with Log-Ratios</p> 
+# <p>***zoolog**:*</p>  <img align="right" width="110" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"> <p>Zooarcheological Analysis with Log-Ratios</p> 
 > [Jose M Pozo](mailto:josmpozo@gmail.com), [Silvia Valenzuela-Lamas](mailto:svalenzuela@imf.csic.es), 
 [Angela Trentacoste](mailto:angela.trentacoste@arch.ox.ac.uk), [Ariadna Nieto-Espinet](mailto:arinietoespinet@gmail.com) and 
 [Silvia Guimarães Chiarelli](mailto:biguimaraes@hotmail.com)
