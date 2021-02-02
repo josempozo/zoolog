@@ -1,9 +1,10 @@
-***zoolog:***   <img align="right" width="110" src="/inst/logos/zoologIcon.png">
+![](zoolog/inst/logos/zoologIcon.png)  
+***zoolog***:  
 Zooarcheological Analysis with Log-Ratios
 ================
 Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
 Nieto-Espinet and Silvia Guimarães Chiarelli
-2021-01-28
+2021-02-02
 
 [![R-CMD-check](https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg)](https://github.com/josempozo/zoolog/actions)
 [![Build
@@ -37,3 +38,6 @@ install.packages("devtools")
 library(devtools)
 devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force = TRUE)
 ```
+
+Find more details in the ***zoolog***
+[documentation](https://josempozo.github.io/zoolog/).
