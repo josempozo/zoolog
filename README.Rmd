@@ -49,3 +49,5 @@ install.packages("devtools")
 library(devtools)
 devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force = TRUE)
 ```
+
+Find more details in the ***zoolog***  [documentation](https://josempozo.github.io/zoolog/).
