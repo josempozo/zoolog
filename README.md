@@ -1,13 +1,11 @@
-***zoolog***:  <img align="right" width="110" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png">
-Zooarcheological Analysis with Log-Ratios
-================
-Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
-Nieto-Espinet and Silvia Guimarães Chiarelli
-2021-02-02
-
 [![R-CMD-check](https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg)](https://github.com/josempozo/zoolog/actions)
 [![Build
 Status](https://travis-ci.org/josempozo/zoolog.svg?branch=master)](https://travis-ci.org/josempozo/zoolog)
+
+# ***zoolog***: mZooarcheological Analysis with Log-Ratios <img align="right" width="110" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"/>
+> [Jose M Pozo](mailto:josmpozo@gmail.com), [Silvia Valenzuela-Lamas](mailto:svalenzuela@imf.csic.es), [Angela Trentacoste](angela.trentacoste@arch.ox.ac.uk), [Ariadna
+Nieto-Espinet](arinietoespinet@gmail.com) and [Silvia Guimarães Chiarelli](biguimaraes@hotmail.com)
+
 
 The R package ***zoolog*** includes functions and reference data to
 generate and manipulate log-ratios (also known as log size index (LSI)
