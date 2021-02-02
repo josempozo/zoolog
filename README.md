@@ -1,5 +1,4 @@
-![](https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png){align=right width=1in}  
-***zoolog***:  
+***zoolog***:  <img align="right" width="110" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png">
 Zooarcheological Analysis with Log-Ratios
 ================
 Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna
