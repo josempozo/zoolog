@@ -46,10 +46,9 @@ The package includes a Thesaurus to facilitate its usage by research teams acros
 
 ## Acknowledgements
 The thesaurus has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila. 
+The references' database includes contributions from Sabine Deschler-Erb, Barbara Stopp, Francesca Slim, and Dimitris Filioglou.
 
-The references include contributions from Sabine Deschler-Erb and Barbara Stopp.
-
-We are grateful to them for their comments and help. In addition, users are encouraged to contribute to the thesaurus and other references so that *zoolog* can be expanded and adapted to any database.
+We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that *zoolog* can be expanded and adapted to any database.
 
 
 # Installation
