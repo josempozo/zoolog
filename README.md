@@ -1,4 +1,4 @@
-![](zoolog/inst/logos/zoologIcon.png)  
+![](https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png)  
 ***zoolog***:  
 Zooarcheological Analysis with Log-Ratios
 ================
