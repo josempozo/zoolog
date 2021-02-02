@@ -6,7 +6,7 @@ output:
 [![R-CMD-check](https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg)](https://github.com/josempozo/zoolog/actions) [![Build Status](https://travis-ci.org/josempozo/zoolog.svg?branch=master)](https://travis-ci.org/josempozo/zoolog)
 
 ---
-title: "![](inst/logos/zoologIcon.png){align=right width=1in}  \n ***zoolog***:  \n Zooarcheological Analysis with Log-Ratios"
+title: "![](zoolog/inst/logos/zoologIcon.png){align=right width=1in}  \n ***zoolog***:  \n Zooarcheological Analysis with Log-Ratios"
 author: Jose M Pozo^[josmpozo@gmail.com], Silvia Valenzuela-Lamas^[svalenzuela@imf.csic.es], Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli
 email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
