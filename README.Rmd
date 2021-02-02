@@ -11,8 +11,8 @@ author: Jose M Pozo^[josmpozo@gmail.com], Silvia Valenzuela-Lamas^[svalenzuela@i
 email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: inst/REFERENCES.bib
-#output: md_document
-output: github_document
+output: md_document
+# output: github_document
 vignette: >
   %\VignetteIndexEntry{zoolog}
   %\VignetteEngine{knitr::rmarkdown}
