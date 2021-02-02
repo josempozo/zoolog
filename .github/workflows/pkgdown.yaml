@@ -1,1 +1,0 @@
-usethis::use_github_actions("pkgdown")
