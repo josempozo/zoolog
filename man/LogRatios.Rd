@@ -101,22 +101,23 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 dataExample <- utils::read.csv2(dataFile,
                                 quote = "\"", na = "", header = TRUE,
                                 fileEncoding = "UTF-8")
+## For illustration purposes we keep now only a subset of cases to make
+## the example run sufficiently fast.
+## Avoid this step if you want to process the full example dataset.
+dataExample <- dataExample[145:1000, ]
 ## We can observe the first lines (excluding some columns for visibility):
-head(dataExample)[, -c(6:20,32:63)]
-## We keep now only the first 1000 cases to make the example run sufficiently
-## fast. Avoid this step if you want to process the full example dataset.
-dataExample <- dataExample[1:1000, ]
+head(dataExample)[, -c(6:20,32:64)]
 
 ## Compute the log-ratios with respect to the default reference in the
 ## package zoolog:
 dataExampleWithLogs <- LogRatios(dataExample)
 ## The output data frame include new columns with the log-ratios of the
 ## present measurements, in both data and reference, with a "log" prefix:
-head(dataExampleWithLogs)[, -c(6:20,32:63)]
+head(dataExampleWithLogs)[, -c(6:20,32:64)]
 
 ## Compute the log-ratios with respect to a different reference:
 dataExampleWithLogs2 <- LogRatios(dataExample, ref = reference$Basel)
-head(dataExampleWithLogs2)[, -c(6:20,32:63)]
+head(dataExampleWithLogs2)[, -c(6:20,32:64)]
 
 ## Define an altenative reference combining differently the references'
 ## database:
@@ -132,5 +133,5 @@ dataExampleWithLogs3 <- LogRatios(dataExample, ref = userReference)
 categoriesP1 <- list('P1 ant' = c("P1 ant", "P1"))
 dataExampleWithLogs4 <- LogRatios(dataExample,
                                   joinCategories = categoriesP1)
-head(dataExampleWithLogs4)[, -c(6:20,32:63)]
+head(dataExampleWithLogs4)[, -c(6:20,32:64)]
 }

@@ -59,8 +59,8 @@
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 quote = "\"", na = "", header = TRUE,
 #'                                 fileEncoding = "UTF-8")
-#' ## Compute the log-ratios:
-#' dataExampleWithLogs <- LogRatios(dataExample)
+#' ## Compute the log-ratios and select the cases with available log ratios:
+#' dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExampleWithLogs)[, -c(6:20,32:63)]
 #'

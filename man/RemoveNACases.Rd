@@ -36,7 +36,7 @@ dataExample <- utils::read.csv2(dataFile,
                                 quote = "\"", na = "", header = TRUE,
                                 fileEncoding = "UTF-8")
 ## We can observe the first lines (excluding some columns for visibility):
-head(dataExample)[, -c(6:20,32:63)]
+head(dataExample)[, -c(6:20,32:64)]
 
 ## Remove the cases not including any measurement present in the reference.
 refMeasureNames <- levels(factor(reference$Combi$Measure))
@@ -45,12 +45,12 @@ dataExamplePruned <- RemoveNACases(dataExample,
                                    measureNames = refMeasureNames)
 ## The first lines of the output data frame show at least one available
 ## measurement value in the selected list:
-head(dataExamplePruned)[, -c(6:20,32:63)]
+head(dataExamplePruned)[, -c(6:20,32:64)]
 
 ## If we compute first the log-ratios
 dataExampleWithLogs <- LogRatios(dataExample)
 ## the cases not including any log-ratio can be removed with the
 ## default logPrefix
 dataExampleWithLogsPruned <- RemoveNACases(dataExampleWithLogs)
-head(dataExampleWithLogsPruned)[, -c(6:20,32:63)]
+head(dataExampleWithLogsPruned)[, -c(6:20,32:64)]
 }
