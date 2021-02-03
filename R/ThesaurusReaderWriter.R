@@ -55,10 +55,10 @@
 #' \code{\link{zoologThesaurus}} for a description of the thesaurus and
 #' thesaurus set structure,
 #'
-#' \code{\link{Thesaurus Management}},
+#' \code{\link{ThesaurusManagement}},
 #' \code{\link{StandardizeNomenclature}}
 
-#' @name Thesaurus Reader/Writer
+#' @name ThesaurusReaderWriter
 
 #' @rdname ThesaurusReaderWriter
 #' @export

@@ -46,13 +46,13 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    stringi,
     ggplot2,
     stats
 Depends: 
     R (>= 3.0)
 Imports: 
     utils,
+    stringi,
     Rdpack
 RdMacros: Rdpack
 VignetteBuilder: knitr

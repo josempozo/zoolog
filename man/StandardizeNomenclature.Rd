@@ -81,5 +81,5 @@ head(dataStandardized[,1:5])
 \code{\link{zoologThesaurus}} for a description of the thesaurus and
 thesaurus set structure,
 
-\code{\link{ReadThesaurus}}, \code{\link{AddToThesaurus}}
+\code{\link{ThesaurusReaderWriter}}, \code{\link{ThesaurusManagement}}
 }

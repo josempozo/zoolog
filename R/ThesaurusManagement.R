@@ -2,7 +2,7 @@
 #'
 #' Functions to modify and check thesauri.
 #'
-#' @inheritParams Thesaurus Reader/Writer
+#' @inheritParams ThesaurusReaderWriter
 #' @param newName Character vector with new names to be added to the thesaurus.
 #' @param category Character vector identifying the classes where the
 #' new names should be included.
@@ -69,7 +69,7 @@
 #' \code{\link{ReadThesaurus}}, \code{\link{WriteThesaurus}},
 #' \code{\link{StandardizeNomenclature}}
 
-#' @name Thesaurus Management
+#' @name ThesaurusManagement
 
 #' @rdname ThesaurusManagement
 #' @export

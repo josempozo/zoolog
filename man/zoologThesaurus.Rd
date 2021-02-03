@@ -51,7 +51,7 @@ The thesaurus set defined for the package \pkg{zoolog}.
 This is used to make the methods robust to different nomenclatures used
 in datasets created by different authors. The user can also use other
 thesaurus sets, or can modify the provided thesaurus set (see
-\code{\link{Thesaurus Management}} and \code{\link{Thesaurus Reader/Writer}}).
+\code{\link{ThesaurusManagement}} and \code{\link{ThesaurusReaderWriter}}).
 }
 \section{File Structure}{
 

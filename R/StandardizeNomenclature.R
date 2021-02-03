@@ -9,7 +9,7 @@
 #' \code{StandardizeDataSet} standardizes column names and values of
 #' a data frame according to a thesaurus set.
 #'
-#' @inheritParams Thesaurus Reader/Writer
+#' @inheritParams ThesaurusReaderWriter
 #' @param x Character vector.
 #' @param mark.unknown Logical. If \code{FALSE} (default) the strings not found in the
 #' thesaurus are kept without change. If \code{TRUE} the strings not in the
@@ -63,7 +63,7 @@
 #' \code{\link{zoologThesaurus}} for a description of the thesaurus and
 #' thesaurus set structure,
 #'
-#' \code{\link{ReadThesaurus}}, \code{\link{AddToThesaurus}}
+#' \code{\link{ThesaurusReaderWriter}}, \code{\link{ThesaurusManagement}}
 
 #' @name StandardizeNomenclature
 
