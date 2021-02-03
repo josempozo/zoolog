@@ -179,21 +179,14 @@ removing the rows with missing values for all measurements in the list.</p>
                                 quote <span class='op'>=</span> <span class='st'>"\""</span>, na <span class='op'>=</span> <span class='st'>""</span>, header <span class='op'>=</span> <span class='cn'>TRUE</span>,
                                 fileEncoding <span class='op'>=</span> <span class='st'>"UTF-8"</span><span class='op'>)</span>
 <span class='co'>## We can observe the first lines (excluding some columns for visibility):</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA   NA   NA   NA   NA NA  NA  NA
-#&gt; 2  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 3  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 4  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 5  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 6  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt;   Dl HmandM3
-#&gt; 1 NA      NA
-#&gt; 2 NA      NA
-#&gt; 3 NA      NA
-#&gt; 4 NA      NA
-#&gt; 5 NA      NA
-#&gt; 6 NA      NA</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp  SD   DD  Bd Dd BT GLc BFd Dl
+#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA  NA   NA  NA NA NA  NA  NA NA
+#&gt; 2  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4  NA  7.4 8.9  8 NA  NA  NA NA
+#&gt; 3  ALP  1550  7014      oc 1 fal 34.1   NA   NA 9.2 11.1 9.4 NA NA  NA  NA NA
+#&gt; 4  ALP    94  9020      oc 1 fal   NA   NA   NA  NA   NA  NA NA NA  NA  NA NA
+#&gt; 5  ALP    95  9020      oc 1 fal   NA   NA   NA  NA   NA  NA NA NA  NA  NA NA
+#&gt; 6  ALP   326 10105      oc 1 fal   NA   NA   NA  NA   NA  NA NA NA  NA  NA NA</div><div class='input'>
 <span class='co'>## Remove the cases not including any measurement present in the reference.</span>
 <span class='va'>refMeasureNames</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>reference</span><span class='op'>$</span><span class='va'>Combi</span><span class='op'>$</span><span class='va'>Measure</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>refMeasureNames</span>
@@ -203,27 +196,27 @@ removing the rows with missing values for all measurements in the list.</p>
                                    measureNames <span class='op'>=</span> <span class='va'>refMeasureNames</span><span class='op'>)</span>
 <span class='co'>## The first lines of the output data frame show at least one available</span>
 <span class='co'>## measurement value in the selected list:</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExamplePruned</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExamplePruned</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 2  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 3  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 4  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 5  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt; 6  ALP  1550  7014      oc 1 fal 34.1  0.0  0.0  9.2 11.1  9.4   NA NA  NA  NA
-#&gt;   Dl HmandM3
-#&gt; 1 NA      NA
-#&gt; 2 NA      NA
-#&gt; 3 NA      NA
-#&gt; 4 NA      NA
-#&gt; 5 NA      NA
-#&gt; 6 NA      NA</div><div class='input'>
+#&gt; 1  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
+#&gt; 2  ALP  1550  7014      oc 1 fal 34.1   NA   NA  9.2 11.1  9.4   NA NA  NA  NA
+#&gt; 3  OLD   693  8183      oc 1 fal 30.0 10.6 12.4 10.0  8.1  9.5  7.7 NA  NA  NA
+#&gt; 4  OLD   692  8183      oc 1 fal 31.6 10.9 13.5 10.0  7.8  9.7  8.2 NA  NA  NA
+#&gt; 5  OLD   517  2109      oc 1 fal 33.1 12.0 12.9 11.0 10.2 12.0 10.0 NA  NA  NA
+#&gt; 6  ALP  3713  8730    ovar 1 fal 29.4  9.6 11.7  6.7  8.3  7.6   NA NA  NA  NA
+#&gt;   Dl
+#&gt; 1 NA
+#&gt; 2 NA
+#&gt; 3 NA
+#&gt; 4 NA
+#&gt; 5 NA
+#&gt; 6 NA</div><div class='input'>
 <span class='co'>## If we compute first the log-ratios</span>
 <span class='va'>dataExampleWithLogs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='LogRatios.html'>LogRatios</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span>
 <span class='co'>## the cases not including any log-ratio can be removed with the</span>
 <span class='co'>## default logPrefix</span>
 <span class='va'>dataExampleWithLogsPruned</span> <span class='op'>&lt;-</span> <span class='fu'>RemoveNACases</span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogsPruned</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogsPruned</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE Especie       Os   GL   Bp   Dp   SD   DD   Bd Dd BT GLc BFd
 #&gt; 1  ALP  3016  8525    ceel     1fal 50.8 17.9 23.4 15.1 17.8 15.2 NA NA  NA  NA
 #&gt; 2  ALP  2907  8068    ceel     1fal 52.3 20.1 22.6 15.4  1.7  1.6 NA NA  NA  NA
@@ -231,27 +224,27 @@ removing the rows with missing values for all measurements in the list.</p>
 #&gt; 4  ALP  3453 10410    ovar 1fal ant 27.1  9.9 12.3 17.9  9.0  9.0 NA NA  NA  NA
 #&gt; 5  ALP  3455 10410    ovar 1fal ant 27.6  9.6 12.2  7.6  8.9  8.3 NA NA  NA  NA
 #&gt; 6  ALP  3524 10122    ovar 1fal ant 27.7  9.2 11.5  7.5  9.4  8.1 NA NA  NA  NA
-#&gt;   Dl HmandM3       logBd logBFd logBG       logBp logBPC logBT logDd logDl
-#&gt; 1 NA      NA          NA     NA    NA -0.07348283     NA    NA    NA    NA
-#&gt; 2 NA      NA          NA     NA    NA -0.02313980     NA    NA    NA    NA
-#&gt; 3 NA      NA          NA     NA    NA -0.09080741     NA    NA    NA    NA
-#&gt; 4 NA      NA -0.08911977     NA    NA -0.07991177     NA    NA    NA    NA
-#&gt; 5 NA      NA -0.12428419     NA    NA -0.09327573     NA    NA    NA    NA
-#&gt; 6 NA      NA -0.13487726     NA    NA -0.11175913     NA    NA    NA    NA
-#&gt;         logDp logDPA logGB       logGL logGLc logGLP logH logL logLA logLAR
-#&gt; 1          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
-#&gt; 2          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
-#&gt; 3          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
-#&gt; 4 -0.07265930     NA    NA -0.10786052     NA     NA   NA   NA    NA     NA
-#&gt; 5 -0.07620458     NA    NA -0.09992073     NA     NA   NA   NA    NA     NA
-#&gt; 6 -0.10186657     NA    NA -0.09835005     NA     NA   NA   NA    NA     NA
-#&gt;   logLG      logSD logSH logSLC
-#&gt; 1    NA         NA    NA     NA
-#&gt; 2    NA         NA    NA     NA
-#&gt; 3    NA         NA    NA     NA
-#&gt; 4    NA  0.2629585    NA     NA
-#&gt; 5    NA -0.1090810    NA     NA
-#&gt; 6    NA -0.1148333    NA     NA</div></pre>
+#&gt;   Dl       logBd logBFd logBG       logBp logBPC logBT logDd logDl       logDp
+#&gt; 1 NA          NA     NA    NA -0.07348283     NA    NA    NA    NA          NA
+#&gt; 2 NA          NA     NA    NA -0.02313980     NA    NA    NA    NA          NA
+#&gt; 3 NA          NA     NA    NA -0.09080741     NA    NA    NA    NA          NA
+#&gt; 4 NA -0.08911977     NA    NA -0.07991177     NA    NA    NA    NA -0.07265930
+#&gt; 5 NA -0.12428419     NA    NA -0.09327573     NA    NA    NA    NA -0.07620458
+#&gt; 6 NA -0.13487726     NA    NA -0.11175913     NA    NA    NA    NA -0.10186657
+#&gt;   logDPA logGB       logGL logGLc logGLP logH logL logLA logLAR logLG
+#&gt; 1     NA    NA          NA     NA     NA   NA   NA    NA     NA    NA
+#&gt; 2     NA    NA          NA     NA     NA   NA   NA    NA     NA    NA
+#&gt; 3     NA    NA          NA     NA     NA   NA   NA    NA     NA    NA
+#&gt; 4     NA    NA -0.10786052     NA     NA   NA   NA    NA     NA    NA
+#&gt; 5     NA    NA -0.09992073     NA     NA   NA   NA    NA     NA    NA
+#&gt; 6     NA    NA -0.09835005     NA     NA   NA   NA    NA     NA    NA
+#&gt;        logSD logSH logSLC
+#&gt; 1         NA    NA     NA
+#&gt; 2         NA    NA     NA
+#&gt; 3         NA    NA     NA
+#&gt; 4  0.2629585    NA     NA
+#&gt; 5 -0.1090810    NA     NA
+#&gt; 6 -0.1148333    NA     NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

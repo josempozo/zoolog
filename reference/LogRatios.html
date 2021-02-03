@@ -247,76 +247,84 @@ measures, the behaviour is unpredictable.</p>
 <span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='va'>dataFile</span>,
                                 quote <span class='op'>=</span> <span class='st'>"\""</span>, na <span class='op'>=</span> <span class='st'>""</span>, header <span class='op'>=</span> <span class='cn'>TRUE</span>,
                                 fileEncoding <span class='op'>=</span> <span class='st'>"UTF-8"</span><span class='op'>)</span>
+<span class='co'>## For illustration purposes we keep now only a subset of cases to make</span>
+<span class='co'>## the example run sufficiently fast.</span>
+<span class='co'>## Avoid this step if you want to process the full example dataset.</span>
+<span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='va'>dataExample</span><span class='op'>[</span><span class='fl'>145</span><span class='op'>:</span><span class='fl'>1000</span>, <span class='op'>]</span>
 <span class='co'>## We can observe the first lines (excluding some columns for visibility):</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA   NA   NA   NA   NA NA  NA  NA
-#&gt; 2  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 3  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 4  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 5  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 6  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt;   Dl HmandM3
-#&gt; 1 NA      NA
-#&gt; 2 NA      NA
-#&gt; 3 NA      NA
-#&gt; 4 NA      NA
-#&gt; 5 NA      NA
-#&gt; 6 NA      NA</div><div class='input'><span class='co'>## We keep now only the first 1000 cases to make the example run sufficiently</span>
-<span class='co'>## fast. Avoid this step if you want to process the full example dataset.</span>
-<span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='va'>dataExample</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>1000</span>, <span class='op'>]</span>
-
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;     Site N.inv    UE Especie       Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc
+#&gt; 145  ALP  4919 10364    bota    1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA
+#&gt; 146  ALP  2211  7105    bota    1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA
+#&gt; 147  ALP  1257  7093    bota    1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA
+#&gt; 148  ALP  3453 10410    ovar 1fal ant 27.1  9.9 12.3 17.9  9.0  9.0   NA NA  NA
+#&gt; 149  ALP  3455 10410    ovar 1fal ant 27.6  9.6 12.2  7.6  8.9  8.3   NA NA  NA
+#&gt; 150  ALP  3524 10122    ovar 1fal ant 27.7  9.2 11.5  7.5  9.4  8.1   NA NA  NA
+#&gt;     BFd Dl
+#&gt; 145  NA NA
+#&gt; 146  NA NA
+#&gt; 147  NA NA
+#&gt; 148  NA NA
+#&gt; 149  NA NA
+#&gt; 150  NA NA</div><div class='input'>
 <span class='co'>## Compute the log-ratios with respect to the default reference in the</span>
 <span class='co'>## package zoolog:</span>
 <span class='va'>dataExampleWithLogs</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span>
 <span class='co'>## The output data frame include new columns with the log-ratios of the</span>
 <span class='co'>## present measurements, in both data and reference, with a "log" prefix:</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA   NA   NA   NA   NA NA  NA  NA
-#&gt; 2  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 3  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 4  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 5  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 6  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt;   Dl HmandM3 logBd logBFd logBG logBp logBPC logBT logDd logDl logDp logDPA
-#&gt; 1 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt; 2 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt; 3 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt; 4 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt; 5 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt; 6 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA    NA     NA
-#&gt;   logGB logGL logGLc logGLP logH logL logLA logLAR logLG logSD logSH logSLC
-#&gt; 1    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA
-#&gt; 2    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA
-#&gt; 3    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA
-#&gt; 4    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA
-#&gt; 5    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA
-#&gt; 6    NA    NA     NA     NA   NA   NA    NA     NA    NA    NA    NA     NA</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;     Site N.inv    UE Especie       Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc
+#&gt; 145  ALP  4919 10364    bota    1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA
+#&gt; 146  ALP  2211  7105    bota    1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA
+#&gt; 147  ALP  1257  7093    bota    1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA
+#&gt; 148  ALP  3453 10410    ovar 1fal ant 27.1  9.9 12.3 17.9  9.0  9.0   NA NA  NA
+#&gt; 149  ALP  3455 10410    ovar 1fal ant 27.6  9.6 12.2  7.6  8.9  8.3   NA NA  NA
+#&gt; 150  ALP  3524 10122    ovar 1fal ant 27.7  9.2 11.5  7.5  9.4  8.1   NA NA  NA
+#&gt;     BFd Dl       logBd logBFd logBG       logBp logBPC logBT logDd logDl
+#&gt; 145  NA NA          NA     NA    NA          NA     NA    NA    NA    NA
+#&gt; 146  NA NA          NA     NA    NA          NA     NA    NA    NA    NA
+#&gt; 147  NA NA          NA     NA    NA          NA     NA    NA    NA    NA
+#&gt; 148  NA NA -0.08911977     NA    NA -0.07991177     NA    NA    NA    NA
+#&gt; 149  NA NA -0.12428419     NA    NA -0.09327573     NA    NA    NA    NA
+#&gt; 150  NA NA -0.13487726     NA    NA -0.11175913     NA    NA    NA    NA
+#&gt;           logDp logDPA logGB       logGL logGLc logGLP logH logL logLA logLAR
+#&gt; 145          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
+#&gt; 146          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
+#&gt; 147          NA     NA    NA          NA     NA     NA   NA   NA    NA     NA
+#&gt; 148 -0.07265930     NA    NA -0.10786052     NA     NA   NA   NA    NA     NA
+#&gt; 149 -0.07620458     NA    NA -0.09992073     NA     NA   NA   NA    NA     NA
+#&gt; 150 -0.10186657     NA    NA -0.09835005     NA     NA   NA   NA    NA     NA
+#&gt;     logLG      logSD logSH logSLC
+#&gt; 145    NA         NA    NA     NA
+#&gt; 146    NA         NA    NA     NA
+#&gt; 147    NA         NA    NA     NA
+#&gt; 148    NA  0.2629585    NA     NA
+#&gt; 149    NA -0.1090810    NA     NA
+#&gt; 150    NA -0.1148333    NA     NA</div><div class='input'>
 <span class='co'>## Compute the log-ratios with respect to a different reference:</span>
 <span class='va'>dataExampleWithLogs2</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span>, ref <span class='op'>=</span> <span class='va'>reference</span><span class='op'>$</span><span class='va'>Basel</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs2</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA   NA   NA   NA   NA NA  NA  NA
-#&gt; 2  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 3  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 4  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 5  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 6  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt;   Dl HmandM3 logBd logBFd logBG logBp logBPC logBT logDD logDl logDPA logGB
-#&gt; 1 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt; 2 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt; 3 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt; 4 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt; 5 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt; 6 NA      NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA
-#&gt;   logGL logGLP logLA logLAR logLG logSD logSH logSLC
-#&gt; 1    NA     NA    NA     NA    NA    NA    NA     NA
-#&gt; 2    NA     NA    NA     NA    NA    NA    NA     NA
-#&gt; 3    NA     NA    NA     NA    NA    NA    NA     NA
-#&gt; 4    NA     NA    NA     NA    NA    NA    NA     NA
-#&gt; 5    NA     NA    NA     NA    NA    NA    NA     NA
-#&gt; 6    NA     NA    NA     NA    NA    NA    NA     NA</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs2</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;     Site N.inv    UE Especie       Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc
+#&gt; 145  ALP  4919 10364    bota    1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA
+#&gt; 146  ALP  2211  7105    bota    1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA
+#&gt; 147  ALP  1257  7093    bota    1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA
+#&gt; 148  ALP  3453 10410    ovar 1fal ant 27.1  9.9 12.3 17.9  9.0  9.0   NA NA  NA
+#&gt; 149  ALP  3455 10410    ovar 1fal ant 27.6  9.6 12.2  7.6  8.9  8.3   NA NA  NA
+#&gt; 150  ALP  3524 10122    ovar 1fal ant 27.7  9.2 11.5  7.5  9.4  8.1   NA NA  NA
+#&gt;     BFd Dl logBd logBFd logBG logBp logBPC logBT logDD logDl logDPA logGB logGL
+#&gt; 145  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt; 146  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt; 147  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt; 148  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt; 149  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt; 150  NA NA    NA     NA    NA    NA     NA    NA    NA    NA     NA    NA    NA
+#&gt;     logGLP logLA logLAR logLG logSD logSH logSLC
+#&gt; 145     NA    NA     NA    NA    NA    NA     NA
+#&gt; 146     NA    NA     NA    NA    NA    NA     NA
+#&gt; 147     NA    NA     NA    NA    NA    NA     NA
+#&gt; 148     NA    NA     NA    NA    NA    NA     NA
+#&gt; 149     NA    NA     NA    NA    NA    NA     NA
+#&gt; 150     NA    NA     NA    NA    NA    NA     NA</div><div class='input'>
 <span class='co'>## Define an altenative reference combining differently the references'</span>
 <span class='co'>## database:</span>
 <span class='va'>refComb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>cattle <span class='op'>=</span> <span class='st'>"Nieto"</span>, sheep <span class='op'>=</span> <span class='st'>"Davis"</span>, Goat <span class='op'>=</span> <span class='st'>"Clutton"</span>,
@@ -331,35 +339,35 @@ measures, the behaviour is unpredictable.</p>
 <span class='va'>categoriesP1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>'P1 ant'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"P1 ant"</span>, <span class='st'>"P1"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>dataExampleWithLogs4</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span>,
                                   joinCategories <span class='op'>=</span> <span class='va'>categoriesP1</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs4</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc BFd
-#&gt; 1  ALP  3629  8427    avif 1 fal   NA   NA   NA   NA   NA   NA   NA NA  NA  NA
-#&gt; 2  ALP  4918 10364    bota 1 fal 54.0 31.3 30.6 28.1 26.3 27.5 20.0 NA  NA  NA
-#&gt; 3  ALP  4919 10364    bota 1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA  NA
-#&gt; 4  ALP  2211  7105    bota 1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA  NA
-#&gt; 5  ALP  1257  7093    bota 1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA  NA
-#&gt; 6  ALP  4693 10258      oc 1 fal 31.0 10.7 12.4   NA  7.4  8.9  8.0 NA  NA  NA
-#&gt;   Dl HmandM3       logBd logBFd logBG        logBp logBPC logBT        logDd
-#&gt; 1 NA      NA          NA     NA    NA           NA     NA    NA           NA
-#&gt; 2 NA      NA  0.02435935     NA    NA  0.048386306     NA    NA -0.006466042
-#&gt; 3 NA      NA -0.01185283     NA    NA -0.001553828     NA    NA -0.017461427
-#&gt; 4 NA      NA -0.16455335     NA    NA -0.045757491     NA    NA           NA
-#&gt; 5 NA      NA          NA     NA    NA -0.065140989     NA    NA           NA
-#&gt; 6 NA      NA          NA     NA    NA           NA     NA    NA           NA
-#&gt;   logDl        logDp logDPA logGB       logGL logGLc logGLP logH logL logLA
-#&gt; 1    NA           NA     NA    NA          NA     NA     NA   NA   NA    NA
-#&gt; 2    NA  0.008600172     NA    NA -0.01579427     NA     NA   NA   NA    NA
-#&gt; 3    NA  0.025305865     NA    NA -0.01179152     NA     NA   NA   NA    NA
-#&gt; 4    NA -0.075720714     NA    NA -0.07058107     NA     NA   NA   NA    NA
-#&gt; 5    NA -1.045757491     NA    NA -0.03976713     NA     NA   NA   NA    NA
-#&gt; 6    NA           NA     NA    NA          NA     NA     NA   NA   NA    NA
-#&gt;   logLAR logLG       logSD logSH logSLC
-#&gt; 1     NA    NA          NA    NA     NA
-#&gt; 2     NA    NA  0.08697848    NA     NA
-#&gt; 3     NA    NA  0.05324551    NA     NA
-#&gt; 4     NA    NA -0.04786062    NA     NA
-#&gt; 5     NA    NA -0.02928938    NA     NA
-#&gt; 6     NA    NA          NA    NA     NA</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs4</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
+</div><div class='output co'>#&gt;     Site N.inv    UE Especie       Os   GL   Bp   Dp   SD   DD   Bd   Dd BT GLc
+#&gt; 145  ALP  4919 10364    bota    1 fal 54.5 27.9 31.8 26.0 22.8 25.3 19.5 NA  NA
+#&gt; 146  ALP  2211  7105    bota    1 fal 47.6 25.2 25.2 20.6 23.7 17.8   NA NA  NA
+#&gt; 147  ALP  1257  7093    bota    1 fal 51.1 24.1  2.7 21.5 17.0   NA   NA NA  NA
+#&gt; 148  ALP  3453 10410    ovar 1fal ant 27.1  9.9 12.3 17.9  9.0  9.0   NA NA  NA
+#&gt; 149  ALP  3455 10410    ovar 1fal ant 27.6  9.6 12.2  7.6  8.9  8.3   NA NA  NA
+#&gt; 150  ALP  3524 10122    ovar 1fal ant 27.7  9.2 11.5  7.5  9.4  8.1   NA NA  NA
+#&gt;     BFd Dl       logBd logBFd logBG        logBp logBPC logBT       logDd logDl
+#&gt; 145  NA NA -0.01185283     NA    NA -0.001553828     NA    NA -0.01746143    NA
+#&gt; 146  NA NA -0.16455335     NA    NA -0.045757491     NA    NA          NA    NA
+#&gt; 147  NA NA          NA     NA    NA -0.065140989     NA    NA          NA    NA
+#&gt; 148  NA NA -0.08911977     NA    NA -0.079911767     NA    NA          NA    NA
+#&gt; 149  NA NA -0.12428419     NA    NA -0.093275728     NA    NA          NA    NA
+#&gt; 150  NA NA -0.13487726     NA    NA -0.111759134     NA    NA          NA    NA
+#&gt;           logDp logDPA logGB       logGL logGLc logGLP logH logL logLA logLAR
+#&gt; 145  0.02530587     NA    NA -0.01179152     NA     NA   NA   NA    NA     NA
+#&gt; 146 -0.07572071     NA    NA -0.07058107     NA     NA   NA   NA    NA     NA
+#&gt; 147 -1.04575749     NA    NA -0.03976713     NA     NA   NA   NA    NA     NA
+#&gt; 148 -0.07265930     NA    NA -0.10786052     NA     NA   NA   NA    NA     NA
+#&gt; 149 -0.07620458     NA    NA -0.09992073     NA     NA   NA   NA    NA     NA
+#&gt; 150 -0.10186657     NA    NA -0.09835005     NA     NA   NA   NA    NA     NA
+#&gt;     logLG       logSD logSH logSLC
+#&gt; 145    NA  0.05324551    NA     NA
+#&gt; 146    NA -0.04786062    NA     NA
+#&gt; 147    NA -0.02928938    NA     NA
+#&gt; 148    NA  0.26295847    NA     NA
+#&gt; 149    NA -0.10908097    NA     NA
+#&gt; 150    NA -0.11483330    NA     NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

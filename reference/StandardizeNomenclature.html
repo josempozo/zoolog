@@ -255,20 +255,20 @@ thesaurus set structure,</p>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os
 #&gt; 1  ALP  3629  8427    avif 1 fal
-#&gt; 2  ALP  4918 10364    bota 1 fal
-#&gt; 3  ALP  4919 10364    bota 1 fal
-#&gt; 4  ALP  2211  7105    bota 1 fal
-#&gt; 5  ALP  1257  7093    bota 1 fal
-#&gt; 6  ALP  4693 10258      oc 1 fal</div><div class='input'><span class='co'>## Stadardize the dataset:</span>
+#&gt; 2  ALP  4693 10258      oc 1 fal
+#&gt; 3  ALP  1550  7014      oc 1 fal
+#&gt; 4  ALP    94  9020      oc 1 fal
+#&gt; 5  ALP    95  9020      oc 1 fal
+#&gt; 6  ALP   326 10105      oc 1 fal</div><div class='input'><span class='co'>## Stadardize the dataset:</span>
 <span class='va'>dataStandardized</span> <span class='op'>&lt;-</span> <span class='fu'>StandardizeDataSet</span><span class='op'>(</span><span class='va'>dataExample</span>, <span class='va'>zoologThesaurus</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataStandardized</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE      Taxon       Element
 #&gt; 1  ALP  3629  8427       avif first phalanx
-#&gt; 2  ALP  4918 10364 bos taurus first phalanx
-#&gt; 3  ALP  4919 10364 bos taurus first phalanx
-#&gt; 4  ALP  2211  7105 bos taurus first phalanx
-#&gt; 5  ALP  1257  7093 bos taurus first phalanx
-#&gt; 6  ALP  4693 10258 ovis/capra first phalanx</div><div class='input'>
+#&gt; 2  ALP  4693 10258 ovis/capra first phalanx
+#&gt; 3  ALP  1550  7014 ovis/capra first phalanx
+#&gt; 4  ALP    94  9020 ovis/capra first phalanx
+#&gt; 5  ALP    95  9020 ovis/capra first phalanx
+#&gt; 6  ALP   326 10105 ovis/capra first phalanx</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
