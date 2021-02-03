@@ -33,10 +33,11 @@ manipulate log-ratios (also known as log size index (LSI) values) from measureme
 
 The methods included in the package were first developed in the framework of the 
 ERC-Starting Grant 716298 ZooMWest (PI S. Valenzuela-Lamas), and were first used 
-in the paper [@trentacoste2018pre]. They are based on the techniques proposed by [@simpson1941large] and [@simpson1960quantitative], which calculates LSI values as such: 
-
-LSI (log size index) = (log x - log m) = log(x/m)
-
+in the paper [@trentacoste2018pre]. They are based on the techniques proposed by [@simpson1941large] and [@simpson1960quantitative], which calculates *log size index* (LSI) values as: 
+$$
+\mbox{LSI} = \log x - \log x_{\text{ref}} = \log(x/x_\text{ref}),
+$$
+where $x$ is the considered measure value and $x_\text{ref}$ is the corresponding reference value.
 
 The zoolog package is based on the measurements and measurement abbreviations defined in [@von1976guide] and [@davis1992rapid]. Several different sets of standard reference values for calculating the log ratios are included in the package. These standards include several published and widely used biometric datasets (i.e. [@davis1996measurements], [@albarella2005neolithic]) as well as other less known standards. We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. 
 
