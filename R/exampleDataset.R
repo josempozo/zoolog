@@ -2,6 +2,8 @@
 #' @name exampleDataset
 #' @aliases dataValenzuelaLamas2008
 #'
+#' @importFrom Rdpack reprompt
+#'
 #' @description
 #' The dataset provided as an example originates from
 #' \insertCite{valenzuela2008alimentacio}{zoolog}. The dataset is written in
