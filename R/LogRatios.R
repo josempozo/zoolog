@@ -130,7 +130,7 @@ LogRatios <- function(data,
   refValuesName <- StandardizeNomenclature(refValuesName,
                                            thesaurusSet$identifier)
   refMeasures <- levels(as.factor(refStandard[, refMeasuresName]))
-  refMeasuresInData <- intersect(refMeasures, names(dataStandard))
+  refMeasuresInData <- intersect(names(dataStandard), refMeasures)
 
   # Merging tax, element, and measure combinations in a single vector.
   # This combination identifies a single reference value.

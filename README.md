@@ -31,6 +31,5 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-library(devtools)
 devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force = TRUE)
 ```

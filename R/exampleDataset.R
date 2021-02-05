@@ -1,8 +1,5 @@
 #' Example dataset
-#' @name exampleDataset
-#' @aliases dataValenzuelaLamas2008
-#'
-#' @importFrom Rdpack reprompt
+#' @name dataValenzuelaLamas2008
 #'
 #' @description
 #' The dataset provided as an example originates from

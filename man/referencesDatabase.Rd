@@ -35,8 +35,8 @@ own osteometrical reference if preferred.
 \section{Data Source}{
 
 Currently, the references include reference values for the main domesticates
-and reed deer (\emph{Bos taurus}, \emph{Ovis aries}, \emph{Capra hircus},
-\emph{Sus domesticus}, and \emph{Cervus elaphus}) originated from the
+and their agriotypes (\emph{Bos}, \emph{Ovis}, \emph{Capra},
+\emph{Sus}), and reed deer (\emph{Cervus elaphus}) originated from the
 following publications and resources:
 
 \describe{

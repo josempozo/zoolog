@@ -27,9 +27,9 @@ Description: Includes functions and reference data to
     values) from measurements obtained on zooarchaeological material. Log
     ratios are used to compare the relative (rather than the absolute)
     dimensions of animals from archaeological contexts.
-    ***zoolog*** is also able to seamlessly integrate data and references 
+    zoolog is also able to seamlessly integrate data and references 
     with heterogeneous nomenclature, which is internally managed by a 
-    *zoolog* thesaurus.
+    zoolog thesaurus.
 Acknowledgments:
     Several fellow colleagues helped building the Thesaurus and tested the
     code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
@@ -53,6 +53,6 @@ Depends:
 Imports: 
     utils,
     stringi,
-    Rdpack
+    Rdpack (>= 0.7)
 RdMacros: Rdpack
 VignetteBuilder: knitr
