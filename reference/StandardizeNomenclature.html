@@ -196,8 +196,8 @@ thesaurus set structure,</p>
 <span class='co'>## zoolog::zoologThesaurus:</span>
 <span class='va'>thesaurus</span> <span class='op'>&lt;-</span> <span class='va'>zoologThesaurus</span><span class='op'>$</span><span class='va'>taxon</span>
 <span class='va'>thesaurus</span>
-</div><div class='output co'>#&gt;              bos taurus bos primigenius         ovis aries ovis orientalis
-#&gt; 1            bos taurus bos primigenius         ovis aries ovis orientalis
+</div><div class='output co'>#&gt;              Bos taurus Bos primigenius         Ovis aries Ovis orientalis
+#&gt; 1            Bos taurus Bos primigenius         Ovis aries Ovis orientalis
 #&gt; 2                  bota              BP               ovar    ovis musimon
 #&gt; 3                   bos        bos prim               ovis          muflon
 #&gt; 4                cattle          auroch              sheep         mouflon
@@ -208,8 +208,8 @@ thesaurus set structure,</p>
 #&gt; 9                     B                             ovella                
 #&gt; 10                                                     OVA                
 #&gt; 11                                                                        
-#&gt;    capra hircus  capra aegagrus             ovis/capra sus domesticus
-#&gt; 1  capra hircus  capra aegagrus             ovis/capra sus domesticus
+#&gt;    Capra hircus  Capra aegagrus             Ovis/Capra Sus domesticus
+#&gt; 1  Capra hircus  Capra aegagrus             Ovis/Capra Sus domesticus
 #&gt; 2          cahi       wild goat                     oc           sudo
 #&gt; 3         capra  cabra salvatge                caprine            sus
 #&gt; 4          goat cabra selvagem                     s/g            pig
@@ -220,8 +220,8 @@ thesaurus set structure,</p>
 #&gt; 9           CAH                 Ovicaprines Ovis-Capra               
 #&gt; 10                                            ovicapri               
 #&gt; 11                                                   O               
-#&gt;      sus scrofa cervus elaphus
-#&gt; 1    sus scrofa cervus elaphus
+#&gt;      Sus scrofa Cervus elaphus
+#&gt; 1    Sus scrofa Cervus elaphus
 #&gt; 2     wild boar           ceel
 #&gt; 3       senglar         cervus
 #&gt; 4  porc senglar       red deer
@@ -234,18 +234,18 @@ thesaurus set structure,</p>
 #&gt; 11                            </div><div class='input'><span class='co'>## Standardize an heterodox vector of taxa:</span>
 <span class='fu'>StandardizeNomenclature</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bota"</span>, <span class='st'>"rabbit"</span>, <span class='st'>"pig"</span>, <span class='st'>"cattle"</span><span class='op'>)</span>,
                         <span class='va'>thesaurus</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "bos taurus"     "rabbit"         "sus domesticus" "bos taurus"    </div><div class='input'><span class='co'>## Observe that "rabbit" is kept unchanged since it is not included in</span>
+</div><div class='output co'>#&gt; [1] "Bos taurus"     "rabbit"         "Sus domesticus" "Bos taurus"    </div><div class='input'><span class='co'>## Observe that "rabbit" is kept unchanged since it is not included in</span>
 <span class='co'>## any thesaurus category.</span>
 <span class='co'>## But if mark.unknown is set to TRUE, it is marked as NA:</span>
 <span class='fu'>StandardizeNomenclature</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bota"</span>, <span class='st'>"rabbit"</span>, <span class='st'>"pig"</span>, <span class='st'>"cattle"</span><span class='op'>)</span>,
                         <span class='va'>thesaurus</span>, mark.unknown <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "bos taurus"     NA               "sus domesticus" "bos taurus"    </div><div class='input'>
+</div><div class='output co'>#&gt; [1] "Bos taurus"     NA               "Sus domesticus" "Bos taurus"    </div><div class='input'>
 <span class='co'>## This thesaurus is not case sensitive:</span>
 <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span><span class='op'>(</span><span class='va'>thesaurus</span>, <span class='st'>"caseSensitive"</span><span class='op'>)</span> <span class='co'>#  == FALSE</span>
 </div><div class='output co'>#&gt; [1] FALSE</div><div class='input'><span class='co'>## Thus, names are recognized independently of their case:</span>
 <span class='fu'>StandardizeNomenclature</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bota"</span>, <span class='st'>"BOTA"</span>, <span class='st'>"Bota"</span>, <span class='st'>"boTa"</span><span class='op'>)</span>,
                         <span class='va'>thesaurus</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "bos taurus" "bos taurus" "bos taurus" "bos taurus"</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "Bos taurus" "Bos taurus" "Bos taurus" "Bos taurus"</div><div class='input'>
 <span class='co'>## Load an example data frame:</span>
 <span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>,
                                             <span class='st'>"dataValenzuelaLamas2008.csv.gz"</span>,
@@ -253,22 +253,22 @@ thesaurus set structure,</p>
                                 stringsAsFactors <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'>## Observe mainly the first columns:</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE Especie    Os
-#&gt; 1  ALP  3629  8427    avif 1 fal
-#&gt; 2  ALP  4693 10258      oc 1 fal
-#&gt; 3  ALP  1550  7014      oc 1 fal
-#&gt; 4  ALP    94  9020      oc 1 fal
-#&gt; 5  ALP    95  9020      oc 1 fal
-#&gt; 6  ALP   326 10105      oc 1 fal</div><div class='input'><span class='co'>## Stadardize the dataset:</span>
+</div><div class='output co'>#&gt;   Site N.inv    UE Especie       Os
+#&gt; 1  ALP  4918 10364    bota    1 fal
+#&gt; 2  ALP  4919 10364    bota    1 fal
+#&gt; 3  ALP  3453 10410    ovar 1fal ant
+#&gt; 4  ALP  3455 10410    ovar 1fal ant
+#&gt; 5  ALP  4245  7036    cahi      hum
+#&gt; 6  ALP  4674 10227    cahi      hum</div><div class='input'><span class='co'>## Stadardize the dataset:</span>
 <span class='va'>dataStandardized</span> <span class='op'>&lt;-</span> <span class='fu'>StandardizeDataSet</span><span class='op'>(</span><span class='va'>dataExample</span>, <span class='va'>zoologThesaurus</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataStandardized</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>]</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   Site N.inv    UE      Taxon       Element
-#&gt; 1  ALP  3629  8427       avif first phalanx
-#&gt; 2  ALP  4693 10258 ovis/capra first phalanx
-#&gt; 3  ALP  1550  7014 ovis/capra first phalanx
-#&gt; 4  ALP    94  9020 ovis/capra first phalanx
-#&gt; 5  ALP    95  9020 ovis/capra first phalanx
-#&gt; 6  ALP   326 10105 ovis/capra first phalanx</div><div class='input'>
+</div><div class='output co'>#&gt;   Site N.inv    UE        Taxon                Element
+#&gt; 1  ALP  4918 10364   Bos taurus          first phalanx
+#&gt; 2  ALP  4919 10364   Bos taurus          first phalanx
+#&gt; 3  ALP  3453 10410   Ovis aries anterior first phalanx
+#&gt; 4  ALP  3455 10410   Ovis aries anterior first phalanx
+#&gt; 5  ALP  4245  7036 Capra hircus                humerus
+#&gt; 6  ALP  4674 10227 Capra hircus                humerus</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
