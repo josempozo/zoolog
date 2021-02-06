@@ -11,15 +11,15 @@ Authors@R: c(
            email = "svalenzuela@imf.csic.es",
            comment = c(ORCID = "0000-0001-9886-0372")),
     person("Angela", "Trentacoste",
-           role = c("ctb"),
+           role = c("aut"),
            email = "angela.trentacoste@arch.ox.ac.uk",
            comment = c(ORCID = "0000-0001-7096-5252")),
     person("Ariadna", "Nieto-Espinet",
-           role = c("ctb"),
+           role = c("aut"),
            email = "arinietoespinet@gmail.com",
            comment = c(ORCID = "0000-0003-2567-1735")),
     person("Silvia", "Guimarães Chiarelli",
-           role = c("ctb"),
+           role = c("aut"),
            email = "biguimaraes@hotmail.com",
            comment = c(ORCID = "0000-0002-3778-3315")))
 Description: Includes functions and reference data to 
