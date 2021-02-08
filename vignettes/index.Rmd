@@ -347,22 +347,24 @@ library(ggplot2)
 
 We can now create a boxplot for the widths: 
 ```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
-ggplot(dataOCStandardized, aes(x = Width, y = Site)) +
+ggplot(dataOCStandardized, aes(x = Site, y = Width)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
-  geom_jitter(height = 0.2, width = 0, alpha = 1/2, color = 4, na.rm = TRUE) +
+  geom_jitter(width = 0.2, height = 0, alpha = 1/2, color = 4, na.rm = TRUE) +
   theme_bw() +
   ggtitle("Caprine widths") +
-  xlab("Width log-ratio")
+  ylab("Width log-ratio") +
+  coord_flip()
 ```
 
 And another boxplot for the lengths:
 ```{r, fig.asp = 0.6, fig.width = 6, fig.align="center"}
-ggplot(dataOCStandardized, aes(x = Length, y = Site)) +
+ggplot(dataOCStandardized, aes(x = Site, y = Length)) +
   geom_boxplot(outlier.shape = NA, na.rm = TRUE) +
-  geom_jitter(height = 0.2, width = 0, alpha = 1/2, color = 4, na.rm = TRUE) +
+  geom_jitter(width = 0.2, height = 0, alpha = 1/2, color = 4, na.rm = TRUE) +
   theme_bw() +
   ggtitle("Caprine lengths") +
-  xlab("Length log-ratio")
+  ylab("Length log-ratio") +
+  coord_flip()
 ```
 
 ### Histograms grouped by site
