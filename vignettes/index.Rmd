@@ -69,18 +69,23 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force 
 ```
 
 
-# Reference
+# Reference standards
 
-The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), and reed deer (*Cervus elaphus*), originated from a variety of publications and resources. In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible.
+The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), and red deer (*Cervus elaphus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
 
-The predefined reference sets are provided in the named list `reference`, which currently include the following `r length(zoolog::reference)` sets:
+The predefined reference sets included in *zoolog* are provided in the named list `reference`, currently comprising the following `r length(zoolog::reference)` sets:
 ```{r}
 library(zoolog)
 str(reference, max.level = 1)
 ```
 The reference set `reference$Combi` is the default reference for computing the [log ratios](../help/LogRatios), since it includes the most comprehensive reference for each species.
 
-This reference sets are build by selecting cases from the `referencesDatabase` formed by the taxon-specific references from all the considered resources. The selection is defined by the data frame `referenceSets`:
+The package includes also a `referencesDatabase` collecting the taxon-specific
+reference standards from all the considered resources. Each reference set is
+composed of a different combination of taxon-specific standards selected from
+this `referencesDatabase`. The selection is defined by the data frame 
+`referenceSets`:
+ 
 ```{r echo=FALSE}
 options(knitr.kable.NA = "")
 knitr::kable(referenceSets)
@@ -90,52 +95,59 @@ A detailed description of the reference data, including its structure, propertie
 
 # Thesaurus
 
-A [thesaurus set](../help/zoologThesaurus) is defined in order to make the methods robust to different nomenclatures used in datasets created by different authors, with different conventions and in different languages. This enables the function [LogRatios](../help/LogRatios) to recognize the relevant names in the reference that match each data entry regardless of the used nomenclature, as long as it is included in the relevant thesaurus. The thesaurus also allows to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
+A [thesaurus set](../help/zoologThesaurus) is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarcheological datasets. This enables the function [LogRatios](../help/LogRatios) to match values in the user's dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
 
 The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package.
 
 Currently, the zoolog thesaurus set includes four thesauri:
 
 identifierThesaurus
-  : It refers to the column names identifying the relevant variables to match
-    the data with the corresponding reference in computing the log ratios. It
-    includes the categories *Taxon*, *Element*, *Measure*, and 
-    *Standard*, each providing different equivalent names. For instance,
-    *Taxon* includes the options 
+  : For the column names that identify the variables used in computing
+    the log ratios. It includes the categories *Taxon*, *Element*, *Measure*, 
+    and *Standard*. Each category provides a series of equivalent names. 
+    For instance, *Taxon* includes the options 
     `r a <- zoologThesaurus$identifier$Taxon; 
-      paste0("*", paste(a[a != ""], collapse = "*, *"), "*")`.
+      paste0("*", paste(a[a != ""], collapse = "*, *"), "*")`. 
+    This thesaurus is case, accent, and punctuation insensitive, so that, for
+    instance, "Especie" is equivalent to 
+    "ESPECIE" or "Espècie".
 
 taxonThesaurus
-  : Naming of the different taxa when recording animal
+  : For the names of the different taxa when recording animal
     bones. The current categories are 
     *`r paste(names(zoologThesaurus$taxon), collapse = "*, *")`*,
-    each providing different equivalent names. This thesaurus is case, accent, and     punctuation insensitive, so that, for instance, "Bos" is equivalent to 
+    each with different equivalent names. This thesaurus is case, accent,
+    and punctuation insensitive, so that, for instance, "Bos" is equivalent to 
     "bos", "Bos.", or "Bos\ ".
 
 elementThesaurus
-  : Naming of anatomical elements when recording animal bones. It currently
+  : Names of anatomical elements when recording animal bones. It currently
     includes `r ncol(zoologThesaurus$element)` categories
     (*`r paste(names(zoologThesaurus$element)[1:3], collapse = "*, *")`*, ...),
-    each providing different equivalent names. 
-    It is case, accent, and punctuation insensitive.
-
+    each with different equivalent names. 
+    This thesaurus is case, accent, and punctuation insensitive.
 
 measureThesaurus
-  : Naming of the measurements. In general, 
-    the English abbreviations from [@von1976guide] and [@davis1992rapid] are
-    widely used. But this enables other nomenclatures (e.g. original German
+  : Names of the measurements. While the English abbreviations from
+    [@von1976guide] and [@davis1992rapid] are widely used in published
+    literature, this thesaurus enables other nomenclatures (e.g. original German
     abbreviations in [@von1976guide]) to be included. This thesaurus is case
     sensitive.
 
 # Functions
-The full list of functions is available under the zoolog *help* page. We list them here sorted by its prominence for a typical user, and grouped by functionality:
+The full list of functions is available under the zoolog *help* page. We list them here sorted by their prominence for a typical user, and grouped by functionality:
 
 [**LogRatios**](../help/LogRatios)
   : It computes the log ratios of the measurements in a dataset relative to 
-    standard reference values. By default 'Reference$Combi' is used. The 
+    standard reference values. By default `reference$Combi` is used. The 
     function includes the option 'joinCategories' allowing several taxa 
     (typically *Ovis*, *Capra*, and unknown *Ovis/Capra*) to be considered
     together with the same reference taxon.
+  : Note that without using 'joinCategories' any taxa not part of the selected
+    reference set will be excluded. For instance, if using
+    `reference$NietoDavisAlbarella`, log ratios for goats will not be calculated 
+    unless 'joinCategories' is set to indicate that the *Ovis aries* standard
+    should also be applied to goats.
 
 [**CondenseLogs**](../help/CondenseLogs)
   : It condenses the calculated log ratio values into a reduced number of 
@@ -153,12 +165,16 @@ The full list of functions is available under the zoolog *help* page. We list th
     of measurements into a single feature (e.g. one measure per axis) alleviates
     both problems. 
   : The default method ("priority"), selects the first available log ratio in 
-    each group. We provide the following by-default group and prioritization: 
-    For lengths, the first option is GL, then HTC. For widths, the order of
-    priority is: Bd, BT, Bp, SD. This order maximises the robustness and
+    each group. Besides, `CondenseLogs` employs the following by-default group
+    and prioritization introduced in [@trentacoste2018pre]: 
+    *Length*, considers in order of priority *GL*, *GLl*, *HTC*, and *GLm*. 
+    *Width*, considers in order of priority  *Bd*, *BT*, *Bp*, *SD*, *Bfd*, 
+    and *Bfp*. This order maximises the robustness and
     reliability of the measurements, as priority is given to the most abundant,
-    more replicable, and less age dependent measurements.The method 'average'
-    extracts the mean per group, ignoring the non-available log ratios.
+    more replicable, and less age dependent measurements. But users can set 
+    their own features with any group of measures and priorities. 
+    The method 'average' extracts the mean per group, ignoring the 
+    non-available log ratios.
 
 [**RemoveNACases**](../help/RemoveNACases)
   : It removes the cases (table rows) for which all measurements of interest are
@@ -172,7 +188,7 @@ The full list of functions is available under the zoolog *help* page. We list th
     It is similar to [base::is.element](../help/is.element), returning a logical
     vector indicating if each element in a given vector is included in a given
     set. 
-    But `InCategory` check for equality assuming the equivalencies defined in 
+    But `InCategory` checks for equality assuming the equivalencies defined in 
     the given thesaurus. It is intended for the user to easily select a subset
     of data without having to standardize the analysed dataset.
 
@@ -237,12 +253,16 @@ knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
 
 ## Dealing with *lazy* datasets
-If we observe more carefully the example dataset, we can see that the *astragali* have been assigned a *GL* measurement, instead of *GLl*. For this we can use the function [InCategory](../help/InCategory), which allows to select cases taking into account the thesaurus:
+If we observe the example dataset more carefully, we can see that the measures
+recorded for the *astragali* presents a deviation from the measure definitions 
+in [@von1976guide;@davis1992rapid]. To see this, 
+we can select the cases where the element is an astragalus. The function [InCategory](../help/InCategory) allows us to
+select them with the help of the thesaurus without requiring to know the terms actually used:
 ```{r}
-AScases <- InCategory(dataWithLog$Os, "talus", zoologThesaurus$element)
+AScases <- InCategory(dataWithLog$Os, "astragalus", zoologThesaurus$element)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
-This is a dataset simplification that has been used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+According to the mesure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
 
 The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
 ```{r}
@@ -250,7 +270,7 @@ GLandGLl <- list(c("GL", "GLl"))
 dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
-This option allows to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column *logGL*.
+This option allows us to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column *logGL*.
 
 ## Using the same ovis reference for all caprines
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
@@ -285,9 +305,9 @@ knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
 
 
 ## Standardizing the dataset nomenclature
-The integration of the thesaurus functionality facilitates the use of datasets with heterogenous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories have been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
+The integration of the thesaurus functionality facilitates the use of datasets with heterogenous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
 
-In the example data, `zoologThesaurus` will change for instance "ovar" to "Ovis aries".
+If we standardize the studied data, we can see that `zoologThesaurus` will change "ovar" to "Ovis aries", "hum" to "humerus", and "Especie" to "Taxon", for instance.
 ```{r}
 dataStandardized <- StandardizeDataSet(dataWithSummary)
 knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
@@ -414,19 +434,19 @@ TaxonSiteWidthHist
 
 
 ## Statistical test
-We may run a statistical test (here a Student t-test) to check whether the differences between sites have statistical significance on lengths:
+We may run a statistical test (here a Student t-test) to check whether the differences in log ratio length values between the sites "OLD" and "ALP" are statistically significant:
 ```{r}
 t.test(Length ~ Site, dataOCStandardized, 
        subset = Site %in% c("OLD", "ALP"))
 ```
 
-or on widths:
+Similarly, for the differences in log ratio width values:
 ```{r}
 t.test(Width ~ Site, dataOCStandardized, 
        subset = Site %in% c("OLD", "ALP"))
 ```
 
-For testing all possible pairs, the p-values must be adjusted for multiple comparisons:
+For testing all possible pairs of sites, the p-values must be adjusted for multiple comparisons:
 ```{r, message = FALSE}
 library(stats)
 pairwise.t.test(dataOCStandardized$Width, dataOCStandardized$Site, 

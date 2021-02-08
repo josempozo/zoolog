@@ -28,8 +28,8 @@
 #' measure log-ratio in each group. The method \code{"average"} extracts the
 #' mean per group, ignoring the non-available measures.
 #' We provide the following by-default group and prioritization:
-#' For lengths, the first option is GL, then HTC.
-#' For widths, the order of priority is: Bd, BT, Bp, SD.
+#' For lengths, the order of priority is: GL, GLl, HTC, GLm.
+#' For widths, the order of priority is: Bd, BT, Bp, SD, Bfd, Bfp.
 #' This order maximises the robustness and reliability of the measurements,
 #' as priority is given to the most abundant, more replicable, and less age
 #' dependent measurements.
@@ -43,9 +43,9 @@
 #' @inheritParams LogRatios
 #' @param grouping A list of named character vectors. The list includes a vector
 #' per selected group. Each vector gives the group of measurements in order of
-#' priority. By default the groups are \code{Length = c("GL", "GLl", "HTC")} and
-#' \code{Width = c("Bd", "BT", "Bp", "SD")}. The order is irrelevant for
-#' \code{method = "average"}.
+#' priority. By default the groups are \code{Length = c("GL", "GLl", "HTC", "GLm")}
+#' and \code{Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp")}. The order is
+#' irrelevant for \code{method = "average"}.
 #' @param method Character string indicating which method to use for extracting
 #' the condensed features. Currently accepted methods: \code{"priority"}
 #' (default) and \code{"average"}.
@@ -77,8 +77,8 @@
 #' @export
 CondenseLogs <- function(data,
                          grouping = list(
-                             Length = c("GL", "GLl", "HTC"),
-                             Width = c("Bd", "BT", "Bp", "SD") ),
+                             Length = c("GL", "GLl", "HTC", "GLm"),
+                             Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp") ),
                          method = "priority"
                         ) {
   summaryMeasures <- names(grouping)

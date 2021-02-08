@@ -2,5 +2,5 @@
 
 zoologThesaurus <- ReadThesaurusSet("inst/extdata/zoologThesaurusSet.csv")
 
-usethis::use_data(zoologThesaurus, overwrite = TRUE)
+usethis::use_data(zoologThesaurus, overwrite = TRUE, version = 2)
 
