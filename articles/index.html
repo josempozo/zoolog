@@ -3314,21 +3314,23 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <p>For the example plots we will use the package <strong>ggplot2</strong>.</p>
 <p>We can now create a boxplot for the widths:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Width</span>, y <span class="op">=</span> <span class="va">Site</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine widths"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-17-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>And another boxplot for the lengths:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Length</span>, y <span class="op">=</span> <span class="va">Site</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine lengths"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Length log-ratio"</span><span class="op">)</span></code></pre></div>
+  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Length log-ratio"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-18-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div id="histograms-grouped-by-site" class="section level3">
