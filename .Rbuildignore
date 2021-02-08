@@ -20,7 +20,7 @@
 ^CRAN-RELEASE$
 ^cran-comments.md$
 ^_pkgdown\.yml$
-^docs$
+^docs.Backup$
 ^pkgdown$
 ^R.backups$
 ^_config.yml$

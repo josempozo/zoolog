@@ -52,4 +52,5 @@ save(testData,
      testDataPruned,
      testDataPrunedWithLog,
      file = file.path(system.file("testdata", package="zoolog"),
-                      "testData.rda"))
+                      "testData.rda"),
+     version = 2)

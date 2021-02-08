@@ -26,9 +26,9 @@ lcCollateC({
                      thesaurus = NULL)
 })
 
-usethis::use_data(reference, overwrite = TRUE)
-usethis::use_data(referenceSets, overwrite = TRUE)
-usethis::use_data(referencesDatabase, overwrite = TRUE)
+usethis::use_data(reference, overwrite = TRUE, version = 2)
+usethis::use_data(referenceSets, overwrite = TRUE, version = 2)
+usethis::use_data(referencesDatabase, overwrite = TRUE, version = 2)
 
 ########
 variablesToRemove <- setdiff(c("variablesToRemove", ls()), currentVariables)
