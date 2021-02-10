@@ -172,14 +172,14 @@ All the measurements are expressed in millimetres.</p></dd>
 
 <p>Currently, the references include reference values for the main domesticates
 and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>,
-<em>Sus</em>), and reed deer (<em>Cervus elaphus</em>) originated from the
+<em>Sus</em>), and red deer (<em>Cervus elaphus</em>) drawn from the
 following publications and resources:</p>
 <dl>
 <dt><strong>Cattle - <em>Bos</em></strong></dt><dd><p><dl>
 <dt>Nieto</dt><dd><p><em>Bos taurus</em>. Female cow dated to the Early Bronze Age
 (Minferri, Catalonia), in Nieto-Espinet (2018)
 .</p></dd>
-<dt>Basel</dt><dd><p><em>Bos taurus</em> Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+<dt>Basel</dt><dd><p><em>Bos taurus</em>. Inv.nr. 2426 (Hinterwälder; female; 17 years old;
 live weight: 340 kg; withers height: 113 cm), from
 Stopp and Deschler-Erb (2018)
 .</p></dd>
@@ -191,18 +191,19 @@ Degerbøl and Fredskild (1970)
 Shetland sheep skeletons from a single flock
 (Davis 1996)
 .</p></dd>
-<dt>Basel</dt><dd><p><em>Ovis musimon</em> Inv.nr. 2266 (male; adult), from
+<dt>Basel</dt><dd><p><em>Ovis musimon</em>. Inv.nr. 2266 (male; adult), from
 Stopp and Deschler-Erb (2018)
 .</p></dd>
-<dt>Clutton</dt><dd><p><em>Ovis aries</em>. Mean measurements from a group of Soay known-age sheep males
+<dt>Clutton</dt><dd><p><em>Ovis aries</em>. Mean measurements from a group of male Soay
+sheep of known age
 (Clutton-Brock et al. 1990)
 .</p></dd>
-<dt>Uerpmann</dt><dd><p><em>Ovis orientalis</em> Field Museum of Chicago catalogue
+<dt>Uerpmann</dt><dd><p><em>Ovis orientalis</em>. Field Museum of Chicago catalogue
 number: FMC 57951 (female; western Iran)
 from Uerpmann and Uerpmann (1994)
 .</p></dd></dl></p></dd>
 <dt><strong>Goat - <em>Capra</em></strong></dt><dd><p><dl>
-<dt>Basel</dt><dd><p><em>Capra hircus</em> Inv.nr. 1597 (male; adult), from
+<dt>Basel</dt><dd><p><em>Capra hircus</em>. Inv.nr. 1597 (male; adult), from
 Stopp and Deschler-Erb (2018)
 .</p></dd>
 <dt>Clutton</dt><dd><p><em>Capra hircus</em>. Mean measurements from a group of goats of unknown age
@@ -214,11 +215,11 @@ Mountains in southern Turkey) from
 Uerpmann and Uerpmann (1994)
 .</p></dd></dl></p></dd>
 <dt><strong>Pig - <em>Sus</em></strong></dt><dd><p><dl>
-<dt>Albarella</dt><dd><p><em>Sus domesticus</em> Mean measurements from a group of Late Neolithic
+<dt>Albarella</dt><dd><p><em>Sus domesticus</em>. Mean measurements from a group of Late Neolithic
 pigs from Durrington Walls, England
 (Albarella and Payne 2005)
 .</p></dd>
-<dt>Basel</dt><dd><p><em>Sus scrofa</em> Inv.nr. 1446 (male; 2-3 years old; life
+<dt>Basel</dt><dd><p><em>Sus scrofa</em>. Inv.nr. 1446 (male; 2-3 years old; life
 weight: 120 kg) from Stopp and Deschler-Erb (2018)
 .</p></dd>
 <dt>Hongo</dt><dd><p><em>Sus scrofa</em>. Averaged left and right measurements of a
@@ -231,7 +232,7 @@ Zoology, Harvard University, specimen #51621
 Payne and Bull (1988)
 , Appendix 2.</p></dd></dl></p></dd>
 <dt><strong>Red deer - <em>Cervus elaphus</em></strong></dt><dd><p><dl>
-<dt>Basel</dt><dd><p><em>Cervus elaphus</em> Inv.nr. 2271 (male; adult) from
+<dt>Basel</dt><dd><p><em>Cervus elaphus</em>. Inv.nr. 2271 (male; adult) from
 Stopp and Deschler-Erb (2018)
 .</p></dd></dl></p></dd>
 
@@ -272,8 +273,9 @@ hierarchy described above:<div class="r"></p><pre><span class='fu'><a href='http
     
 
 <p>The references' database is organized per taxon. However, in general the
-data to be analysed includes several taxa. Thus, the reference
-dataframe should include one reference specimen for each relevant taxon.
+zooarchaeological data to be analysed includes several taxa. Thus, the
+reference dataframe should include one reference standard for each relevant
+taxon.
 The <span class="pkg">zoolog</span> variable <code>referenceSets</code> defines four possible
 references:<div class="r"></p><pre><span class='va'>referenceSets</span>
 </pre><p></div></p><table class='table'>
@@ -282,15 +284,15 @@ references:<div class="r"></p><pre><span class='va'>referenceSets</span>
 <tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
 <tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
 <tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td></tr>
+<tr><td>Each row defines a reference set consisting of a reference source for</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>each taxon (column). The function</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><code><a href='AssembleReference.html'>AssembleReference</a></code> allows us to build the reference set</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>taking the selected taxon-specific references from the</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><code>referencesDatabase</code>.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 
 
 
-<p>Each row defines a reference consisting in a reference source for
-each taxon (column). The function
-<code><a href='AssembleReference.html'>AssembleReference</a></code> allows us to build the reference set
-taking the selected taxon-specific references from the
-<code>referencesDatabase</code>.</p>
 <p>The <span class="pkg">zoolog</span> variable <code>reference</code> is a named list including the
 references defined by <code>referenceSets</code>:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>reference</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## List of 4</span>

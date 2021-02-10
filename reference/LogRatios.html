@@ -224,11 +224,12 @@ list of named vectors, each including the set of categories in the data
 which should be mapped to the reference category given by its name.</p>
 <p>This can be applied to group different species into a single
 reference species. For instance <em>sheep</em>, <em>capra</em>, and doubtful
-cases between both (<em>sheep/capra</em>), can be grouped and assigned to the
+cases between both (<em>sheep/capra</em>), can be grouped and matched to the
 same reference for <em>sheep</em>, by setting
 <code>joinCategories = list(sheep = c("sheep", "capra", "oc"))</code>.
 Similarly, it can be applied to group
-different bone elements into a single reference.</p>
+different bone elements into a single reference (see the example below for
+undetermined phalanges).</p>
 <p>Note that the <code>joinCategories</code> option does not remove the distinction
 between the different bone types in the data, just indicates that for any
 of them the log ratios must be computed from the same reference.</p>
@@ -239,7 +240,7 @@ between both measures since they can be identified by the bone element.
 This justifies that some users have simplified datasets where a single column
 records indistinctly <em>GL</em> or <em>GLl</em>. The optional parameter
 <code>mergedMeasures</code> facilitates the processing of this type of simplified
-datasets. For the alluded example,
+dataset. For the alluded example,
 <code>mergedMeasures = list(c("GL", "GLl"))</code> automatically selects, for each
 bone element, the corresponding measure present in the reference.</p>
 <p>Observe that if <code>mergedMeasures</code> is set to non mutually exclusive
@@ -331,12 +332,15 @@ measures, the behaviour is unpredictable.</p>
 <span class='co'>## Compute the log-ratios with respect to this alternative reference:</span>
 <span class='va'>dataExampleWithLogs3</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span>, ref <span class='op'>=</span> <span class='va'>userReference</span><span class='op'>)</span>
 
-<span class='co'>## We can be interested in including the first phalanges without</span>
-<span class='co'>## identification as posterior or anterior, to compute the log ratios with</span>
-<span class='co'>## respect to the anterior first phalanges.</span>
-<span class='va'>categoriesP1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>'P1 ant'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"P1 ant"</span>, <span class='st'>"P1"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='co'>## We can be interested in including the first and second phalanges without</span>
+<span class='co'>## anterior-posterior identification ("phal 1" and "phal 2"), by computing</span>
+<span class='co'>## their log ratios with respect to the reference of the corresponding</span>
+<span class='co'>## anterior first phalanges ("phal 1 ant" and "phal 2 ant", respectively).</span>
+<span class='co'>## For this we use the optional argument joinCategories:</span>
+<span class='va'>categoriesPhalAnt</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>'phal 1 ant'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"phal 1 ant"</span>, <span class='st'>"phal 1"</span><span class='op'>)</span>,
+                          <span class='st'>'phal 2 ant'</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"phal 2 ant"</span>, <span class='st'>"phal 2"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>dataExampleWithLogs4</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span>,
-                                  joinCategories <span class='op'>=</span> <span class='va'>categoriesP1</span><span class='op'>)</span>
+                                  joinCategories <span class='op'>=</span> <span class='va'>categoriesPhalAnt</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs4</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
 </div><div class='output co'>#&gt;     Site N.inv    UE Especie   Os   GL   Bp   Dp   SD   DD   Bd Dd BT GLc BFd
 #&gt; 145  ALP  2639  8351    sudo 1fal 34.4 16.4 16.6 13.6 15.7 10.8 NA NA  NA  NA

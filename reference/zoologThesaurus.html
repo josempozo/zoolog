@@ -155,10 +155,11 @@ thesaurus sets, or can modify the provided thesaurus set (see
 
     <p>A thesaurus set is a list of thesauri with additional attributes:</p><dl>
 <dt>names</dt><dd><p>Character vector with the name of each thesaurus.</p></dd>
-<dt>applyToColNames</dt><dd><p>Logical vector. Should the thesaurus be applied to
-the column names of the data frame?</p></dd>
-<dt>applyToColValues</dt><dd><p>Logical vector. Should the thesaurus be applied to
-the values in the corresponding column of the data frame?</p></dd>
+<dt>applyToColNames</dt><dd><p>Logical vector indicating whether each thesaurus
+should be applied to the column names of the data frame.</p></dd>
+<dt>applyToColValues</dt><dd><p>Logical vector indicating whether each thesaurus
+should be applied to the values in the corresponding column of
+the data frame.</p></dd>
 <dt>filename</dt><dd><p>Character vector with the source file of each thesaurus.</p></dd>
 
 </dl>
@@ -176,12 +177,14 @@ column, since this would make the thesaurus ambiguous (see
 <dt>names</dt><dd><p>The standard name for the categories.</p></dd>
 <dt>class</dt><dd><p>"data.frame"</p></dd>
 <dt>row.names</dt><dd><p>Irrelevant</p></dd>
-<dt>caseSensitive</dt><dd><p>Logical. Should the names in the thesaurus be
-considered case-sensitive?</p></dd>
-<dt>accentSensitive</dt><dd><p>Logical. Should the names in the thesaurus be
-differentiated by the presence of accent marks?</p></dd>
-<dt>punctuationSensitive</dt><dd><p>Logical. Should the names in the thesaurus be
-differentiated by the presence of punctuation marks?</p></dd>
+<dt>caseSensitive</dt><dd><p>Logical indicating whether the names in the thesaurus
+should be considered case-sensitive.</p></dd>
+<dt>accentSensitive</dt><dd><p>Logical indicating whether the names in the
+thesaurus should be differentiated by the presence of accent
+marks.</p></dd>
+<dt>punctuationSensitive</dt><dd><p>Logical indicating whether the names in the
+thesaurus should be differentiated by the presence of punctuation
+marks.</p></dd>
 
 </dl>
 
