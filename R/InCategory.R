@@ -4,7 +4,7 @@
 #' thesarus. It is similar to \code{\link[base]{%in%}} and
 #' \code{\link[base]{is.element}}, returning a logical vector indicating if each
 #' element in a given vector is included in a given set. But \code{InCategory}
-#' check for equality assuming the equivalencies defined in the given thesaurus.
+#' checks for equality assuming the equivalencies defined in the given thesaurus.
 #'
 #' @inheritParams StandardizeNomenclature
 #' @param x Character vector to be checked for its inclusion in the category.

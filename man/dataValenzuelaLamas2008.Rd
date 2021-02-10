@@ -5,8 +5,8 @@
 \title{Example dataset}
 \format{
 The dataset is provided in the \pkg{zoolog} \code{extdata} folder as a file
-in semicolon separate format but compressed with
-gzip to reduce its weight:
+in semicolon-separated values format but compressed with
+gzip to reduce its size:
 \describe{
 \item{\code{dataValenzuelaLamas2008.csv.gz}}{}
 }
@@ -54,8 +54,8 @@ from which the material originates.}
 \description{
 The dataset provided as an example originates from
 \insertCite{valenzuela2008alimentacio}{zoolog}. The dataset is written in
-Catalan (with the exception of some headings to ease the understanding about
-what is in there).
+Catalan, with the exception of some headings to facilitate understanding of
+its contents.
 }
 \examples{
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",

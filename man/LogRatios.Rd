@@ -70,11 +70,12 @@ which should be mapped to the reference category given by its name.
 
 This can be applied to group different species into a single
 reference species. For instance \emph{sheep}, \emph{capra}, and doubtful
-cases between both (\emph{sheep/capra}), can be grouped and assigned to the
+cases between both (\emph{sheep/capra}), can be grouped and matched to the
 same reference for \emph{sheep}, by setting
 \code{joinCategories = list(sheep = c("sheep", "capra", "oc"))}.
 Similarly, it can be applied to group
-different bone elements into a single reference.
+different bone elements into a single reference (see the example below for
+undetermined phalanges).
 
 Note that the \code{joinCategories} option does not remove the distinction
 between the different bone types in the data, just indicates that for any
@@ -87,7 +88,7 @@ between both measures since they can be identified by the bone element.
 This justifies that some users have simplified datasets where a single column
 records indistinctly \emph{GL} or \emph{GLl}. The optional parameter
 \code{mergedMeasures} facilitates the processing of this type of simplified
-datasets. For the alluded example,
+dataset. For the alluded example,
 \code{mergedMeasures = list(c("GL", "GLl"))} automatically selects, for each
 bone element, the corresponding measure present in the reference.
 
@@ -127,11 +128,14 @@ userReference <- AssembleReference(refComb)
 ## Compute the log-ratios with respect to this alternative reference:
 dataExampleWithLogs3 <- LogRatios(dataExample, ref = userReference)
 
-## We can be interested in including the first phalanges without
-## identification as posterior or anterior, to compute the log ratios with
-## respect to the anterior first phalanges.
-categoriesP1 <- list('P1 ant' = c("P1 ant", "P1"))
+## We can be interested in including the first and second phalanges without
+## anterior-posterior identification ("phal 1" and "phal 2"), by computing
+## their log ratios with respect to the reference of the corresponding
+## anterior first phalanges ("phal 1 ant" and "phal 2 ant", respectively).
+## For this we use the optional argument joinCategories:
+categoriesPhalAnt <- list('phal 1 ant' = c("phal 1 ant", "phal 1"),
+                          'phal 2 ant' = c("phal 2 ant", "phal 2"))
 dataExampleWithLogs4 <- LogRatios(dataExample,
-                                  joinCategories = categoriesP1)
+                                  joinCategories = categoriesPhalAnt)
 head(dataExampleWithLogs4)[, -c(6:20,32:64)]
 }

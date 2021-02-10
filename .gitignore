@@ -14,4 +14,5 @@ tests/testthat/.DS_Store
 vignettes/.DS_Store
 doc
 Meta
-docs
+docs.Backup
+R.Backups

@@ -368,7 +368,7 @@ ggplot(dataOCStandardized, aes(x = Site, y = Length)) +
 ```
 
 ### Histograms grouped by site
-We may choose to plot the width data as an histogram: 
+We may choose to plot the width data as a histogram: 
 ```{r, fig.asp = 0.7, fig.width = 6, fig.align="center"}
 ggplot(dataOCStandardized, aes(Width)) +
   geom_histogram(bins = 30, na.rm = TRUE) +

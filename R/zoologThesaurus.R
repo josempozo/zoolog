@@ -10,10 +10,11 @@
 #' A thesaurus set is a list of thesauri with additional attributes:
 #' \describe{
 #'   \item{names}{Character vector with the name of each thesaurus.}
-#'   \item{applyToColNames}{Logical vector. Should the thesaurus be applied to
-#'           the column names of the data frame?}
-#'   \item{applyToColValues}{Logical vector. Should the thesaurus be applied to
-#'           the values in the corresponding column of the data frame?}
+#'   \item{applyToColNames}{Logical vector indicating whether each thesaurus
+#'           should be applied to the column names of the data frame.}
+#'   \item{applyToColValues}{Logical vector indicating whether each thesaurus
+#'           should be applied to the values in the corresponding column of
+#'           the data frame.}
 #'   \item{filename}{Character vector with the source file of each thesaurus.}
 #' }
 #'
@@ -34,12 +35,14 @@
 #'   \item{names}{The standard name for the categories.}
 #'   \item{class}{"data.frame"}
 #'   \item{row.names}{Irrelevant}
-#'   \item{caseSensitive}{Logical. Should the names in the thesaurus be
-#'           considered case-sensitive?}
-#'   \item{accentSensitive}{Logical. Should the names in the thesaurus be
-#'           differentiated by the presence of accent marks?}
-#'   \item{punctuationSensitive}{Logical. Should the names in the thesaurus be
-#'           differentiated by the presence of punctuation marks?}
+#'   \item{caseSensitive}{Logical indicating whether the names in the thesaurus
+#'           should be considered case-sensitive.}
+#'   \item{accentSensitive}{Logical indicating whether the names in the
+#'           thesaurus should be differentiated by the presence of accent
+#'           marks.}
+#'   \item{punctuationSensitive}{Logical indicating whether the names in the
+#'           thesaurus should be differentiated by the presence of punctuation
+#'           marks.}
 #' }
 #'
 #' The examples below show the content and characteristics of the first

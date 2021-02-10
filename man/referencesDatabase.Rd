@@ -36,7 +36,7 @@ own osteometrical reference if preferred.
 
 Currently, the references include reference values for the main domesticates
 and their agriotypes (\emph{Bos}, \emph{Ovis}, \emph{Capra},
-\emph{Sus}), and reed deer (\emph{Cervus elaphus}) originated from the
+\emph{Sus}), and red deer (\emph{Cervus elaphus}) drawn from the
 following publications and resources:
 
 \describe{
@@ -44,7 +44,7 @@ following publications and resources:
 \item{Nieto}{\emph{Bos taurus}. Female cow dated to the Early Bronze Age
 (Minferri, Catalonia), in \insertCite{nieto2018element;textual}{zoolog}.
 }
-\item{Basel}{\emph{Bos taurus} Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+\item{Basel}{\emph{Bos taurus}. Inv.nr. 2426 (Hinterwälder; female; 17 years old;
 live weight: 340 kg; withers height: 113 cm), from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
 \item{Degerbøl}{\emph{Bos primigenius}. Female aurochs from
@@ -55,16 +55,17 @@ live weight: 340 kg; withers height: 113 cm), from
 Shetland sheep skeletons from a single flock
 \insertCite{davis1996measurements}{zoolog}.
 }
-\item{Basel}{\emph{Ovis musimon} Inv.nr. 2266 (male; adult), from
+\item{Basel}{\emph{Ovis musimon}. Inv.nr. 2266 (male; adult), from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
-\item{Clutton}{\emph{Ovis aries}. Mean measurements from a group of Soay known-age sheep males
+\item{Clutton}{\emph{Ovis aries}. Mean measurements from a group of male Soay
+sheep of known age
 \insertCite{clutton1990osteology}{zoolog}.}
-\item{Uerpmann}{\emph{Ovis orientalis} Field Museum of Chicago catalogue
+\item{Uerpmann}{\emph{Ovis orientalis}. Field Museum of Chicago catalogue
 number: FMC 57951 (female; western Iran)
 from \insertCite{uerpmann1994animal;textual}{zoolog}.}
 }}
 \item{\strong{Goat - \emph{Capra}}}{\describe{
-\item{Basel}{\emph{Capra hircus} Inv.nr. 1597 (male; adult), from
+\item{Basel}{\emph{Capra hircus}. Inv.nr. 1597 (male; adult), from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
 \item{Clutton}{\emph{Capra hircus}. Mean measurements from a group of goats of unknown age
 and sex \insertCite{clutton1990osteology}{zoolog}.}
@@ -74,10 +75,10 @@ Mountains in southern Turkey) from
 \insertCite{uerpmann1994animal;textual}{zoolog}.}
 }}
 \item{\strong{Pig - \emph{Sus}}}{\describe{
-\item{Albarella}{\emph{Sus domesticus} Mean measurements from a group of Late Neolithic
+\item{Albarella}{\emph{Sus domesticus}. Mean measurements from a group of Late Neolithic
 pigs from Durrington Walls, England
 \insertCite{albarella2005neolithic}{zoolog}.}
-\item{Basel}{\emph{Sus scrofa} Inv.nr. 1446 (male; 2-3 years old; life
+\item{Basel}{\emph{Sus scrofa}. Inv.nr. 1446 (male; 2-3 years old; life
 weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
 \item{Hongo}{\emph{Sus scrofa}. Averaged left and right measurements of a
 female wild board from near Elaziğ, Turkey. Museum of Comparative
@@ -88,7 +89,7 @@ Zoology, Harvard University, specimen #51621
 \insertCite{payne1988components;textual}{zoolog}, Appendix 2.}
 }}
 \item{\strong{Red deer - \emph{Cervus elaphus}}}{\describe{
-\item{Basel}{\emph{Cervus elaphus} Inv.nr. 2271 (male; adult) from
+\item{Basel}{\emph{Cervus elaphus}. Inv.nr. 2271 (male; adult) from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
 }}
 }
@@ -127,8 +128,9 @@ hierarchy described above:\if{html}{\out{<div class="r">}}\preformatted{str(refe
 \section{Reference Sets}{
 
 The references' database is organized per taxon. However, in general the
-data to be analysed includes several taxa. Thus, the reference
-dataframe should include one reference specimen for each relevant taxon.
+zooarchaeological data to be analysed includes several taxa. Thus, the
+reference dataframe should include one reference standard for each relevant
+taxon.
 The \pkg{zoolog} variable \code{referenceSets} defines four possible
 references:\if{html}{\out{<div class="r">}}\preformatted{referenceSets
 }\if{html}{\out{</div>}}\tabular{llllllllll}{
@@ -137,14 +139,13 @@ references:\if{html}{\out{<div class="r">}}\preformatted{referenceSets
    Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \cr
    Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \cr
    Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \cr
+   Each row defines a reference set consisting of a reference source for \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   each taxon (column). The function \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   \code{\link{AssembleReference}} allows us to build the reference set \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   taking the selected taxon-specific references from the \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   \code{referencesDatabase}. \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
 }
 
-
-Each row defines a reference consisting in a reference source for
-each taxon (column). The function
-\code{\link{AssembleReference}} allows us to build the reference set
-taking the selected taxon-specific references from the
-\code{referencesDatabase}.
 
 The \pkg{zoolog} variable \code{reference} is a named list including the
 references defined by \code{referenceSets}:\if{html}{\out{<div class="r">}}\preformatted{str(reference)

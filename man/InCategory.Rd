@@ -25,7 +25,7 @@ Function to check if an element belongs to a category according to a
 thesarus. It is similar to \code{\link[base]{\%in\%}} and
 \code{\link[base]{is.element}}, returning a logical vector indicating if each
 element in a given vector is included in a given set. But \code{InCategory}
-check for equality assuming the equivalencies defined in the given thesaurus.
+checks for equality assuming the equivalencies defined in the given thesaurus.
 }
 \examples{
 InCategory(c("sheep", "cattle", "goat", "red deer"),

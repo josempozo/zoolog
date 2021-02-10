@@ -2,7 +2,7 @@
 #'
 #' This function condenses the calculated log ratio values into a reduced number
 #' of features by grouping log ratio values and selecting or calculating a
-#' feature value. By default the selected groups represent each a single dimension,
+#' feature value. By default the selected groups each represents a single dimension,
 #' i.e. \code{Length} and \code{Width}. Only one feature is extracted per group.
 #' Currently, two methods are possible: priority (default) or average.
 #'
@@ -16,9 +16,11 @@
 #' (e.g. one measure per axis) palliates both problems.
 #'
 #' Observe that an important property of the log-ratios from a reference is that
-#' it makes the different measures comparable. For instance, a bone with
-#' a width doubling the reference will produce the same log-ratio
-#' (\code{log(2)}) for Bd, BT, Bp, and SD. In contrast, the
+#' it makes the different measures comparable. For instance, if a bone is
+#' scaled with respect to the reference, so that it homogeneously doubles its
+#' width, then all width related measures
+#' (\emph{Bd}, \emph{BT}, \emph{Bp}, and \emph{SD}) will give the
+#' same log-ratio (\code{log(2)}). In contrast, the
 #' absolute measures are not directly comparable.
 #'
 #' The measurement names in the grouping list are given without the

@@ -17,7 +17,7 @@
 #' @section Data Source:
 #' Currently, the references include reference values for the main domesticates
 #' and their agriotypes (\emph{Bos}, \emph{Ovis}, \emph{Capra},
-#' \emph{Sus}), and reed deer (\emph{Cervus elaphus}) originated from the
+#' \emph{Sus}), and red deer (\emph{Cervus elaphus}) drawn from the
 #' following publications and resources:
 #'
 #' \describe{
@@ -25,7 +25,7 @@
 #'     \item{Nieto}{*Bos taurus*. Female cow dated to the Early Bronze Age
 #'       (Minferri, Catalonia), in \insertCite{nieto2018element;textual}{zoolog}.
 #'     }
-#'     \item{Basel}{*Bos taurus* Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+#'     \item{Basel}{*Bos taurus*. Inv.nr. 2426 (Hinterwälder; female; 17 years old;
 #'       live weight: 340 kg; withers height: 113 cm), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'     \item{Degerbøl}{*Bos primigenius*. Female aurochs from
@@ -36,16 +36,17 @@
 #'       Shetland sheep skeletons from a single flock
 #'     \insertCite{davis1996measurements}{zoolog}.
 #'     }
-#'     \item{Basel}{*Ovis musimon* Inv.nr. 2266 (male; adult), from
+#'     \item{Basel}{*Ovis musimon*. Inv.nr. 2266 (male; adult), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Clutton}{*Ovis aries*. Mean measurements from a group of Soay known-age sheep males
+#'     \item{Clutton}{*Ovis aries*. Mean measurements from a group of male Soay
+#'       sheep of known age
 #'       \insertCite{clutton1990osteology}{zoolog}.}
-#'     \item{Uerpmann}{*Ovis orientalis* Field Museum of Chicago catalogue
+#'     \item{Uerpmann}{*Ovis orientalis*. Field Museum of Chicago catalogue
 #'       number: FMC 57951 (female; western Iran)
 #'       from \insertCite{uerpmann1994animal;textual}{zoolog}.}
 #'   }}
 #'   \item{**Goat - *Capra***}{\describe{
-#'     \item{Basel}{*Capra hircus* Inv.nr. 1597 (male; adult), from
+#'     \item{Basel}{*Capra hircus*. Inv.nr. 1597 (male; adult), from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'     \item{Clutton}{*Capra hircus*. Mean measurements from a group of goats of unknown age
 #'       and sex \insertCite{clutton1990osteology}{zoolog}.}
@@ -55,10 +56,10 @@
 #'       \insertCite{uerpmann1994animal;textual}{zoolog}.}
 #'   }}
 #'   \item{**Pig - *Sus***}{\describe{
-#'     \item{Albarella}{*Sus domesticus* Mean measurements from a group of Late Neolithic
+#'     \item{Albarella}{*Sus domesticus*. Mean measurements from a group of Late Neolithic
 #'       pigs from Durrington Walls, England
 #'       \insertCite{albarella2005neolithic}{zoolog}.}
-#'     \item{Basel}{*Sus scrofa* Inv.nr. 1446 (male; 2-3 years old; life
+#'     \item{Basel}{*Sus scrofa*. Inv.nr. 1446 (male; 2-3 years old; life
 #'       weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'     \item{Hongo}{*Sus scrofa*. Averaged left and right measurements of a
 #'       female wild board from near Elaziğ, Turkey. Museum of Comparative
@@ -69,7 +70,7 @@
 #'       \insertCite{payne1988components;textual}{zoolog}, Appendix 2.}
 #'   }}
 #'   \item{**Red deer - *Cervus elaphus***}{\describe{
-#'     \item{Basel}{*Cervus elaphus* Inv.nr. 2271 (male; adult) from
+#'     \item{Basel}{*Cervus elaphus*. Inv.nr. 2271 (male; adult) from
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'   }}
 #' }
@@ -83,8 +84,9 @@
 #'
 #' @section Reference Sets:
 #' The references' database is organized per taxon. However, in general the
-#' data to be analysed includes several taxa. Thus, the reference
-#' dataframe should include one reference specimen for each relevant taxon.
+#' zooarchaeological data to be analysed includes several taxa. Thus, the
+#' reference dataframe should include one reference standard for each relevant
+#' taxon.
 #' The \pkg{zoolog} variable \code{referenceSets} defines four possible
 #' references:
 #' ``` {r, eval = FALSE}
@@ -96,8 +98,7 @@
 #' refSetsAux[is.na(refSetsAux)] <- ""
 #' knitr::kable(refSetsAux)
 #' ```
-#'
-#' Each row defines a reference consisting in a reference source for
+#' Each row defines a reference set consisting of a reference source for
 #' each taxon (column). The function
 #' \code{\link{AssembleReference}} allows us to build the reference set
 #' taking the selected taxon-specific references from the
