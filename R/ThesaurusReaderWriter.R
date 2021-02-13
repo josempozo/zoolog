@@ -105,7 +105,7 @@ ReadThesaurusSet <- function(file)
 WriteThesaurus <- function(thesaurus, file)
 {
   WriteThesaurusAttributes(thesaurus, file)
-  utils::write.table(thesaurus, "~/Silvia/zoolog/inst/extdata/aa.csv",
+  utils::write.table(thesaurus, file,
                      sep = ";", dec = ",", qmethod = "double",
                      row.names = FALSE, col.names = FALSE, quote = FALSE,
                      append = TRUE)
