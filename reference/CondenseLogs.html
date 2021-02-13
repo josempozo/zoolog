@@ -83,7 +83,7 @@ Currently, two methods are possible: priority (default) or average." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -150,7 +150,7 @@ Currently, two methods are possible: priority (default) or average.</p>
 
     <pre class="usage"><span class='fu'>CondenseLogs</span><span class='op'>(</span>
   <span class='va'>data</span>,
-  grouping <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GL"</span>, <span class='st'>"GLl"</span>, <span class='st'>"HTC"</span>, <span class='st'>"GLm"</span><span class='op'>)</span>, Width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Bd"</span>, <span class='st'>"BT"</span>, <span class='st'>"Bp"</span>,
+  grouping <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Length <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"GL"</span>, <span class='st'>"GLl"</span>, <span class='st'>"GLm"</span>, <span class='st'>"HTC"</span><span class='op'>)</span>, Width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Bd"</span>, <span class='st'>"BT"</span>, <span class='st'>"Bp"</span>,
     <span class='st'>"SD"</span>, <span class='st'>"Bfd"</span>, <span class='st'>"Bfp"</span><span class='op'>)</span><span class='op'>)</span>,
   method <span class='op'>=</span> <span class='st'>"priority"</span>
 <span class='op'>)</span></pre>
@@ -166,7 +166,7 @@ Currently, two methods are possible: priority (default) or average.</p>
       <th>grouping</th>
       <td><p>A list of named character vectors. The list includes a vector
 per selected group. Each vector gives the group of measurements in order of
-priority. By default the groups are <code>Length = c("GL", "GLl", "HTC", "GLm")</code>
+priority. By default the groups are <code>Length = c("GL", "GLl", "GLm", "HTC")</code>
 and <code>Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp")</code>. The order is
 irrelevant for <code>method = "average"</code>.</p></td>
     </tr>
@@ -206,7 +206,7 @@ absolute measures are not directly comparable.</p>
 measure log-ratio in each group. The method <code>"average"</code> extracts the
 mean per group, ignoring the non-available measures.
 We provide the following by-default group and prioritization:
-For lengths, the order of priority is: GL, GLl, HTC, GLm.
+For lengths, the order of priority is: GL, GLl, GLm, HTC.
 For widths, the order of priority is: Bd, BT, Bp, SD, Bfd, Bfp.
 This order maximises the robustness and reliability of the measurements,
 as priority is given to the most abundant, more replicable, and less age

@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -96,7 +96,7 @@
 Zooarcheological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-02-10</h4>
+            <h4 class="date">2021-02-13</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/josempozo/zoolog/blob/master/vignettes/index.Rmd"><code>vignettes/index.Rmd</code></a></small>
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -132,11 +132,11 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span>, force <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="reference-standards" class="section level1">
+<div id="sec:refStandards" class="section level1">
 <h1 class="hasAnchor">
-<a href="#reference-standards" class="anchor"></a>Reference standards</h1>
+<a href="#sec:refStandards" class="anchor"></a>Reference standards</h1>
 <p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), and red deer (<em>Cervus elaphus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
 <p>The predefined reference sets included in <em>zoolog</em> are provided in the named list <code>reference</code>, currently comprising the following 4 sets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -3453,6 +3453,14 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <span class="co">#&gt; P value adjustment method: holm</span></code></pre></div>
 </div>
 </div>
+<div id="how-to-cite-the-package-zoolog" class="section level1">
+<h1 class="hasAnchor">
+<a href="#how-to-cite-the-package-zoolog" class="anchor"></a>How to cite the package <em>zoolog</em>
+</h1>
+<p>We have invested a lot of time and effort in creating zoolog. Please cite the package if you publish an analysis or results obtained using <em>zoolog</em>. For example, “Log ratios calculation and analysis was done using the package zoolog <span class="citation">(Pozo et al. 2021)</span> in R 4.0.3 <span class="citation">(R Core Team 2020)</span>.”</p>
+<p>To get the details of the most recent version of the package, you can use the R citation function: <code><a href="https://rdrr.io/r/utils/citation.html">citation("zoolog")</a></code>.</p>
+<p>When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page <a href="../help/referencesDatabase">referencesDatabase</a>. For instance, if using the zoolog <code>reference$NietoDavisAlbarella</code>: “Published references for cattle <span class="citation">(Nieto-Espinet 2018)</span>, sheep/goat <span class="citation">(Davis 1996)</span> and pigs <span class="citation">(Albarella and Payne 2005)</span> were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog ‘priority’ method <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>: length values - GL, GLl, GLm, HTC; width values - Bd, BT, Bp, SD, Bfd, Bfp.”</p>
+</div>
 <div id="bibliography" class="section level1 unnumbered">
 <h1 class="hasAnchor">
 <a href="#bibliography" class="anchor"></a>Bibliography</h1>
@@ -3471,6 +3479,16 @@ Zooarcheological Analysis with Log-Ratios</h1>
 </div>
 <div id="ref-meadow1999use">
 <p>Meadow, Richard H. 1999. <em>The Use of Size Index Scaling Techniques for Research on Archaeozoological Collections from the Middle East</em>. na.</p>
+</div>
+<div id="ref-nieto2018element">
+<p>Nieto-Espinet, A. 2018. “Element Measure Standard Biometrical Data from a Cow Dated to the Early Bronze Age (Minferri, Catalonia).” <a href="https://doi.org/10.13140/RG.2.2.13512.78081">https://doi.org/10.13140/RG.2.2.13512.78081</a>.</p>
+</div>
+<div id="ref-pozo2021zoolog">
+<p>Pozo, Jose M, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli. 2021. “Zoolog: Zooarcheological Analysis with Log-Ratios.” <em>Journal of Statistical Software</em> In preparation. <a href="https://github.com/josempozo/zoolog,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20https://josempozo.github.io/zoolog">https://github.com/josempozo/zoolog,
+                https://josempozo.github.io/zoolog</a>.</p>
+</div>
+<div id="ref-RCoreTeam2020">
+<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-simpson1941large">
 <p>Simpson, George Gaylord. 1941. “Large Pleistocene Felines of North America.” <em>American Museum Novitates</em> 1136: 1–27.</p>
