@@ -1,3 +1,9 @@
+##########################################
+## zoolog thesaurus for taxa
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+##########################################
 Bos taurus;Bos primigenius;Ovis aries;Ovis orientalis;Capra hircus;Capra aegagrus;Ovis/Capra;Sus domesticus;Sus scrofa;Cervus elaphus
 bota;BP;ovar;ovis musimon;cahi;wild goat;oc;sudo;wild boar;ceel
 bos;bos prim;ovis;muflon;capra;cabra salvatge;caprine;sus;senglar;cervus

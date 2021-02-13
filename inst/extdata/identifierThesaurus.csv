@@ -1,3 +1,9 @@
+##########################################
+## zoolog thesaurus for identifiers of reference values.
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+##########################################
 Taxon;Element;Measure;Standard
 TAX;EL;measurement;estandar
 species;anat;Mass;

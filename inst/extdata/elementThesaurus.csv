@@ -1,3 +1,9 @@
+##########################################
+## zoolog thesaurus for bone elements.
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+##########################################
 scapula;humerus;radius;ulna;metacarpus;metacarpus II;metacarpus III;metacarpus IV;metacarpus V;pelvis;femur;tibia;calcaneum;astragalus;metatarsus;metatarsus II;metatarsus III;metatarsus IV;metatarsus V;centrotarsale;anterior first phalanx;first phalanx;posterior first phalanx;anterior second phalanx;second phalanx;posterior second phalanx;anterior third phalanx;third phalanx;posterior third phalanx;Molar 1;Molar 2;Molar 3;Premolar 1;Premolar 2;lower Molar 1;lower Molar 2;lower Molar 3;lower Premolar 1;lower Premolar 2
 SC;HU;RA;cubit;metacarpal I;metacarpal II;metacarpal III;metacarpal IV;metacarpal V;PE;FE;TI;CAL;AS;metatarsal I;metatarsal II;metatarsal III;metatarsal IV;metatarsal V;centrotarsal;Phalange 1 ant;Phalange 1;Phalange 1 post;Phalange 2 ant;Phalange 2;Phalange 2 post;Phalange 3 ant;Phalange 3;Phalange 3 post;M1;M2;M3;;;LM1;LM2;LM3;;
 scapula;hum;rad;cubito;MC I;MC II;MC III;MC IV;MC V;coxal;fem;TIB;calca;talus;MT I;MT II;MT III;MT IV;MT V;escafocuboideo;Phalanx 1 ant.;Phalanx 1;Phalanx 1 post.;Phalanx 2 ant.;Phalanx 2;Phalanx 2 post.;Phalanx 3 ant.;Phalanx 3;Phalanx 3 post.;;;;;;;;;;

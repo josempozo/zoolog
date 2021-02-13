@@ -67,11 +67,16 @@ ReadThesaurus <- function(file,
                           accentSensitive = FALSE,
                           punctuationSensitive = FALSE)
 {
-  thesaurus <- utils::read.csv2(file, stringsAsFactors = FALSE, header = FALSE)
+  thesaurus <- utils::read.csv2(file, stringsAsFactors = FALSE, header = FALSE,
+                                comment.char = "#")
   names(thesaurus) <- thesaurus[1,]
-  attr(thesaurus, "caseSensitive") <- caseSensitive
-  attr(thesaurus, "accentSensitive") <- accentSensitive
-  attr(thesaurus, "punctuationSensitive") <- punctuationSensitive
+  attrib <- ReadThesaurusAttributes(file)
+  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
+  {
+    if(!eval(call("missing", as.name(sensitive))) || is.null(attrib[[sensitive]]))
+      attrib[[sensitive]] <- eval(as.name(sensitive))
+    attr(thesaurus, sensitive) <- attrib[[sensitive]]
+  }
   if(ambiguity <- ThesaurusAmbiguity(thesaurus))
     stop(paste0("Ambiguous thesaurus in ", file , ":\n",
                 attr(ambiguity, "errmessage")))
@@ -82,7 +87,7 @@ ReadThesaurus <- function(file,
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  data <- utils::read.csv2(file)
+  data <- utils::read.csv2(file, comment.char = "#")
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
   thesaurusSet <- mapply(ReadThesaurus, filenames,
@@ -99,7 +104,11 @@ ReadThesaurusSet <- function(file)
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
-  utils::write.csv2(thesaurus[-1,], file, row.names = FALSE, quote = FALSE)
+  WriteThesaurusAttributes(thesaurus, file)
+  utils::write.table(thesaurus, "~/Silvia/zoolog/inst/extdata/aa.csv",
+                     sep = ";", dec = ",", qmethod = "double",
+                     row.names = FALSE, col.names = FALSE, quote = FALSE,
+                     append = TRUE)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -123,4 +132,53 @@ WriteThesaurusSet <- function(thesaurusSet, file)
   filenames <- file.path(dir, data$FileName)
   filenames <- file.path(dir, data$FileName)
   noreturn <- mapply(WriteThesaurus, thesaurusSet, filenames)
+}
+
+ReadThesaurusAttributes <- function(file)
+{
+  x <- ReadCommentLines(file)
+  attrib <- list()
+  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
+  {
+    value <- as.logical(GetAfterPattern(x, sensitive))
+    if(length(value) > 0) attrib[[sensitive]] <- value[1]
+  }
+  return(attrib)
+}
+
+ReadCommentLines <- function(file, comment.char = "#")
+{
+  allLines <- stringi::stri_read_lines(file)
+  GetCommentLines(allLines, comment.char)
+}
+
+GetCommentLines <- function(x, comment.char = "#")
+{
+  commentLines <- x[StartsBy(x, comment.char)]
+  comments <- sub(paste0("([", comment.char, " ])+"), "", commentLines)
+  return(comments)
+}
+
+GetAfterPattern <- function(x, pattern)
+{
+  xSelected <- x[StartsBy(x, pattern)]
+  xWithoutInitialSpaces <- sub("( )+", "", xSelected)
+  xWithoutPattern <- substring(xWithoutInitialSpaces, nchar(pattern)+1)
+  sub("( )+", "", xWithoutPattern)
+}
+
+StartsBy <- function(x, pattern)
+{
+  xWithoutInitialSpaces <- sub("( )+", "", x)
+  substring(xWithoutInitialSpaces, 1, nchar(pattern)) == pattern
+}
+
+WriteThesaurusAttributes <- function(thesaurus, file)
+{
+  commentLine = c("##########################################")
+  lines = c(commentLine, "## zoolog thesaurus")
+  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
+    lines = c(lines, paste("##", sensitive, attr(thesaurus, sensitive)))
+  lines = c(lines, commentLine)
+  writeLines(lines, file)
 }

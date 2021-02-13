@@ -65,11 +65,11 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE, force = TRUE)
+devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 ```
 
 
-# Reference standards
+# Reference standards {#sec:refStandards}
 
 The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), and red deer (*Cervus elaphus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
 
@@ -456,5 +456,13 @@ pairwise.t.test(dataOCStandardized$Width, dataOCStandardized$Site,
 ```
 
 
+# How to cite the package *zoolog*
+
+We have invested a lot of time and effort in creating zoolog. Please cite the package if you publish an analysis or results obtained using *zoolog*.
+For example, "Log ratios calculation and analysis was done using the package zoolog  [@pozo2021zoolog] in R 4.0.3 [@RCoreTeam2020]."
+
+To get the details of the most recent version of the package, you can use the R citation function: `citation("zoolog")`.
+
+When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page [referencesDatabase](../help/referencesDatabase). For instance, if using the zoolog `reference$NietoDavisAlbarella`: "Published references for cattle [@nieto2018element], sheep/goat [@davis1996measurements] and pigs [@albarella2005neolithic] were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog 'priority' method [@trentacoste2018pre]: length values - GL, GLl, GLm, HTC; width values - Bd, BT, Bp, SD, Bfd, Bfp."
 
 # Bibliography
