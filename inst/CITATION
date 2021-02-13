@@ -9,8 +9,7 @@ citEntry(entry = "article",
          volume = "In preparation.",
          pages = "",
          year = "2021",
-         url = "https://github.com/josempozo/zoolog,
-                https://josempozo.github.io/zoolog",
+         url = "https://github.com/josempozo/zoolog",
          textVersion = "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,
                         Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli (2021).
                         zoolog: Zooarcheological Analysis with Log-Ratios.
