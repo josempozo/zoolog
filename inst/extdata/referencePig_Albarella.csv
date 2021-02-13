@@ -8,14 +8,16 @@
 ## Journal of Archaeological Science, 32(4), 589-599.
 ##########################################
 TAX;EL;Measure;Standard
-sudo;AS;GLl;61,6
-sudo;AS;Bd;37,1
-sudo;TI;Bd;55,2
-sudo;TI;Dd;40,9
-sudo;CAL;GL;122,5
-sudo;RA;Bd;64,1
-sudo;HU;HTC;30,4
-sudo;HU;BT;66,5
-sudo;MC;GL;177,1
-sudo;MC;Bd;54,6
-sudo;MT;Bd;51,5
+sudo;AS;GLl;40,8
+sudo;AS;GLm;37,9
+sudo;CA;GL;79,3
+sudo;HU;Bd;41,1
+sudo;HU;BT;31,3
+sudo;HU;HTC;19,7
+sudo;MCIII;GL;73,9
+sudo;MCIV;GL;75,7
+sudo;PE;LAR;33,3
+sudo;RA;Bp;29,6
+sudo;SC;SLC;23,8
+sudo;TI;Bd;30,7
+sudo;SC;GLP;36,7
