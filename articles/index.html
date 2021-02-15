@@ -96,7 +96,7 @@
 Zooarcheological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-02-13</h4>
+            <h4 class="date">2021-02-15</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/josempozo/zoolog/blob/master/vignettes/index.Rmd"><code>vignettes/index.Rmd</code></a></small>
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -140,7 +140,7 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), and red deer (<em>Cervus elaphus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
 <p>The predefined reference sets included in <em>zoolog</em> are provided in the named list <code>reference</code>, currently comprising the following 4 sets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/josempozo/zoolog">zoolog</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/josempozo/zoolog/">zoolog</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">reference</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; List of 4</span>
 <span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 104 obs. of  4 variables:</span>
@@ -313,7 +313,7 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <p>This example reads a dataset from a file in csv format and computes the log-ratios. Then, the cases with no available log-ratios are removed. Finally, the resulting dataset is saved in a file in csv format.</p>
 <p>The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the <a href="../help/dataValenzuelaLamas2008">example dataset</a> from <span class="citation">(Valenzuela-Lamas 2008)</span> included in the package is used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/josempozo/zoolog">zoolog</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/josempozo/zoolog/">zoolog</a></span><span class="op">)</span>
 <span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, 
                         package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,
@@ -3484,8 +3484,7 @@ Zooarcheological Analysis with Log-Ratios</h1>
 <p>Nieto-Espinet, A. 2018. “Element Measure Standard Biometrical Data from a Cow Dated to the Early Bronze Age (Minferri, Catalonia).” <a href="https://doi.org/10.13140/RG.2.2.13512.78081">https://doi.org/10.13140/RG.2.2.13512.78081</a>.</p>
 </div>
 <div id="ref-pozo2021zoolog">
-<p>Pozo, Jose M, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli. 2021. “Zoolog: Zooarcheological Analysis with Log-Ratios.” <em>Journal of Statistical Software</em> In preparation. <a href="https://github.com/josempozo/zoolog,%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20https://josempozo.github.io/zoolog">https://github.com/josempozo/zoolog,
-                https://josempozo.github.io/zoolog</a>.</p>
+<p>Pozo, Jose M, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli. 2021. “Zoolog: Zooarcheological Analysis with Log-Ratios.” <em>Journal of Statistical Software</em> In preparation. <a href="https://josempozo.github.io/zoolog/">https://josempozo.github.io/zoolog/</a>.</p>
 </div>
 <div id="ref-RCoreTeam2020">
 <p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
