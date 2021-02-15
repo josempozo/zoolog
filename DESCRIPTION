@@ -57,4 +57,4 @@ Imports:
     Rdpack (>= 0.7)
 RdMacros: Rdpack
 VignetteBuilder: knitr
-URL: https://github.com/josempozo/zoolog https://josempozo.github.io/zoolog
+URL: https://github.com/josempozo/zoolog/ https://josempozo.github.io/zoolog/
