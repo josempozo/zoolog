@@ -5,6 +5,7 @@
 3. Enlargement of the thesauri.
 4. Added the functionality `mergedMeasures` (optional parameter) to the function
    `LogRatios`
+5. Corrected erroneous reference_Sus_Albarella.
 
 # zoolog 0.1.0
 First release.
