@@ -30,6 +30,10 @@
 #'       \insertCite{stopp2018Basel;textual}{zoolog}.}
 #'     \item{Degerbøl}{*Bos primigenius*. Female aurochs from
 #'       \insertCite{degerbol1970urus;textual}{zoolog}.}
+#'     \item{Johnstone}{*Bos taurus*. Standard values from means of cattle
+#'       measures from Period II (Late Iron Age to Romano-British transition)
+#'       of Elms Farm, Heybridge
+#'       \insertCite{johnstone2002late}{zoolog}.}
 #'   }}
 #'   \item{**Sheep - *Ovis***}{\describe{
 #'     \item{Davis}{*Ovis aries*. Mean values of measurements from a group of adult female
@@ -98,6 +102,7 @@
 #' refSetsAux[is.na(refSetsAux)] <- ""
 #' knitr::kable(refSetsAux)
 #' ```
+#'
 #' Each row defines a reference set consisting of a reference source for
 #' each taxon (column). The function
 #' \code{\link{AssembleReference}} allows us to build the reference set
@@ -144,9 +149,12 @@
 #' \insertCite{stopp2018Basel}{zoolog}
 #' together with the permission to publish them as part of \pkg{zoolog}.
 #'
-#' We thank also to Francesca Slim and Dimitris Filioglou for providing the
+#' We thank also Francesca Slim and Dimitris Filioglou for providing the
 #' Groningen references
 #' \insertCite{degerbol1970urus,uerpmann1994animal,hongo2000faunal}{zoolog}.
+#'
+#' We thank Claudia Minniti for providing Johnstone's references
+#' \insertCite{johnstone2002late}{zoolog}.
 #'
 #' @name referencesDatabase
 #' @rdname referencesDatabase

@@ -1,5 +1,5 @@
 ---
-title: "***zoolog***:  \n Zooarcheological Analysis with Log-Ratios"
+title: "***zoolog***:  \n Zooarchaeological Analysis with Log-Ratios"
 author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
 email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
@@ -41,12 +41,12 @@ where $x$ is the considered measure value and $x_\text{ref}$ is the correspondin
 
 Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. @davis1996measurements, @albarella2005neolithic) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in @von1976guide and @davis1992rapid. 
 
-In general, zooarcheological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
+In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
 
 The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. 
 
 ## Acknowledgements
-We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen for providing additional reference sets.
+We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, and Claudia Minniti from University of Salento for providing additional reference sets.
 
 The thesaurus has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.
 
@@ -95,7 +95,7 @@ A detailed description of the reference data, including its structure, propertie
 
 # Thesaurus
 
-A [thesaurus set](../help/zoologThesaurus) is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarcheological datasets. This enables the function [LogRatios](../help/LogRatios) to match values in the user's dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
+A [thesaurus set](../help/zoologThesaurus) is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarchaeological datasets. This enables the function [LogRatios](../help/LogRatios) to match values in the user's dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
 
 The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package.
 
@@ -463,6 +463,6 @@ For example, "Log ratios calculation and analysis was done using the package zoo
 
 To get the details of the most recent version of the package, you can use the R citation function: `citation("zoolog")`.
 
-When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page [referencesDatabase](../help/referencesDatabase). For instance, if using the zoolog `reference$NietoDavisAlbarella`: "Published references for cattle [@nieto2018element], sheep/goat [@davis1996measurements] and pigs [@albarella2005neolithic] were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog 'priority' method [@trentacoste2018pre]: length values - GL, GLl, GLm, HTC; width values - Bd, BT, Bp, SD, Bfd, Bfp."
+When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page [referencesDatabase](../help/referencesDatabase). For instance, if using the zoolog `reference$NietoDavisAlbarella` and the default selection method of features, a fair description may be: "Published references for cattle [@nieto2018element], sheep/goat [@davis1996measurements] and pigs [@albarella2005neolithic] were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog 'priority' method [@trentacoste2018pre]: length values - GL, GLl, GLm, HTC; width values - Bd, BT, Bp, SD, Bfd, Bfp."
 
 # Bibliography

@@ -1,7 +1,7 @@
 citHeader("To cite package ‘zoolog’ in publications, please use:")
 
 citEntry(entry = "article",
-         title = "zoolog: Zooarcheological Analysis with Log-Ratios",
+         title = "zoolog: Zooarchaeological Analysis with Log-Ratios",
          author = "Pozo, Jose M and Valenzuela-Lamas, Silvia and
                    Trentacoste, Angela and Nieto-Espinet, Ariadna and
                    Guimarães Chiarelli, Silvia",
@@ -12,7 +12,7 @@ citEntry(entry = "article",
          url = "https://josempozo.github.io/zoolog/",
          textVersion = "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,
                         Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli (2021).
-                        zoolog: Zooarcheological Analysis with Log-Ratios.
+                        zoolog: Zooarchaeological Analysis with Log-Ratios.
                         Journal of Statistical Software. In preparation.
                         https://josempozo.github.io/zoolog/"
 )

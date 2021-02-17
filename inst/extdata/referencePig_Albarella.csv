@@ -8,16 +8,45 @@
 ## Journal of Archaeological Science, 32(4), 589-599.
 ##########################################
 TAX;EL;Measure;Standard
-sudo;AS;GLl;40,8
-sudo;AS;GLm;37,9
-sudo;CA;GL;79,3
+sudo;Atlas;H;46,9
+sudo;Atlas;BFcr;56,8
+sudo;SC;GLP;36,7
+sudo;SC;SLC;23,8
 sudo;HU;Bd;41,1
 sudo;HU;BT;31,3
 sudo;HU;HTC;19,7
+sudo;HU;SD;16,7
+sudo;RA;Bp;29,6
+sudo;RA;SD;17,6
 sudo;MCIII;GL;73,9
 sudo;MCIV;GL;75,7
 sudo;PE;LAR;33,3
-sudo;RA;Bp;29,6
-sudo;SC;SLC;23,8
 sudo;TI;Bd;30,7
-sudo;SC;GLP;36,7
+sudo;TI;DD;14,9
+sudo;TI;SD;20,4
+sudo;AS;GLl;40,8
+sudo;AS;GLm;37,9
+sudo;CA;GL;79,3
+sudo;CA;GD;31,1
+sudo;M1 upper;L;17,6
+sudo;M1 upper;WA;13,7
+sudo;M1 upper;WP;13,5
+sudo;M2 upper;L;23,6
+sudo;M2 upper;WA;17
+sudo;M2 upper;WP;16,5
+sudo;M3 upper;L;32,9
+sudo;M3 upper;WA;18,5
+sudo;P4 lower;WA;8,4
+sudo;dP3 lower;L;10,1
+sudo;dP3 lower;WA;4,8
+sudo;dP4 lower;L;18,9
+sudo;dP4 lower;WA;6,3
+sudo;dP4 lower;WP;8,6
+sudo;M1 lower;L;17,5
+sudo;M1 lower;WA;10,3
+sudo;M1 lower;WP;10,9
+sudo;M2 lower;L;21,8
+sudo;M2 lower;WA;13,7
+sudo;M2 lower;WP;14,2
+sudo;M3 lower;L;34,5
+sudo;M3 lower;WA;15,7

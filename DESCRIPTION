@@ -1,5 +1,5 @@
 Package: zoolog
-Title: Zooarcheological Analysis with Log-Ratios
+Title: Zooarchaeological Analysis with Log-Ratios
 Version: 0.2.1
 Date: 2021-2-13
 Authors@R: c(
@@ -27,10 +27,14 @@ Description: Includes functions and reference data to
     generate and manipulate log-ratios (also known as log size index (LSI)
     values) from measurements obtained on zooarchaeological material. Log
     ratios are used to compare the relative (rather than the absolute)
-    dimensions of animals from archaeological contexts.
+    dimensions of animals from archaeological contexts 
+    (Meadow 1999, ISBN: 9783896463883).
     zoolog is also able to seamlessly integrate data and references 
     with heterogeneous nomenclature, which is internally managed by a 
-    zoolog thesaurus.
+    zoolog thesaurus. 
+    A preliminary version of the zoolog methods was first used by 
+    Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) 
+    <doi:10.1371/journal.pone.0208109>.
 Acknowledgments:
     Several fellow colleagues helped building the Thesaurus and tested the
     code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
@@ -38,6 +42,13 @@ Acknowledgments:
     Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia 
     Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
     their comments and help.
+    We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, 
+    from the University of Basel (Switzerland) for making the reference values 
+    of several specimens available through the ICAZ Roman Period Working Group, 
+    which have been included here with their permission. We also thank 
+    Francesca Slim and Dimitris Filioglou from the University of Groningen, 
+    and Claudia Minniti from University of Salento for providing additional 
+    reference sets.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -57,4 +68,4 @@ Imports:
     Rdpack (>= 0.7)
 RdMacros: Rdpack
 VignetteBuilder: knitr
-URL: https://github.com/josempozo/zoolog/ https://josempozo.github.io/zoolog/
+URL: https://josempozo.github.io/zoolog/

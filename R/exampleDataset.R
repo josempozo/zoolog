@@ -1,7 +1,5 @@
 #' Example dataset
-#' @name dataValenzuelaLamas2008
 #'
-#' @description
 #' The dataset provided as an example originates from
 #' \insertCite{valenzuela2008alimentacio}{zoolog}. The dataset is written in
 #' Catalan, with the exception of some headings to facilitate understanding of
@@ -65,4 +63,6 @@
 #' @references
 #'   \insertAllCited{}
 #'
+#' @name dataValenzuelaLamas2008
+#' @docType data
 NULL

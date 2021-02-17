@@ -2,4 +2,4 @@ ThesaurusName;FileName;CaseSensitive;AccentSensitive;PunctuationSensitive;ApplyT
 identifier;identifierThesaurus.csv;FALSE;FALSE;FALSE;TRUE;FALSE
 taxon;taxonThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
 element;elementThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
-measure;measureThesaurus.csv;TRUE;FALSE;TRUE;TRUE;TRUE
+measure;measureThesaurus.csv;TRUE;FALSE;FALSE;TRUE;TRUE
