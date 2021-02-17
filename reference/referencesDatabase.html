@@ -105,7 +105,7 @@ own osteometrical reference if preferred." />
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/index.html">***zoolog***:  
- Zooarcheological Analysis with Log-Ratios</a>
+ Zooarchaeological Analysis with Log-Ratios</a>
     </li>
   </ul>
 </li>
@@ -114,12 +114,7 @@ own osteometrical reference if preferred." />
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/josempozo/zoolog/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -134,7 +129,7 @@ own osteometrical reference if preferred." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>References</h1>
-    <small class="dont-index">Source: <a href='https://github.com/josempozo/zoolog/blob/master/R/references.R'><code>R/references.R</code></a></small>
+    
     <div class="hidden name"><code>referencesDatabase.Rd</code></div>
     </div>
 
@@ -185,6 +180,11 @@ Stopp and Deschler-Erb (2018)
 .</p></dd>
 <dt>Degerbøl</dt><dd><p><em>Bos primigenius</em>. Female aurochs from
 Degerbøl and Fredskild (1970)
+.</p></dd>
+<dt>Johnstone</dt><dd><p><em>Bos taurus</em>. Standard values from means of cattle
+measures from Period II (Late Iron Age to Romano-British transition)
+of Elms Farm, Heybridge
+(Johnstone and Albarella 2002)
 .</p></dd></dl></p></dd>
 <dt><strong>Sheep - <em>Ovis</em></strong></dt><dd><p><dl>
 <dt>Davis</dt><dd><p><em>Ovis aries</em>. Mean values of measurements from a group of adult female
@@ -242,9 +242,10 @@ Stopp and Deschler-Erb (2018)
 references. It is structured as a named list of named lists, following the
 hierarchy described above:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>referencesDatabase</span>, max.level <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## List of 9</span>
-<span class='co'>##  $ Bos taurus     :List of 2</span>
-<span class='co'>##   ..$ Nieto:'data.frame':  68 obs. of  4 variables:</span>
-<span class='co'>##   ..$ Basel:'data.frame':  50 obs. of  4 variables:</span>
+<span class='co'>##  $ Bos taurus     :List of 3</span>
+<span class='co'>##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span>
+<span class='co'>##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span>
+<span class='co'>##   ..$ Johnstone:'data.frame':  24 obs. of  4 variables:</span>
 <span class='co'>##  $ Bos primigenius:List of 1</span>
 <span class='co'>##   ..$ Degerbol:'data.frame':  50 obs. of  4 variables:</span>
 <span class='co'>##  $ Ovis aries     :List of 2</span>
@@ -259,7 +260,7 @@ hierarchy described above:<div class="r"></p><pre><span class='fu'><a href='http
 <span class='co'>##  $ Capra aegagrus :List of 1</span>
 <span class='co'>##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span>
 <span class='co'>##  $ Sus domesticus :List of 1</span>
-<span class='co'>##   ..$ Albarella:'data.frame':  13 obs. of  4 variables:</span>
+<span class='co'>##   ..$ Albarella:'data.frame':  42 obs. of  4 variables:</span>
 <span class='co'>##  $ Sus scrofa     :List of 3</span>
 <span class='co'>##   ..$ Basel:'data.frame':  41 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Hongo:'data.frame':  96 obs. of  4 variables:</span>
@@ -284,23 +285,23 @@ references:<div class="r"></p><pre><span class='va'>referenceSets</span>
 <tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
 <tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
 <tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td></tr>
-<tr><td>Each row defines a reference set consisting of a reference source for</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>each taxon (column). The function</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td><code><a href='AssembleReference.html'>AssembleReference</a></code> allows us to build the reference set</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td>taking the selected taxon-specific references from the</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td><code>referencesDatabase</code>.</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 
 
 
+<p>Each row defines a reference set consisting of a reference source for
+each taxon (column). The function
+<code><a href='AssembleReference.html'>AssembleReference</a></code> allows us to build the reference set
+taking the selected taxon-specific references from the
+<code>referencesDatabase</code>.</p>
 <p>The <span class="pkg">zoolog</span> variable <code>reference</code> is a named list including the
 references defined by <code>referenceSets</code>:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>reference</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## List of 4</span>
-<span class='co'>##  $ NietoDavisAlbarella:'data.frame':  104 obs. of  4 variables:</span>
+<span class='co'>##  $ NietoDavisAlbarella:'data.frame':  133 obs. of  4 variables:</span>
 <span class='co'>##   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class='co'>##   ..$ EL      : Factor w/ 17 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
-<span class='co'>##   ..$ Measure : Factor w/ 17 levels "BFd","BFp","BT",..: 8 9 5 7 12 4 3 11 6 8 ...</span>
-<span class='co'>##   ..$ Standard: num [1:104] 259 234 78.3 90.2 29 ...</span>
+<span class='co'>##   ..$ EL      : Factor w/ 27 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
+<span class='co'>##   ..$ Measure : Factor w/ 24 levels "BFd","BFp","BT",..: 8 9 5 7 12 4 3 11 6 8 ...</span>
+<span class='co'>##   ..$ Standard: num [1:133] 259 234 78.3 90.2 29 ...</span>
 <span class='co'>##  $ Basel              :'data.frame':  176 obs. of  4 variables:</span>
 <span class='co'>##   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class='co'>##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...</span>
@@ -340,22 +341,23 @@ them:</p><dl>
 
 </dl><p><div class="r"></p><pre><span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"referencesDatabase.csv"</span>,
                              package <span class='op'>=</span> <span class='st'>"zoolog"</span><span class='op'>)</span><span class='op'>)</span>
-</pre><p></div></p><pre><span class='co'>##              Taxon    Source                     Filename</span>
-<span class='co'>## 1       Bos taurus     Nieto    referenceCattle_Nieto.csv</span>
-<span class='co'>## 2       Bos taurus     Basel    referenceCattle_Basel.csv</span>
-<span class='co'>## 3  Bos primigenius  Degerbol referenceCattle_Degerbol.csv</span>
-<span class='co'>## 4       Ovis aries     Davis     referenceSheep_Davis.csv</span>
-<span class='co'>## 5  Ovis orientalis     Basel     referenceSheep_Basel.csv</span>
-<span class='co'>## 6       Ovis aries   Clutton   referenceSheep_Clutton.csv</span>
-<span class='co'>## 7  Ovis orientalis  Uerpmann  referenceSheep_Uerpmann.csv</span>
-<span class='co'>## 8     Capra hircus     Basel      referenceGoat_Basel.csv</span>
-<span class='co'>## 9     Capra hircus   Clutton    referenceGoat_Clutton.csv</span>
-<span class='co'>## 10  Capra aegagrus  Uerpmann   referenceGoat_Uerpmann.csv</span>
-<span class='co'>## 11  Sus domesticus Albarella   referencePig_Albarella.csv</span>
-<span class='co'>## 12      Sus scrofa     Basel       referencePig_Basel.csv</span>
-<span class='co'>## 13      Sus scrofa     Hongo       referencePig_Hongo.csv</span>
-<span class='co'>## 14      Sus scrofa     Payne       referencePig_Payne.csv</span>
-<span class='co'>## 15  Cervus elaphus     Basel   referenceRedDeer_Basel.csv</span>
+</pre><p></div></p><pre><span class='co'>##              Taxon    Source                      Filename</span>
+<span class='co'>## 1       Bos taurus     Nieto     referenceCattle_Nieto.csv</span>
+<span class='co'>## 2       Bos taurus     Basel     referenceCattle_Basel.csv</span>
+<span class='co'>## 3       Bos taurus Johnstone referenceCattle_Johnstone.csv</span>
+<span class='co'>## 4  Bos primigenius  Degerbol  referenceCattle_Degerbol.csv</span>
+<span class='co'>## 5       Ovis aries     Davis      referenceSheep_Davis.csv</span>
+<span class='co'>## 6       Ovis aries   Clutton    referenceSheep_Clutton.csv</span>
+<span class='co'>## 7  Ovis orientalis     Basel      referenceSheep_Basel.csv</span>
+<span class='co'>## 8  Ovis orientalis  Uerpmann   referenceSheep_Uerpmann.csv</span>
+<span class='co'>## 9     Capra hircus     Basel       referenceGoat_Basel.csv</span>
+<span class='co'>## 10    Capra hircus   Clutton     referenceGoat_Clutton.csv</span>
+<span class='co'>## 11  Capra aegagrus  Uerpmann    referenceGoat_Uerpmann.csv</span>
+<span class='co'>## 12  Sus domesticus Albarella    referencePig_Albarella.csv</span>
+<span class='co'>## 13      Sus scrofa     Basel        referencePig_Basel.csv</span>
+<span class='co'>## 14      Sus scrofa     Hongo        referencePig_Hongo.csv</span>
+<span class='co'>## 15      Sus scrofa     Payne        referencePig_Payne.csv</span>
+<span class='co'>## 16  Cervus elaphus     Basel    referenceRedDeer_Basel.csv</span>
 </pre>
 
     <h2 class="hasAnchor" id="acknowledgement"><a class="anchor" href="#acknowledgement"></a>Acknowledgement</h2>
@@ -367,9 +369,12 @@ Deschler-Erb for providing the Basel references
 (Stopp and Deschler-Erb 2018)
 
 together with the permission to publish them as part of <span class="pkg">zoolog</span>.</p>
-<p>We thank also to Francesca Slim and Dimitris Filioglou for providing the
+<p>We thank also Francesca Slim and Dimitris Filioglou for providing the
 Groningen references
 (Degerbøl and Fredskild 1970; Uerpmann and Uerpmann 1994; Hongo and Meadow 2000)
+.</p>
+<p>We thank Claudia Minniti for providing Johnstone's references
+(Johnstone and Albarella 2002)
 .</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -383,7 +388,9 @@ Groningen references
 <em>The Urus (Bos Primigenius Bojanus) and Neolithic Domesticated Cattle (Bos Taurus Domesticus Linné) in Denmark: Zoological and Palynological Investigations</em>,  Biologiske skrifter, 17:1.
 København, (Munksgaard).<br /><br /> Hongo H, Meadow RH (2000).
 &#8220;Faunal remains from Prepottery Neolithic levels at Çayönü, southeastern Turkey: a preliminary report focusing on pigs (Sus sp.).&#8221;
-In <em>Archaeozoology of the Near East IVA Proceedings of the fourth international symposium on the archaeozoology of southwestern Asia and adjacent areas. Groningen: ARC Publications</em>, 121--139.<br /><br /> Nieto-Espinet A (2018).
+In <em>Archaeozoology of the Near East IVA Proceedings of the fourth international symposium on the archaeozoology of southwestern Asia and adjacent areas. Groningen: ARC Publications</em>, 121--139.<br /><br /> Johnstone C, Albarella U (2002).
+&#8220;The Late Iron Age and Romano-British Mammal and Bird Bone Assemblage from Elms Farm, Heybridge, Essex (Site Code: Hyef93-95).&#8221;
+Technical Report Report 45/2002, tab.16, p. 70, Centre for Archaeology.<br /><br /> Nieto-Espinet A (2018).
 &#8220;Element measure standard biometrical data from a cow dated to the Early Bronze Age (Minferri, Catalonia).&#8221;
 doi: <a href='https://doi.org/10.13140/RG.2.2.13512.78081'>10.13140/RG.2.2.13512.78081</a>
 , <a href='https://doi.org/10.13140/RG.2.2.13512.78081'>https://doi.org/10.13140/RG.2.2.13512.78081</a>.<br /><br /> Payne S, Bull G (1988).

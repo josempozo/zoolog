@@ -103,7 +103,7 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/index.html">***zoolog***:  
- Zooarcheological Analysis with Log-Ratios</a>
+ Zooarchaeological Analysis with Log-Ratios</a>
     </li>
   </ul>
 </li>
@@ -112,12 +112,7 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/josempozo/zoolog/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -132,7 +127,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Thesaurus Readers and Writers</h1>
-    <small class="dont-index">Source: <a href='https://github.com/josempozo/zoolog/blob/master/R/ThesaurusReaderWriter.R'><code>R/ThesaurusReaderWriter.R</code></a></small>
+    
     <div class="hidden name"><code>ThesaurusReaderWriter.Rd</code></div>
     </div>
 
@@ -266,16 +261,18 @@ thesaurus set structure,</p>
 #&gt; </div><div class='input'><span class='co'>## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.</span>
 <span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>thesaurusSet</span><span class='op'>$</span><span class='va'>measure</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $names
-#&gt;  [1] "BFd"  "BFp"  "BT"   "Bd"   "Bp"   "Dd"   "Dl"   "Dp"   "DPA"  "GL"  
-#&gt; [11] "GLl"  "GLc"  "GLm"  "GLP"  "GLpe" "HTC"  "SD"   "SDO"  "DD"   "WCM" 
-#&gt; [21] "DEM"  "WCL"  "DEL"  "SLC"  "DC"   "LA"   "LAR"  "SH"   "GB"   "LeP" 
-#&gt; [31] "BPC" 
+#&gt;  [1] "BatF"    "Bd"      "BFd"     "BFp"     "BFcr"    "Bp"      "BPC"    
+#&gt;  [8] "BT"      "Davis.3" "DC"      "Dd"      "DD"      "DEL"     "DEM"    
+#&gt; [15] "Dl"      "Dp"      "DPA"     "GB"      "GD"      "GL"      "GLc"    
+#&gt; [22] "GLl"     "GLm"     "GLP"     "GLpe"    "H"       "HTC"     "L"      
+#&gt; [29] "LA"      "LAR"     "LeP"     "SD"      "SDO"     "SH"      "SLC"    
+#&gt; [36] "W"       "WA"      "WP"      "WCL"     "WCM"    
 #&gt; 
 #&gt; $class
 #&gt; [1] "data.frame"
 #&gt; 
 #&gt; $row.names
-#&gt; [1] 1
+#&gt; [1] 1 2
 #&gt; 
 #&gt; $caseSensitive
 #&gt; [1] TRUE
@@ -284,7 +281,7 @@ thesaurus set structure,</p>
 #&gt; [1] FALSE
 #&gt; 
 #&gt; $punctuationSensitive
-#&gt; [1] TRUE
+#&gt; [1] FALSE
 #&gt; </div><div class='input'>
 <span class='co'>## Write the thesaurus set to a file:</span>
 <span class='va'>fileSetExample</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='st'>"thesaurusSetExample.csv"</span><span class='op'>)</span>

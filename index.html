@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zooarcheological Analysis with Log-Ratios • zoolog</title>
+<title>Zooarchaeological Analysis with Log-Ratios • zoolog</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,15 +17,19 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Zooarcheological Analysis with Log-Ratios">
+<script src="pkgdown.js"></script><meta property="og:title" content="Zooarchaeological Analysis with Log-Ratios">
 <meta property="og:description" content="Includes functions and reference data to 
     generate and manipulate log-ratios (also known as log size index (LSI)
     values) from measurements obtained on zooarchaeological material. Log
     ratios are used to compare the relative (rather than the absolute)
-    dimensions of animals from archaeological contexts.
+    dimensions of animals from archaeological contexts 
+    (Meadow 1999, ISBN: 9783896463883).
     zoolog is also able to seamlessly integrate data and references 
     with heterogeneous nomenclature, which is internally managed by a 
-    zoolog thesaurus.">
+    zoolog thesaurus. 
+    A preliminary version of the zoolog methods was first used by 
+    Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) 
+    &lt;doi:10.1371/journal.pone.0208109&gt;.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -68,7 +72,7 @@
   <ul class="dropdown-menu" role="menu">
 <li>
       <a href="articles/index.html">***zoolog***:  
- Zooarcheological Analysis with Log-Ratios</a>
+ Zooarchaeological Analysis with Log-Ratios</a>
     </li>
   </ul>
 </li>
@@ -76,14 +80,7 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/josempozo/zoolog/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -97,13 +94,13 @@
   <div class="contents col-md-9">
 
 
-<div id="zoolog----zooarcheological-analysis-with-log-ratios" class="section level1">
+<div id="zoolog----zooarchaeological-analysis-with-log-ratios" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#zoolog----zooarcheological-analysis-with-log-ratios" class="anchor"></a><em><strong>zoolog</strong>:</em> <img align="right" width="12.5%" style="min-width:0.65in" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"><br> Zooarcheological Analysis with Log-Ratios</h1></div>
+<a href="#zoolog----zooarchaeological-analysis-with-log-ratios" class="anchor"></a><em><strong>zoolog</strong>:</em> <img align="right" width="12.5%" style="min-width:0.65in" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"><br> Zooarchaeological Analysis with Log-Ratios</h1></div>
 <blockquote>
 <p><a href="mailto:josmpozo@gmail.com">Jose M Pozo</a>, <a href="mailto:svalenzuela@imf.csic.es">Silvia Valenzuela-Lamas</a>, <a href="mailto:angela.trentacoste@arch.ox.ac.uk">Angela Trentacoste</a>, <a href="mailto:arinietoespinet@gmail.com">Ariadna Nieto-Espinet</a> and <a href="mailto:biguimaraes@hotmail.com">Silvia Guimarães Chiarelli</a></p>
 </blockquote>
-<p>The R package <strong><em>zoolog</em></strong> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts. <strong><em>zoolog</em></strong> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a <em>zoolog</em> thesaurus.</p>
+<p>The R package <strong><em>zoolog</em></strong> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts (Meadow 1999, ISBN: 9783896463883). <strong><em>zoolog</em></strong> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a <em>zoolog</em> thesaurus. A preliminary version of the zoolog methods was first used by Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) <a href="https://doi.org/10.1371/journal.pone.0208109" class="uri">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
 <p>Find more details in the <strong><em>zoolog</em></strong> <a href="https://josempozo.github.io/zoolog/articles/">documentation</a></p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -116,19 +113,18 @@
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
+<div id="acknowledgments" class="section level2">
+<h2 class="hasAnchor">
+<a href="#acknowledgments" class="anchor"></a>Acknowledgments</h2>
+<p>Several fellow colleagues helped building the Thesaurus and tested the code, increasing its robustness: Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for their comments and help.</p>
+<p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, and Claudia Minniti from University of Salento for providing additional reference sets.</p>
+</div>
 </div>
 
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
-<ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/josempozo/zoolog/">https://​github.com/​josempozo/​zoolog/​</a>
-</li>
-</ul>
-</div>
-<div class="license">
+    <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
