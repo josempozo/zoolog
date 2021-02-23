@@ -31,7 +31,7 @@ You can install the released version of zoolog from
 install.packages("zoolog")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+And the development version from [GitHub](https://github.com/josempozo/zoolog/) with:
 
 ``` r
 install.packages("devtools")
