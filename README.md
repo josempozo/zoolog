@@ -28,7 +28,7 @@ You can install the released version of zoolog from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("zoolog", build_vignettes=TRUE)
+install.packages("zoolog")
 ```
 
 And the development version from [GitHub](https://github.com/) with:

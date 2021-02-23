@@ -1,6 +1,6 @@
 Package: zoolog
 Title: Zooarchaeological Analysis with Log-Ratios
-Version: 0.2.1
+Version: 0.2.1.9001
 Date: 2021-2-13
 Authors@R: c(
     person(c("Jose","M"), "Pozo",
@@ -35,20 +35,6 @@ Description: Includes functions and reference data to
     A preliminary version of the zoolog methods was first used by 
     Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) 
     <doi:10.1371/journal.pone.0208109>.
-Acknowledgments:
-    Several fellow colleagues helped building the Thesaurus and tested the
-    code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
-    Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, 
-    Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia 
-    Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
-    their comments and help.
-    We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, 
-    from the University of Basel (Switzerland) for making the reference values 
-    of several specimens available through the ICAZ Roman Period Working Group, 
-    which have been included here with their permission. We also thank 
-    Francesca Slim and Dimitris Filioglou from the University of Groningen, 
-    and Claudia Minniti from University of Salento for providing additional 
-    reference sets.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

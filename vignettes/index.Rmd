@@ -129,9 +129,9 @@ elementThesaurus
 
 measureThesaurus
   : Names of the measurements. While the English abbreviations from
-    [@von1976guide] and [@davis1992rapid] are widely used in published
+    @von1976guide and @davis1992rapid are widely used in published
     literature, this thesaurus enables other nomenclatures (e.g. original German
-    abbreviations in [@von1976guide]) to be included. This thesaurus is case
+    abbreviations in @von1976guide) to be included. This thesaurus is case
     sensitive.
 
 # Functions
@@ -166,14 +166,14 @@ The full list of functions is available under the zoolog *help* page. We list th
     both problems. 
   : The default method ("priority"), selects the first available log ratio in 
     each group. Besides, `CondenseLogs` employs the following by-default group
-    and prioritization introduced in [@trentacoste2018pre]: 
-    *Length*, considers in order of priority *GL*, *GLl*, *HTC*, and *GLm*. 
-    *Width*, considers in order of priority  *Bd*, *BT*, *Bp*, *SD*, *Bfd*, 
+    and prioritization introduced in @trentacoste2018pre: 
+    *Length* considers in order of priority *GL*, *GLl*, *HTC*, and *GLm*. 
+    *Width* considers in order of priority  *Bd*, *BT*, *Bp*, *SD*, *Bfd*, 
     and *Bfp*. This order maximises the robustness and
     reliability of the measurements, as priority is given to the most abundant,
     more replicable, and less age dependent measurements. But users can set 
     their own features with any group of measures and priorities. 
-    The method 'average' extracts the mean per group, ignoring the 
+    The method "average" extracts the mean per group, ignoring the 
     non-available log ratios.
 
 [**RemoveNACases**](../help/RemoveNACases)
@@ -232,7 +232,7 @@ This example reads a dataset from a file in csv format and computes the
 log-ratios. Then, the cases with no available log-ratios are removed.
 Finally, the resulting dataset is saved in a file in csv format.
 
-The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the [example dataset](../help/dataValenzuelaLamas2008) from [@valenzuela2008alimentacio] included in the package is used:
+The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the [example dataset](../help/dataValenzuelaLamas2008) from @valenzuela2008alimentacio included in the package is used:
 
 ```{r}
 library(zoolog)
@@ -255,7 +255,7 @@ knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ## Dealing with *lazy* datasets
 If we observe the example dataset more carefully, we can see that the measures
 recorded for the *astragali* presents a deviation from the measure definitions 
-in [@von1976guide;@davis1992rapid]. To see this, 
+in @von1976guide and @davis1992rapid. To see this, 
 we can select the cases where the element is an astragalus. The function [InCategory](../help/InCategory) allows us to
 select them with the help of the thesaurus without requiring to know the terms actually used:
 ```{r}
@@ -276,10 +276,10 @@ This option allows us to automatically select, for each bone element, the corres
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
 ```{r}
 caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
-dataWithLog=LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
+dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
-Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (`ovar`).
+Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference ("ovar").
 
 ## Pruning the data from cases with no available measure
 The cases without log-ratios can be removed to facilitate subsequent analyses:
@@ -296,7 +296,7 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
 ```
 
 ## Condensing log values
-After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in [@trentacoste2018pre] has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
+After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in @trentacoste2018pre has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
 ```{r}
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
