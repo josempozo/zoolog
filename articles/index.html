@@ -102,7 +102,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
 <p>The package <em>zoolog</em> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts <span class="citation">(Meadow 1999)</span>. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. <em>zoolog</em> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.</p>
-<p>The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 ZooMWest (PI S. Valenzuela-Lamas), and were first used in the paper <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>. They are based on the techniques proposed by <span class="citation">Simpson (1941)</span> and <span class="citation">Simpson, Roe, and Lewontin (1960)</span>, which calculates <em>log size index</em> (LSI) values as: <span class="math display">\[
+<p>The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 <a href="https://zoomwest11.wixsite.com/zoomwest">ZooMWest</a> (PI S. Valenzuela-Lamas), and were first used in the paper <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>. They are based on the techniques proposed by <span class="citation">Simpson (1941)</span> and <span class="citation">Simpson, Roe, and Lewontin (1960)</span>, which calculates <em>log size index</em> (LSI) values as: <span class="math display">\[
 \mbox{LSI} = \log x - \log x_{\text{ref}} = \log(x/x_\text{ref}),
 \]</span> where <span class="math inline">\(x\)</span> is the considered measure value and <span class="math inline">\(x_\text{ref}\)</span> is the corresponding reference value.</p>
 <p>Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. <span class="citation">Davis (1996)</span>, <span class="citation">Albarella and Payne (2005)</span>) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>.</p>
@@ -119,7 +119,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
-<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
 <p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
