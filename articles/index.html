@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-02-17</h4>
+            <h4 class="date">2021-02-23</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -237,7 +237,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <dd>Names of anatomical elements when recording animal bones. It currently includes 46 categories (<em>scapula</em>, <em>humerus</em>, <em>radius</em>, …), each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive.
 </dd>
 <dt>measureThesaurus</dt>
-<dd>Names of the measurements. While the English abbreviations from <span class="citation">(Von den Driesch 1976)</span> and <span class="citation">(Davis 1992)</span> are widely used in published literature, this thesaurus enables other nomenclatures (e.g. original German abbreviations in <span class="citation">(Von den Driesch 1976)</span>) to be included. This thesaurus is case sensitive.
+<dd>Names of the measurements. While the English abbreviations from <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span> are widely used in published literature, this thesaurus enables other nomenclatures (e.g. original German abbreviations in <span class="citation">Von den Driesch (1976)</span>) to be included. This thesaurus is case sensitive.
 </dd>
 </dl>
 </div>
@@ -256,7 +256,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </dd>
 <dd>This operation is motivated by two circumstances. First, not all measurements are available for every bone specimen, which obstructs their direct comparison and statistical analysis. Second, several measurements can be strongly correlated (e.g. SD and Bd both represent bone width). Thus, considering them as independent would produce an over-representation of bone remains with multiple measurements per axis. Condensing each group of measurements into a single feature (e.g. one measure per axis) alleviates both problems.
 </dd>
-<dd>The default method (“priority”), selects the first available log ratio in each group. Besides, <code>CondenseLogs</code> employs the following by-default group and prioritization introduced in <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>: <em>Length</em>, considers in order of priority <em>GL</em>, <em>GLl</em>, <em>HTC</em>, and <em>GLm</em>. <em>Width</em>, considers in order of priority <em>Bd</em>, <em>BT</em>, <em>Bp</em>, <em>SD</em>, <em>Bfd</em>, and <em>Bfp</em>. This order maximises the robustness and reliability of the measurements, as priority is given to the most abundant, more replicable, and less age dependent measurements. But users can set their own features with any group of measures and priorities. The method ‘average’ extracts the mean per group, ignoring the non-available log ratios.
+<dd>The default method (“priority”), selects the first available log ratio in each group. Besides, <code>CondenseLogs</code> employs the following by-default group and prioritization introduced in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span>: <em>Length</em> considers in order of priority <em>GL</em>, <em>GLl</em>, <em>HTC</em>, and <em>GLm</em>. <em>Width</em> considers in order of priority <em>Bd</em>, <em>BT</em>, <em>Bp</em>, <em>SD</em>, <em>Bfd</em>, and <em>Bfp</em>. This order maximises the robustness and reliability of the measurements, as priority is given to the most abundant, more replicable, and less age dependent measurements. But users can set their own features with any group of measures and priorities. The method “average” extracts the mean per group, ignoring the non-available log ratios.
 </dd>
 <dt><a href="../help/RemoveNACases"><strong>RemoveNACases</strong></a></dt>
 <dd>It removes the cases (table rows) for which all measurements of interest are non-available (NA). A particular list of measurement names can be explicitly provided or selected by a common initial pattern (e.g. prefix). The default setting removes the rows with no available log ratios to facilitate subsequent analysis of the data.
@@ -304,7 +304,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <h2 class="hasAnchor">
 <a href="#reading-data-and-calculating-log-ratios" class="anchor"></a>Reading data and calculating log ratios</h2>
 <p>This example reads a dataset from a file in csv format and computes the log-ratios. Then, the cases with no available log-ratios are removed. Finally, the resulting dataset is saved in a file in csv format.</p>
-<p>The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the <a href="../help/dataValenzuelaLamas2008">example dataset</a> from <span class="citation">(Valenzuela-Lamas 2008)</span> included in the package is used:</p>
+<p>The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the <a href="../help/dataValenzuelaLamas2008">example dataset</a> from <span class="citation">Valenzuela-Lamas (2008)</span> included in the package is used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/">zoolog</a></span><span class="op">)</span>
 <span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, 
@@ -777,7 +777,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="dealing-with-lazy-datasets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#dealing-with-lazy-datasets" class="anchor"></a>Dealing with <em>lazy</em> datasets</h2>
-<p>If we observe the example dataset more carefully, we can see that the measures recorded for the <em>astragali</em> presents a deviation from the measure definitions in <span class="citation">(Von den Driesch 1976; Davis 1992)</span>. To see this, we can select the cases where the element is an astragalus. The function <a href="../help/InCategory">InCategory</a> allows us to select them with the help of the thesaurus without requiring to know the terms actually used:</p>
+<p>If we observe the example dataset more carefully, we can see that the measures recorded for the <em>astragali</em> presents a deviation from the measure definitions in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>. To see this, we can select the cases where the element is an astragalus. The function <a href="../help/InCategory">InCategory</a> allows us to select them with the help of the thesaurus without requiring to know the terms actually used:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">AScases</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">$</span><span class="va">Os</span>, <span class="st">"astragalus"</span>, <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">element</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -1459,7 +1459,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>We could be interested in obtaining the log ratios of all caprines, including <em>Ovis aries</em>, <em>Capra hircus</em>, and undetermined <em>Ovis/Capra</em>, with respect to the reference for <em>Ovis aries</em>. This can be set using the argument <code>joinCategories</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">caprineCategory</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ovar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sheep"</span>, <span class="st">"capra"</span>, <span class="st">"oc"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">dataWithLog</span><span class="op">=</span><span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, joinCategories <span class="op">=</span> <span class="va">caprineCategory</span>, mergedMeasures <span class="op">=</span> <span class="va">GLandGLl</span><span class="op">)</span>
+<span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, joinCategories <span class="op">=</span> <span class="va">caprineCategory</span>, mergedMeasures <span class="op">=</span> <span class="va">GLandGLl</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
@@ -1785,7 +1785,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </tr>
 </tbody>
 </table>
-<p>Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (<code>ovar</code>).</p>
+<p>Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (“ovar”).</p>
 </div>
 <div id="pruning-the-data-from-cases-with-no-available-measure" class="section level2">
 <h2 class="hasAnchor">
@@ -2127,7 +2127,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="condensing-log-values" class="section level2">
 <h2 class="hasAnchor">
 <a href="#condensing-log-values" class="anchor"></a>Condensing log values</h2>
-<p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length and one width value from each row and places these in new Length and Width columns.The ‘priority’ method described in <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span> has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:</p>
+<p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length and one width value from each row and places these in new Length and Width columns.The ‘priority’ method described in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span> has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataWithSummary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CondenseLogs.html">CondenseLogs</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -3459,7 +3459,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <a href="#bibliography" class="anchor"></a>Bibliography</h1>
 <div id="refs" class="references">
 <div id="ref-albarella2002size">
-<p>Albarella, Umberto. 2002. “’Size Matters’: How and Why Biometry Is Still Important in Zooarchaeology, in: Dobney &amp; Connor (Eds.) Bones and the Man. Studies in Honour of Fon Brothwell.” Oxbow Books.</p>
+<p>Albarella, Umberto. 2002. “’Size Matters’: How and Why Biometry Is Still Important in Zooarchaeology.” In <em>Bones and the Man: Studies in Honour of Don Brothwell</em>, edited by Keith Dobney and Terry O’Connor, 51–62. Oxbow Books, Oxford.</p>
 </div>
 <div id="ref-albarella2005neolithic">
 <p>Albarella, Umberto, and Sebastian Payne. 2005. “Neolithic Pigs from Durrington Walls, Wiltshire, England: A Biometrical Database.” <em>Journal of Archaeological Science</em> 32 (4): 589–99.</p>
@@ -3492,7 +3492,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Trentacoste, Angela, Ariadna Nieto-Espinet, and Silvia Valenzuela-Lamas. 2018. “Pre-Roman Improvements to Agricultural Production: Evidence from Livestock Husbandry in Late Prehistoric Italy.” <em>PloS One</em> 13 (12): e0208109. <a href="https://doi.org/10.1371/journal.pone.0208109">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
 </div>
 <div id="ref-valenzuela2008alimentacio">
-<p>Valenzuela-Lamas, Silvia. 2008. <em>Alimentació I Ramaderia Al Penedès Durant La Protohistòria (Segles Vii-Iii aC)</em>.</p>
+<p>Valenzuela-Lamas, Silvia. 2008. <em>Alimentació I Ramaderia Al Penedès Durant La Protohistòria (Segles Vii-Iii aC)</em>. Societat Catalana d’Arqueologia (Premi d’Arqueologia - Memorial Josep Barberà i Farràs, 5a edició). <a href="http://www.scarqueologia.com/?page_id=10">http://www.scarqueologia.com/?page_id=10</a>.</p>
 </div>
 <div id="ref-von1976guide">
 <p>Von den Driesch, Angela. 1976. <em>A Guide to the Measurement of Animal Bones from Archaeological Sites: As Developed by the Institut Für Palaeoanatomie, Domestikationsforschung Und Geschichte Der Tiermedizin of the University of Munich</em>. Vol. 1. Peabody Museum Press.</p>
