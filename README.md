@@ -25,7 +25,7 @@ Find more details in the ***zoolog***  [documentation](https://josempozo.github.
 ## Installation
 
 You can install the released version of zoolog from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://CRAN.R-project.org/package=zoolog) with:
 
 ``` r
 install.packages("zoolog")

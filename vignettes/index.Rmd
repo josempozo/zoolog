@@ -31,8 +31,8 @@ knitr::opts_chunk$set(
 The package *zoolog* includes functions and reference data to generate and 
 manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts [@meadow1999use]. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. *zoolog* is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.
 
-The methods included in the package were first developed in the framework of the 
-ERC-Starting Grant 716298 ZooMWest (PI S. Valenzuela-Lamas), and were first used 
+The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 [ZooMWest](https://zoomwest11.wixsite.com/zoomwest) 
+(PI S. Valenzuela-Lamas), and were first used 
 in the paper [@trentacoste2018pre]. They are based on the techniques proposed by @simpson1941large and @simpson1960quantitative, which calculates *log size index* (LSI) values as: 
 $$
 \mbox{LSI} = \log x - \log x_{\text{ref}} = \log(x/x_\text{ref}),
@@ -55,7 +55,7 @@ We are grateful to all of them for their contributions, comments, and help. In a
 
 # Installation
 
-You can install the released version of zoolog from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of zoolog from [CRAN](https://CRAN.R-project.org/package=zoolog) with:
 
 ``` r
 install.packages("zoolog")
