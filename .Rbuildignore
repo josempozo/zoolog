@@ -24,3 +24,6 @@
 ^R.backups$
 ^_config.yml$
 ^journalPaper$
+^vignettes/shiny.Rmd$
+^shinyApps$
+^knitr.sty$

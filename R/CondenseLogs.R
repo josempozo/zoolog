@@ -87,8 +87,8 @@ CondenseLogs <- function(data,
   data[, summaryMeasures] <- NA
   for (sumMeasure in summaryMeasures)
   {
-    measuresInData <- intersect(grouping[[sumMeasure]], colnames(data))
-    logMeasuresInData <- paste0(logPrefix, measuresInData)
+    groupingWithLog <- paste0(logPrefix, grouping[[sumMeasure]])
+    logMeasuresInData <- intersect(groupingWithLog, colnames(data))
     if(method == "priority")
     {
       alreadySelected <- FALSE
