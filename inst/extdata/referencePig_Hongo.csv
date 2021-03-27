@@ -1,14 +1,15 @@
 ##########################################
-## Reference for Sus scrofa. 
-## Averaged left and right measurements of a female wild board from near 
-## Elazig, Turkey. Museum of Comparative Zoology, Harvard University, 
-## specimen #51621 
-## Source:
-## Hongo H, Meadow RH (2000). 
-## "Faunal remains from Prepottery Neolithic levels at Cayonu, southeastern 
-## Turkey: a preliminary report focusing on pigs (Sus sp.)." 
-## In Archaeozoology of the Near East IVA Proceedings of the fourth 
-## international symposium on the archaeozoology of southwestern Asia and 
+## REFERENCE: Hongo
+## *Sus scrofa*.
+## Averaged left and right measurements of a female wild board from near
+## Elaziğ, Turkey. Museum of Comparative Zoology, Harvard University,
+## specimen #51621 \insertCite{hongo2000faunal}{zoolog}.
+## SOURCE:
+## Hongo H, Meadow RH (2000).
+## "Faunal remains from Prepottery Neolithic levels at Cayonu, southeastern
+## Turkey: a preliminary report focusing on pigs (Sus sp.)."
+## In Archaeozoology of the Near East IVA Proceedings of the fourth
+## international symposium on the archaeozoology of southwestern Asia and
 ## adjacent areas. Groningen: ARC Publications, 121-139.
 ##########################################
 TAX;EL;Measure;Standard

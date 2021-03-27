@@ -1,10 +1,12 @@
 ##########################################
-## Reference for Ovis aries. 
-## Mean values of measurements from a group of adult female Shetland sheep 
-## skeletons from a single flock.
-## Source:
-## Davis SJ (1996). "Measurements of a group of adult female Shetland sheep 
-## skeletons from a single flock: a baseline for zooarchaeologists." 
+## REFERENCE: Davis
+## *Ovis aries*.
+## Mean values of measurements from a group of adult female Shetland sheep
+## skeletons from a single flock
+## \insertCite{davis1996measurements}{zoolog}.
+## SOURCE:
+## Davis SJ (1996). "Measurements of a group of adult female Shetland sheep
+## skeletons from a single flock: a baseline for zooarchaeologists."
 ## Journal of archaeological science, 23(4), 593-612.
 ##########################################
 TAX;EL;Measure;Standard

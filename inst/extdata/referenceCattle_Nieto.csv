@@ -1,9 +1,11 @@
 ##########################################
-## Reference for Bos taurus. 
-## Female cow dated to the Early Bronze Age (Minferri, Catalonia).
-## Source:
-## Nieto-Espinet A (2018). "Element measure standard biometrical data from a 
-## cow dated to the Early Bronze Age (Minferri, Catalonia)." 
+## REFERENCE: Nieto
+## *Bos taurus*.
+## Female cow dated to the Early Bronze Age (Minferri, Catalonia),
+## in \insertCite{nieto2018element;textual}{zoolog}.
+## SOURCE:
+## Nieto-Espinet A (2018). "Element measure standard biometrical data from a
+## cow dated to the Early Bronze Age (Minferri, Catalonia)."
 ## doi: 10.13140/RG.2.2.13512.78081
 ## https://www.researchgate.net/publication/326010953
 ##########################################

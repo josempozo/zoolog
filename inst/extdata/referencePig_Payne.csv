@@ -1,12 +1,14 @@
 ##########################################
-## Reference for Sus scrofa.
-## Measurements based on a sample of modern wild boar, Sus scrofa libycus, 
-## (male and female; Kizilcahamam, Turkey).
-## Source: 
-## Payne S, Bull G (1988). 
-## "Components of variation in measurements of pig bones and teeth, and the 
-## use of measurements to distinguish wild from domestic pig remains." 
-## Archaeozoologia, 2(1), 27-66. 
+## REFERENCE: Payne
+## *Sus scrofa*.
+## Measurements based on a sample of modern wild boar, *Sus scrofa libycus*,
+## (male and female; Kizilcahamam, Turkey) from
+## \insertCite{payne1988components;textual}{zoolog}, Appendix 2.
+## SOURCE:
+## Payne S, Bull G (1988).
+## "Components of variation in measurements of pig bones and teeth, and the
+## use of measurements to distinguish wild from domestic pig remains."
+## Archaeozoologia, 2(1), 27-66.
 ## (Appendix 2)
 ##########################################
 TAX;EL;Measure;Standard

@@ -38,62 +38,86 @@ Currently, the references include reference values for the main domesticates
 and their agriotypes (\emph{Bos}, \emph{Ovis}, \emph{Capra},
 \emph{Sus}), and red deer (\emph{Cervus elaphus}) drawn from the
 following publications and resources:
-
 \describe{
 \item{\strong{Cattle - \emph{Bos}}}{\describe{
-\item{Nieto}{\emph{Bos taurus}. Female cow dated to the Early Bronze Age
-(Minferri, Catalonia), in \insertCite{nieto2018element;textual}{zoolog}.
-}
-\item{Basel}{\emph{Bos taurus}. Inv.nr. 2426 (Hinterwälder; female; 17 years old;
-live weight: 340 kg; withers height: 113 cm), from
-\insertCite{stopp2018Basel;textual}{zoolog}.}
-\item{Degerbøl}{\emph{Bos primigenius}. Female aurochs from
-\insertCite{degerbol1970urus;textual}{zoolog}.}
-\item{Johnstone}{\emph{Bos taurus}. Standard values from means of cattle
-measures from Period II (Late Iron Age to Romano-British transition)
-of Elms Farm, Heybridge
+\item{Nieto}{
+\emph{Bos taurus}.
+Female cow dated to the Early Bronze Age (Minferri, Catalonia),
+in \insertCite{nieto2018element;textual}{zoolog}.}
+\item{Basel}{
+\emph{Bos taurus}.
+Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+live weight: 340 kg; withers height: 113 cm),
+from \insertCite{stopp2018Basel;textual}{zoolog}.}
+\item{Johnstone}{
+\emph{Bos taurus}.
+Standard values from means of cattle measures from Period II (Late Iron
+Age to Romano-British transition) of Elms Farm, Heybridge
 \insertCite{johnstone2002late}{zoolog}.}
+\item{Degerbøl}{
+\emph{Bos primigenius}.
+Female aurochs from \insertCite{degerbol1970urus;textual}{zoolog}.}
 }}
 \item{\strong{Sheep - \emph{Ovis}}}{\describe{
-\item{Davis}{\emph{Ovis aries}. Mean values of measurements from a group of adult female
-Shetland sheep skeletons from a single flock
-\insertCite{davis1996measurements}{zoolog}.
-}
-\item{Basel}{\emph{Ovis musimon}. Inv.nr. 2266 (male; adult), from
-\insertCite{stopp2018Basel;textual}{zoolog}.}
-\item{Clutton}{\emph{Ovis aries}. Mean measurements from a group of male Soay
-sheep of known age
+\item{Davis}{
+\emph{Ovis aries}.
+Mean values of measurements from a group of adult female Shetland sheep
+skeletons from a single flock
+\insertCite{davis1996measurements}{zoolog}.}
+\item{Clutton}{
+\emph{Ovis aries}.
+Mean measurements from a group of male Soay sheep of known age
 \insertCite{clutton1990osteology}{zoolog}.}
-\item{Uerpmann}{\emph{Ovis orientalis}. Field Museum of Chicago catalogue
-number: FMC 57951 (female; western Iran)
+\item{Basel}{
+\emph{Ovis musimon}.
+Inv.nr. 2266 (male; adult),
+from \insertCite{stopp2018Basel;textual}{zoolog}.}
+\item{Uerpmann}{
+\emph{Ovis orientalis}.
+Field Museum of Chicago catalogue number: FMC 57951 (female; western Iran)
 from \insertCite{uerpmann1994animal;textual}{zoolog}.}
 }}
 \item{\strong{Goat - \emph{Capra}}}{\describe{
-\item{Basel}{\emph{Capra hircus}. Inv.nr. 1597 (male; adult), from
+\item{Basel}{
+\emph{Capra hircus}.
+Inv.nr. 1597 (male; adult), from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
-\item{Clutton}{\emph{Capra hircus}. Mean measurements from a group of goats of unknown age
-and sex \insertCite{clutton1990osteology}{zoolog}.}
-\item{Uerpmann}{Measurements based on female and male \emph{Capra aegagrus},
-Natural History Museum in London number: BMNH 651 M and L2 (Taurus
-Mountains in southern Turkey) from
-\insertCite{uerpmann1994animal;textual}{zoolog}.}
+\item{Clutton}{
+\emph{Capra hircus}.
+Mean measurements from a group of goats of unknown age and sex
+\insertCite{clutton1990osteology}{zoolog}.}
+\item{Uerpmann}{
+\emph{Capra aegagrus}.
+Measurements based on female and male \emph{Capra aegagrus},
+Natural History Museum in London number: BMNH 651 M and L2
+(Taurus Mountains in southern Turkey)
+from \insertCite{uerpmann1994animal;textual}{zoolog}.}
 }}
 \item{\strong{Pig - \emph{Sus}}}{\describe{
-\item{Albarella}{\emph{Sus domesticus}. Mean measurements from a group of Late Neolithic
-pigs from Durrington Walls, England
+\item{Albarella}{
+\emph{Sus domesticus}.
+Mean measurements from a group of Late Neolithic pigs from
+Durrington Walls, England
 \insertCite{albarella2005neolithic}{zoolog}.}
-\item{Basel}{\emph{Sus scrofa}. Inv.nr. 1446 (male; 2-3 years old; life
-weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
-\item{Hongo}{\emph{Sus scrofa}. Averaged left and right measurements of a
-female wild board from near Elaziğ, Turkey. Museum of Comparative
-Zoology, Harvard University, specimen #51621
-\insertCite{hongo2000faunal}{zoolog}.}
-\item{Payne}{Measurements based on a sample of modern wild boar,
-\emph{Sus scrofa libycus}, (male and female; Kizilcahamam, Turkey) from
+\item{Basel}{
+\emph{Sus scrofa}.
+Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg)
+from \insertCite{stopp2018Basel;textual}{zoolog}.}
+\item{Hongo}{
+\emph{Sus scrofa}.
+Averaged left and right measurements of a female wild board from near
+Elaziğ, Turkey. Museum of Comparative Zoology, Harvard University,
+specimen #51621 \insertCite{hongo2000faunal}{zoolog}.}
+\item{Payne}{
+\emph{Sus scrofa}.
+Measurements based on a sample of modern wild boar, \emph{Sus scrofa libycus},
+(male and female; Kizilcahamam, Turkey) from
 \insertCite{payne1988components;textual}{zoolog}, Appendix 2.}
 }}
 \item{\strong{Red deer - \emph{Cervus elaphus}}}{\describe{
-\item{Basel}{\emph{Cervus elaphus}. Inv.nr. 2271 (male; adult) from
+\item{Basel}{
+\emph{Cervus elaphus}.
+Inv.nr. 2271 (male; adult) from
 \insertCite{stopp2018Basel;textual}{zoolog}.}
 }}
 }
@@ -201,23 +225,40 @@ them:
 \code{referencesDatabase.csv}.}
 }\if{html}{\out{<div class="r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
                              package = "zoolog"))
-}\if{html}{\out{</div>}}\preformatted{##              Taxon    Source                      Filename
-## 1       Bos taurus     Nieto     referenceCattle_Nieto.csv
-## 2       Bos taurus     Basel     referenceCattle_Basel.csv
-## 3       Bos taurus Johnstone referenceCattle_Johnstone.csv
-## 4  Bos primigenius  Degerbol  referenceCattle_Degerbol.csv
-## 5       Ovis aries     Davis      referenceSheep_Davis.csv
-## 6       Ovis aries   Clutton    referenceSheep_Clutton.csv
-## 7  Ovis orientalis     Basel      referenceSheep_Basel.csv
-## 8  Ovis orientalis  Uerpmann   referenceSheep_Uerpmann.csv
-## 9     Capra hircus     Basel       referenceGoat_Basel.csv
-## 10    Capra hircus   Clutton     referenceGoat_Clutton.csv
-## 11  Capra aegagrus  Uerpmann    referenceGoat_Uerpmann.csv
-## 12  Sus domesticus Albarella    referencePig_Albarella.csv
-## 13      Sus scrofa     Basel        referencePig_Basel.csv
-## 14      Sus scrofa     Hongo        referencePig_Hongo.csv
-## 15      Sus scrofa     Payne        referencePig_Payne.csv
-## 16  Cervus elaphus     Basel    referenceRedDeer_Basel.csv
+}\if{html}{\out{</div>}}\preformatted{##                          Genus           Taxon    Source
+## 1               Cattle - *Bos*      Bos taurus     Nieto
+## 2               Cattle - *Bos*      Bos taurus     Basel
+## 3               Cattle - *Bos*      Bos taurus Johnstone
+## 4               Cattle - *Bos* Bos primigenius  Degerbol
+## 5               Sheep - *Ovis*      Ovis aries     Davis
+## 6               Sheep - *Ovis*      Ovis aries   Clutton
+## 7               Sheep - *Ovis* Ovis orientalis     Basel
+## 8               Sheep - *Ovis* Ovis orientalis  Uerpmann
+## 9               Goat - *Capra*    Capra hircus     Basel
+## 10              Goat - *Capra*    Capra hircus   Clutton
+## 11              Goat - *Capra*  Capra aegagrus  Uerpmann
+## 12                 Pig - *Sus*  Sus domesticus Albarella
+## 13                 Pig - *Sus*      Sus scrofa     Basel
+## 14                 Pig - *Sus*      Sus scrofa     Hongo
+## 15                 Pig - *Sus*      Sus scrofa     Payne
+## 16 Red deer - *Cervus elaphus*  Cervus elaphus     Basel
+##                         Filename
+## 1      referenceCattle_Nieto.csv
+## 2      referenceCattle_Basel.csv
+## 3  referenceCattle_Johnstone.csv
+## 4   referenceCattle_Degerbol.csv
+## 5       referenceSheep_Davis.csv
+## 6     referenceSheep_Clutton.csv
+## 7       referenceSheep_Basel.csv
+## 8    referenceSheep_Uerpmann.csv
+## 9        referenceGoat_Basel.csv
+## 10     referenceGoat_Clutton.csv
+## 11    referenceGoat_Uerpmann.csv
+## 12    referencePig_Albarella.csv
+## 13        referencePig_Basel.csv
+## 14        referencePig_Hongo.csv
+## 15        referencePig_Payne.csv
+## 16    referenceRedDeer_Basel.csv
 }
 }
 

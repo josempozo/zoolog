@@ -1,10 +1,12 @@
 ##########################################
-## Reference for Sus domesticus. 
-## Mean measurements from a group of Late Neolithic pigs from 
-## Durrington Walls, England.
-## Source:
-## Albarella U, Payne S (2005). "Neolithic pigs from Durrington Walls, 
-## Wiltshire, England: a biometrical database." 
+## REFERENCE: Albarella
+## *Sus domesticus*.
+## Mean measurements from a group of Late Neolithic pigs from
+## Durrington Walls, England
+## \insertCite{albarella2005neolithic}{zoolog}.
+## SOURCE:
+## Albarella U, Payne S (2005). "Neolithic pigs from Durrington Walls,
+## Wiltshire, England: a biometrical database."
 ## Journal of Archaeological Science, 32(4), 589-599.
 ##########################################
 TAX;EL;Measure;Standard

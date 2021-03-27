@@ -1,9 +1,11 @@
 ##########################################
-## Reference for Ovis aries. 
-## Mean measurements from a group of male Soay sheep of known age.
-## Source:
-## Clutton-Brock J, Dennis-Bryan K, Armitage PL, Jewell PA (1990). 
-## "Osteology of the Soay sheep." 
+## REFERENCE: Clutton
+## *Ovis aries*.
+## Mean measurements from a group of male Soay sheep of known age
+## \insertCite{clutton1990osteology}{zoolog}.
+## SOURCE:
+## Clutton-Brock J, Dennis-Bryan K, Armitage PL, Jewell PA (1990).
+## "Osteology of the Soay sheep."
 ## Bulletin of the British Museum, Natural History. Zoology, 56(1), 1-56.
 ##########################################
 TAX;EL;Measure;Standard

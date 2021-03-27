@@ -1,12 +1,14 @@
 ##########################################
-## Reference for Bos taurus. 
-## Inv.nr. 2426 (Hinterwalder; female; 17 years old; live weight: 340 kg; 
-## withers height: 113 cm).
-## Source:
-## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference 
-## collection in the Integrative Prahistorische und Naturwissenschaftliche 
-## Archaologie (IPNA, University of Basel, Switzerland)." 
-## Personal communication, 
+## REFERENCE: Basel
+## *Bos taurus*.
+## Inv.nr. 2426 (Hinterwälder; female; 17 years old;
+## live weight: 340 kg; withers height: 113 cm),
+## from \insertCite{stopp2018Basel;textual}{zoolog}.
+## SOURCE:
+## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference
+## collection in the Integrative Prahistorische und Naturwissenschaftliche
+## Archaologie (IPNA, University of Basel, Switzerland)."
+## Personal communication,
 ## included permission to publish them as part of the package zoolog.
 ##########################################
 TAX;EL;Measure;Standard

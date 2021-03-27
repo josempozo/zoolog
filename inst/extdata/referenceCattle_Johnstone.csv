@@ -1,10 +1,12 @@
 ##########################################
-## Reference for Bos taurus. 
-## Standard values from means of cattle measures from Period II (Late Iron 
-## Age to Romano-British transition) of Elms Farm, Heybridge.
-## Source:
-## Johnstone C, Albarella U (2002). 
-## "The Late Iron Age and Romano-British Mammal and Bird Bone Assemblage 
+## REFERENCE: Johnstone
+## *Bos taurus*.
+## Standard values from means of cattle measures from Period II (Late Iron
+## Age to Romano-British transition) of Elms Farm, Heybridge
+## \insertCite{johnstone2002late}{zoolog}.
+## SOURCE:
+## Johnstone C, Albarella U (2002).
+## "The Late Iron Age and Romano-British Mammal and Bird Bone Assemblage
 ## from Elms Farm, Heybridge, Essex (Site Code: Hyef93-95)"
 ## Centre for Archaeology, Report 45/2002, tab.16, p. 70.
 ##########################################

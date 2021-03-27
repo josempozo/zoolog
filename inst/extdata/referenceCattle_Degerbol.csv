@@ -1,10 +1,11 @@
 ##########################################
-## Reference for Bos primigenius. 
-## Female aurochs.
-## Source:
-## Degerbol M, Fredskild B (1970). The Urus (Bos Primigenius Bojanus) and 
-## Neolithic Domesticated Cattle (Bos Taurus Domesticus Linne) in Denmark: 
-## Zoological and Palynological Investigations, Biologiske skrifter, 17:1. 
+## REFERENCE: Degerbøl
+## *Bos primigenius*.
+## Female aurochs from \insertCite{degerbol1970urus;textual}{zoolog}.
+## SOURCE:
+## Degerbol M, Fredskild B (1970). The Urus (Bos Primigenius Bojanus) and
+## Neolithic Domesticated Cattle (Bos Taurus Domesticus Linne) in Denmark:
+## Zoological and Palynological Investigations, Biologiske skrifter, 17:1.
 ## Kobenhavn, (Munksgaard).
 ##########################################
 TAX;EL;Measure;Standard

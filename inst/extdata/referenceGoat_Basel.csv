@@ -1,11 +1,13 @@
 ##########################################
-## Reference for Capra hircus. 
-## Inv.nr. 1597 (male; adult). 
-## Source:
-## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference 
-## collection in the Integrative Prahistorische und Naturwissenschaftliche 
-## Archaologie (IPNA, University of Basel, Switzerland)." 
-## Personal communication, 
+## REFERENCE: Basel
+## *Capra hircus*.
+## Inv.nr. 1597 (male; adult), from
+## \insertCite{stopp2018Basel;textual}{zoolog}.
+## SOURCE:
+## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference
+## collection in the Integrative Prahistorische und Naturwissenschaftliche
+## Archaologie (IPNA, University of Basel, Switzerland)."
+## Personal communication,
 ## included permission to publish them as part of the package zoolog.
 ##########################################
 TAX;EL;Measure;Standard

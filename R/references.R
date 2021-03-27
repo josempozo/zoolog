@@ -20,64 +20,36 @@
 #' \emph{Sus}), and red deer (\emph{Cervus elaphus}) drawn from the
 #' following publications and resources:
 #'
-#' \describe{
-#'   \item{**Cattle - *Bos***}{\describe{
-#'     \item{Nieto}{*Bos taurus*. Female cow dated to the Early Bronze Age
-#'       (Minferri, Catalonia), in \insertCite{nieto2018element;textual}{zoolog}.
+#' ``` {r, echo=FALSE, results='asis'}
+#' refDatabase <- read.csv2("inst/extdata/referencesDatabase.csv")
+#' source("R/ReadCommentLines.R")
+#' res <- "\\describe{\n"
+#' for(genus in unique(refDatabase$Genus))
+#' {
+#'   res <- paste0(res, "\\item{**", genus, "**}{\\describe{\n")
+#'   for(i in which(refDatabase$Genus == genus))
+#'   {
+#'     file <- paste0("inst/extdata/", refDatabase$Filename[i])
+#'     description <- ReadCommentLines(file)
+#'     nameLine <- which(StartsBy(description, "REFERENCE:"))
+#'     if(length(nameLine)>0) {
+#'       name <- GetAfterPattern(description[nameLine[1]], "REFERENCE:")
+#'       description <- description[-nameLine[1]]
+#'     } else {
+#'       name <- refDatabase$Source[i]
 #'     }
-#'     \item{Basel}{*Bos taurus*. Inv.nr. 2426 (Hinterwälder; female; 17 years old;
-#'       live weight: 340 kg; withers height: 113 cm), from
-#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Degerbøl}{*Bos primigenius*. Female aurochs from
-#'       \insertCite{degerbol1970urus;textual}{zoolog}.}
-#'     \item{Johnstone}{*Bos taurus*. Standard values from means of cattle
-#'       measures from Period II (Late Iron Age to Romano-British transition)
-#'       of Elms Farm, Heybridge
-#'       \insertCite{johnstone2002late}{zoolog}.}
-#'   }}
-#'   \item{**Sheep - *Ovis***}{\describe{
-#'     \item{Davis}{*Ovis aries*. Mean values of measurements from a group of adult female
-#'       Shetland sheep skeletons from a single flock
-#'     \insertCite{davis1996measurements}{zoolog}.
-#'     }
-#'     \item{Basel}{*Ovis musimon*. Inv.nr. 2266 (male; adult), from
-#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Clutton}{*Ovis aries*. Mean measurements from a group of male Soay
-#'       sheep of known age
-#'       \insertCite{clutton1990osteology}{zoolog}.}
-#'     \item{Uerpmann}{*Ovis orientalis*. Field Museum of Chicago catalogue
-#'       number: FMC 57951 (female; western Iran)
-#'       from \insertCite{uerpmann1994animal;textual}{zoolog}.}
-#'   }}
-#'   \item{**Goat - *Capra***}{\describe{
-#'     \item{Basel}{*Capra hircus*. Inv.nr. 1597 (male; adult), from
-#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Clutton}{*Capra hircus*. Mean measurements from a group of goats of unknown age
-#'       and sex \insertCite{clutton1990osteology}{zoolog}.}
-#'     \item{Uerpmann}{Measurements based on female and male *Capra aegagrus*,
-#'       Natural History Museum in London number: BMNH 651 M and L2 (Taurus
-#'       Mountains in southern Turkey) from
-#'       \insertCite{uerpmann1994animal;textual}{zoolog}.}
-#'   }}
-#'   \item{**Pig - *Sus***}{\describe{
-#'     \item{Albarella}{*Sus domesticus*. Mean measurements from a group of Late Neolithic
-#'       pigs from Durrington Walls, England
-#'       \insertCite{albarella2005neolithic}{zoolog}.}
-#'     \item{Basel}{*Sus scrofa*. Inv.nr. 1446 (male; 2-3 years old; life
-#'       weight: 120 kg) from \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'     \item{Hongo}{*Sus scrofa*. Averaged left and right measurements of a
-#'       female wild board from near Elaziğ, Turkey. Museum of Comparative
-#'       Zoology, Harvard University, specimen #51621
-#'       \insertCite{hongo2000faunal}{zoolog}.}
-#'     \item{Payne}{Measurements based on a sample of modern wild boar,
-#'       *Sus scrofa libycus*, (male and female; Kizilcahamam, Turkey) from
-#'       \insertCite{payne1988components;textual}{zoolog}, Appendix 2.}
-#'   }}
-#'   \item{**Red deer - *Cervus elaphus***}{\describe{
-#'     \item{Basel}{*Cervus elaphus*. Inv.nr. 2271 (male; adult) from
-#'       \insertCite{stopp2018Basel;textual}{zoolog}.}
-#'   }}
+#'     res <- paste0(res, "\\item{", name, "}{")
+#'     sourceLine <- which(StartsBy(description, "SOURCE:"))
+#'     if(length(sourceLine)>0)
+#'       description <- description[1:(sourceLine[1]-1)]
+#'     description <- paste(description, collapse = "\n")
+#'     res <- paste0(res, description)
+#'     res <- paste0(res, "}\n")
+#'   }
+#'   res <- paste0(res, "}}\n")
 #' }
+#' cat(paste(res, "}\n"))
+#' ```
 #'
 #' The \pkg{zoolog} variable `referencesDatabase` collects all these
 #' references. It is structured as a named list of named lists, following the

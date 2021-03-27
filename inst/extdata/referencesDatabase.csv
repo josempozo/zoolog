@@ -1,17 +1,17 @@
-Taxon;Source;Filename
-Bos taurus;Nieto;referenceCattle_Nieto.csv
-Bos taurus;Basel;referenceCattle_Basel.csv
-Bos taurus;Johnstone;referenceCattle_Johnstone.csv
-Bos primigenius;Degerbol;referenceCattle_Degerbol.csv
-Ovis aries;Davis;referenceSheep_Davis.csv
-Ovis aries;Clutton;referenceSheep_Clutton.csv
-Ovis orientalis;Basel;referenceSheep_Basel.csv
-Ovis orientalis;Uerpmann;referenceSheep_Uerpmann.csv
-Capra hircus;Basel;referenceGoat_Basel.csv
-Capra hircus;Clutton;referenceGoat_Clutton.csv
-Capra aegagrus;Uerpmann;referenceGoat_Uerpmann.csv
-Sus domesticus;Albarella;referencePig_Albarella.csv
-Sus scrofa;Basel;referencePig_Basel.csv
-Sus scrofa;Hongo;referencePig_Hongo.csv
-Sus scrofa;Payne;referencePig_Payne.csv
-Cervus elaphus;Basel;referenceRedDeer_Basel.csv
+Genus;Taxon;Source;Filename
+Cattle - *Bos*;Bos taurus;Nieto;referenceCattle_Nieto.csv
+Cattle - *Bos*;Bos taurus;Basel;referenceCattle_Basel.csv
+Cattle - *Bos*;Bos taurus;Johnstone;referenceCattle_Johnstone.csv
+Cattle - *Bos*;Bos primigenius;Degerbol;referenceCattle_Degerbol.csv
+Sheep - *Ovis*;Ovis aries;Davis;referenceSheep_Davis.csv
+Sheep - *Ovis*;Ovis aries;Clutton;referenceSheep_Clutton.csv
+Sheep - *Ovis*;Ovis orientalis;Basel;referenceSheep_Basel.csv
+Sheep - *Ovis*;Ovis orientalis;Uerpmann;referenceSheep_Uerpmann.csv
+Goat - *Capra*;Capra hircus;Basel;referenceGoat_Basel.csv
+Goat - *Capra*;Capra hircus;Clutton;referenceGoat_Clutton.csv
+Goat - *Capra*;Capra aegagrus;Uerpmann;referenceGoat_Uerpmann.csv
+Pig - *Sus*;Sus domesticus;Albarella;referencePig_Albarella.csv
+Pig - *Sus*;Sus scrofa;Basel;referencePig_Basel.csv
+Pig - *Sus*;Sus scrofa;Hongo;referencePig_Hongo.csv
+Pig - *Sus*;Sus scrofa;Payne;referencePig_Payne.csv
+Red deer - *Cervus elaphus*;Cervus elaphus;Basel;referenceRedDeer_Basel.csv
