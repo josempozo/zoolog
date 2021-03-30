@@ -1,8 +1,8 @@
 ##########################################
-## zoolog thesaurus for measure names
+## zoolog thesaurus for measure names.
 ## caseSensitive TRUE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ##########################################
-BatF;Bd;BFd;BFp;BFcr;Bp;BPC;BT;Davis.3;DC;Dd;DD;DEL;DEM;Dl;Dp;DPA;GB;GD;GL;GLc;GLl;GLm;GLP;GLpe;H;HTC;L;LA;LAR;LeP;SD;SDO;SH;SLC;W;WA;WP;WCL;WCM
-;BdP;;;;BpP;;;;;;SDap;;;;;;;;;;;;;;;;;;;;SDml;;;;;;;;
+BatF;Bd;BFd;BFp;BFcr;BG;Bp;BPC;BT;BTP;B.tr.pat;Davis.3;DC;Dd;DD;DEL;DEM;DHA;Dl;Dm;Dp;DPA;DVL;DVM;GB;GD;GL;GLC;GLl;GLm;GLP;GLpe;GLT;H;HS;HTC;L;LA;LAR;Ld;LeP;LFOM;LG;LO;LTc;LT(lat);SD;SDO;SDTc;SH;SLC;SLFp;W;WA;WP;WCL;WCM
+;BdP;;;;;BpP;;BFT;;B.tr;;;;SDap;;;;;;;;;;;;;GLc;;;;;;;;LT(mid);;;;;;;;;;;SDml;;;;;;;;;;

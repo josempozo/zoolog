@@ -14,4 +14,7 @@ Pig - *Sus*;Sus domesticus;Albarella;referencePig_Albarella.csv
 Pig - *Sus*;Sus scrofa;Basel;referencePig_Basel.csv
 Pig - *Sus*;Sus scrofa;Hongo;referencePig_Hongo.csv
 Pig - *Sus*;Sus scrofa;Payne;referencePig_Payne.csv
-Red deer - *Cervus elaphus*;Cervus elaphus;Basel;referenceRedDeer_Basel.csv
+Red deer - *Cervus*;Cervus elaphus;Basel;referenceRedDeer_Basel.csv
+Fallow deer - *Dama*;Dama mesopotamica;Haifa;referenceDama_Haifa.csv
+Gazelle - *Gazella*;Gazella gazella;Haifa;referenceGazelle_Haifa.csv
+Equid - *Equus*;Equus asinus;Haifa;referenceEquid_Haifa.csv

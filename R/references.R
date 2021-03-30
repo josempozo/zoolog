@@ -17,12 +17,11 @@
 #' @section Data Source:
 #' Currently, the references include reference values for the main domesticates
 #' and their agriotypes (\emph{Bos}, \emph{Ovis}, \emph{Capra},
-#' \emph{Sus}), and red deer (\emph{Cervus elaphus}) drawn from the
-#' following publications and resources:
+#' \emph{Sus}), and other less frequent species, such as red deer and donkey,
+#' drawn from the following publications and resources:
 #'
 #' ``` {r, echo=FALSE, results='asis'}
 #' refDatabase <- read.csv2("inst/extdata/referencesDatabase.csv")
-#' source("R/ReadCommentLines.R")
 #' res <- "\\describe{\n"
 #' for(genus in unique(refDatabase$Genus))
 #' {

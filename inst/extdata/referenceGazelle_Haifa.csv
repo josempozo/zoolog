@@ -1,0 +1,71 @@
+##########################################
+## REFERENCE: Haifa
+## *Gazella gazella*.
+##
+## SOURCE:
+##
+##########################################
+TAX;EL;Measure;Standard
+Gazella gazella;Scapula;GLP;26
+Gazella gazella;Scapula;SLC;15
+Gazella gazella;Humerus;HTC;13
+Gazella gazella;Humerus;BT;24
+Gazella gazella;Humerus;GL ;130
+Gazella gazella;Humerus;GLl;128
+Gazella gazella;Humerus;Bd;22
+Gazella gazella;Humerus;SD;11
+Gazella gazella;Humerus;Bp;30
+Gazella gazella;Radius;GL;149
+Gazella gazella;Radius;Bp;23
+Gazella gazella;Radius;Bd;20
+Gazella gazella;Metacarpus;GL;160
+Gazella gazella;Metacarpus;Bp;19
+Gazella gazella;Metacarpus;Bd;19
+Gazella gazella;Metacarpus;SD;11
+Gazella gazella;Metacarpus;Dd;10
+Gazella gazella;Metacarpus;DEM ;10
+Gazella gazella;Metacarpus;DVM;9,6
+Gazella gazella;Metacarpus;WCM;11,5
+Gazella gazella;Metacarpus;DEL;9,8
+Gazella gazella;Metacarpus;DVL;11,6
+Gazella gazella;Metacarpus;WCL;8,5
+Gazella gazella;Pelvis;LA;27
+Gazella gazella;Femur;GL;161
+Gazella gazella;Femur;Bd;31
+Gazella gazella;Femur;Bp;43
+Gazella gazella;Femur;DC;17
+Gazella gazella;Femur;SD;13
+Gazella gazella;Tibia;GL;210
+Gazella gazella;Tibia;Bp;34
+Gazella gazella;Tibia;Bd;22
+Gazella gazella;Tibia;Dd;17
+Gazella gazella;Tibia;SD;13
+Gazella gazella;Metatarsus;GL;163
+Gazella gazella;Metatarsus;Bp;18
+Gazella gazella;Metatarsus;Bd;21
+Gazella gazella;Metatarsus;SD;11,3
+Gazella gazella;Metatarsus;Dd;12,6
+Gazella gazella;Metatarsus;DEM ;9,6
+Gazella gazella;Metatarsus;DVM;12,8
+Gazella gazella;Metatarsus;WCM;9,5
+Gazella gazella;Metatarsus;DEL;9,3
+Gazella gazella;Metatarsus;DVL;12
+Gazella gazella;Metatarsus;WCL;9,6
+Gazella gazella;Astragalus;GLl;25
+Gazella gazella;Astragalus;Bd;16
+Gazella gazella;Astragalus;Dl;14
+Gazella gazella;Astragalus;GLm;24
+Gazella gazella;Astragalus;Dm;15
+Gazella gazella;Calcaneum;GL;60
+Gazella gazella;Calcaneum;GB;24
+Gazella gazella;Phalanx 1;GL;37
+Gazella gazella;Phalanx 1;GLpe;39
+Gazella gazella;Phalanx 1;Bp;10
+Gazella gazella;Phalanx 1;SD;7,8
+Gazella gazella;Phalanx 1;Bd;9
+Gazella gazella;Phalanx 1;Dd;8
+Gazella gazella;Phalanx 2;GL;22
+Gazella gazella;Phalanx 2;Bp;9
+Gazella gazella;Phalanx 2;SD;7
+Gazella gazella;Phalanx 2;Bd;8
+Gazella gazella;Phalanx 2;Dd;9

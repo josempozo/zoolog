@@ -1,0 +1,68 @@
+##########################################
+## REFERENCE: Haifa
+## *Dama mesopotamica*.
+##
+## SOURCE:
+##
+##########################################
+TAX;EL;Measure;Standard
+Dama mesopotamica;Scapula;GLP;49
+Dama mesopotamica;Scapula;SLC;28
+Dama mesopotamica;Humerus;HTC;23
+Dama mesopotamica;Humerus;BT;44
+Dama mesopotamica;Humerus;GL ;217
+Dama mesopotamica;Humerus;Bd;48
+Dama mesopotamica;Humerus;SD;20
+Dama mesopotamica;Humerus;Bp;58
+Dama mesopotamica;Radius;GL;230
+Dama mesopotamica;Radius;Bp;50
+Dama mesopotamica;Radius;Bd;44
+Dama mesopotamica;Metacarpus;GL;210
+Dama mesopotamica;Metacarpus;Bp;32
+Dama mesopotamica;Metacarpus;Bd;32
+Dama mesopotamica;Metacarpus;SD;18
+Dama mesopotamica;Metacarpus;Dd;20
+Dama mesopotamica;Metacarpus;DEM ;15,2
+Dama mesopotamica;Metacarpus;DVM;19,3
+Dama mesopotamica;Metacarpus;WCM;15,2
+Dama mesopotamica;Metacarpus;DEL;14,9
+Dama mesopotamica;Metacarpus;DVL;20,1
+Dama mesopotamica;Metacarpus;WCL;14,8
+Dama mesopotamica;Pelvis;LA;49
+Dama mesopotamica;Femur;GL;270
+Dama mesopotamica;Femur;Bd;70
+Dama mesopotamica;Femur;Bp;69
+Dama mesopotamica;Femur;DC;30
+Dama mesopotamica;Femur;SD;23
+Dama mesopotamica;Tibia;GL;300
+Dama mesopotamica;Tibia;Bp;70
+Dama mesopotamica;Tibia;Bd;44
+Dama mesopotamica;Tibia;Dd;36
+Dama mesopotamica;Tibia;SD;28
+Dama mesopotamica;Metatarsus;GL;240
+Dama mesopotamica;Metatarsus;Bp;29
+Dama mesopotamica;Metatarsus;Bd;34
+Dama mesopotamica;Metatarsus;SD;18
+Dama mesopotamica;Metatarsus;Dd;22
+Dama mesopotamica;Metatarsus;DEM ;16,2
+Dama mesopotamica;Metatarsus;DVM;19,9
+Dama mesopotamica;Metatarsus;WCM;15,7
+Dama mesopotamica;Metatarsus;DEL;15,5
+Dama mesopotamica;Metatarsus;DVL;20,3
+Dama mesopotamica;Metatarsus;WCL;15,1
+Dama mesopotamica;Astragalus;GLl;41
+Dama mesopotamica;Astragalus;Bd;24
+Dama mesopotamica;Astragalus;Dl;27
+Dama mesopotamica;Astragalus;GLm;42
+Dama mesopotamica;Astragalus;Dm;25
+Dama mesopotamica;Calcaneum;GL;98
+Dama mesopotamica;Calcaneum;GB;32
+Dama mesopotamica;Phalanx 1;GL;48
+Dama mesopotamica;Phalanx 1;GLpe;51
+Dama mesopotamica;Phalanx 1;Bp;18
+Dama mesopotamica;Phalanx 1;SD;12
+Dama mesopotamica;Phalanx 1;Bd;16
+Dama mesopotamica;Phalanx 2;GL;43
+Dama mesopotamica;Phalanx 2;Bp;23
+Dama mesopotamica;Phalanx 2;SD;18
+Dama mesopotamica;Phalanx 2;Bd;18

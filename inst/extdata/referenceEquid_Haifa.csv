@@ -1,0 +1,56 @@
+##########################################
+## REFERENCE: Haifa
+## *Equus asinus*.
+##
+## SOURCE:
+##
+##########################################
+TAX;EL;Measure;Standard
+Equus asinus;Scapula;GLP;66
+Equus asinus;Scapula;SLC;50
+Equus asinus;Humerus;HTC;29
+Equus asinus;Humerus;BT;65
+Equus asinus;Humerus;GL ;230
+Equus asinus;Humerus;GLl;226
+Equus asinus;Humerus;Bd;65
+Equus asinus;Humerus;SD;26
+Equus asinus;Humerus;Bp;70
+Equus asinus;Radius;GL;286
+Equus asinus;Radius;Bp;69
+Equus asinus;Radius;Bd;67
+Equus asinus;Ulna;GL;207
+Equus asinus;Ulna;BPC;45
+Equus asinus;Metacarpus;GL;190
+Equus asinus;Metacarpus;Bp;43
+Equus asinus;Metacarpus;Bd;36
+Equus asinus;Metacarpus;SD;25
+Equus asinus;Metacarpus;Dd;29
+Equus asinus;Pelvis;LA;48
+Equus asinus;Femur;GL;313
+Equus asinus;Femur;Bd;72
+Equus asinus;Femur;Bp;88
+Equus asinus;Femur;DC;41
+Equus asinus;Femur;SD;28
+Equus asinus;Tibia;GL;305
+Equus asinus;Tibia;Bp;74
+Equus asinus;Tibia;Bd;55
+Equus asinus;Tibia;Dd;37
+Equus asinus;Tibia;SD;35
+Equus asinus;Metatarsus;GL;228
+Equus asinus;Metatarsus;Bp;38
+Equus asinus;Metatarsus;Bd;35
+Equus asinus;Metatarsus;SD;24
+Equus asinus;Metatarsus;Dd;21
+Equus asinus;Astragalus;GL;58
+Equus asinus;Calcaneum;GL;96
+Equus asinus;Calcaneum;GB;49
+Equus asinus;Phalanx 1;GL;74
+Equus asinus;Phalanx 1;Bp;37
+Equus asinus;Phalanx 1;SD;23
+Equus asinus;Phalanx 1;Bd;33
+Equus asinus;Phalanx 1;Dd;19
+Equus asinus;Phalanx 2;GL;36
+Equus asinus;Phalanx 2;Bp;36
+Equus asinus;Phalanx 2;SD;33
+Equus asinus;Phalanx 2;Bd;34
+Equus asinus;Phalanx 2;Dd;21
