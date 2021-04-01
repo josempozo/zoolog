@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -212,9 +212,11 @@ thesaurus set structure,</p>
                                        package<span class='op'>=</span><span class='st'>"zoolog"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='co'>## with categories</span>
 <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>thesaurus</span><span class='op'>)</span> <span class='co'>#  "bos taurus"  "ovis aries"  "sus domesticus"</span>
-</div><div class='output co'>#&gt;  [1] "Bos taurus"      "Bos primigenius" "Ovis aries"      "Ovis orientalis"
-#&gt;  [5] "Capra hircus"    "Capra aegagrus"  "Ovis/Capra"      "Sus domesticus" 
-#&gt;  [9] "Sus scrofa"      "Cervus elaphus" </div><div class='input'><span class='co'>## Add names to several categories:</span>
+</div><div class='output co'>#&gt;  [1] "Bos taurus"            "Bos primigenius"       "Ovis aries"           
+#&gt;  [4] "Ovis orientalis"       "Capra hircus"          "Capra aegagrus"       
+#&gt;  [7] "Ovis/Capra"            "Sus domesticus"        "Sus scrofa"           
+#&gt; [10] "Cervus elaphus"        "Dama mesopotamica"     "Gazella gazella"      
+#&gt; [13] "Equus asinus"          "Equus caballus"        "Oryctolagus cuniculus"</div><div class='input'><span class='co'>## Add names to several categories:</span>
 <span class='va'>thesaurusExtended</span> <span class='op'>&lt;-</span> <span class='fu'>AddToThesaurus</span><span class='op'>(</span><span class='va'>thesaurus</span>,
                                     <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Kuh"</span>, <span class='st'>"Schwein"</span><span class='op'>)</span>,
                                     <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"bos taurus"</span>,<span class='st'>"sus domesticus"</span><span class='op'>)</span><span class='op'>)</span>

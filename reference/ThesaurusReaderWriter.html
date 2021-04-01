@@ -79,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -192,9 +192,11 @@ thesaurus set structure,</p>
 <span class='co'>## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.</span>
 <span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>thesaurus</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $names
-#&gt;  [1] "Bos taurus"      "Bos primigenius" "Ovis aries"      "Ovis orientalis"
-#&gt;  [5] "Capra hircus"    "Capra aegagrus"  "Ovis/Capra"      "Sus domesticus" 
-#&gt;  [9] "Sus scrofa"      "Cervus elaphus" 
+#&gt;  [1] "Bos taurus"            "Bos primigenius"       "Ovis aries"           
+#&gt;  [4] "Ovis orientalis"       "Capra hircus"          "Capra aegagrus"       
+#&gt;  [7] "Ovis/Capra"            "Sus domesticus"        "Sus scrofa"           
+#&gt; [10] "Cervus elaphus"        "Dama mesopotamica"     "Gazella gazella"      
+#&gt; [13] "Equus asinus"          "Equus caballus"        "Oryctolagus cuniculus"
 #&gt; 
 #&gt; $class
 #&gt; [1] "data.frame"
@@ -215,9 +217,11 @@ thesaurus set structure,</p>
 <span class='va'>thesaurus2</span> <span class='op'>&lt;-</span> <span class='fu'>ReadThesaurus</span><span class='op'>(</span><span class='va'>thesaurusFile</span>, accentSensitive <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>thesaurus2</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $names
-#&gt;  [1] "Bos taurus"      "Bos primigenius" "Ovis aries"      "Ovis orientalis"
-#&gt;  [5] "Capra hircus"    "Capra aegagrus"  "Ovis/Capra"      "Sus domesticus" 
-#&gt;  [9] "Sus scrofa"      "Cervus elaphus" 
+#&gt;  [1] "Bos taurus"            "Bos primigenius"       "Ovis aries"           
+#&gt;  [4] "Ovis orientalis"       "Capra hircus"          "Capra aegagrus"       
+#&gt;  [7] "Ovis/Capra"            "Sus domesticus"        "Sus scrofa"           
+#&gt; [10] "Cervus elaphus"        "Dama mesopotamica"     "Gazella gazella"      
+#&gt; [13] "Equus asinus"          "Equus caballus"        "Oryctolagus cuniculus"
 #&gt; 
 #&gt; $class
 #&gt; [1] "data.frame"
@@ -261,12 +265,17 @@ thesaurus set structure,</p>
 #&gt; </div><div class='input'><span class='co'>## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.</span>
 <span class='fu'><a href='https://rdrr.io/r/base/attributes.html'>attributes</a></span><span class='op'>(</span><span class='va'>thesaurusSet</span><span class='op'>$</span><span class='va'>measure</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $names
-#&gt;  [1] "BatF"    "Bd"      "BFd"     "BFp"     "BFcr"    "Bp"      "BPC"    
-#&gt;  [8] "BT"      "Davis.3" "DC"      "Dd"      "DD"      "DEL"     "DEM"    
-#&gt; [15] "Dl"      "Dp"      "DPA"     "GB"      "GD"      "GL"      "GLc"    
-#&gt; [22] "GLl"     "GLm"     "GLP"     "GLpe"    "H"       "HTC"     "L"      
-#&gt; [29] "LA"      "LAR"     "LeP"     "SD"      "SDO"     "SH"      "SLC"    
-#&gt; [36] "W"       "WA"      "WP"      "WCL"     "WCM"    
+#&gt;  [1] "BatF"     "Bd"       "BFd"      "BFp"      "BFcr"     "BG"      
+#&gt;  [7] "Bp"       "BPC"      "BT"       "BTP"      "B.tr.pat" "Davis.3" 
+#&gt; [13] "DC"       "Dd"       "DD"       "DEL"      "DEM"      "DHA"     
+#&gt; [19] "Dl"       "Dm"       "Dp"       "DPA"      "DVL"      "DVM"     
+#&gt; [25] "GB"       "GD"       "GH"       "GL"       "GLC"      "GLl"     
+#&gt; [31] "GLm"      "GLP"      "GLpe"     "GLT"      "H"        "HS"      
+#&gt; [37] "HTC"      "L"        "LA"       "LAR"      "Ld"       "LeP"     
+#&gt; [43] "LFo"      "LFOM"     "LG"       "Ll"       "LO"       "LTc"     
+#&gt; [49] "LT(lat)"  "SB"       "SD"       "SDO"      "SDTc"     "SH"      
+#&gt; [55] "SLC"      "SLFp"     "W"        "WA"       "WP"       "WCL"     
+#&gt; [61] "WCM"     
 #&gt; 
 #&gt; $class
 #&gt; [1] "data.frame"

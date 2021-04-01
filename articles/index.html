@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-03-27</h4>
+            <h4 class="date">2021-04-01</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -111,8 +111,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="acknowledgements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
-<p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, and Claudia Minniti from University of Salento for providing additional reference sets.</p>
-<p>The thesaurus has benefited from the contributions from Moussab Besso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.</p>
+<p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the Universiy of Haifa, and Carly Ameen from the University of Exeter for providing additional reference sets.</p>
+<p>The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.</p>
 <p>We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that <em>zoolog</em> can be expanded and adapted to any database.</p>
 </div>
 </div>
@@ -138,22 +138,27 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="co">#&gt; List of 4</span>
 <span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 133 obs. of  4 variables:</span>
 <span class="co">#&gt;  $ Basel              :'data.frame': 176 obs. of  4 variables:</span>
-<span class="co">#&gt;  $ Combi              :'data.frame': 254 obs. of  4 variables:</span>
+<span class="co">#&gt;  $ Combi              :'data.frame': 556 obs. of  4 variables:</span>
 <span class="co">#&gt;  $ Groningen          :'data.frame': 246 obs. of  4 variables:</span></code></pre></div>
 <p>The reference set <code>reference$Combi</code> is the default reference for computing the <a href="../help/LogRatios">log ratios</a>, since it includes the most comprehensive reference for each species.</p>
 <p>The package includes also a <code>referencesDatabase</code> collecting the taxon-specific reference standards from all the considered resources. Each reference set is composed of a different combination of taxon-specific standards selected from this <code>referencesDatabase</code>. The selection is defined by the data frame <code>referenceSets</code>:</p>
 <table class="table">
 <colgroup>
-<col width="13%">
+<col width="8%">
+<col width="4%">
 <col width="7%">
-<col width="11%">
+<col width="4%">
 <col width="7%">
-<col width="11%">
+<col width="5%">
+<col width="6%">
+<col width="6%">
+<col width="4%">
+<col width="6%">
+<col width="7%">
+<col width="7%">
+<col width="5%">
+<col width="6%">
 <col width="9%">
-<col width="10%">
-<col width="10%">
-<col width="7%">
-<col width="10%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
@@ -166,6 +171,11 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="left">Sus domesticus</th>
 <th align="left">Sus scrofa</th>
 <th align="left">Cervus elaphus</th>
+<th align="left">Dama mesopotamica</th>
+<th align="left">Gazella gazella</th>
+<th align="left">Equus asinus</th>
+<th align="left">Equus caballus</th>
+<th align="left">Oryctolagus cuniculus</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -179,6 +189,11 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left">Albarella</td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">Basel</td>
@@ -191,6 +206,11 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left">Basel</td>
 <td align="left">Basel</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left">Combi</td>
@@ -203,6 +223,11 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left">Basel</td>
 <td align="left">Basel</td>
+<td align="left">Haifa</td>
+<td align="left">Haifa</td>
+<td align="left">Haifa</td>
+<td align="left">Johnstone</td>
+<td align="left">Nottingham</td>
 </tr>
 <tr class="even">
 <td align="left">Groningen</td>
@@ -214,6 +239,11 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left">Uerpmann</td>
 <td align="left"></td>
 <td align="left">Hongo</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 <td align="left"></td>
 </tr>
 </tbody>
@@ -231,10 +261,10 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <dd>For the column names that identify the variables used in computing the log ratios. It includes the categories <em>Taxon</em>, <em>Element</em>, <em>Measure</em>, and <em>Standard</em>. Each category provides a series of equivalent names. For instance, <em>Taxon</em> includes the options <em>Taxon</em>, <em>TAX</em>, <em>species</em>, <em>animal</em>, <em>Specie</em>, <em>GenusSpecies</em>, <em>Especie</em>. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Especie” is equivalent to “ESPECIE” or “Espècie”.
 </dd>
 <dt>taxonThesaurus</dt>
-<dd>For the names of the different taxa when recording animal bones. The current categories are <em>Bos taurus</em>, <em>Bos primigenius</em>, <em>Ovis aries</em>, <em>Ovis orientalis</em>, <em>Capra hircus</em>, <em>Capra aegagrus</em>, <em>Ovis/Capra</em>, <em>Sus domesticus</em>, <em>Sus scrofa</em>, <em>Cervus elaphus</em>, each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Bos” is equivalent to “bos”, “Bos.”, or “Bos ”.
+<dd>For the names of the different taxa when recording animal bones. The current categories are <em>Bos taurus</em>, <em>Bos primigenius</em>, <em>Ovis aries</em>, <em>Ovis orientalis</em>, <em>Capra hircus</em>, <em>Capra aegagrus</em>, <em>Ovis/Capra</em>, <em>Sus domesticus</em>, <em>Sus scrofa</em>, <em>Cervus elaphus</em>, <em>Dama mesopotamica</em>, <em>Gazella gazella</em>, <em>Equus asinus</em>, <em>Equus caballus</em>, <em>Oryctolagus cuniculus</em>, each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Bos” is equivalent to “bos”, “Bos.”, or “Bos ”.
 </dd>
 <dt>elementThesaurus</dt>
-<dd>Names of anatomical elements when recording animal bones. It currently includes 46 categories (<em>scapula</em>, <em>humerus</em>, <em>radius</em>, …), each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive.
+<dd>Names of anatomical elements when recording animal bones. It currently includes 50 categories (<em>scapula</em>, <em>humerus</em>, <em>radius</em>, …), each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive.
 </dd>
 <dt>measureThesaurus</dt>
 <dd>Names of the measurements. While the English abbreviations from <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span> are widely used in published literature, this thesaurus enables other nomenclatures (e.g. original German abbreviations in <span class="citation">Von den Driesch (1976)</span>) to be included. This thesaurus is case sensitive.
@@ -487,6 +517,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
+<col width="2%">
 <col width="1%">
 <col width="1%">
 </colgroup>
@@ -527,6 +558,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="right">logLAR</th>
 <th align="right">logSH</th>
+<th align="right">logSB</th>
 <th align="right">logL</th>
 <th align="right">logH</th>
 </tr></thead>
@@ -547,6 +579,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="left"></td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -610,6 +643,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -633,6 +667,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0726593</td>
 <td align="right">0.2629585</td>
 <td align="right">-0.0891198</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -690,6 +725,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -714,6 +750,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.2116296</td>
 <td align="right">-0.1513050</td>
 <td align="right">-0.0678788</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -770,6 +807,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 </tbody>
 </table>
@@ -804,7 +842,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
-<col width="5%">
+<col width="4%">
 <col width="2%">
 <col width="2%">
 <col width="3%">
@@ -819,6 +857,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="3%">
 <col width="2%">
 <col width="3%">
+<col width="2%">
 <col width="2%">
 <col width="2%">
 <col width="2%">
@@ -861,6 +900,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="right">logLAR</th>
 <th align="right">logSH</th>
+<th align="right">logSB</th>
 <th align="right">logL</th>
 <th align="right">logH</th>
 </tr></thead>
@@ -888,6 +928,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right">-0.0927541</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -946,6 +987,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">7505</td>
@@ -964,6 +1006,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="left"></td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1028,6 +1071,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">7507</td>
@@ -1069,6 +1113,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="even">
 <td align="left">7508</td>
@@ -1093,6 +1138,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right">-0.0595857</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1160,6 +1206,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
+<col width="2%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
@@ -1199,6 +1246,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="right">logLAR</th>
 <th align="right">logSH</th>
+<th align="right">logSB</th>
 <th align="right">logL</th>
 <th align="right">logH</th>
 </tr></thead>
@@ -1226,6 +1274,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right">-0.0927541</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1284,6 +1333,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">7505</td>
@@ -1304,6 +1354,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0230144</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1366,6 +1417,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">7507</td>
@@ -1407,6 +1459,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="even">
 <td align="left">7508</td>
@@ -1431,6 +1484,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right">-0.0595857</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1499,6 +1553,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
+<col width="2%">
 <col width="1%">
 <col width="1%">
 </colgroup>
@@ -1539,6 +1594,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="right">logLAR</th>
 <th align="right">logSH</th>
+<th align="right">logSB</th>
 <th align="right">logL</th>
 <th align="right">logH</th>
 </tr></thead>
@@ -1559,6 +1615,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="left"></td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1622,6 +1679,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -1645,6 +1703,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0726593</td>
 <td align="right">0.2629585</td>
 <td align="right">-0.0891198</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1702,6 +1761,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -1742,6 +1802,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="right"></td>
 </tr>
 <tr class="even">
 <td align="left">ALP</td>
@@ -1767,6 +1828,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0416963</td>
 <td align="right">0.0340867</td>
 <td align="right">-0.0873803</td>
+<td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
@@ -1832,6 +1894,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
+<col width="2%">
 <col width="1%">
 <col width="1%">
 </colgroup>
@@ -1872,6 +1935,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="left">logLAR</th>
 <th align="left">logSH</th>
+<th align="left">logSB</th>
 <th align="left">logL</th>
 <th align="left">logH</th>
 </tr></thead>
@@ -1911,6 +1975,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -1955,6 +2020,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -1991,6 +2057,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -2035,6 +2102,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left">ALP</td>
@@ -2075,6 +2143,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left">TFC</td>
@@ -2111,6 +2180,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -2156,6 +2226,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="5%">
 <col width="5%">
 <col width="5%">
+<col width="2%">
 <col width="5%">
 <col width="5%">
 </colgroup>
@@ -2183,6 +2254,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logBd</th>
 <th align="right">logDd</th>
 <th align="right">logBT</th>
+<th align="left">logH</th>
 <th align="right">Length</th>
 <th align="right">Width</th>
 </tr></thead>
@@ -2211,6 +2283,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0891198</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right">-0.1078605</td>
 <td align="right">-0.0891198</td>
 </tr>
@@ -2238,6 +2311,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.1242842</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right">-0.0999207</td>
 <td align="right">-0.1242842</td>
 </tr>
@@ -2265,6 +2339,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0189191</td>
 <td align="right">0.0490352</td>
 <td align="right">-0.0627731</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0189191</td>
 </tr>
@@ -2292,6 +2367,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0416963</td>
 <td align="right">0.0340867</td>
 <td align="right">-0.0873803</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0416963</td>
 </tr>
@@ -2319,6 +2395,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0110654</td>
 <td align="right">0.0603162</td>
 <td align="right">-0.0701972</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0110654</td>
 </tr>
@@ -2346,6 +2423,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0335411</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0335411</td>
 </tr>
@@ -2366,7 +2444,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="7%">
-<col width="11%">
+<col width="10%">
 <col width="2%">
 <col width="2%">
 <col width="2%">
@@ -2385,6 +2463,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="5%">
 <col width="4%">
 <col width="5%">
+<col width="2%">
 <col width="5%">
 <col width="5%">
 </colgroup>
@@ -2402,7 +2481,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">Bd</th>
 <th align="right">Dd</th>
 <th align="right">BT</th>
-<th align="right">GLc</th>
+<th align="right">GLC</th>
 <th align="left">BFd</th>
 <th align="right">Dl</th>
 <th align="right">logGL</th>
@@ -2412,6 +2491,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logBd</th>
 <th align="right">logDd</th>
 <th align="right">logBT</th>
+<th align="left">logH</th>
 <th align="right">Length</th>
 <th align="right">Width</th>
 </tr></thead>
@@ -2440,6 +2520,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0891198</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right">-0.1078605</td>
 <td align="right">-0.0891198</td>
 </tr>
@@ -2467,6 +2548,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.1242842</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right">-0.0999207</td>
 <td align="right">-0.1242842</td>
 </tr>
@@ -2494,6 +2576,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0189191</td>
 <td align="right">0.0490352</td>
 <td align="right">-0.0627731</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0189191</td>
 </tr>
@@ -2521,6 +2604,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0416963</td>
 <td align="right">0.0340867</td>
 <td align="right">-0.0873803</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0416963</td>
 </tr>
@@ -2548,6 +2632,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0110654</td>
 <td align="right">0.0603162</td>
 <td align="right">-0.0701972</td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0110654</td>
 </tr>
@@ -2575,6 +2660,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right">-0.0335411</td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0335411</td>
 </tr>
@@ -2629,6 +2715,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="2%">
 <col width="2%">
 <col width="2%">
+<col width="2%">
 <col width="1%">
 <col width="1%">
 <col width="3%">
@@ -2672,6 +2759,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="left">logLAR</th>
 <th align="left">logSH</th>
+<th align="left">logSB</th>
 <th align="left">logL</th>
 <th align="left">logH</th>
 <th align="right">Length</th>
@@ -2714,6 +2802,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -2761,6 +2850,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right">-0.0999207</td>
 <td align="right">-0.1242842</td>
 </tr>
@@ -2800,6 +2890,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -2847,6 +2938,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0416963</td>
 </tr>
@@ -2886,6 +2978,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -2933,6 +3026,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right">-0.0983500</td>
 <td align="right">-0.1348773</td>
 </tr>
@@ -2944,14 +3038,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
+<col width="0%">
 <col width="1%">
 <col width="1%">
-<col width="2%">
-<col width="2%">
+<col width="1%">
 <col width="4%">
 <col width="7%">
 <col width="1%">
-<col width="2%">
 <col width="1%">
 <col width="1%">
 <col width="1%">
@@ -2961,6 +3054,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="1%">
 <col width="1%">
 <col width="1%">
+<col width="0%">
 <col width="3%">
 <col width="3%">
 <col width="3%">
@@ -2970,17 +3064,18 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <col width="3%">
 <col width="2%">
 <col width="2%">
+<col width="1%">
+<col width="1%">
 <col width="2%">
 <col width="2%">
+<col width="1%">
+<col width="1%">
 <col width="2%">
 <col width="2%">
+<col width="1%">
 <col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
-<col width="2%">
+<col width="1%">
+<col width="1%">
 <col width="1%">
 <col width="1%">
 <col width="3%">
@@ -3001,7 +3096,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">Bd</th>
 <th align="right">Dd</th>
 <th align="right">BT</th>
-<th align="right">GLc</th>
+<th align="right">GLC</th>
 <th align="left">BFd</th>
 <th align="right">Dl</th>
 <th align="right">logGL</th>
@@ -3024,6 +3119,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="right">logLA</th>
 <th align="left">logLAR</th>
 <th align="left">logSH</th>
+<th align="left">logSB</th>
 <th align="left">logL</th>
 <th align="left">logH</th>
 <th align="right">Length</th>
@@ -3066,6 +3162,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -3113,6 +3210,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right">-0.0999207</td>
 <td align="right">-0.1242842</td>
 </tr>
@@ -3152,6 +3250,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -3199,6 +3298,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0416963</td>
 </tr>
@@ -3242,6 +3342,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
+<td align="left"></td>
 <td align="right"></td>
 <td align="right">-0.0110654</td>
 </tr>
@@ -3281,6 +3382,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="right"></td>
 <td align="right"></td>
 <td align="right"></td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>

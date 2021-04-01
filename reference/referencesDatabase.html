@@ -81,7 +81,7 @@ own osteometrical reference if preferred." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -167,8 +167,8 @@ All the measurements are expressed in millimetres.</p></dd>
 
 <p>Currently, the references include reference values for the main domesticates
 and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>,
-<em>Sus</em>), and red deer (<em>Cervus elaphus</em>) drawn from the
-following publications and resources:</p><dl>
+<em>Sus</em>), and other less frequent species, such as red deer and donkey,
+drawn from the following publications and resources:</p><dl>
 <dt><strong>Cattle - <em>Bos</em></strong></dt><dd><p><dl>
 <dt>Nieto</dt><dd><p><em>Bos taurus</em>.
 Female cow dated to the Early Bronze Age (Minferri, Catalonia),
@@ -240,10 +240,40 @@ Measurements based on a sample of modern wild boar, <em>Sus scrofa libycus</em>,
 (male and female; Kizilcahamam, Turkey) from
 Payne and Bull (1988)
 , Appendix 2.</p></dd></dl></p></dd>
-<dt><strong>Red deer - <em>Cervus elaphus</em></strong></dt><dd><p><dl>
+<dt><strong>Red deer - <em>Cervus</em></strong></dt><dd><p><dl>
 <dt>Basel</dt><dd><p><em>Cervus elaphus</em>.
 Inv.nr. 2271 (male; adult) from
 Stopp and Deschler-Erb (2018)
+.</p></dd></dl></p></dd>
+<dt><strong>Fallow deer - <em>Dama</em></strong></dt><dd><p><dl>
+<dt>Haifa</dt><dd><p><em>Dama mesopotamica</em>.
+Adult female modern specimen from Israel (id #1047), curated in
+Archaeozoology Laboratory at the University of Haifa
+(Harding and Marom 2021)
+.</p></dd></dl></p></dd>
+<dt><strong>Gazelle - <em>Gazella</em></strong></dt><dd><p><dl>
+<dt>Haifa</dt><dd><p><em>Gazella gazella</em>.
+Adult female modern specimen from Israel (id #1037), curated in
+Archaeozoology Laboratory at the University of Haifa
+(Harding and Marom 2021)
+.</p></dd></dl></p></dd>
+<dt><strong>Equid - <em>Equus</em></strong></dt><dd><p><dl>
+<dt>Haifa</dt><dd><p><em>Equus asinus</em>.
+Adult male modern specimen from Israel (id #1076), curated in
+Archaeozoology Laboratory at the University of Haifa
+(Harding and Marom 2021)
+.</p></dd>
+<dt>Johnstone</dt><dd><p><em>Equus caballus</em>.
+3 years old Icelandic mare (all bones fused, female) died in 1961,
+(Johnstone 2004)
+. Skeleton
+held at the Zoologische Staatssammlung Munich in Germany.
+Specimen ID 1961/29.</p></dd></dl></p></dd>
+<dt><strong>European rabbit - <em>Oryctolagus</em></strong></dt><dd><p><dl>
+<dt>Nottingham</dt><dd><p><em>Oryctolagus cuniculus</em>.
+Adult male European rabbit from Audley End, Essex, UK, curated in the
+reference collection at University of Nottingham Arch department (ID RS139)
+(Ameen 2021)
 .</p></dd></dl></p></dd>
 
 </dl>
@@ -251,32 +281,42 @@ Stopp and Deschler-Erb (2018)
 <p>The <span class="pkg">zoolog</span> variable <code>referencesDatabase</code> collects all these
 references. It is structured as a named list of named lists, following the
 hierarchy described above:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>referencesDatabase</span>, max.level <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
-</pre><p></div></p><pre><span class='co'>## List of 9</span>
-<span class='co'>##  $ Bos taurus     :List of 3</span>
+</pre><p></div></p><pre><span class='co'>## List of 14</span>
+<span class='co'>##  $ Bos taurus           :List of 3</span>
 <span class='co'>##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Johnstone:'data.frame':  24 obs. of  4 variables:</span>
-<span class='co'>##  $ Bos primigenius:List of 1</span>
+<span class='co'>##  $ Bos primigenius      :List of 1</span>
 <span class='co'>##   ..$ Degerbol:'data.frame':  50 obs. of  4 variables:</span>
-<span class='co'>##  $ Ovis aries     :List of 2</span>
+<span class='co'>##  $ Ovis aries           :List of 2</span>
 <span class='co'>##   ..$ Davis  :'data.frame':  23 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Clutton:'data.frame':  71 obs. of  4 variables:</span>
-<span class='co'>##  $ Ovis orientalis:List of 2</span>
+<span class='co'>##  $ Ovis orientalis      :List of 2</span>
 <span class='co'>##   ..$ Basel   :'data.frame':  36 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span>
-<span class='co'>##  $ Capra hircus   :List of 2</span>
+<span class='co'>##  $ Capra hircus         :List of 2</span>
 <span class='co'>##   ..$ Basel  :'data.frame':  35 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Clutton:'data.frame':  60 obs. of  4 variables:</span>
-<span class='co'>##  $ Capra aegagrus :List of 1</span>
+<span class='co'>##  $ Capra aegagrus       :List of 1</span>
 <span class='co'>##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span>
-<span class='co'>##  $ Sus domesticus :List of 1</span>
+<span class='co'>##  $ Sus domesticus       :List of 1</span>
 <span class='co'>##   ..$ Albarella:'data.frame':  42 obs. of  4 variables:</span>
-<span class='co'>##  $ Sus scrofa     :List of 3</span>
+<span class='co'>##  $ Sus scrofa           :List of 3</span>
 <span class='co'>##   ..$ Basel:'data.frame':  41 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Hongo:'data.frame':  96 obs. of  4 variables:</span>
 <span class='co'>##   ..$ Payne:'data.frame':  33 obs. of  4 variables:</span>
-<span class='co'>##  $ Cervus elaphus :List of 1</span>
+<span class='co'>##  $ Cervus elaphus       :List of 1</span>
 <span class='co'>##   ..$ Basel:'data.frame':  14 obs. of  4 variables:</span>
+<span class='co'>##  $ Dama mesopotamica    :List of 1</span>
+<span class='co'>##   ..$ Haifa:'data.frame':  60 obs. of  4 variables:</span>
+<span class='co'>##  $ Gazella gazella      :List of 1</span>
+<span class='co'>##   ..$ Haifa:'data.frame':  63 obs. of  4 variables:</span>
+<span class='co'>##  $ Equus asinus         :List of 1</span>
+<span class='co'>##   ..$ Haifa:'data.frame':  48 obs. of  4 variables:</span>
+<span class='co'>##  $ Equus caballus       :List of 1</span>
+<span class='co'>##   ..$ Johnstone:'data.frame':  73 obs. of  4 variables:</span>
+<span class='co'>##  $ Oryctolagus cuniculus:List of 1</span>
+<span class='co'>##   ..$ Nottingham:'data.frame':  58 obs. of  4 variables:</span>
 </pre>
 
     <h2 class="hasAnchor" id="reference-sets"><a class="anchor" href="#reference-sets"></a>Reference Sets</h2>
@@ -290,11 +330,11 @@ taxon.
 The <span class="pkg">zoolog</span> variable <code>referenceSets</code> defines four possible
 references:<div class="r"></p><pre><span class='va'>referenceSets</span>
 </pre><p></div></p><table class='table'>
-<tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td></tr>
-<tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td></tr>
-<tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
-<tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td></tr>
-<tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td></tr>
+<tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td><td>Dama mesopotamica</td><td>Gazella gazella</td><td>Equus asinus</td><td>Equus caballus</td><td>Oryctolagus cuniculus</td></tr>
+<tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td><td>Haifa</td><td>Haifa</td><td>Haifa</td><td>Johnstone</td><td>Nottingham</td></tr>
+<tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
 
 
@@ -315,13 +355,13 @@ references defined by <code>referenceSets</code>:<div class="r"></p><pre><span c
 <span class='co'>##  $ Basel              :'data.frame':  176 obs. of  4 variables:</span>
 <span class='co'>##   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class='co'>##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...</span>
-<span class='co'>##   ..$ Measure : Factor w/ 27 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...</span>
+<span class='co'>##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...</span>
 <span class='co'>##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...</span>
-<span class='co'>##  $ Combi              :'data.frame':  254 obs. of  4 variables:</span>
-<span class='co'>##   ..$ TAX     : Factor w/ 5 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class='co'>##   ..$ EL      : Factor w/ 38 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
-<span class='co'>##   ..$ Measure : Factor w/ 31 levels "BFd","BFp","BT",..: 8 9 5 7 12 4 3 11 6 8 ...</span>
-<span class='co'>##   ..$ Standard: num [1:254] 259 234 78.3 90.2 29 ...</span>
+<span class='co'>##  $ Combi              :'data.frame':  556 obs. of  4 variables:</span>
+<span class='co'>##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class='co'>##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
+<span class='co'>##   ..$ Measure : Factor w/ 63 levels "BFd","BFp","BT",..: 8 9 5 7 12 4 3 11 6 8 ...</span>
+<span class='co'>##   ..$ Standard: num [1:556] 259 234 78.3 90.2 29 ...</span>
 <span class='co'>##  $ Groningen          :'data.frame':  246 obs. of  4 variables:</span>
 <span class='co'>##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
 <span class='co'>##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...</span>
@@ -351,40 +391,50 @@ them:</p><dl>
 
 </dl><p><div class="r"></p><pre><span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"referencesDatabase.csv"</span>,
                              package <span class='op'>=</span> <span class='st'>"zoolog"</span><span class='op'>)</span><span class='op'>)</span>
-</pre><p></div></p><pre><span class='co'>##                          Genus           Taxon    Source</span>
-<span class='co'>## 1               Cattle - *Bos*      Bos taurus     Nieto</span>
-<span class='co'>## 2               Cattle - *Bos*      Bos taurus     Basel</span>
-<span class='co'>## 3               Cattle - *Bos*      Bos taurus Johnstone</span>
-<span class='co'>## 4               Cattle - *Bos* Bos primigenius  Degerbol</span>
-<span class='co'>## 5               Sheep - *Ovis*      Ovis aries     Davis</span>
-<span class='co'>## 6               Sheep - *Ovis*      Ovis aries   Clutton</span>
-<span class='co'>## 7               Sheep - *Ovis* Ovis orientalis     Basel</span>
-<span class='co'>## 8               Sheep - *Ovis* Ovis orientalis  Uerpmann</span>
-<span class='co'>## 9               Goat - *Capra*    Capra hircus     Basel</span>
-<span class='co'>## 10              Goat - *Capra*    Capra hircus   Clutton</span>
-<span class='co'>## 11              Goat - *Capra*  Capra aegagrus  Uerpmann</span>
-<span class='co'>## 12                 Pig - *Sus*  Sus domesticus Albarella</span>
-<span class='co'>## 13                 Pig - *Sus*      Sus scrofa     Basel</span>
-<span class='co'>## 14                 Pig - *Sus*      Sus scrofa     Hongo</span>
-<span class='co'>## 15                 Pig - *Sus*      Sus scrofa     Payne</span>
-<span class='co'>## 16 Red deer - *Cervus elaphus*  Cervus elaphus     Basel</span>
-<span class='co'>##                         Filename</span>
-<span class='co'>## 1      referenceCattle_Nieto.csv</span>
-<span class='co'>## 2      referenceCattle_Basel.csv</span>
-<span class='co'>## 3  referenceCattle_Johnstone.csv</span>
-<span class='co'>## 4   referenceCattle_Degerbol.csv</span>
-<span class='co'>## 5       referenceSheep_Davis.csv</span>
-<span class='co'>## 6     referenceSheep_Clutton.csv</span>
-<span class='co'>## 7       referenceSheep_Basel.csv</span>
-<span class='co'>## 8    referenceSheep_Uerpmann.csv</span>
-<span class='co'>## 9        referenceGoat_Basel.csv</span>
-<span class='co'>## 10     referenceGoat_Clutton.csv</span>
-<span class='co'>## 11    referenceGoat_Uerpmann.csv</span>
-<span class='co'>## 12    referencePig_Albarella.csv</span>
-<span class='co'>## 13        referencePig_Basel.csv</span>
-<span class='co'>## 14        referencePig_Hongo.csv</span>
-<span class='co'>## 15        referencePig_Payne.csv</span>
-<span class='co'>## 16    referenceRedDeer_Basel.csv</span>
+</pre><p></div></p><pre><span class='co'>##                              Genus                 Taxon     Source</span>
+<span class='co'>## 1                   Cattle - *Bos*            Bos taurus      Nieto</span>
+<span class='co'>## 2                   Cattle - *Bos*            Bos taurus      Basel</span>
+<span class='co'>## 3                   Cattle - *Bos*            Bos taurus  Johnstone</span>
+<span class='co'>## 4                   Cattle - *Bos*       Bos primigenius   Degerbol</span>
+<span class='co'>## 5                   Sheep - *Ovis*            Ovis aries      Davis</span>
+<span class='co'>## 6                   Sheep - *Ovis*            Ovis aries    Clutton</span>
+<span class='co'>## 7                   Sheep - *Ovis*       Ovis orientalis      Basel</span>
+<span class='co'>## 8                   Sheep - *Ovis*       Ovis orientalis   Uerpmann</span>
+<span class='co'>## 9                   Goat - *Capra*          Capra hircus      Basel</span>
+<span class='co'>## 10                  Goat - *Capra*          Capra hircus    Clutton</span>
+<span class='co'>## 11                  Goat - *Capra*        Capra aegagrus   Uerpmann</span>
+<span class='co'>## 12                     Pig - *Sus*        Sus domesticus  Albarella</span>
+<span class='co'>## 13                     Pig - *Sus*            Sus scrofa      Basel</span>
+<span class='co'>## 14                     Pig - *Sus*            Sus scrofa      Hongo</span>
+<span class='co'>## 15                     Pig - *Sus*            Sus scrofa      Payne</span>
+<span class='co'>## 16             Red deer - *Cervus*        Cervus elaphus      Basel</span>
+<span class='co'>## 17            Fallow deer - *Dama*     Dama mesopotamica      Haifa</span>
+<span class='co'>## 18             Gazelle - *Gazella*       Gazella gazella      Haifa</span>
+<span class='co'>## 19                 Equid - *Equus*          Equus asinus      Haifa</span>
+<span class='co'>## 20                 Equid - *Equus*        Equus caballus  Johnstone</span>
+<span class='co'>## 21 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span>
+<span class='co'>##                          Filename</span>
+<span class='co'>## 1       referenceCattle_Nieto.csv</span>
+<span class='co'>## 2       referenceCattle_Basel.csv</span>
+<span class='co'>## 3   referenceCattle_Johnstone.csv</span>
+<span class='co'>## 4    referenceCattle_Degerbol.csv</span>
+<span class='co'>## 5        referenceSheep_Davis.csv</span>
+<span class='co'>## 6      referenceSheep_Clutton.csv</span>
+<span class='co'>## 7        referenceSheep_Basel.csv</span>
+<span class='co'>## 8     referenceSheep_Uerpmann.csv</span>
+<span class='co'>## 9         referenceGoat_Basel.csv</span>
+<span class='co'>## 10      referenceGoat_Clutton.csv</span>
+<span class='co'>## 11     referenceGoat_Uerpmann.csv</span>
+<span class='co'>## 12     referencePig_Albarella.csv</span>
+<span class='co'>## 13         referencePig_Basel.csv</span>
+<span class='co'>## 14         referencePig_Hongo.csv</span>
+<span class='co'>## 15         referencePig_Payne.csv</span>
+<span class='co'>## 16     referenceRedDeer_Basel.csv</span>
+<span class='co'>## 17        referenceDama_Haifa.csv</span>
+<span class='co'>## 18     referenceGazelle_Haifa.csv</span>
+<span class='co'>## 19       referenceEquid_Haifa.csv</span>
+<span class='co'>## 20   referenceEquid_Johnstone.csv</span>
+<span class='co'>## 21 referenceRabbit_Nottingham.csv</span>
 </pre>
 
     <h2 class="hasAnchor" id="acknowledgement"><a class="anchor" href="#acknowledgement"></a>Acknowledgement</h2>
@@ -392,32 +442,49 @@ them:</p><dl>
     
 
 <p>We are grateful to Barbara Stopp and Sabine
-Deschler-Erb for providing the Basel references
+Deschler-Erb for providing the Basel references for cattle, sheep, goat,
+wild boar, and red deer
 (Stopp and Deschler-Erb 2018)
-
+,
 together with the permission to publish them as part of <span class="pkg">zoolog</span>.</p>
 <p>We thank also Francesca Slim and Dimitris Filioglou for providing the
-Groningen references
+references for aurochs, mouflon, wild goat, and wild boar
 (Degerbøl and Fredskild 1970; Uerpmann and Uerpmann 1994; Hongo and Meadow 2000)
-.</p>
-<p>We thank Claudia Minniti for providing Johnstone's references
+
+in the Groningen set.</p>
+<p>We thank Claudia Minniti for providing Johnstone's reference for cattle.
 (Johnstone and Albarella 2002)
+.</p>
+<p>We are also grateful to Sierra Harding and Nimrod Marom for providing the
+Haifa standard measurements for donkey, gazelle, and fallow deer
+(Harding and Marom 2021)
+.</p>
+<p>We thank Carly Ameen for providing references for horse
+(Johnstone 2004)
+ and rabbit
+(Ameen 2021)
 .</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Albarella U, Payne S (2005).
 &#8220;Neolithic pigs from Durrington Walls, Wiltshire, England: a biometrical database.&#8221;
-<em>Journal of Archaeological Science</em>, <b>32</b>(4), 589--599.<br /><br /> Clutton-Brock J, Dennis-Bryan K, Armitage PL, Jewell PA (1990).
+<em>Journal of Archaeological Science</em>, <b>32</b>(4), 589--599.<br /><br /> Ameen C (2021).
+&#8220;Measurements from an adult male specimen from Audley End, Essex, UK. in the reference collection at the University of Nottingham Archaeology Department under ID RS139.&#8221;
+Personal communication, included permission to publish them as part of the package zoolog.<br /><br /> Clutton-Brock J, Dennis-Bryan K, Armitage PL, Jewell PA (1990).
 &#8220;Osteology of the Soay sheep.&#8221;
 <em>Bulletin of the British Museum, Natural History. Zoology</em>, <b>56</b>(1), 1--56.<br /><br /> Davis SJ (1996).
 &#8220;Measurements of a group of adult female Shetland sheep skeletons from a single flock: a baseline for zooarchaeologists.&#8221;
 <em>Journal of archaeological science</em>, <b>23</b>(4), 593--612.<br /><br /> Degerbøl M, Fredskild B (1970).
 <em>The Urus (Bos Primigenius Bojanus) and Neolithic Domesticated Cattle (Bos Taurus Domesticus Linné) in Denmark: Zoological and Palynological Investigations</em>,  Biologiske skrifter, 17:1.
-København, (Munksgaard).<br /><br /> Hongo H, Meadow RH (2000).
+København, (Munksgaard).<br /><br /> Harding S, Marom N (2021).
+&#8220;Measurements compiled for the Zooarchaeology of Southern Phoenicia (ZSP) Project, from the reference collection in the Leon Recanati Institute for Maritime Studies (RIMS, Department of Maritime Civilizations, University of Haifa, Israel).&#8221;
+Personal communication, included permission to publish them as part of the package zoolog.<br /><br /> Hongo H, Meadow RH (2000).
 &#8220;Faunal remains from Prepottery Neolithic levels at Çayönü, southeastern Turkey: a preliminary report focusing on pigs (Sus sp.).&#8221;
 In <em>Archaeozoology of the Near East IVA Proceedings of the fourth international symposium on the archaeozoology of southwestern Asia and adjacent areas. Groningen: ARC Publications</em>, 121--139.<br /><br /> Johnstone C, Albarella U (2002).
 &#8220;The Late Iron Age and Romano-British Mammal and Bird Bone Assemblage from Elms Farm, Heybridge, Essex (Site Code: Hyef93-95).&#8221;
-Technical Report Report 45/2002, tab.16, p. 70, Centre for Archaeology.<br /><br /> Nieto-Espinet A (2018).
+Technical Report Report 45/2002, tab.16, p. 70, Centre for Archaeology.<br /><br /> Johnstone CJ (2004).
+<em>A biometric study of equids in the Roman world</em>.
+Ph.D. thesis, University of York.<br /><br /> Nieto-Espinet A (2018).
 &#8220;Element measure standard biometrical data from a cow dated to the Early Bronze Age (Minferri, Catalonia).&#8221;
 doi: <a href='https://doi.org/10.13140/RG.2.2.13512.78081'>10.13140/RG.2.2.13512.78081</a>
 , <a href='https://doi.org/10.13140/RG.2.2.13512.78081'>https://doi.org/10.13140/RG.2.2.13512.78081</a>.<br /><br /> Payne S, Bull G (1988).

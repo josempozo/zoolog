@@ -83,7 +83,7 @@ Currently, two methods are possible: priority (default) or average." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -244,13 +244,13 @@ PloS one, 13(12), e0208109.</p>
 #&gt; 4 -0.08282727    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 5 -0.05659774    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 6          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
-#&gt;   logBPC logLA logLAR logSH logL logH
-#&gt; 1     NA    NA     NA    NA   NA   NA
-#&gt; 2     NA    NA     NA    NA   NA   NA
-#&gt; 3     NA    NA     NA    NA   NA   NA
-#&gt; 4     NA    NA     NA    NA   NA   NA
-#&gt; 5     NA    NA     NA    NA   NA   NA
-#&gt; 6     NA    NA     NA    NA   NA   NA</div><div class='input'>
+#&gt;   logBPC logLA logLAR logSH logSB logL logH
+#&gt; 1     NA    NA     NA    NA    NA   NA   NA
+#&gt; 2     NA    NA     NA    NA    NA   NA   NA
+#&gt; 3     NA    NA     NA    NA    NA   NA   NA
+#&gt; 4     NA    NA     NA    NA    NA   NA   NA
+#&gt; 5     NA    NA     NA    NA    NA   NA   NA
+#&gt; 6     NA    NA     NA    NA    NA   NA   NA</div><div class='input'>
 <span class='co'>## Extract the default condensed features with the default "priority" method:</span>
 <span class='va'>dataExampleWithSummary</span> <span class='op'>&lt;-</span> <span class='fu'>CondenseLogs</span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithSummary</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
@@ -275,13 +275,13 @@ PloS one, 13(12), e0208109.</p>
 #&gt; 4 -0.08282727    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 5 -0.05659774    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 6          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
-#&gt;   logBPC logLA logLAR logSH logL logH      Length       Width
-#&gt; 1     NA    NA     NA    NA   NA   NA -0.10786052 -0.08911977
-#&gt; 2     NA    NA     NA    NA   NA   NA -0.09992073 -0.12428419
-#&gt; 3     NA    NA     NA    NA   NA   NA          NA -0.15130497
-#&gt; 4     NA    NA     NA    NA   NA   NA          NA -0.17408218
-#&gt; 5     NA    NA     NA    NA   NA   NA          NA -0.14345133
-#&gt; 6     NA    NA     NA    NA   NA   NA          NA -0.03354115</div><div class='input'>
+#&gt;   logBPC logLA logLAR logSH logSB logL logH      Length       Width
+#&gt; 1     NA    NA     NA    NA    NA   NA   NA -0.10786052 -0.08911977
+#&gt; 2     NA    NA     NA    NA    NA   NA   NA -0.09992073 -0.12428419
+#&gt; 3     NA    NA     NA    NA    NA   NA   NA          NA -0.15130497
+#&gt; 4     NA    NA     NA    NA    NA   NA   NA          NA -0.17408218
+#&gt; 5     NA    NA     NA    NA    NA   NA   NA          NA -0.14345133
+#&gt; 6     NA    NA     NA    NA    NA   NA   NA          NA -0.03354115</div><div class='input'>
 <span class='co'>## Extract only width with "average" method:</span>
 <span class='va'>dataExampleWithSummary2</span> <span class='op'>&lt;-</span> <span class='fu'>CondenseLogs</span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span>,
                                grouping <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Bd"</span>, <span class='st'>"BT"</span>, <span class='st'>"Bp"</span>, <span class='st'>"SD"</span><span class='op'>)</span><span class='op'>)</span>,
@@ -308,13 +308,13 @@ PloS one, 13(12), e0208109.</p>
 #&gt; 4 -0.08282727    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 5 -0.05659774    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 6          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
-#&gt;   logBPC logLA logLAR logSH logL logH       Width
-#&gt; 1     NA    NA     NA    NA   NA   NA  0.03130898
-#&gt; 2     NA    NA     NA    NA   NA   NA -0.10888030
-#&gt; 3     NA    NA     NA    NA   NA   NA  0.01291500
-#&gt; 4     NA    NA     NA    NA   NA   NA -0.17408218
-#&gt; 5     NA    NA     NA    NA   NA   NA -0.14345133
-#&gt; 6     NA    NA     NA    NA   NA   NA -0.03354115</div></pre>
+#&gt;   logBPC logLA logLAR logSH logSB logL logH       Width
+#&gt; 1     NA    NA     NA    NA    NA   NA   NA  0.03130898
+#&gt; 2     NA    NA     NA    NA    NA   NA   NA -0.10888030
+#&gt; 3     NA    NA     NA    NA    NA   NA   NA  0.01291500
+#&gt; 4     NA    NA     NA    NA    NA   NA   NA -0.17408218
+#&gt; 5     NA    NA     NA    NA    NA   NA   NA -0.14345133
+#&gt; 6     NA    NA     NA    NA    NA   NA   NA -0.03354115</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

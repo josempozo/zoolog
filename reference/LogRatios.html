@@ -81,7 +81,7 @@ By default a reference is provided with the package." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -288,13 +288,13 @@ measures, the behaviour is unpredictable.</p>
 #&gt; 148 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
 #&gt; 149 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
 #&gt; 150 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
-#&gt;     logSLC logGLP logBG logLG logDPA logBPC logLA logLAR logSH logL logH
-#&gt; 145     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 146     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 147     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 148     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 149     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 150     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA</div><div class='input'>
+#&gt;     logSLC logGLP logBG logLG logDPA logBPC logLA logLAR logSH logSB logL logH
+#&gt; 145     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 146     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 147     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 148     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 149     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 150     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA</div><div class='input'>
 <span class='co'>## Compute the log-ratios with respect to a different reference:</span>
 <span class='va'>dataExampleWithLogs2</span> <span class='op'>&lt;-</span> <span class='fu'>LogRatios</span><span class='op'>(</span><span class='va'>dataExample</span>, ref <span class='op'>=</span> <span class='va'>reference</span><span class='op'>$</span><span class='va'>Basel</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithLogs2</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
@@ -351,13 +351,13 @@ measures, the behaviour is unpredictable.</p>
 #&gt; 148 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
 #&gt; 149 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
 #&gt; 150 NA    NA    NA    NA    NA    NA    NA    NA     NA     NA    NA    NA
-#&gt;     logSLC logGLP logBG logLG logDPA logBPC logLA logLAR logSH logL logH
-#&gt; 145     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 146     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 147     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 148     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 149     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA
-#&gt; 150     NA     NA    NA    NA     NA     NA    NA     NA    NA   NA   NA</div></pre>
+#&gt;     logSLC logGLP logBG logLG logDPA logBPC logLA logLAR logSH logSB logL logH
+#&gt; 145     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 146     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 147     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 148     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 149     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA
+#&gt; 150     NA     NA    NA    NA     NA     NA    NA     NA    NA    NA   NA   NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

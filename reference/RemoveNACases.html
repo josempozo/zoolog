@@ -83,7 +83,7 @@ The default setting removes the rows with no log-ratio available." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9001</span>
       </span>
     </div>
 
@@ -197,9 +197,13 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class='co'>## Remove the cases not including any measurement present in the reference.</span>
 <span class='va'>refMeasureNames</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/levels.html'>levels</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>reference</span><span class='op'>$</span><span class='va'>Combi</span><span class='op'>$</span><span class='va'>Measure</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>refMeasureNames</span>
-</div><div class='output co'>#&gt;  [1] "BFd" "BFp" "BT"  "Bd"  "Bp"  "Dd"  "Dp"  "GL"  "GLc" "GLl" "HTC" "SD" 
-#&gt; [13] "BG"  "BPC" "DC"  "DPA" "Dl"  "GB"  "GLP" "H"   "L"   "LA"  "LG"  "SLC"
-#&gt; [25] "WCM" "GLm" "LAR" "LeP" "SDO" "SH"  "GLI"</div><div class='input'><span class='va'>dataExamplePruned</span> <span class='op'>&lt;-</span> <span class='fu'>RemoveNACases</span><span class='op'>(</span><span class='va'>dataExample</span>,
+</div><div class='output co'>#&gt;  [1] "BFd"  "BFp"  "BT"   "Bd"   "Bp"   "Dd"   "Dp"   "GL"   "GLc"  "GLl" 
+#&gt; [11] "HTC"  "SD"   "BG"   "BPC"  "DC"   "DPA"  "Dl"   "GB"   "GLP"  "H"   
+#&gt; [21] "L"    "LA"   "LG"   "SLC"  "WCM"  "GLm"  "LAR"  "LeP"  "SDO"  "SH"  
+#&gt; [31] "DEL"  "DEM " "DVL"  "DVM"  "Dm"   "GL "  "GLpe" "WCL"  "1"    "10"  
+#&gt; [41] "2"    "24"   "3"    "34"   "38"   "40"   "41"   "43"   "45"   "48"  
+#&gt; [51] "50"   "9"    "GH"   "GLC"  "Ll"   "GBT"  "GDT"  "GLT"  "HS"   "LFo" 
+#&gt; [61] "SB"   "SBT"  "SDT" </div><div class='input'><span class='va'>dataExamplePruned</span> <span class='op'>&lt;-</span> <span class='fu'>RemoveNACases</span><span class='op'>(</span><span class='va'>dataExample</span>,
                                    measureNames <span class='op'>=</span> <span class='va'>refMeasureNames</span><span class='op'>)</span>
 <span class='co'>## The first lines of the output data frame show at least one available</span>
 <span class='co'>## measurement value in the selected list:</span>
@@ -245,13 +249,13 @@ removing the rows with missing values for all measurements in the list.</p>
 #&gt; 4 -0.08282727    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 5 -0.05659774    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
 #&gt; 6          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA
-#&gt;   logBPC logLA logLAR logSH logL logH
-#&gt; 1     NA    NA     NA    NA   NA   NA
-#&gt; 2     NA    NA     NA    NA   NA   NA
-#&gt; 3     NA    NA     NA    NA   NA   NA
-#&gt; 4     NA    NA     NA    NA   NA   NA
-#&gt; 5     NA    NA     NA    NA   NA   NA
-#&gt; 6     NA    NA     NA    NA   NA   NA</div></pre>
+#&gt;   logBPC logLA logLAR logSH logSB logL logH
+#&gt; 1     NA    NA     NA    NA    NA   NA   NA
+#&gt; 2     NA    NA     NA    NA    NA   NA   NA
+#&gt; 3     NA    NA     NA    NA    NA   NA   NA
+#&gt; 4     NA    NA     NA    NA    NA   NA   NA
+#&gt; 5     NA    NA     NA    NA    NA   NA   NA
+#&gt; 6     NA    NA     NA    NA    NA   NA   NA</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
