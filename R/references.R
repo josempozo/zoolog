@@ -116,16 +116,26 @@
 #'
 #' @section Acknowledgement:
 #' We are grateful to Barbara Stopp and Sabine
-#' Deschler-Erb for providing the Basel references
-#' \insertCite{stopp2018Basel}{zoolog}
+#' Deschler-Erb for providing the Basel references for cattle, sheep, goat,
+#' wild boar, and red deer
+#' \insertCite{stopp2018Basel}{zoolog},
 #' together with the permission to publish them as part of \pkg{zoolog}.
 #'
 #' We thank also Francesca Slim and Dimitris Filioglou for providing the
-#' Groningen references
-#' \insertCite{degerbol1970urus,uerpmann1994animal,hongo2000faunal}{zoolog}.
+#' references for aurochs, mouflon, wild goat, and wild boar
+#' \insertCite{degerbol1970urus,uerpmann1994animal,hongo2000faunal}{zoolog}
+#' in the Groningen set.
 #'
-#' We thank Claudia Minniti for providing Johnstone's references
+#' We thank Claudia Minniti for providing Johnstone's reference for cattle.
 #' \insertCite{johnstone2002late}{zoolog}.
+#'
+#' We are also grateful to Sierra Harding and Nimrod Marom for providing the
+#' Haifa standard measurements for donkey, gazelle, and fallow deer
+#' \insertCite{Harding2021}{zoolog}.
+#'
+#' We thank Carly Ameen for providing references for horse
+#' \insertCite{johnstone2004biometric}{zoolog} and rabbit
+#' \insertCite{Ameen2021}{zoolog}.
 #'
 #' @name referencesDatabase
 #' @rdname referencesDatabase

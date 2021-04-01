@@ -1,0 +1,71 @@
+##########################################
+## REFERENCE: Nottingham
+## *Oryctolagus cuniculus*.
+## Adult male European rabbit from Audley End, Essex, UK, curated in the
+## reference collection at University of Nottingham Arch department (ID RS139)
+## \insertCite{Ameen2021}{zoolog}.
+## SOURCE:
+## Ameen C (2021). “Measurements from an adult male specimen from Audley End,
+## Essex, UK. in the reference collection at the University of Nottingham
+## Archaeology Department under ID RS139.” Personal communication, included
+## permission to publish them as part of the package zoolog.
+##########################################
+TAX;EL;Measure;Standard
+O cuniculus;MAND;GB;8,8
+O cuniculus;MAND;GL;22,8
+O cuniculus;MAND;GLT;14
+O cuniculus;MAND;SBT;4,3
+O cuniculus;MAND;SDT;4
+O cuniculus;MAND;GBT;6
+O cuniculus;MAND;GDT;4,5
+O cuniculus;SC;HS;55,2
+O cuniculus;SC;SLC;4,1
+O cuniculus;SC;GLP;8,7
+O cuniculus;SC;BG;7,4
+O cuniculus;HU;GLP;62,8
+O cuniculus;HU;Bd;9,1
+O cuniculus;HU;SD;3,7
+O cuniculus;HU;HTC;3,9
+O cuniculus;HU;Bp;12,4
+O cuniculus;HU;Dp;12,8
+O cuniculus;RA;GLP;57,7
+O cuniculus;RA;Bp;6,2
+O cuniculus;RA;SD;2,5
+O cuniculus;RA;Bd;5,9
+O cuniculus;RA;Dp;3,7
+O cuniculus;UL;BPC;6
+O cuniculus;UL;DPA;7,5
+O cuniculus;UL;GL;70,8
+O cuniculus;UL;SDO;7
+O cuniculus;UL;GLP;81,3
+O cuniculus;MC2;Bd;3,6
+O cuniculus;MC2;GL;17,9
+O cuniculus;MC3;Bd;3,2
+O cuniculus;MC3;GL;19,3
+O cuniculus;MC4;Bd;3,5
+O cuniculus;MC4;GL;15,4
+O cuniculus;PE;GL;74,2
+O cuniculus;PE;LAR;8,9
+O cuniculus;PE;LFo;16,3
+O cuniculus;PE;SB;4,6
+O cuniculus;PE;SH;7,3
+O cuniculus;FE;Bp;16
+O cuniculus;FE;SD;6,3
+O cuniculus;FE;Bd;13,1
+O cuniculus;TI;GL;90,8
+O cuniculus;TI;Bp;14,7
+O cuniculus;TI;SD;5,2
+O cuniculus;TI;Bd;11,8
+O cuniculus;TI;Dd;6,2
+O cuniculus;TI;Dp;14,6
+O cuniculus;AS;GL;11,3
+O cuniculus;CA;GB;8,7
+O cuniculus;CA;GL;22,4
+O cuniculus;MT2;Bd;4,5
+O cuniculus;MT2;GL;34,1
+O cuniculus;MT3;Bd;4,3
+O cuniculus;MT3;GL;33,8
+O cuniculus;MT4;Bd;4,2
+O cuniculus;MT4;GL;32,8
+O cuniculus;MT5;Bd;3,8
+O cuniculus;MT5;GL;29,2

@@ -1,0 +1,86 @@
+##########################################
+## REFERENCE: Johnstone
+## *Equus caballus*.
+## 3 years old Icelandic mare (all bones fused, female) died in 1961,
+## \insertCite{johnstone2004biometric}{zoolog}. Skeleton
+## held at the Zoologische Staatssammlung Munich in Germany.
+## Specimen ID 1961/29.
+## SOURCE:
+## Measurements provided by Carly Ameen from
+## Johnstone CJ (2004). A biometric study of equids in the Roman world.
+## Ph.D. thesis, University of York.
+##########################################
+TAX;EL;Measure;Standard
+Equus caballus;CR;1;515
+Equus caballus;CR;2;480
+Equus caballus;CR;3;455
+Equus caballus;CR;9;174
+Equus caballus;CR;10;356
+Equus caballus;CR;24;98,9
+Equus caballus;CR;34;73,3
+Equus caballus;CR;38;109,1
+Equus caballus;CR;40;143,4
+Equus caballus;CR;41;208,8
+Equus caballus;CR;43;173,6
+Equus caballus;CR;45;64,1
+Equus caballus;CR;48;129,8
+Equus caballus;CR;50;97,2
+Equus caballus;SC;SLC;58,7
+Equus caballus;SC;GLP;84,6
+Equus caballus;SC;LG;51,8
+Equus caballus;SC;BG;43,1
+Equus caballus;HU;GLC;250,2
+Equus caballus;HU;GLl;268,2
+Equus caballus;HU;SD;37,1
+Equus caballus;HU;Bd;78,3
+Equus caballus;HU;BT;65,3
+Equus caballus;HU;HTC;33,8
+Equus caballus;RA;GL;312
+Equus caballus;RA;Ll;293
+Equus caballus;RA;Bp;73,3
+Equus caballus;RA;BFp;66,1
+Equus caballus;RA;SD;37,9
+Equus caballus;RA;Bd;67,6
+Equus caballus;RA;BFd;55,8
+Equus caballus;MC;GL;208,5
+Equus caballus;MC;Ll;200,6
+Equus caballus;MC;Bp;45,1
+Equus caballus;MC;Dp;29,5
+Equus caballus;MC;SD;31,2
+Equus caballus;MC;BFd;45,3
+Equus caballus;MC;Dd;32,6
+Equus caballus;P1 front;GL;73,2
+Equus caballus;P1 front;Bp;48,7
+Equus caballus;P1 front;Dp;32,4
+Equus caballus;P1 front;SD;34,8
+Equus caballus;P1 front;BFd;38,2
+Equus caballus;P1 front;Dd;22,1
+Equus caballus;FE;GL;322
+Equus caballus;FE;GLC;355
+Equus caballus;FE;DC;40,8
+Equus caballus;FE;Bp;81,9
+Equus caballus;FE;SD;50,4
+Equus caballus;FE;Bd;100,3
+Equus caballus;TI;GL;321
+Equus caballus;TI;Ll;297
+Equus caballus;TI;Bp;84,3
+Equus caballus;TI;SD;40,7
+Equus caballus;TI;Bd;65,1
+Equus caballus;TI;Dd;41,5
+Equus caballus;AS;GH;52,6
+Equus caballus;AS;BFd;46,5
+Equus caballus;CA;GL;96,7
+Equus caballus;CA;GB;46,5
+Equus caballus;MT;GL;249,1
+Equus caballus;MT;Ll;344,4
+Equus caballus;MT;Bp;43,8
+Equus caballus;MT;Dp;41,2
+Equus caballus;MT;SD;30,2
+Equus caballus;MT;BFd;44,8
+Equus caballus;MT;Dd;34,3
+Equus caballus;P1 rear;GL;76,2
+Equus caballus;P1 rear;Bp;49
+Equus caballus;P1 rear;Dp;32,4
+Equus caballus;P1 rear;SD;32,4
+Equus caballus;P1 rear;BFd;39,3
+Equus caballus;P1 rear;Dd;22,3

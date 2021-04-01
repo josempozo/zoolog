@@ -1,9 +1,15 @@
 ##########################################
 ## REFERENCE: Haifa
 ## *Gazella gazella*.
-##
+## Adult female modern specimen from Israel (id #1037), curated in
+## Archaeozoology Laboratory at the University of Haifa
+## \insertCite{Harding2021}{zoolog}.
 ## SOURCE:
-##
+## Harding S, Marom N (2021). “Measurements compiled for the Zooarchaeology of
+## Southern Phoenicia (ZSP) Project, from the reference collection in the Leon
+## Recanati Institute for Maritime Studies (RIMS, Department of Maritime
+## Civilizations, University of Haifa, Israel).” Personal communication,
+## included permission to publish them as part of the package zoolog.
 ##########################################
 TAX;EL;Measure;Standard
 Gazella gazella;Scapula;GLP;26

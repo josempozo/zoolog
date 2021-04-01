@@ -1,4 +1,4 @@
-# zoolog 0.2.1
+# zoolog 0.3.0
 1. Corrected bug in function CondenseLogs. 
    Previous version failed if a measure included in the grouping was not 
    present in the used reference to compute the log ratios.
@@ -9,7 +9,8 @@
    corresponding reference file and the help page "referencesDatabase"
    automatically reads their description from each file.
 3. Added 3 new references (Haifa) for Dama, Equid, and Gazelle.
-4. Completed thesauri with new taxa, elements and measurements 
+4. Added 2 new references for Equid (Johnstone) and rabbit (Nottingham).
+5. Completed thesauri with new taxa, elements and measurements 
    included in the new references, and also some measurements missing 
    from previous references.
 

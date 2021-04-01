@@ -41,7 +41,7 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 ## Acknowledgments
 
 Several fellow colleagues helped building the Thesaurus and tested the
-code, increasing its robustness: Moussab Besso, Canan Cakirlar, 
+code, increasing its robustness: Moussab Albesso, Canan Cakirlar, 
 Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, 
 Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia 
 Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for 
@@ -50,7 +50,8 @@ their comments and help.
 We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, 
 from the University of Basel (Switzerland) for making the reference values 
 of several specimens available through the ICAZ Roman Period Working Group, 
-which have been included here with their permission. We also thank 
-Francesca Slim and Dimitris Filioglou from the University of Groningen, 
-and Claudia Minniti from University of Salento for providing additional 
-reference sets.
+which have been included here with their permission. We also thank Francesca 
+Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti
+from University of Salento, Sierra Harding and Nimrod Marom from the Universiy 
+of Haifa, and Carly Ameen from the University of Exeter for providing 
+additional reference sets.

@@ -18,3 +18,6 @@ Red deer - *Cervus*;Cervus elaphus;Basel;referenceRedDeer_Basel.csv
 Fallow deer - *Dama*;Dama mesopotamica;Haifa;referenceDama_Haifa.csv
 Gazelle - *Gazella*;Gazella gazella;Haifa;referenceGazelle_Haifa.csv
 Equid - *Equus*;Equus asinus;Haifa;referenceEquid_Haifa.csv
+Equid - *Equus*;Equus caballus;Johnstone;referenceEquid_Johnstone.csv
+European rabbit - *Oryctolagus*;Oryctolagus cuniculus;Nottingham;referenceRabbit_Nottingham.csv
+
