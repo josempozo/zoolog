@@ -1,3 +1,10 @@
+## Submission of new version (2021-04-06)
+
+zoolog 0.2.0
+
+Changes described in NEWS.md.
+
+
 ## Third resubmission (2021-02-17)
 
 CRAN manual revision provided the following feedback:
