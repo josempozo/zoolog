@@ -1,3 +1,26 @@
+## Resubmission (2021-04-07)
+
+CRAN manual revision provided the following feedback:
+
+1. Version contains large components (0.3.0.9001)
+   Pls use a serious version number such as 0.3.0 or 0.3.1
+
+*Done*. It is now 0.3.0
+
+2. The Date field is over a month old.
+   Pls update
+
+*Done*. Updated date to 2021-4-06.
+
+In addition:
+
+3. Vignettes building with r-devel-linux-x86_64-debian-clang resulted in error
+   in lines 441-443 (index.Rmd).
+   
+I believe that the error is due to non-standard default for t.test optional
+argument na.action. 
+It is now explicitly set to "na.omit".
+
 ## Submission of new version (2021-04-06)
 
 zoolog 0.2.0

@@ -439,13 +439,15 @@ TaxonSiteWidthHist
 We may run a statistical test (here a Student t-test) to check whether the differences in log ratio length values between the sites "OLD" and "ALP" are statistically significant:
 ```{r}
 t.test(Length ~ Site, dataOCStandardized, 
-       subset = Site %in% c("OLD", "ALP"))
+       subset = Site %in% c("OLD", "ALP"),
+       na.action = "na.omit")
 ```
 
 Similarly, for the differences in log ratio width values:
 ```{r}
 t.test(Width ~ Site, dataOCStandardized, 
-       subset = Site %in% c("OLD", "ALP"))
+       subset = Site %in% c("OLD", "ALP"),
+       na.action = "na.omit")
 ```
 
 For testing all possible pairs of sites, the p-values must be adjusted for multiple comparisons:

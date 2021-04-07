@@ -4,13 +4,13 @@ Data2Reference <- function(data,
                            refValuesName = "Standard",
                            thesaurusSet = zoologThesaurus)
 {
-  measureColums <- which(InCategory(names(data), names(thesaurusSet$measure),
+  measureColumns <- which(InCategory(names(data), names(thesaurusSet$measure),
                                     thesaurusSet$measure))
   idColumns <- which(InCategory(names(data), identifiers,
                                thesaurusSet$identifier))
   ref <- do.call(rbind, apply(data, 1, function(x)
   {
-    measures <- x[measureColums]
+    measures <- x[measureColumns]
     measures <- measures[!is.na(measures)]
     res <- data.frame(array(NA, dim=c(length(measures),
                                       ncol(thesaurusSet$identifier))))
