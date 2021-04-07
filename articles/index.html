@@ -89,7 +89,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-04-06</h4>
+            <h4 class="date">2021-04-07</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -3504,7 +3504,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>We may run a statistical test (here a Student t-test) to check whether the differences in log ratio length values between the sites “OLD” and “ALP” are statistically significant:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Length</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span><span class="op">)</span>
+       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
+       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Welch Two Sample t-test</span>
 <span class="co">#&gt; </span>
@@ -3519,7 +3520,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Similarly, for the differences in log ratio width values:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Width</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span><span class="op">)</span>
+       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
+       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Welch Two Sample t-test</span>
 <span class="co">#&gt; </span>
