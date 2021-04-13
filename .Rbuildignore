@@ -27,3 +27,5 @@
 ^vignettes/shiny.Rmd$
 ^shinyApps$
 ^knitr.sty$
+^inst/logoAttempts$
+^man/figures$
