@@ -1,3 +1,9 @@
+# zoolog 0.3.1
+1. Correction of error when generating vignettes with locale different from
+   UTF-8. The error raised in particular for operating systems with Latin-1
+   default, such as debian-clang.
+2. Correction of a few misspellings. 
+
 # zoolog 0.3.0
 1. Corrected bug in function CondenseLogs. 
    Previous version failed if a measure included in the grouping was not 

@@ -78,8 +78,9 @@ PloS one, 13(12), e0208109.
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package="zoolog")
 dataExample <- utils::read.csv2(dataFile,
-                                quote = "\"", na = "", header = TRUE,
-                                fileEncoding = "UTF-8")
+                                na.strings = "",
+                                encoding = "UTF-8",
+                                stringsAsFactors = TRUE)
 ## Compute the log-ratios and select the cases with available log ratios:
 dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
 ## We can observe the first lines (excluding some columns for visibility):

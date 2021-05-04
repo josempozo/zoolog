@@ -46,7 +46,7 @@ In general, zooarchaeological datasets are composed of skeletal remains represen
 The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. 
 
 ## Acknowledgements
-We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the Universiy of Haifa, and Carly Ameen from the University of Exeter for providing additional reference sets.
+We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen from the University of Exeter for providing additional reference sets.
 
 The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.
 
@@ -184,7 +184,7 @@ The full list of functions is available under the zoolog *help* page. We list th
     subsequent analysis of the data.
 
 [**InCategory**](../help/InCategory)
-  : It checks if an element belongs to a category according to a thesarus. 
+  : It checks if an element belongs to a category according to a thesaurus. 
     It is similar to [base::is.element](../help/is.element), returning a logical
     vector indicating if each element in a given vector is included in a given
     set. 
@@ -240,7 +240,7 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote = "\"", header = TRUE, na.strings = "",
-                 fileEncoding = "UTF-8",
+                 encoding = "UTF-8",
                  stringsAsFactors = TRUE)
 knitr::kable(head(data)[, -c(6:20,32:64)])
 ```
@@ -262,7 +262,7 @@ select them with the help of the thesaurus without requiring to know the terms a
 AScases <- InCategory(dataWithLog$Os, "astragalus", zoologThesaurus$element)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
-According to the mesure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+According to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
 
 The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
 ```{r}
@@ -296,7 +296,7 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
 ```
 
 ## Condensing log values
-After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in @trentacoste2018pre has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
+After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in @trentacoste2018pre has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
 ```{r}
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
@@ -305,7 +305,7 @@ knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
 
 
 ## Standardizing the dataset nomenclature
-The integration of the thesaurus functionality facilitates the use of datasets with heterogenous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
+The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
 
 If we standardize the studied data, we can see that `zoologThesaurus` will change "ovar" to "Ovis aries", "hum" to "humerus", and "Especie" to "Taxon", for instance.
 ```{r}

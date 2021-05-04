@@ -75,8 +75,9 @@
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 #'                         package="zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
-#'                                 quote = "\"", na = "", header = TRUE,
-#'                                 fileEncoding = "UTF-8")
+#'                                 na.strings = "",
+#'                                 encoding = "UTF-8",
+#'                                 stringsAsFactors = TRUE)
 #' ## For illustration purposes we keep now only a subset of cases to make
 #' ## the example run sufficiently fast.
 #' ## Avoid this step if you want to process the full example dataset.

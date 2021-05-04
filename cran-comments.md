@@ -1,3 +1,8 @@
+## Submission of patch 0.3.1 (2021-05-04)
+zoolog 0.3.1
+
+Changes described in NEWS.md.
+
 ## Resubmission (2021-04-07)
 
 CRAN manual revision provided the following feedback:

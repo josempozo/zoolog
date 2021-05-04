@@ -22,7 +22,7 @@ the thesaurus categories identified by \code{category}?}
 }
 \description{
 Function to check if an element belongs to a category according to a
-thesarus. It is similar to \code{\link[base]{\%in\%}} and
+thesaurus. It is similar to \code{\link[base]{\%in\%}} and
 \code{\link[base]{is.element}}, returning a logical vector indicating if each
 element in a given vector is included in a given set. But \code{InCategory}
 checks for equality assuming the equivalencies defined in the given thesaurus.

@@ -15,7 +15,7 @@ The file is provided in UTF-8 encoding. The file encoding is relevant
 because the dataset contains accents and special characters that needs to be
 correctly displayed. It can
 be directly open by \code{utils::read.csv2}, provided that the correct
-file format is set (see examples below).
+encoding is set (see examples below).
 
 Every row of the data.frame refers to one individual bone fragment unless
 otherwise stated in the \emph{Observations} field ("Observacions").
@@ -62,8 +62,9 @@ its contents.
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package="zoolog")
 dataExample <- utils::read.csv2(dataFile,
-                               quote = "\"", na = "", header = TRUE,
-                               fileEncoding = "UTF-8")
+                                na.strings = "",
+                                encoding = "UTF-8",
+                                stringsAsFactors = TRUE)
 
 }
 \references{

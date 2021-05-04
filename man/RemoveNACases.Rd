@@ -31,10 +31,11 @@ The default setting removes the rows with no log-ratio available.
 \examples{
 ## Read an example dataset:
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
-                        package="zoolog")
+                        package = "zoolog")
 dataExample <- utils::read.csv2(dataFile,
-                                quote = "\"", na = "", header = TRUE,
-                                fileEncoding = "UTF-8")
+                                na.strings = "",
+                                encoding = "UTF-8",
+                                stringsAsFactors = TRUE)
 ## We can observe the first lines (excluding some columns for visibility):
 head(dataExample)[, -c(6:20,32:64)]
 

@@ -49,9 +49,11 @@
 #'                         thesaurus)
 #'
 #' ## Load an example data frame:
-#' dataExample <- utils::read.csv2(system.file("extdata",
-#'                                             "dataValenzuelaLamas2008.csv.gz",
-#'                                              package="zoolog"),
+#' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
+#'                         package = "zoolog")
+#' dataExample <- utils::read.csv2(dataFile,
+#'                                 na.strings = "",
+#'                                 encoding = "UTF-8",
 #'                                 stringsAsFactors = TRUE)
 #' ## Observe mainly the first columns:
 #' head(dataExample[,1:5])
