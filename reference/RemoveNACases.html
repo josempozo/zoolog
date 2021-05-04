@@ -83,7 +83,7 @@ The default setting removes the rows with no log-ratio available." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -174,10 +174,11 @@ removing the rows with missing values for all measurements in the list.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'>## Read an example dataset:</span>
 <span class='va'>dataFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"dataValenzuelaLamas2008.csv.gz"</span>,
-                        package<span class='op'>=</span><span class='st'>"zoolog"</span><span class='op'>)</span>
+                        package <span class='op'>=</span> <span class='st'>"zoolog"</span><span class='op'>)</span>
 <span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='va'>dataFile</span>,
-                                quote <span class='op'>=</span> <span class='st'>"\""</span>, na <span class='op'>=</span> <span class='st'>""</span>, header <span class='op'>=</span> <span class='cn'>TRUE</span>,
-                                fileEncoding <span class='op'>=</span> <span class='st'>"UTF-8"</span><span class='op'>)</span>
+                                na.strings <span class='op'>=</span> <span class='st'>""</span>,
+                                encoding <span class='op'>=</span> <span class='st'>"UTF-8"</span>,
+                                stringsAsFactors <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'>## We can observe the first lines (excluding some columns for visibility):</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExample</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>64</span><span class='op'>)</span><span class='op'>]</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT

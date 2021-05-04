@@ -81,7 +81,7 @@ By default a reference is provided with the package." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -246,8 +246,9 @@ measures, the behaviour is unpredictable.</p>
 <span class='va'>dataFile</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, <span class='st'>"dataValenzuelaLamas2008.csv.gz"</span>,
                         package<span class='op'>=</span><span class='st'>"zoolog"</span><span class='op'>)</span>
 <span class='va'>dataExample</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv2</a></span><span class='op'>(</span><span class='va'>dataFile</span>,
-                                quote <span class='op'>=</span> <span class='st'>"\""</span>, na <span class='op'>=</span> <span class='st'>""</span>, header <span class='op'>=</span> <span class='cn'>TRUE</span>,
-                                fileEncoding <span class='op'>=</span> <span class='st'>"UTF-8"</span><span class='op'>)</span>
+                                na.strings <span class='op'>=</span> <span class='st'>""</span>,
+                                encoding <span class='op'>=</span> <span class='st'>"UTF-8"</span>,
+                                stringsAsFactors <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'>## For illustration purposes we keep now only a subset of cases to make</span>
 <span class='co'>## the example run sufficiently fast.</span>
 <span class='co'>## Avoid this step if you want to process the full example dataset.</span>

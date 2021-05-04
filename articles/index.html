@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-04-13</h4>
+            <h4 class="date">2021-05-04</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -111,7 +111,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="acknowledgements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
-<p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the Universiy of Haifa, and Carly Ameen from the University of Exeter for providing additional reference sets.</p>
+<p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen from the University of Exeter for providing additional reference sets.</p>
 <p>The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.</p>
 <p>We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that <em>zoolog</em> can be expanded and adapted to any database.</p>
 </div>
@@ -292,7 +292,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <dd>It removes the cases (table rows) for which all measurements of interest are non-available (NA). A particular list of measurement names can be explicitly provided or selected by a common initial pattern (e.g. prefix). The default setting removes the rows with no available log ratios to facilitate subsequent analysis of the data.
 </dd>
 <dt><a href="../help/InCategory"><strong>InCategory</strong></a></dt>
-<dd>It checks if an element belongs to a category according to a thesarus. It is similar to <a href="../help/is.element">base::is.element</a>, returning a logical vector indicating if each element in a given vector is included in a given set. But <code>InCategory</code> checks for equality assuming the equivalencies defined in the given thesaurus. It is intended for the user to easily select a subset of data without having to standardize the analysed dataset.
+<dd>It checks if an element belongs to a category according to a thesaurus. It is similar to <a href="../help/is.element">base::is.element</a>, returning a logical vector indicating if each element in a given vector is included in a given set. But <code>InCategory</code> checks for equality assuming the equivalencies defined in the given thesaurus. It is intended for the user to easily select a subset of data without having to standardize the analysed dataset.
 </dd>
 <dt><a href="../help/StandardizeNomenclature"><strong>Nomenclature standardization</strong></a></dt>
 <dd>
@@ -341,7 +341,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
                         package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,
                  quote <span class="op">=</span> <span class="st">"\""</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, na.strings <span class="op">=</span> <span class="st">""</span>,
-                 fileEncoding <span class="op">=</span> <span class="st">"UTF-8"</span>,
+                 encoding <span class="op">=</span> <span class="st">"UTF-8"</span>,
                  stringsAsFactors <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <table class="table">
@@ -1159,7 +1159,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </tr>
 </tbody>
 </table>
-<p>According to the mesure definitions, astragali should have no <em>GL</em> measurement, but <em>GLl</em>. However, in the example dataset the <em>GLl</em> measurements have been recorded merged in the <em>GL</em> column. This is a data-entry simplification that is used by some researchers. It is possible because <em>GLl</em> is only relevant for the astragalus, while <em>GL</em> is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (<em>GLl</em> for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio <em>logGL</em> has <code>NA</code> values and the column <em>logGLl</em> does not exists.</p>
+<p>According to the measure definitions, astragali should have no <em>GL</em> measurement, but <em>GLl</em>. However, in the example dataset the <em>GLl</em> measurements have been recorded merged in the <em>GL</em> column. This is a data-entry simplification that is used by some researchers. It is possible because <em>GLl</em> is only relevant for the astragalus, while <em>GL</em> is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (<em>GLl</em> for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio <em>logGL</em> has <code>NA</code> values and the column <em>logGLl</em> does not exists.</p>
 <p>The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">GLandGLl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span><span class="op">)</span><span class="op">)</span>
@@ -2197,7 +2197,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="condensing-log-values" class="section level2">
 <h2 class="hasAnchor">
 <a href="#condensing-log-values" class="anchor"></a>Condensing log values</h2>
-<p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid overrepresentation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length and one width value from each row and places these in new Length and Width columns.The ‘priority’ method described in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span> has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:</p>
+<p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length and one width value from each row and places these in new Length and Width columns.The ‘priority’ method described in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span> has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataWithSummary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CondenseLogs.html">CondenseLogs</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -2433,7 +2433,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div id="standardizing-the-dataset-nomenclature" class="section level2">
 <h2 class="hasAnchor">
 <a href="#standardizing-the-dataset-nomenclature" class="anchor"></a>Standardizing the dataset nomenclature</h2>
-<p>The integration of the thesaurus functionality facilitates the use of datasets with heterogenous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set <code>zoologThesaurus</code>. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance “sheep” and “ovis” for the same taxon or “hum” and “HU” for the bone element.</p>
+<p>The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set <code>zoologThesaurus</code>. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance “sheep” and “ovis” for the same taxon or “hum” and “HU” for the bone element.</p>
 <p>If we standardize the studied data, we can see that <code>zoologThesaurus</code> will change “ovar” to “Ovis aries”, “hum” to “humerus”, and “Especie” to “Taxon”, for instance.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span>
