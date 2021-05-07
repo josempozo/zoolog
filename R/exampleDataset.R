@@ -5,6 +5,8 @@
 #' Catalan, with the exception of some headings to facilitate understanding of
 #' its contents.
 #'
+#' @importFrom Rdpack reprompt
+#'
 #' @format
 #' The dataset is provided in the \pkg{zoolog} \code{extdata} folder as a file
 #' in semicolon-separated values format but compressed with

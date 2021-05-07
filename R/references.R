@@ -4,6 +4,8 @@
 #' researchers to use the one of their choice. The user can also use their
 #' own osteometrical reference if preferred.
 #'
+#' @importFrom Rdpack reprompt
+#'
 #' @format
 #' Each reference is a data.frame including 4 columns:
 #' \describe{
