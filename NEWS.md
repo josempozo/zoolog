@@ -1,3 +1,10 @@
+# zoolog 0.3.1.0002
+1. Improved structure of function CondenseLogs. Now the methods are defined
+   outside the function in a non-exported list of functions (condenseMethod).
+   Now, CondenseLogs can also accept a user-defined function.
+2. In addition, corrected bug appearing when the method average was applied to
+   a group with only one present measure log-ratio.
+
 # zoolog 0.3.1
 1. Correction of error when generating vignettes with locale different from
    UTF-8. The error raised in particular for operating systems with Latin-1

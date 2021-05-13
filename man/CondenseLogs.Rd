@@ -72,6 +72,10 @@ Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
 Pre-Roman improvements to agricultural production: Evidence from livestock
 husbandry in late prehistoric Italy.
 PloS one, 13(12), e0208109.
+
+Alternatively, a user-defined \code{method} can be provided as a function
+with a single argument (data.frame) assumed to have as columns the measure
+log-ratios determined by the \code{grouping}.
 }
 \examples{
 ## Read an example dataset:
