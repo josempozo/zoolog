@@ -4,7 +4,7 @@
    Now, CondenseLogs can also accept a user-defined function.
 2. In addition, corrected bug appearing when the method average was applied to
    a group with only one present measure log-ratio.
-3. Added entry to identifiers thesaurus.
+3. Added some entries to the thesauri.
 
 # zoolog 0.3.1
 1. Correction of error when generating vignettes with locale different from
