@@ -162,7 +162,7 @@ Currently, two methods are possible: priority (default) or average.</p>
       <td><p>A list of named character vectors. The list includes a vector
 per selected group. Each vector gives the group of measurements in order of
 priority. By default the groups are <code>Length = c("GL", "GLl", "GLm", "HTC")</code>
-and <code>Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp")</code>. The order is
+and <code>Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")</code>. The order is
 irrelevant for <code>method = "average"</code>.</p></td>
     </tr>
     <tr>
@@ -192,7 +192,7 @@ axis. Condensing each group of measurements into a single feature
 it makes the different measures comparable. For instance, if a bone is
 scaled with respect to the reference, so that it homogeneously doubles its
 width, then all width related measures
-(<em>Bd</em>, <em>BT</em>, <em>Bp</em>, and <em>SD</em>) will give the
+(<em>BT</em>, <em>Bd</em>, <em>Bp</em>, <em>SD</em>, ...) will give the
 same log-ratio (<code><a href='https://rdrr.io/r/base/Log.html'>log(2)</a></code>). In contrast, the
 absolute measures are not directly comparable.</p>
 <p>The measurement names in the grouping list are given without the
@@ -202,7 +202,7 @@ measure log-ratio in each group. The method <code>"average"</code> extracts the
 mean per group, ignoring the non-available measures.
 We provide the following by-default group and prioritization:
 For lengths, the order of priority is: GL, GLl, GLm, HTC.
-For widths, the order of priority is: Bd, BT, Bp, SD, Bfd, Bfp.
+For widths, the order of priority is: BT, Bd, Bp, SD, Bfd, Bfp.
 This order maximises the robustness and reliability of the measurements,
 as priority is given to the most abundant, more replicable, and less age
 dependent measurements.</p>
@@ -288,7 +288,7 @@ log-ratios determined by the <code>grouping</code>.</p>
 #&gt; 6     NA    NA     NA    NA    NA   NA   NA          NA -0.03354115</div><div class='input'>
 <span class='co'>## Extract only width with "average" method:</span>
 <span class='va'>dataExampleWithSummary2</span> <span class='op'>&lt;-</span> <span class='fu'>CondenseLogs</span><span class='op'>(</span><span class='va'>dataExampleWithLogs</span>,
-                               grouping <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Bd"</span>, <span class='st'>"BT"</span>, <span class='st'>"Bp"</span>, <span class='st'>"SD"</span><span class='op'>)</span><span class='op'>)</span>,
+                               grouping <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>Width <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"BT"</span>, <span class='st'>"Bd"</span>, <span class='st'>"Bp"</span>, <span class='st'>"SD"</span><span class='op'>)</span><span class='op'>)</span>,
                                method <span class='op'>=</span> <span class='st'>"average"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>dataExampleWithSummary2</span><span class='op'>)</span><span class='op'>[</span>, <span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>6</span><span class='op'>:</span><span class='fl'>20</span>,<span class='fl'>32</span><span class='op'>:</span><span class='fl'>63</span><span class='op'>)</span><span class='op'>]</span>
 </div><div class='output co'>#&gt;   Site N.inv    UE Especie       Os    GL    Bp   Dp   SD   DD   Bd   Dd   BT
