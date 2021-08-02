@@ -167,8 +167,8 @@ The full list of functions is available under the zoolog *help* page. We list th
   : The default method ("priority"), selects the first available log ratio in 
     each group. Besides, `CondenseLogs` employs the following by-default group
     and prioritization introduced in @trentacoste2018pre: 
-    *Length* considers in order of priority *GL*, *GLl*, *HTC*, and *GLm*. 
-    *Width* considers in order of priority  *Bd*, *BT*, *Bp*, *SD*, *Bfd*, 
+    *Length* considers in order of priority *GL*, *GLl*, *GLm*, and *HTC*. 
+    *Width* considers in order of priority  *BT*, *Bd*, *Bp*, *SD*, *Bfd*, 
     and *Bfp*. This order maximises the robustness and
     reliability of the measurements, as priority is given to the most abundant,
     more replicable, and less age dependent measurements. But users can set 
@@ -465,6 +465,6 @@ For example, "Log ratios calculation and analysis was done using the package zoo
 
 To get the details of the most recent version of the package, you can use the R citation function: `citation("zoolog")`.
 
-When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page [referencesDatabase](../help/referencesDatabase). For instance, if using the zoolog `reference$NietoDavisAlbarella` and the default selection method of features, a fair description may be: "Published references for cattle [@nieto2018element], sheep/goat [@davis1996measurements] and pigs [@albarella2005neolithic] were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog 'priority' method [@trentacoste2018pre]: length values - GL, GLl, GLm, HTC; width values - Bd, BT, Bp, SD, Bfd, Bfp."
+When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page [referencesDatabase](../help/referencesDatabase). For instance, if using the zoolog `reference$NietoDavisAlbarella` and the default selection method of features, a fair description may be: "Published references for cattle [@nieto2018element], sheep/goat [@davis1996measurements] and pigs [@albarella2005neolithic] were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog 'priority' method [@trentacoste2018pre]: length values - GL, GLl, GLm, HTC; width values - BT, Bd, Bp, SD, Bfd, Bfp."
 
 # Bibliography

@@ -17,7 +17,7 @@ CondenseLogs(
 \item{grouping}{A list of named character vectors. The list includes a vector
 per selected group. Each vector gives the group of measurements in order of
 priority. By default the groups are \code{Length = c("GL", "GLl", "GLm", "HTC")}
-and \code{Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp")}. The order is
+and \code{Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")}. The order is
 irrelevant for \code{method = "average"}.}
 
 \item{method}{Character string indicating which method to use for extracting
@@ -50,7 +50,7 @@ Observe that an important property of the log-ratios from a reference is that
 it makes the different measures comparable. For instance, if a bone is
 scaled with respect to the reference, so that it homogeneously doubles its
 width, then all width related measures
-(\emph{Bd}, \emph{BT}, \emph{Bp}, and \emph{SD}) will give the
+(\emph{BT}, \emph{Bd}, \emph{Bp}, \emph{SD}, ...) will give the
 same log-ratio (\code{log(2)}). In contrast, the
 absolute measures are not directly comparable.
 
@@ -62,7 +62,7 @@ measure log-ratio in each group. The method \code{"average"} extracts the
 mean per group, ignoring the non-available measures.
 We provide the following by-default group and prioritization:
 For lengths, the order of priority is: GL, GLl, GLm, HTC.
-For widths, the order of priority is: Bd, BT, Bp, SD, Bfd, Bfp.
+For widths, the order of priority is: BT, Bd, Bp, SD, Bfd, Bfp.
 This order maximises the robustness and reliability of the measurements,
 as priority is given to the most abundant, more replicable, and less age
 dependent measurements.
@@ -96,7 +96,7 @@ head(dataExampleWithSummary)[, -c(6:20,32:63)]
 
 ## Extract only width with "average" method:
 dataExampleWithSummary2 <- CondenseLogs(dataExampleWithLogs,
-                               grouping = list(Width = c("Bd", "BT", "Bp", "SD")),
+                               grouping = list(Width = c("BT", "Bd", "Bp", "SD")),
                                method = "average")
 head(dataExampleWithSummary2)[, -c(6:20,32:63)]
 }
