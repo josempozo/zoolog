@@ -85,7 +85,7 @@
 CondenseLogs <- function(data,
                          grouping = list(
                              Length = c("GL", "GLl", "GLm", "HTC"),
-                             Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp") ),
+                             Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp") ),
                          method = "priority"
                         ) {
 

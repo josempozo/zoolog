@@ -1,10 +1,12 @@
-# zoolog 0.3.1.0003
+# zoolog 0.3.1.0004
 1. Improved structure of function CondenseLogs. Now the methods are defined
    outside the function in a non-exported list of functions (condenseMethod).
    Now, CondenseLogs can also accept a user-defined function.
 2. In addition, corrected bug appearing when the method average was applied to
    a group with only one present measure log-ratio.
 3. Added some entries to the thesauri.
+4. Changed the priority order in CondenseLogs. Now "BT" has priority over "Bd" 
+   as representative of Width. 
 
 # zoolog 0.3.1
 1. Correction of error when generating vignettes with locale different from
