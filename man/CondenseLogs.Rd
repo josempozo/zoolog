@@ -6,7 +6,7 @@
 \usage{
 CondenseLogs(
   data,
-  grouping = list(Length = c("GL", "GLl", "GLm", "HTC"), Width = c("Bd", "BT", "Bp",
+  grouping = list(Length = c("GL", "GLl", "GLm", "HTC"), Width = c("BT", "Bd", "Bp",
     "SD", "Bfd", "Bfp")),
   method = "priority"
 )
