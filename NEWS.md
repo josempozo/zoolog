@@ -1,4 +1,4 @@
-# zoolog 0.3.1.0004
+# zoolog 0.4.0
 1. Improved structure of function CondenseLogs. Now the methods are defined
    outside the function in a non-exported list of functions (condenseMethod).
    Now, CondenseLogs can also accept a user-defined function.

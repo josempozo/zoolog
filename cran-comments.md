@@ -1,3 +1,8 @@
+## Submission of new version 0.4.0 (2021-08-02)
+zoolog 0.4.0
+
+Changes described in NEWS.md.
+
 ## Submission of patch 0.3.1 (2021-05-04)
 zoolog 0.3.1
 
