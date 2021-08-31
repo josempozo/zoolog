@@ -46,7 +46,7 @@
 RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
 {
   if(!is.data.frame(data)) stop("data must be a data.frame.")
-  originalDataClasses <- attributes(data)$class
+  originalDataClasses <- class(data)
   names <- colnames(data)
   if (is.null(measureNames))
   {
@@ -69,6 +69,6 @@ RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
                                        if(is.character(x) & is.factor(y)) y <- x
                                        return(y)
                                      }), stringsAsFactors = FALSE)
-  attributes(prunedData)$class <- originalDataClasses
+  class(prunedData) <- originalDataClasses
   return(prunedData)
 }
