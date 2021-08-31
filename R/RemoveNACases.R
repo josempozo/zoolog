@@ -45,6 +45,8 @@
 #' @export
 RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
 {
+  if(!is.data.frame(data)) stop("data must be a data.frame.")
+  originalDataClasses <- attributes(data)$class
   names <- colnames(data)
   if (is.null(measureNames))
   {
@@ -60,11 +62,13 @@ RemoveNACases <- function(data, measureNames = NULL, prefix = logPrefix)
   # type.convert removes the non-used factors after subsetting the data.frame.
   # It takes also into account if factors in the original data.frame can
   # be considered numeric or logical in the subset one.
-  as.data.frame(lapply(prunedData,
-                       function(x) {
-                         y <- utils::type.convert(as.character(x),
-                                                  as.is = FALSE)
-                         if(is.character(x) & is.factor(y)) y <- x
-                         return(y)
-                       }), stringsAsFactors = FALSE)
+  prunedData <- as.data.frame(lapply(prunedData,
+                                     function(x) {
+                                       y <- utils::type.convert(as.character(x),
+                                                                as.is = FALSE)
+                                       if(is.character(x) & is.factor(y)) y <- x
+                                       return(y)
+                                     }), stringsAsFactors = FALSE)
+  attributes(prunedData)$class <- originalDataClasses
+  return(prunedData)
 }

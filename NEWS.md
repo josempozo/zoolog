@@ -1,3 +1,11 @@
+# zoolog 0.4.1
+1. Clarify in the documentation that log ratios are defined using base 10 
+   logarithms.
+2. All functions processing dataframes (LogRatios, RemoveNaCases, CondenseLogs,
+   StandardizeDataSet) are now more robust to input data including additional 
+   S3 classes (previously giving errors). The additional classes are also passed
+   to the output.
+
 # zoolog 0.4.0
 1. Improved structure of function CondenseLogs. Now the methods are defined
    outside the function in a non-exported list of functions (condenseMethod).

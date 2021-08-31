@@ -89,6 +89,7 @@ CondenseLogs <- function(data,
                          method = "priority"
                         ) {
 
+  if(!is.data.frame(data)) stop("data must be a data.frame.")
   if(is.character(method) && (method %in% names(condenseMethod)))
     method <- condenseMethod[[method]]
   if(!is.function(method))
@@ -107,7 +108,7 @@ CondenseLogs <- function(data,
     dataSelected <- as.data.frame(data[, logMeasuresInData])
     data[, sumMeasure] <- method(dataSelected)
   }
-  data
+  return(data)
 }
 
 

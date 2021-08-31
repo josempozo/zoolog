@@ -35,9 +35,9 @@ The methods included in the package were first developed in the framework of the
 (PI S. Valenzuela-Lamas), and were first used 
 in the paper [@trentacoste2018pre]. They are based on the techniques proposed by @simpson1941large and @simpson1960quantitative, which calculates *log size index* (LSI) values as: 
 $$
-\mbox{LSI} = \log x - \log x_{\text{ref}} = \log(x/x_\text{ref}),
+\mbox{LSI} = \log_{10} x - \log_{10} x_{\text{ref}} = \log_{10}(x/x_\text{ref}),
 $$
-where $x$ is the considered measure value and $x_\text{ref}$ is the corresponding reference value.
+where $x$ is the considered measure value and $x_\text{ref}$ is the corresponding reference value. Observe that LSI is defined using logarithms with base 10.
 
 Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. @davis1996measurements, @albarella2005neolithic) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in @von1976guide and @davis1992rapid. 
 

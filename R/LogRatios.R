@@ -1,8 +1,11 @@
 #' Log Ratios of Measurements
 #'
-#' Function to compute the log ratios of the measurements
+#' Function to compute the (base 10) log ratios of the measurements
 #' relative to standard reference values.
 #' By default a reference is provided with the package.
+#'
+#' Each log ratio is defined as the decimal logarithm of the ratio of the
+#' variable of interest to a corresponding reference value.
 #'
 #' The \code{identifiers} are expected to determine corresponding
 #' columns in both data and reference. Each value in these columns identifies
@@ -69,6 +72,9 @@
 #' for each extracted log ratio for each relevant measurement in the reference.
 #' The name of the added columns are constructed by prefixing each measurement by
 #' the internal variable \code{logPrefix}.
+#'
+#' If the input dataframe includes additional S3 classes (such as "tbl_df"),
+#' they are also passed to the output.
 #'
 #' @examples
 #' ## Read an example dataset:

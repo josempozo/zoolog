@@ -92,6 +92,9 @@ StandardizeNomenclature <- function(x, thesaurus,
 #' @export
 StandardizeDataSet <- function(data, thesaurusSet = zoologThesaurus)
 {
+  if(!is.data.frame(data)) stop("data must be a data.frame.")
+  originalDataClasses <- attributes(data)$class
+  attributes(data)$class <- "data.frame"
   toColValues <- attr(thesaurusSet, "applyToColValues")
   for(thesaurus in thesaurusSet[attr(thesaurusSet, "applyToColNames")])
   {
@@ -106,6 +109,7 @@ StandardizeDataSet <- function(data, thesaurusSet = zoologThesaurus)
     data[, type] <- StandardizeNomenclature(data[, type], thesaurusSet[[type]])
   }
   data$Measure <- StandardizeNomenclature(data$Measure, thesaurusSet$measure)
+  attributes(data)$class <- originalDataClasses
   return(data)
 }
 
