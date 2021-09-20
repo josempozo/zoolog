@@ -135,7 +135,7 @@
 #' Haifa standard measurements for donkey, gazelle, and fallow deer
 #' \insertCite{Harding2021}{zoolog}.
 #'
-#' We thank Carly Ameen for providing references for horse
+#' We thank Carly Ameen and Helene Benkert for providing references for horse
 #' \insertCite{johnstone2004biometric}{zoolog} and rabbit
 #' \insertCite{Ameen2021}{zoolog}.
 #'

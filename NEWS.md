@@ -1,3 +1,6 @@
+# zoolog 0.4.2
+1. Corrected a few measurements in the reference Equus_Johnstone.
+
 # zoolog 0.4.1
 1. Clarify in the documentation that log ratios are defined using base 10 
    logarithms.

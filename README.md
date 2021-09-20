@@ -53,5 +53,5 @@ of several specimens available through the ICAZ Roman Period Working Group,
 which have been included here with their permission. We also thank Francesca 
 Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti
 from University of Salento, Sierra Harding and Nimrod Marom from the University 
-of Haifa, and Carly Ameen from the University of Exeter for providing 
+of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing 
 additional reference sets.

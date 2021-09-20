@@ -6,7 +6,7 @@
 ## held at the Zoologische Staatssammlung Munich in Germany.
 ## Specimen ID 1961/29.
 ## SOURCE:
-## Measurements provided by Carly Ameen from
+## Measurements provided by Carly Ameen and Helene Benkert from
 ## Johnstone CJ (2004). A biometric study of equids in the Roman world.
 ## Ph.D. thesis, University of York.
 ##########################################
@@ -42,6 +42,7 @@ Equus caballus;RA;BFp;66,1
 Equus caballus;RA;SD;37,9
 Equus caballus;RA;Bd;67,6
 Equus caballus;RA;BFd;55,8
+Equus caballus;RA;DFd;33,5
 Equus caballus;MC;GL;208,5
 Equus caballus;MC;Ll;200,6
 Equus caballus;MC;Bp;45,1
@@ -51,16 +52,16 @@ Equus caballus;MC;BFd;45,3
 Equus caballus;MC;Dd;32,6
 Equus caballus;P1 front;GL;73,2
 Equus caballus;P1 front;Bp;48,7
-Equus caballus;P1 front;Dp;32,4
-Equus caballus;P1 front;SD;34,8
+Equus caballus;P1 front;SD;32,4
+Equus caballus;P1 front;Dp;34,8
 Equus caballus;P1 front;BFd;38,2
 Equus caballus;P1 front;Dd;22,1
-Equus caballus;FE;GL;322
-Equus caballus;FE;GLC;355
-Equus caballus;FE;DC;40,8
-Equus caballus;FE;Bp;81,9
-Equus caballus;FE;SD;50,4
-Equus caballus;FE;Bd;100,3
+Equus caballus;FE;GL;355
+Equus caballus;FE;GLC;322
+Equus caballus;FE;SD;40,8
+Equus caballus;FE;Bd;81,9
+Equus caballus;FE;DC;50,4
+Equus caballus;FE;Bp;100,3
 Equus caballus;TI;GL;321
 Equus caballus;TI;Ll;297
 Equus caballus;TI;Bp;84,3
@@ -71,6 +72,7 @@ Equus caballus;AS;GH;52,6
 Equus caballus;AS;BFd;46,5
 Equus caballus;CA;GL;96,7
 Equus caballus;CA;GB;46,5
+Equus caballus;CA;DS;54,3
 Equus caballus;MT;GL;249,1
 Equus caballus;MT;Ll;344,4
 Equus caballus;MT;Bp;43,8

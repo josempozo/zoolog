@@ -35,3 +35,4 @@ variablesToRemove <- setdiff(c("variablesToRemove", ls()), currentVariables)
 eval(parse(text = paste0("rm(list = ",
                          paste(deparse(variablesToRemove), collapse = ""),
                          ")")))
+
