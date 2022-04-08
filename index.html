@@ -36,6 +36,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -48,23 +50,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.0.001</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -94,28 +90,29 @@
   <div class="contents col-md-9">
 
 
-<div id="zoolog----zooarchaeological-analysis-with-log-ratios" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#zoolog----zooarchaeological-analysis-with-log-ratios" class="anchor"></a><em><strong>zoolog</strong>:</em> <img align="right" width="12.5%" style="min-width:0.65in" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"><br> Zooarchaeological Analysis with Log-Ratios</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="zoolog----zooarchaeological-analysis-with-log-ratios">
+<em><strong>zoolog</strong>:</em> <img align="right" width="12.5%" style="min-width:0.65in" src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"><br> Zooarchaeological Analysis with Log-Ratios<a class="anchor" aria-label="anchor" href="#zoolog----zooarchaeological-analysis-with-log-ratios"></a>
+</h1></div>
 <blockquote>
 <p><a href="mailto:josmpozo@gmail.com">Jose M Pozo</a>, <a href="mailto:svalenzuela@imf.csic.es">Silvia Valenzuela-Lamas</a>, <a href="mailto:angela.trentacoste@arch.ox.ac.uk">Angela Trentacoste</a>, <a href="mailto:arinietoespinet@gmail.com">Ariadna Nieto-Espinet</a> and <a href="mailto:biguimaraes@hotmail.com">Silvia Guimarães Chiarelli</a></p>
 </blockquote>
-<p>The R package <strong><em>zoolog</em></strong> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts (Meadow 1999, ISBN: 9783896463883). <strong><em>zoolog</em></strong> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a <em>zoolog</em> thesaurus. A preliminary version of the zoolog methods was first used by Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) <a href="https://doi.org/10.1371/journal.pone.0208109" class="uri">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
-<p>Find more details in the <strong><em>zoolog</em></strong> <a href="https://josempozo.github.io/zoolog/articles/">documentation</a></p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog">CRAN</a> with:</p>
+<p>The R package <strong><em>zoolog</em></strong> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts (Meadow 1999, ISBN: 9783896463883). <strong><em>zoolog</em></strong> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a <em>zoolog</em> thesaurus. A preliminary version of the zoolog methods was first used by Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) <a href="https://doi.org/10.1371/journal.pone.0208109" class="external-link uri">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
+<p>Find more details in the <strong><em>zoolog</em></strong> <a href="https://josempozo.github.io/zoolog/articles/" class="external-link">documentation</a></p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/josempozo/zoolog/">GitHub</a> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
+<p>And the development version from <a href="https://github.com/josempozo/zoolog/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="acknowledgements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
+<div class="section level2">
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h2>
 <p>Several fellow colleagues helped building the Thesaurus and tested the code, increasing its robustness: Moussab Albesso, Canan Cakirlar, Jwana Chahoud, Jacopo De Grossi, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Emmanuelle Vila. We are grateful to them for their comments and help.</p>
 <p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.</p>
 </div>
@@ -125,53 +122,59 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=zoolog">https://​cloud.r-project.org/​package=zoolog</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
-</ul>
-</div>
-<div class="citation">
-<h2>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html">Citing zoolog</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Jose M Pozo <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0759-3510" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Silvia Valenzuela-Lamas <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-9886-0372" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Angela Trentacoste <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-7096-5252" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Ariadna Nieto-Espinet <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2567-1735" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Silvia Guimarães Chiarelli <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3778-3315" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://cloud.r-project.org/package=zoolog" class="external-link">View on CRAN</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/josempozo/zoolog/actions"><img src="https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://travis-ci.org/josempozo/zoolog"><img src="https://travis-ci.org/josempozo/zoolog.svg?branch=master" alt="Build Status"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing zoolog</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Jose M Pozo <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0759-3510" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Silvia Valenzuela-Lamas <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-9886-0372" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Angela Trentacoste <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-7096-5252" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Ariadna Nieto-Espinet <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-2567-1735" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Silvia Guimarães Chiarelli <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-3778-3315" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/josempozo/zoolog/actions" class="external-link"><img src="https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://travis-ci.org/josempozo/zoolog" class="external-link"><img src="https://travis-ci.org/josempozo/zoolog.svg?branch=master" alt="Build Status"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
+  <p></p>
+<p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -179,6 +182,8 @@
 
   
 
+
+  
 
   </body>
 </html>

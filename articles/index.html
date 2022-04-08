@@ -27,6 +27,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -39,23 +41,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.0.001</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -87,9 +83,9 @@
       <h1 data-toc-skip>
 <strong><em>zoolog</em></strong>:<br>
 Zooarchaeological Analysis with Log-Ratios</h1>
-                        <h4 class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
+                        <h4 data-toc-skip class="author">Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli</h4>
             
-            <h4 class="date">2021-09-20</h4>
+            <h4 data-toc-skip class="date">2022-04-08</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -98,43 +94,43 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 
     
     
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
+<div class="section level2">
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <p>The package <em>zoolog</em> includes functions and reference data to generate and manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts <span class="citation">(Meadow 1999)</span>. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. <em>zoolog</em> is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.</p>
-<p>The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 <a href="https://zoomwest11.wixsite.com/zoomwest">ZooMWest</a> (PI S. Valenzuela-Lamas), and were first used in the paper <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>. They are based on the techniques proposed by <span class="citation">Simpson (1941)</span> and <span class="citation">Simpson, Roe, and Lewontin (1960)</span>, which calculates <em>log size index</em> (LSI) values as: <span class="math display">\[
+<p>The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 <a href="https://zoomwest11.wixsite.com/zoomwest" class="external-link">ZooMWest</a> (PI S. Valenzuela-Lamas), and were first used in the paper <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>. They are based on the techniques proposed by <span class="citation">Simpson (1941)</span> and <span class="citation">Simpson, Roe, and Lewontin (1960)</span>, which calculates <em>log size index</em> (LSI) values as: <span class="math display">\[
 \mbox{LSI} = \log_{10} x - \log_{10} x_{\text{ref}} = \log_{10}(x/x_\text{ref}),
 \]</span> where <span class="math inline">\(x\)</span> is the considered measure value and <span class="math inline">\(x_\text{ref}\)</span> is the corresponding reference value. Observe that LSI is defined using logarithms with base 10.</p>
 <p>Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. <span class="citation">Davis (1996)</span>, <span class="citation">Albarella and Payne (2005)</span>) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>.</p>
 <p>In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions <span class="citation">(Albarella 2002)</span>. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis.</p>
 <p>The package includes a <em>zoolog thesaurus</em> to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the <em>zoolog</em> package to recognises many different names for taxa and skeletal elements (e.g. “Bos taurus”, “Bos”, “BT”, “bovino”, “bota”). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.</p>
-<div id="acknowledgements" class="section level2">
-<h2 class="hasAnchor">
-<a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
+<div class="section level3">
+<h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h3>
 <p>We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.</p>
 <p>The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.</p>
 <p>We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that <em>zoolog</em> can be expanded and adapted to any database.</p>
 </div>
 </div>
-<div id="installation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h1>
-<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog">CRAN</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
+<p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="sec:refStandards" class="section level1">
-<h1 class="hasAnchor">
-<a href="#sec:refStandards" class="anchor"></a>Reference standards</h1>
+<div class="section level2">
+<h2 id="sec:refStandards">Reference standards<a class="anchor" aria-label="anchor" href="#sec:refStandards"></a>
+</h2>
 <p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), and red deer (<em>Cervus elaphus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
 <p>The predefined reference sets included in <em>zoolog</em> are provided in the named list <code>reference</code>, currently comprising the following 4 sets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/">zoolog</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">reference</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">reference</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="co">#&gt; List of 4</span>
 <span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 133 obs. of  4 variables:</span>
 <span class="co">#&gt;  $ Basel              :'data.frame': 176 obs. of  4 variables:</span>
@@ -142,7 +138,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="co">#&gt;  $ Groningen          :'data.frame': 246 obs. of  4 variables:</span></code></pre></div>
 <p>The reference set <code>reference$Combi</code> is the default reference for computing the <a href="../help/LogRatios">log ratios</a>, since it includes the most comprehensive reference for each species.</p>
 <p>The package includes also a <code>referencesDatabase</code> collecting the taxon-specific reference standards from all the considered resources. Each reference set is composed of a different combination of taxon-specific standards selected from this <code>referencesDatabase</code>. The selection is defined by the data frame <code>referenceSets</code>:</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="8%">
 <col width="4%">
@@ -250,9 +246,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>A detailed description of the reference data, including its structure, properties, and considered resources can be found in the <a href="../help/referencesDatabase">ReferencesDatabase</a> help page.</p>
 </div>
-<div id="thesaurus" class="section level1">
-<h1 class="hasAnchor">
-<a href="#thesaurus" class="anchor"></a>Thesaurus</h1>
+<div class="section level2">
+<h2 id="thesaurus">Thesaurus<a class="anchor" aria-label="anchor" href="#thesaurus"></a>
+</h2>
 <p>A <a href="../help/zoologThesaurus">thesaurus set</a> is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarchaeological datasets. This enables the function <a href="../help/LogRatios">LogRatios</a> to match values in the user’s dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to <a href="../help/StandardizeNomenclature">standardize the nomenclature</a> of the dataset if desired.</p>
 <p>The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package.</p>
 <p>Currently, the zoolog thesaurus set includes four thesauri:</p>
@@ -271,9 +267,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </dd>
 </dl>
 </div>
-<div id="functions" class="section level1">
-<h1 class="hasAnchor">
-<a href="#functions" class="anchor"></a>Functions</h1>
+<div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
 <p>The full list of functions is available under the zoolog <em>help</em> page. We list them here sorted by their prominence for a typical user, and grouped by functionality:</p>
 <dl>
 <dt><a href="../help/LogRatios"><strong>LogRatios</strong></a></dt>
@@ -326,24 +322,24 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </dd>
 </dl>
 </div>
-<div id="examples" class="section level1">
-<h1 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h1>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
+</h2>
 <p>The following examples are designed to be read and run sequentially. They represent a possible pipeline, meaningful for the processing and analysis of a dataset. Only occasionally, a small diversion is included to illustrate some alternatives.</p>
-<div id="reading-data-and-calculating-log-ratios" class="section level2">
-<h2 class="hasAnchor">
-<a href="#reading-data-and-calculating-log-ratios" class="anchor"></a>Reading data and calculating log ratios</h2>
+<div class="section level3">
+<h3 id="reading-data-and-calculating-log-ratios">Reading data and calculating log ratios<a class="anchor" aria-label="anchor" href="#reading-data-and-calculating-log-ratios"></a>
+</h3>
 <p>This example reads a dataset from a file in csv format and computes the log-ratios. Then, the cases with no available log-ratios are removed. Finally, the resulting dataset is saved in a file in csv format.</p>
 <p>The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the <a href="../help/dataValenzuelaLamas2008">example dataset</a> from <span class="citation">Valenzuela-Lamas (2008)</span> included in the package is used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/">zoolog</a></span><span class="op">)</span>
-<span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, 
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span>
+<span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, 
                         package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span>
-<span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,
+<span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,
                  quote <span class="op">=</span> <span class="st">"\""</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, na.strings <span class="op">=</span> <span class="st">""</span>,
                  encoding <span class="op">=</span> <span class="st">"UTF-8"</span>,
                  stringsAsFactors <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Site</th>
@@ -478,8 +474,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>We now calculate the log-ratios using the function <code>LogRatios</code>. Only measurements that have an associated standard will be included in this calculation. The log values will appear as new columns with the prefix ‘log’ following the original columns with the raw measurements:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
 <col width="2%">
@@ -812,14 +808,14 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </tbody>
 </table>
 </div>
-<div id="dealing-with-lazy-datasets" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dealing-with-lazy-datasets" class="anchor"></a>Dealing with <em>lazy</em> datasets</h2>
+<div class="section level3">
+<h3 id="dealing-with-lazy-datasets">Dealing with <em>lazy</em> datasets<a class="anchor" aria-label="anchor" href="#dealing-with-lazy-datasets"></a>
+</h3>
 <p>If we observe the example dataset more carefully, we can see that the measures recorded for the <em>astragali</em> presents a deviation from the measure definitions in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>. To see this, we can select the cases where the element is an astragalus. The function <a href="../help/InCategory">InCategory</a> allows us to select them with the help of the thesaurus without requiring to know the terms actually used:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">AScases</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">$</span><span class="va">Os</span>, <span class="st">"astragalus"</span>, <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">element</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
 <col width="2%">
@@ -1162,10 +1158,10 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>According to the measure definitions, astragali should have no <em>GL</em> measurement, but <em>GLl</em>. However, in the example dataset the <em>GLl</em> measurements have been recorded merged in the <em>GL</em> column. This is a data-entry simplification that is used by some researchers. It is possible because <em>GLl</em> is only relevant for the astragalus, while <em>GL</em> is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (<em>GLl</em> for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio <em>logGL</em> has <code>NA</code> values and the column <em>logGLl</em> does not exists.</p>
 <p>The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">GLandGLl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">GLandGLl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, mergedMeasures <span class="op">=</span> <span class="va">GLandGLl</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
 <col width="2%">
@@ -1507,14 +1503,14 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>This option allows us to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column <em>logGL</em>.</p>
 </div>
-<div id="using-the-same-ovis-reference-for-all-caprines" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-the-same-ovis-reference-for-all-caprines" class="anchor"></a>Using the same ovis reference for all caprines</h2>
+<div class="section level3">
+<h3 id="using-the-same-ovis-reference-for-all-caprines">Using the same ovis reference for all caprines<a class="anchor" aria-label="anchor" href="#using-the-same-ovis-reference-for-all-caprines"></a>
+</h3>
 <p>We could be interested in obtaining the log ratios of all caprines, including <em>Ovis aries</em>, <em>Capra hircus</em>, and undetermined <em>Ovis/Capra</em>, with respect to the reference for <em>Ovis aries</em>. This can be set using the argument <code>joinCategories</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">caprineCategory</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>ovar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sheep"</span>, <span class="st">"capra"</span>, <span class="st">"oc"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">caprineCategory</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ovar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sheep"</span>, <span class="st">"capra"</span>, <span class="st">"oc"</span><span class="op">)</span><span class="op">)</span>
 <span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, joinCategories <span class="op">=</span> <span class="va">caprineCategory</span>, mergedMeasures <span class="op">=</span> <span class="va">GLandGLl</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="1%">
@@ -1849,14 +1845,14 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (“ovar”).</p>
 </div>
-<div id="pruning-the-data-from-cases-with-no-available-measure" class="section level2">
-<h2 class="hasAnchor">
-<a href="#pruning-the-data-from-cases-with-no-available-measure" class="anchor"></a>Pruning the data from cases with no available measure</h2>
+<div class="section level3">
+<h3 id="pruning-the-data-from-cases-with-no-available-measure">Pruning the data from cases with no available measure<a class="anchor" aria-label="anchor" href="#pruning-the-data-from-cases-with-no-available-measure"></a>
+</h3>
 <p>The cases without log-ratios can be removed to facilitate subsequent analyses:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataWithLogPruned</span><span class="op">=</span><span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
 <col width="2%">
@@ -2190,18 +2186,18 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>You may want to write the resulting file in the working directory (you need to set it first):</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.csv2</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span>, <span class="st">"myDataWithLogValues.csv"</span>, 
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv2</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span>, <span class="st">"myDataWithLogValues.csv"</span>, 
            quote<span class="op">=</span><span class="cn">FALSE</span>, row.names<span class="op">=</span><span class="cn">FALSE</span>, na<span class="op">=</span><span class="st">""</span>, 
            fileEncoding<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="condensing-log-values" class="section level2">
-<h2 class="hasAnchor">
-<a href="#condensing-log-values" class="anchor"></a>Condensing log values</h2>
+<div class="section level3">
+<h3 id="condensing-log-values">Condensing log values<a class="anchor" aria-label="anchor" href="#condensing-log-values"></a>
+</h3>
 <p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length and one width value from each row and places these in new Length and Width columns.The ‘priority’ method described in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span> has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataWithSummary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CondenseLogs.html">CondenseLogs</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
 <col width="3%">
@@ -2430,15 +2426,15 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </tbody>
 </table>
 </div>
-<div id="standardizing-the-dataset-nomenclature" class="section level2">
-<h2 class="hasAnchor">
-<a href="#standardizing-the-dataset-nomenclature" class="anchor"></a>Standardizing the dataset nomenclature</h2>
+<div class="section level3">
+<h3 id="standardizing-the-dataset-nomenclature">Standardizing the dataset nomenclature<a class="anchor" aria-label="anchor" href="#standardizing-the-dataset-nomenclature"></a>
+</h3>
 <p>The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set <code>zoologThesaurus</code>. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance “sheep” and “ovis” for the same taxon or “hum” and “HU” for the bone element.</p>
 <p>If we standardize the studied data, we can see that <code>zoologThesaurus</code> will change “ovar” to “Ovis aries”, “hum” to “humerus”, and “Especie” to “Taxon”, for instance.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
 <col width="2%">
@@ -2667,16 +2663,16 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </tbody>
 </table>
 </div>
-<div id="selecting-only-caprines" class="section level2">
-<h2 class="hasAnchor">
-<a href="#selecting-only-caprines" class="anchor"></a>Selecting only caprines</h2>
+<div class="section level3">
+<h3 id="selecting-only-caprines">Selecting only caprines<a class="anchor" aria-label="anchor" href="#selecting-only-caprines"></a>
+</h3>
 <p>We may be interested in selecting all caprine elements. This can be done even without standardizing the data using the function <code>InCategory</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">dataWithSummary</span>, <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">Especie</span>, 
-                                             <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sheep"</span>, <span class="st">"capra"</span>, <span class="st">"oc"</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="va">dataOC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">dataWithSummary</span>, <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">Especie</span>, 
+                                             <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sheep"</span>, <span class="st">"capra"</span>, <span class="st">"oc"</span><span class="op">)</span>,
                                              <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
 <col width="1%">
@@ -3035,8 +3031,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Observe that no standardization is performed in the output subset. To standardize the subset data, <code>StandardizeDataSet</code> can be applied either before or after the subsetting.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dataOCStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="0%">
 <col width="1%">
@@ -3399,13 +3395,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="va">dataOCWithLength</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataOCStandardized</span>, measureNames <span class="op">=</span> <span class="st">"Length"</span><span class="op">)</span></code></pre></div>
 <p>which gives respectively 237 (<code>=nrow(dataOCWithWidth)</code>) and 149 (<code>=nrow(dataOCWithLength)</code>) cases.</p>
 </div>
-<div id="different-plots-for-data-visualisation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#different-plots-for-data-visualisation" class="anchor"></a>Different plots for data visualisation</h2>
+<div class="section level3">
+<h3 id="different-plots-for-data-visualisation">Different plots for data visualisation<a class="anchor" aria-label="anchor" href="#different-plots-for-data-visualisation"></a>
+</h3>
 <p>Condensed log values can be visualised as histograms and box plots using ggplot <span class="citation">(Wickham 2011)</span>. Here we will look at some examples of plotting values from caprines.</p>
-<div id="horizontal-boxplot-with-dots-grouped-by-site" class="section level3">
-<h3 class="hasAnchor">
-<a href="#horizontal-boxplot-with-dots-grouped-by-site" class="anchor"></a>Horizontal Boxplot with dots grouped by site</h3>
+<div class="section level4">
+<h4 id="horizontal-boxplot-with-dots-grouped-by-site">Horizontal Boxplot with dots grouped by site<a class="anchor" aria-label="anchor" href="#horizontal-boxplot-with-dots-grouped-by-site"></a>
+</h4>
 <p>For the example plots we will use the package <strong>ggplot2</strong>.</p>
 <p>We can now create a boxplot for the widths:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -3428,9 +3424,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
   <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-18-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
-<div id="histograms-grouped-by-site" class="section level3">
-<h3 class="hasAnchor">
-<a href="#histograms-grouped-by-site" class="anchor"></a>Histograms grouped by site</h3>
+<div class="section level4">
+<h4 id="histograms-grouped-by-site">Histograms grouped by site<a class="anchor" aria-label="anchor" href="#histograms-grouped-by-site"></a>
+</h4>
 <p>We may choose to plot the width data as a histogram:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -3445,25 +3441,25 @@ Zooarchaeological Analysis with Log-Ratios</h1>
         axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
         axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
         axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-19-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
-<div id="vertical-boxplot-with-dots-grouped-by-taxon-and-site" class="section level3">
-<h3 class="hasAnchor">
-<a href="#vertical-boxplot-with-dots-grouped-by-taxon-and-site" class="anchor"></a>Vertical boxplot with dots grouped by taxon and site</h3>
+<div class="section level4">
+<h4 id="vertical-boxplot-with-dots-grouped-by-taxon-and-site">Vertical boxplot with dots grouped by taxon and site<a class="anchor" aria-label="anchor" href="#vertical-boxplot-with-dots-grouped-by-taxon-and-site"></a>
+</h4>
 <p>Here we reorder the factor levels of <code>dataOCStandardized$Taxon</code> to make the order of the boxplots more intuitive.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">levels0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">levels0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
 <span class="va">levels0</span>
 <span class="co">#&gt; [1] "Capra hircus" "Ovis aries"   "Ovis/Capra"</span></code></pre></div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span>, 
-                                   levels <span class="op">=</span> <span class="va">levels0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span>, 
+                                   levels <span class="op">=</span> <span class="va">levels0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
 <span class="co">#&gt; [1] "Ovis aries"   "Ovis/Capra"   "Capra hircus"</span></code></pre></div>
 <p>and assign specific colours for each category:</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Ocolour</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"#A2A475"</span>, <span class="st">"#D8B70A"</span>, <span class="st">"#81A88D"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">Ocolour</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#A2A475"</span>, <span class="st">"#D8B70A"</span>, <span class="st">"#81A88D"</span><span class="op">)</span>
 <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">Site</span>, y<span class="op">=</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill<span class="op">=</span><span class="va">Taxon</span><span class="op">)</span>, 
                notch <span class="op">=</span> <span class="cn">TRUE</span>, alpha <span class="op">=</span> <span class="fl">0</span>, lwd <span class="op">=</span> <span class="fl">0.377</span>, outlier.alpha <span class="op">=</span> <span class="fl">0</span>,
@@ -3475,15 +3471,15 @@ Zooarchaeological Analysis with Log-Ratios</h1>
              position <span class="op">=</span> <span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>,
              na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_colour_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">Ocolour</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_shape_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">16</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_shape_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">16</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme_bw</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ylab</span><span class="op">(</span><span class="st">"LSI value"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat LSI width values"</span><span class="op">)</span> </code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-22-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
-<div id="histograms-grouped-by-taxon-and-site" class="section level3">
-<h3 class="hasAnchor">
-<a href="#histograms-grouped-by-taxon-and-site" class="anchor"></a>Histograms grouped by taxon and site</h3>
+<div class="section level4">
+<h4 id="histograms-grouped-by-taxon-and-site">Histograms grouped by taxon and site<a class="anchor" aria-label="anchor" href="#histograms-grouped-by-taxon-and-site"></a>
+</h4>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">TaxonSiteWidthHist</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span>, fill <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, position <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
@@ -3498,13 +3494,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p><img src="index_files/figure-html/unnamed-chunk-24-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="statistical-test" class="section level2">
-<h2 class="hasAnchor">
-<a href="#statistical-test" class="anchor"></a>Statistical test</h2>
+<div class="section level3">
+<h3 id="statistical-test">Statistical test<a class="anchor" aria-label="anchor" href="#statistical-test"></a>
+</h3>
 <p>We may run a statistical test (here a Student t-test) to check whether the differences in log ratio length values between the sites “OLD” and “ALP” are statistically significant:</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Length</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Length</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
+       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
        na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Welch Two Sample t-test</span>
@@ -3519,8 +3515,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="co">#&gt;       -0.04589475        0.04624545</span></code></pre></div>
 <p>Similarly, for the differences in log ratio width values:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Width</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Width</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
+       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
        na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Welch Two Sample t-test</span>
@@ -3535,8 +3531,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="co">#&gt;       -0.03922705        0.01676624</span></code></pre></div>
 <p>For testing all possible pairs of sites, the p-values must be adjusted for multiple comparisons:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/pairwise.t.test.html">pairwise.t.test</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Width</span>, <span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Site</span>, 
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/pairwise.t.test.html" class="external-link">pairwise.t.test</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Width</span>, <span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Site</span>, 
                 pool.sd <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  Pairwise comparisons using t tests with non-pooled SD </span>
@@ -3550,17 +3546,16 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span class="co">#&gt; P value adjustment method: holm</span></code></pre></div>
 </div>
 </div>
-<div id="how-to-cite-the-package-zoolog" class="section level1">
-<h1 class="hasAnchor">
-<a href="#how-to-cite-the-package-zoolog" class="anchor"></a>How to cite the package <em>zoolog</em>
-</h1>
+<div class="section level2">
+<h2 id="how-to-cite-the-package-zoolog">How to cite the package <em>zoolog</em><a class="anchor" aria-label="anchor" href="#how-to-cite-the-package-zoolog"></a>
+</h2>
 <p>We have invested a lot of time and effort in creating zoolog. Please cite the package if you publish an analysis or results obtained using <em>zoolog</em>. For example, “Log ratios calculation and analysis was done using the package zoolog <span class="citation">(Pozo et al. 2021)</span> in R 4.0.3 <span class="citation">(R Core Team 2020)</span>.”</p>
-<p>To get the details of the most recent version of the package, you can use the R citation function: <code><a href="https://rdrr.io/r/utils/citation.html">citation("zoolog")</a></code>.</p>
+<p>To get the details of the most recent version of the package, you can use the R citation function: <code>citation("zoolog")</code>.</p>
 <p>When publishing it is also recommended that the references for standards are properly cited, as well as any details on selecting feature values. The details on the source of each of the reference standards are given in the help page <a href="../help/referencesDatabase">referencesDatabase</a>. For instance, if using the zoolog <code>reference$NietoDavisAlbarella</code> and the default selection method of features, a fair description may be: “Published references for cattle <span class="citation">(Nieto-Espinet 2018)</span>, sheep/goat <span class="citation">(Davis 1996)</span> and pigs <span class="citation">(Albarella and Payne 2005)</span> were used as standards. One length and one width log ratio value from each specimen were included in the analysis, with values selected following the default zoolog ‘priority’ method <span class="citation">(Trentacoste, Nieto-Espinet, and Valenzuela-Lamas 2018)</span>: length values - GL, GLl, GLm, HTC; width values - BT, Bd, Bp, SD, Bfd, Bfp.”</p>
 </div>
-<div id="bibliography" class="section level1 unnumbered">
-<h1 class="hasAnchor">
-<a href="#bibliography" class="anchor"></a>Bibliography</h1>
+<div class="section level2">
+<h2 id="bibliography">Bibliography<a class="anchor" aria-label="anchor" href="#bibliography"></a>
+</h2>
 <div id="refs" class="references">
 <div id="ref-albarella2002size">
 <p>Albarella, Umberto. 2002. “’Size Matters’: How and Why Biometry Is Still Important in Zooarchaeology.” In <em>Bones and the Man: Studies in Honour of Don Brothwell</em>, edited by Keith Dobney and Terry O’Connor, 51–62. Oxbow Books, Oxford.</p>
@@ -3578,13 +3573,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Meadow, Richard H. 1999. “The Use of Size Index Scaling Techniques for Research on Archaeozoological Collections from the Middle East.” In <em>Historia Animalium Ex Ossibus: Festschrift Für Angela von Den Driesch</em>, edited by C Becker, H Manhart, J Peters, and J Schibler, 285–300. Verlag Marie Leidorf GmbH, Rahden.</p>
 </div>
 <div id="ref-nieto2018element">
-<p>Nieto-Espinet, A. 2018. “Element Measure Standard Biometrical Data from a Cow Dated to the Early Bronze Age (Minferri, Catalonia).” <a href="https://doi.org/10.13140/RG.2.2.13512.78081">https://doi.org/10.13140/RG.2.2.13512.78081</a>.</p>
+<p>Nieto-Espinet, A. 2018. “Element Measure Standard Biometrical Data from a Cow Dated to the Early Bronze Age (Minferri, Catalonia).” <a href="https://doi.org/10.13140/RG.2.2.13512.78081" class="external-link">https://doi.org/10.13140/RG.2.2.13512.78081</a>.</p>
 </div>
 <div id="ref-pozo2021zoolog">
-<p>Pozo, Jose M, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli. 2021. “Zoolog: Zooarchaeological Analysis with Log-Ratios.” <em>Journal of Statistical Software</em> In preparation. <a href="https://josempozo.github.io/zoolog/">https://josempozo.github.io/zoolog/</a>.</p>
+<p>Pozo, Jose M, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, and Silvia Guimarães Chiarelli. 2021. “Zoolog: Zooarchaeological Analysis with Log-Ratios.” <em>Journal of Statistical Software</em> In preparation. <a href="https://josempozo.github.io/zoolog/" class="external-link">https://josempozo.github.io/zoolog/</a>.</p>
 </div>
 <div id="ref-RCoreTeam2020">
-<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="external-link">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-simpson1941large">
 <p>Simpson, George Gaylord. 1941. “Large Pleistocene Felines of North America.” <em>American Museum Novitates</em> 1136: 1–27.</p>
@@ -3593,10 +3588,10 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Simpson, GG, A Roe, and RC Lewontin. 1960. “Quantitative Zoology.,(Harcourt, Brace and Co.: New York.).”</p>
 </div>
 <div id="ref-trentacoste2018pre">
-<p>Trentacoste, Angela, Ariadna Nieto-Espinet, and Silvia Valenzuela-Lamas. 2018. “Pre-Roman Improvements to Agricultural Production: Evidence from Livestock Husbandry in Late Prehistoric Italy.” <em>PloS One</em> 13 (12): e0208109. <a href="https://doi.org/10.1371/journal.pone.0208109">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
+<p>Trentacoste, Angela, Ariadna Nieto-Espinet, and Silvia Valenzuela-Lamas. 2018. “Pre-Roman Improvements to Agricultural Production: Evidence from Livestock Husbandry in Late Prehistoric Italy.” <em>PloS One</em> 13 (12): e0208109. <a href="https://doi.org/10.1371/journal.pone.0208109" class="external-link">https://doi.org/10.1371/journal.pone.0208109</a>.</p>
 </div>
 <div id="ref-valenzuela2008alimentacio">
-<p>Valenzuela-Lamas, Silvia. 2008. <em>Alimentació I Ramaderia Al Penedès Durant La Protohistòria (Segles Vii-Iii aC)</em>. Societat Catalana d’Arqueologia (Premi d’Arqueologia - Memorial Josep Barberà i Farràs, 5a edició). <a href="http://www.scarqueologia.com/?page_id=10">http://www.scarqueologia.com/?page_id=10</a>.</p>
+<p>Valenzuela-Lamas, Silvia. 2008. <em>Alimentació I Ramaderia Al Penedès Durant La Protohistòria (Segles Vii-Iii aC)</em>. Societat Catalana d’Arqueologia (Premi d’Arqueologia - Memorial Josep Barberà i Farràs, 5a edició). <a href="http://www.scarqueologia.com/?page_id=10" class="external-link">http://www.scarqueologia.com/?page_id=10</a>.</p>
 </div>
 <div id="ref-von1976guide">
 <p>Von den Driesch, Angela. 1976. <em>A Guide to the Measurement of Animal Bones from Archaeological Sites: As Developed by the Institut Für Palaeoanatomie, Domestikationsforschung Und Geschichte Der Tiermedizin of the University of Munich</em>. Vol. 1. Peabody Museum Press.</p>
@@ -3619,11 +3614,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 
 
       <footer><div class="copyright">
-  <p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
+  <p></p>
+<p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -3631,6 +3628,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 
   
 
+
+  
 
   </body>
 </html>
