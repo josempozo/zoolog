@@ -70,11 +70,6 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::rcmdcheck
-          needs: check
-
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
