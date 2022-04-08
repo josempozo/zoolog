@@ -30,7 +30,7 @@
 #' dataExample <- dataExample[160:1000, ]
 #' ## Compute the log-ratios joining all taxa from tribe \emph{Caprini}
 #' ## to use the reference of \emph{Ovis aries}:
-#' categoriesCaprini <- list('Ovis aries' = c(GetTaxaIn("Caprini"), "Caprine"))
+#' categoriesCaprini <- list('Ovis aries' = c(GetTaxaIn("Caprini"), "Caprini"))
 #' dataExampleWithLogs <- LogRatios(dataExample,
 #'                                  joinCategories = categoriesCaprini)
 #' @export
