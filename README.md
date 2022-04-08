@@ -20,7 +20,7 @@ A preliminary version of the zoolog methods was first used by
 Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018) 
 <https://doi.org/10.1371/journal.pone.0208109>.
 
-Find more details in the ***zoolog***  [documentation](https://josempozo.github.io/zoolog/articles/)
+Find more details in the ***zoolog***  [documentation](https://josempozo.github.io/zoolog/index.html)
 
 ## Installation
 
