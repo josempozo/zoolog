@@ -21,8 +21,10 @@ group according to the \code{\link{zoologTaxonomy}}.
 \examples{
 ## Get taxa of genus Sus:
 GetTaxaIn("Sus")
+
 ## Get taxa of family Bovidae:
 GetTaxaIn("Bovidae")
+
 ## Use the function to join categories for computing log-ratios.
 ## For this, we read an example dataset:
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
@@ -33,10 +35,10 @@ dataExample <- utils::read.csv2(dataFile,
                                 stringsAsFactors = TRUE)
 ## We illustrate with a subset of cases to make the example run
 ## sufficiently fast:
-dataExample <- dataExample[145:1000, ]
+dataExample <- dataExample[160:1000, ]
 ## Compute the log-ratios joining all taxa from tribe \emph{Caprini}
 ## to use the reference of \emph{Ovis aries}:
-categoriesCaprini <- list('Ovis aries' = GetTaxaIn("Caprini"))
+categoriesCaprini <- list('Ovis aries' = c(GetTaxaIn("Caprini"), "Caprine"))
 dataExampleWithLogs <- LogRatios(dataExample,
                                  joinCategories = categoriesCaprini)
 }

@@ -3,6 +3,7 @@
    taxa used in the references. There is now a zoologTaxonomy and a function,
    GetTaxaIn, facilitating its use.
 2. Corrected a few measurements in the example dataset.
+3. Added one entry in thesaurus.
 
 # zoolog 0.4.2
 1. Corrected a few measurements in the reference Equus_Johnstone.
