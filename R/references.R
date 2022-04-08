@@ -71,9 +71,8 @@
 #' ```
 #'
 #' ``` {r, echo=FALSE}
-#' refSetsAux <- referenceSets
-#' refSetsAux[is.na(refSetsAux)] <- ""
-#' knitr::kable(refSetsAux)
+#' options(knitr.kable.NA = '')
+#' knitr::kable(referenceSets)
 #' ```
 #'
 #' Each row defines a reference set consisting of a reference source for

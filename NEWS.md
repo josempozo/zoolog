@@ -1,3 +1,9 @@
+# zoolog 0.5.0
+1. Included new functionality structuring the taxonomy hierarchy for the
+   taxa used in the references. There is now a zoologTaxonomy and a function,
+   GetTaxaIn, facilitating its use.
+2. Corrected a few measurements in the example dataset.
+
 # zoolog 0.4.2
 1. Corrected a few measurements in the reference Equus_Johnstone.
 

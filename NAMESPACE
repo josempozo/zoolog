@@ -3,6 +3,7 @@
 export(AddToThesaurus)
 export(AssembleReference)
 export(CondenseLogs)
+export(GetTaxaIn)
 export(InCategory)
 export(LogRatios)
 export(NewThesaurus)

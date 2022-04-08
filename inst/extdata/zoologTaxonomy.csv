@@ -1,0 +1,15 @@
+Taxon;Genus;Tribe;Subfamily;Family
+Bos taurus;Bos;Bovini;Bovinae;Bovidae
+Bos primigenius;Bos;Bovini;Bovinae;Bovidae
+Ovis aries;Ovis;Caprini;Caprinae;Bovidae
+Ovis orientalis;Ovis;Caprini;Caprinae;Bovidae
+Capra hircus;Capra;Caprini;Caprinae;Bovidae
+Capra aegagrus;Capra;Caprini;Caprinae;Bovidae
+Gazella gazella;Gazella;Antilopini;Antilopinae;Bovidae
+Sus domesticus;Sus;Suini;Suinae;Suidae
+Sus scrofa;Sus;Suini;Suinae;Suidae
+Cervus elaphus;Cervus;Cervini;Cervinae;Cervidae
+Dama mesopotamica;Dama;Cervini;Cervinae;Cervidae
+Equus asinus;Equus;Equini;Equinae;Equidae
+Equus caballus;Equus;Equini;Equinae;Equidae
+Oryctolagus cuniculus;Oryctolagus;;;Leporidae
