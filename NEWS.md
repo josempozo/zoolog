@@ -1,3 +1,17 @@
+# zoolog 1.0.0
+1. Completed the zoologTaxonomy as a new functionality structuring the taxonomy
+   hierarchy for the taxa used in the references. 
+2. New functions Subtaxonomy, SubtaxonomySet, and GetTaxaIn. All of them taking
+   into account the zoologThesaurus$taxon
+3. Added new categories in zoologThesaurus$taxon to include also genera, 
+   in addition to taxa.
+4. Integrated the zoologTaxonomy into the function LogRatios. This allows the
+   automatic detection of data and reference sharing the same genus, although
+   of different taxa.
+5. Extended vignettes to incorporate description and illustration of the new
+   functionalities.
+6. Corrected some entries in example dataset, dataValenzuelaLamas2008.
+
 # zoolog 0.5.0
 1. Included new functionality structuring the taxonomy hierarchy for the
    taxa used in the references. There is now a zoologTaxonomy and a function,

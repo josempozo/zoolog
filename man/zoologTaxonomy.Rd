@@ -33,7 +33,7 @@ The taxonomy hierarchy for all taxa included in the osteometrical references
 of the package \pkg{zoolog}.
 This is used allow the users to group the taxa by any taxonomical category
 from \emph{genus} to \emph{Family}. See
-\code{\link{GetTaxaIn}}.
+\code{\link{Subtaxonomy}}.
 }
 \section{File Structure}{
 

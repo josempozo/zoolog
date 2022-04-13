@@ -58,6 +58,9 @@
 #' value.
 #' @param thesaurusSet A thesaurus allowing datasets with different nomenclatures
 #' to be merged. By default \code{thesaurusSet = zoologThesaurus}.
+#' @param taxonomy A taxonomy allowing the automatic detection of data and
+#' reference sharing the same genus (or higher taxonomical level), although of
+#' different taxa. By default \code{taxonomy = zoologTaxonomy}.
 #' @param joinCategories A list of named character vectors. Each vector is named
 #' by a category in the reference and includes a set of categories in the data
 #' for which to compute the log ratios with respect to that reference.
@@ -66,6 +69,8 @@
 #' Each vector identifies a set of measures that the data presents merged in the
 #' same column, named as any of them. This practice only makes sense if only one
 #' of the measures can appear in each bone element.
+#' @param useGenusIfUnambiguous Boolean. If \code{TRUE} (default), data cases
+#' can use reference sharing the same genus, although of different taxa.
 #'
 #' @return
 #' A dataframe including the input dataframe and additional columns, one
@@ -127,19 +132,28 @@ LogRatios <- function(data,
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
                       thesaurusSet = zoologThesaurus,
+                      taxonomy = zoologTaxonomy,
                       joinCategories = NULL,
-                      mergedMeasures = NULL) {
-  thesaurusSetForRef <- thesaurusSet
+                      mergedMeasures = NULL,
+                      useGenusIfUnambiguous = TRUE) {
+  thesaurusSetJoined <- thesaurusSet
   if(!is.null(joinCategories))
-    thesaurusSet <- SmartJoinCategories(thesaurusSet, joinCategories)
-  dataStandard <- StandardizeDataSet(data, thesaurusSet)
-  refStandard <- StandardizeDataSet(ref, thesaurusSetForRef)
+    thesaurusSetJoined <- SmartJoinCategories(thesaurusSetJoined,
+                                              joinCategories)
+  dataStandard <- StandardizeDataSet(data, thesaurusSetJoined)
   identifiers <- StandardizeNomenclature(identifiers,
                                          thesaurusSet$identifier)
+  refStandard <- StandardizeDataSet(ref, thesaurusSet)
   refMeasuresName <- StandardizeNomenclature(refMeasuresName,
                                              thesaurusSet$identifier)
   refValuesName <- StandardizeNomenclature(refValuesName,
                                            thesaurusSet$identifier)
+
+  dataStandard <- HandleTaxonomyAmbiguity(dataStandard, refStandard,
+                                          identifiers, taxonomy,
+                                          thesaurusSetJoined,
+                                          useGenusIfUnambiguous)
+
   refMeasures <- levels(as.factor(refStandard[, refMeasuresName]))
   refMeasuresInData <- intersect(names(dataStandard), refMeasures)
 
@@ -179,4 +193,93 @@ GetGroup <- function(x, groups)
   if(length(xInGroup)==0) return(x)
   if(length(xInGroup)>1) stop(paste(x, "is included in more than one group."))
   groups[[xInGroup]]
+}
+
+
+WarnOfTaxonAmbiguity <- function(taxaInRef, taxLevel, taxGroup)
+{
+  if(length(taxaInRef) > 0)
+  {
+    if(length(taxaInRef) == 1)
+    {
+      useMessage <- "if you want to use it."
+    }
+    else
+    {
+      useMessage <- "if you want to use any of them."
+    }
+    warning("Data includes some cases identified by the ",
+            taxLevel, " ", taxGroup, ",\n",
+            "for which the reference for ",
+            paste(taxaInRef, collapse = " or "),
+            " could be used.\n",
+            "Set joinCategories as appropriate ",
+            useMessage,
+            call. = FALSE)
+  }
+}
+
+
+JoinGenusForReference <- function(dataStandard,
+                                  taxon, taxGroup,
+                                  thesaurusSetJoined)
+{
+  implicitJoinCategories <- list(taxGroup)
+  names(implicitJoinCategories) <- taxon
+  thesaurusSetJoined <- SmartJoinCategories(thesaurusSetJoined,
+                                            implicitJoinCategories)
+  StandardizeDataSet(dataStandard, thesaurusSetJoined)
+}
+
+
+HandleTaxonomyAmbiguity <- function(dataStandard,
+                                    refStandard,
+                                    identifiers,
+                                    taxonomy,
+                                    thesaurusSetJoined,
+                                    useGenusIfUnambiguous)
+{
+  taxName <- identifiers[1]
+  taxonomyLevels <- names(taxonomy)
+  genusWarning <- ""
+  for(taxLevel in taxonomyLevels)
+  {
+    taxGroups <- intersect(unique(dataStandard[[taxName]]),
+                           unique(taxonomy[[taxLevel]]))
+    for(taxGroup in taxGroups)
+    {
+      if(taxLevel == taxName)
+      {
+        genus <- as.character(
+          taxonomy$Genus[taxonomy[[taxName]] == taxGroup])
+        taxa <- GetTaxaIn(genus, taxonomy)
+      }
+      else
+      {
+        taxa <- GetTaxaIn(taxGroup, taxonomy)
+      }
+      taxaInRef <- intersect(taxa, unique(refStandard$Taxon))
+      if(taxLevel %in% c(taxName, "Genus") && length(taxaInRef) == 1 &&
+         taxaInRef != taxGroup)
+      {
+        if(useGenusIfUnambiguous)
+        {
+          dataStandard <- JoinGenusForReference(dataStandard,
+                                                taxaInRef, taxGroup,
+                                                thesaurusSetJoined)
+          genusWarning <- paste0(genusWarning, "Reference for ", taxaInRef,
+                                 " used for cases of ", taxGroup, ".\n   ")
+        }
+      }
+      else if(taxLevel != taxName)
+      {
+        WarnOfTaxonAmbiguity(taxaInRef, taxLevel, taxGroup)
+      }
+    }
+  }
+  if(genusWarning != "") warning(genusWarning,
+                                 "Set useGenusIfUnambiguous to FALSE ",
+                                 "if this behaviour is not desired.",
+                                 call. = FALSE)
+  return(dataStandard)
 }

@@ -11,8 +11,10 @@ LogRatios(
   refMeasuresName = "Measure",
   refValuesName = "Standard",
   thesaurusSet = zoologThesaurus,
+  taxonomy = zoologTaxonomy,
   joinCategories = NULL,
-  mergedMeasures = NULL
+  mergedMeasures = NULL,
+  useGenusIfUnambiguous = TRUE
 )
 }
 \arguments{
@@ -33,6 +35,10 @@ value.}
 \item{thesaurusSet}{A thesaurus allowing datasets with different nomenclatures
 to be merged. By default \code{thesaurusSet = zoologThesaurus}.}
 
+\item{taxonomy}{A taxonomy allowing the automatic detection of data and
+reference sharing the same genus (or higher taxonomical level), although of
+different taxa. By default \code{taxonomy = zoologTaxonomy}.}
+
 \item{joinCategories}{A list of named character vectors. Each vector is named
 by a category in the reference and includes a set of categories in the data
 for which to compute the log ratios with respect to that reference.
@@ -42,6 +48,9 @@ When \code{NULL} (default) no grouping is considered.}
 Each vector identifies a set of measures that the data presents merged in the
 same column, named as any of them. This practice only makes sense if only one
 of the measures can appear in each bone element.}
+
+\item{useGenusIfUnambiguous}{Boolean. If \code{TRUE} (default), data cases
+can use reference sharing the same genus, although of different taxa.}
 }
 \value{
 A dataframe including the input dataframe and additional columns, one

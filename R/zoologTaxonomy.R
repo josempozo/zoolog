@@ -4,7 +4,7 @@
 #' of the package \pkg{zoolog}.
 #' This is used allow the users to group the taxa by any taxonomical category
 #' from \emph{genus} to \emph{Family}. See
-#' \code{\link{GetTaxaIn}}.
+#' \code{\link{Subtaxonomy}}.
 #'
 #' @format
 #' The taxonomy is given as a data.frame with columns for
