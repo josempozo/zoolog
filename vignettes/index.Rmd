@@ -275,7 +275,7 @@ This option allows us to automatically select, for each bone element, the corres
 ## Using the same ovis reference for all caprines
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
 ```{r}
-caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
+caprineCategory <- list(ovar = c("sheep", "goat", "oc"))
 dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```

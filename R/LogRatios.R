@@ -22,9 +22,12 @@
 #'
 #' This can be applied to group different species into a single
 #' reference species. For instance \emph{sheep}, \emph{capra}, and doubtful
-#' cases between both (\emph{sheep/capra}), can be grouped and matched to the
+#' cases between both (\emph{sheep/goat}), can be grouped and matched to the
 #' same reference for \emph{sheep}, by setting
-#' \code{joinCategories = list(sheep = c("sheep", "capra", "oc"))}.
+#' \code{joinCategories = list(sheep = c("sheep", "goat", "oc"))}.
+#' Indeed, the zoologTaxonomy can be used for that purpose using the function
+#' \code{\link{SubtaxonomySet}} as
+#' \code{joinCategories = list(sheep = SubtaxonomySet("Caprini"))}.
 #' Similarly, it can be applied to group
 #' different bone elements into a single reference (see the example below for
 #' undetermined phalanges).
@@ -32,6 +35,27 @@
 #' Note that the \code{joinCategories} option does not remove the distinction
 #' between the different bone types in the data, just indicates that for any
 #' of them the log ratios must be computed from the same reference.
+#'
+#' The taxonomy allows also the automatic detection of data and reference
+#' sharing the same genus, although of different taxa. If
+#' \code{useGenusIfUnambiguous = TRUE} (default) the reference of a taxon is
+#' assumed to be used for any case of the same genus, provided that there is no
+#' ambiguity: only one taxon for each genus in the reference. For instance,
+#' \code{reference$Combi} includes a reference for \emph{Sus scrofa} in the
+#' genus \emph{Sus}. If the data includes cases of \emph{Sus domesticus}, their
+#' log ratios will be computed with respect to the provided reference for
+#' \emph{Sus scrofa}.
+#' However, a warning is given to inform the user of this assumption, and let
+#' they know that this can be prevented by setting
+#' \code{useGenusIfUnambiguous = FALSE}.
+#'
+#' Using the taxonomy, the presence of cases identified by higher taxonomical
+#' levels are also automatically detected. For instance, if some cases only
+#' partially identified have been recorded as "Ovis/Capra", this is recognized
+#' to denote the tribe \emph{Caprini}, which includes several possible taxa.
+#' Then a warning is given informing the user of the detection of these cases
+#' and of the option to use any of the corresponding taxa in the reference by
+#' using the argument \code{joinCategories} (unless this has been already done).
 #'
 #' There are some measures that are restricted to a subset of bones. For
 #' instance, \emph{GLl} is only relevant for the \emph{astragalus}, while
@@ -49,7 +73,8 @@
 #'
 #' @param data A dataframe with the input measurements.
 #' @param ref A dataframe including the measurement values used as references.
-#' The default \code{ref = reference$Combi} provided as package \pkg{zoolog} data.
+#' The default \code{ref = reference$Combi} and other \link{reference} sets are
+#' provided with the package \pkg{zoolog}.
 #' @param identifiers A vector of column names in \code{ref} identifying
 #' a type of bone. By default \code{identifiers = c("TAX", "EL")}.
 #' @param refMeasuresName The column name in \code{ref} identifying the type of
@@ -57,10 +82,10 @@
 #' @param refValuesName The column name in \code{ref} giving the measurement
 #' value.
 #' @param thesaurusSet A thesaurus allowing datasets with different nomenclatures
-#' to be merged. By default \code{thesaurusSet = zoologThesaurus}.
+#' to be merged. By default \code{thesaurusSet = \link{zoologThesaurus}}.
 #' @param taxonomy A taxonomy allowing the automatic detection of data and
 #' reference sharing the same genus (or higher taxonomical level), although of
-#' different taxa. By default \code{taxonomy = zoologTaxonomy}.
+#' different taxa. By default \code{taxonomy = \link{zoologTaxonomy}}.
 #' @param joinCategories A list of named character vectors. Each vector is named
 #' by a category in the reference and includes a set of categories in the data
 #' for which to compute the log ratios with respect to that reference.

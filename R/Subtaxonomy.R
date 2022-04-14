@@ -7,9 +7,9 @@
 #' @param groupName A name of any of the taxonomical groups at any level from
 #' taxon to family.
 #' @param taxonomy The taxonomy from which to extract the subtaxonomy.
-#' By default \code{taxonomy = zoologTaxonomy}.
+#' By default \code{taxonomy = \link{zoologTaxonomy}}.
 #' @param thesaurus A thesaurus allowing datasets with different nomenclatures
-#' to be merged. By default \code{thesaurus = zoologThesaurus$taxon}.
+#' to be merged. By default \code{thesaurus = \link{zoologThesaurus}$taxon}.
 #'
 #' @return
 #' \code{Subtaxonomy} returns a data.frame with the same structure of the input

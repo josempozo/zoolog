@@ -29,10 +29,10 @@ GetTaxaIn(
 taxon to family.}
 
 \item{taxonomy}{The taxonomy from which to extract the subtaxonomy.
-By default \code{taxonomy = zoologTaxonomy}.}
+By default \code{taxonomy = \link{zoologTaxonomy}}.}
 
 \item{thesaurus}{A thesaurus allowing datasets with different nomenclatures
-to be merged. By default \code{thesaurus = zoologThesaurus$taxon}.}
+to be merged. By default \code{thesaurus = \link{zoologThesaurus}$taxon}.}
 }
 \value{
 \code{Subtaxonomy} returns a data.frame with the same structure of the input
