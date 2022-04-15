@@ -221,30 +221,6 @@ GetGroup <- function(x, groups)
 }
 
 
-WarnOfTaxonAmbiguity <- function(taxaInRef, taxLevel, taxGroup)
-{
-  if(length(taxaInRef) > 0)
-  {
-    if(length(taxaInRef) == 1)
-    {
-      useMessage <- "if you want to use it."
-    }
-    else
-    {
-      useMessage <- "if you want to use any of them."
-    }
-    warning("Data includes some cases identified by the ",
-            taxLevel, " ", taxGroup, ",\n",
-            "for which the reference for ",
-            paste(taxaInRef, collapse = " or "),
-            " could be used.\n",
-            "Set joinCategories as appropriate ",
-            useMessage,
-            call. = FALSE)
-  }
-}
-
-
 JoinGenusForReference <- function(dataStandard,
                                   taxon, taxGroup,
                                   thesaurusSetJoined)
@@ -254,6 +230,33 @@ JoinGenusForReference <- function(dataStandard,
   thesaurusSetJoined <- SmartJoinCategories(thesaurusSetJoined,
                                             implicitJoinCategories)
   StandardizeDataSet(dataStandard, thesaurusSetJoined)
+}
+
+
+WarnOfTaxonAmbiguity <- function(taxonomyWarning,
+                                 taxaInRef, taxLevel, taxGroup)
+{
+  taxonomyWarning$initialMessage <- "Data includes some cases recorded as\n"
+  if(length(taxaInRef) > 0)
+  {
+    if(length(taxaInRef) == 1 && is.null(taxonomyWarning$message))
+    {
+      taxonomyWarning$finalMessage <-
+        "   Set joinCategories as appropriate if you want to use it."
+    }
+    else
+    {
+      taxonomyWarning$finalMessage <-
+        "   Set joinCategories as appropriate if you want to use any of them."
+    }
+    taxonomyWarning$message <-
+      paste0(taxonomyWarning$message,
+             "    * ", taxGroup, " (which is a ", taxLevel, ")\n",
+             "      for which the reference for ",
+             paste(taxaInRef, collapse = " or "),
+             " could be used.\n")
+  }
+  return(taxonomyWarning)
 }
 
 
@@ -267,6 +270,7 @@ HandleTaxonomyAmbiguity <- function(dataStandard,
   taxName <- identifiers[1]
   taxonomyLevels <- names(taxonomy)
   genusWarning <- ""
+  taxonomyWarning <- list()
   for(taxLevel in taxonomyLevels)
   {
     taxGroups <- intersect(unique(dataStandard[[taxName]]),
@@ -298,7 +302,8 @@ HandleTaxonomyAmbiguity <- function(dataStandard,
       }
       else if(taxLevel != taxName)
       {
-        WarnOfTaxonAmbiguity(taxaInRef, taxLevel, taxGroup)
+        taxonomyWarning <- WarnOfTaxonAmbiguity(taxonomyWarning,
+                                                taxaInRef, taxLevel, taxGroup)
       }
     }
   }
@@ -306,5 +311,9 @@ HandleTaxonomyAmbiguity <- function(dataStandard,
                                  "Set useGenusIfUnambiguous to FALSE ",
                                  "if this behaviour is not desired.",
                                  call. = FALSE)
+  if(!is.null(taxonomyWarning$message)) warning(taxonomyWarning$initialMessage,
+                                                taxonomyWarning$message,
+                                                taxonomyWarning$finalMessage,
+                                                call. = FALSE)
   return(dataStandard)
 }
