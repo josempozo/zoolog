@@ -92,7 +92,7 @@ same reference for \emph{sheep}, by setting
 Indeed, the zoologTaxonomy can be used for that purpose using the function
 \code{\link{SubtaxonomySet}} as
 \code{joinCategories = list(sheep = SubtaxonomySet("Caprini"))}.
-Similarly, it can be applied to group
+Similarly, \code{joinCategories} can be applied to group
 different bone elements into a single reference (see the example below for
 undetermined phalanges).
 

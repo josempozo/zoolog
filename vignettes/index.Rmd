@@ -134,6 +134,14 @@ measureThesaurus
     abbreviations in @von1976guide) to be included. This thesaurus is case
     sensitive.
 
+# Taxonomy
+
+A [taxonomy](../help/zoologTaxonomy) for the most typical taxa is structured as a data.frame, `zoologTaxonomy`, defining their taxonomical hierarchy up to the family level:
+``` {r, echo=FALSE}
+knitr::kable(zoologTaxonomy)
+```
+This is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or set of taxa under a requested category at any taxonomical level. The taxonomy is also integrated in the function [LogRatios](../help/LogRatios), enabling it to automatically match different taxa in data and reference that are under the same genus, for instance, data of *Bos taurus* with reference of *Bos primigenius*, since both are *Bos*. It also enables the function `LogRatios` to detect when a case taxon has been only partially identified and recorded at a higher level, such as tribe or family, and to suggest the user the set of possible reference taxa.
+
 # Functions
 The full list of functions is available under the zoolog *help* page. We list them here sorted by their prominence for a typical user, and grouped by functionality:
 
