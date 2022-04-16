@@ -53,6 +53,7 @@ Imports:
     utils,
     stringi,
     Rdpack (>= 0.7)
+Config/testthat/edition: 3
 RdMacros: Rdpack
 VignetteBuilder: knitr
 URL: https://josempozo.github.io/zoolog/

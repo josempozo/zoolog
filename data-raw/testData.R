@@ -10,6 +10,11 @@ lcCollateC({
                         header = TRUE, stringsAsFactors = TRUE,
                         fileEncoding = "UTF-8"
   )
+  testDataWithLog_Basel <- LogRatios(testData, ref = reference$Basel,
+                                     mergedMeasures = list(c("GL", "GLl")))
+  testDataWithLog_BaselNoGenus <- LogRatios(testData, ref = reference$Basel,
+                                     mergedMeasures = list(c("GL", "GLl")),
+                                     useGenusIfUnambiguous = FALSE)
   testDataWithLog <- LogRatios(testData, ref = reference$NietoDavisAlbarella,
                                joinCategories = caprineCategories,
                                mergedMeasures = c("GL", "GLl"))
@@ -24,6 +29,14 @@ lcCollateC({
                                      mergedMeasures = c("GL", "GLl"))
 })
 
+write.csv2(testDataWithLog_Basel,
+           "inst/testdata/testDataWithLog_Basel.csv",
+           row.names=FALSE, quote=FALSE, na="",
+           fileEncoding = "UTF-8")
+write.csv2(testDataWithLog_BaselNoGenus,
+           "inst/testdata/testDataWithLog_BaselNoGenus.csv",
+           row.names=FALSE, quote=FALSE, na="",
+           fileEncoding = "UTF-8")
 write.csv2(testDataWithLog,
            "inst/testdata/testDataWithLog.csv",
            row.names=FALSE, quote=FALSE, na="",
@@ -46,6 +59,8 @@ write.csv2(testDataPrunedWithLog,
 
 
 save(testData,
+     testDataWithLog_Basel,
+     testDataWithLog_BaselNoGenus,
      testDataWithLog,
      testDataWithLogPruned,
      testDataWithLogPrunedPrioritized,
