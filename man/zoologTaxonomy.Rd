@@ -6,9 +6,10 @@
 \title{Taxonomy hierarchy for \pkg{zoolog}}
 \format{
 The taxonomy is given as a data.frame with columns for
-\emph{Taxon}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and \emph{Family}.
-Each row lists the information for one taxon:\tabular{lllll}{
-   Taxon \tab Genus \tab Tribe \tab Subfamily \tab Family \cr
+\emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and
+\emph{Family}.
+Each row lists the information for one species:\tabular{lllll}{
+   Species \tab Genus \tab Tribe \tab Subfamily \tab Family \cr
    Bos taurus \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \cr
    Bos primigenius \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \cr
    Ovis aries \tab Ovis \tab Caprini \tab Caprinae \tab Bovidae \cr
@@ -31,8 +32,8 @@ zoologTaxonomy
 \description{
 The taxonomy hierarchy for all taxa included in the osteometrical references
 of the package \pkg{zoolog}.
-This is used allow the users to group the taxa by any taxonomical category
-from \emph{genus} to \emph{Family}. See
+This is used to allow the users to group the taxa by any taxonomical category
+from \emph{species} to \emph{family}. See
 \code{\link{Subtaxonomy}}.
 }
 \section{File Structure}{

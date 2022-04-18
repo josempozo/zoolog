@@ -1,11 +1,11 @@
 #' Subtaxonomy under taxonomical category
 #'
 #' Functions to obtain the subtaxonomy or the set of taxa included in a
-#' particular taxonomical group, according to the \code{\link{zoologTaxonomy}}
+#' particular taxonomic group, according to the \code{\link{zoologTaxonomy}}
 #' by default.
 #'
-#' @param groupName A name of any of the taxonomical groups at any level from
-#' taxon to family.
+#' @param groupName A name of any of the taxonomic groups at any rank from
+#' species to family.
 #' @param taxonomy The taxonomy from which to extract the subtaxonomy.
 #' By default \code{taxonomy = \link{zoologTaxonomy}}.
 #' @param thesaurus A thesaurus allowing datasets with different nomenclatures
@@ -13,24 +13,24 @@
 #'
 #' @return
 #' \code{Subtaxonomy} returns a data.frame with the same structure of the input
-#' taxonomy but with only the taxa (rows) included in the requested
-#' taxonomical \code{groupName}, and with only the taxonomical levels (columns)
+#' taxonomy but with only the species (rows) included in the requested
+#' taxonomic \code{groupName}, and with only the taxonomical levels (columns)
 #' up to the level of that taxonomical group.
 #'
 #' \code{SubtaxonomySet} returns a character vector including a unique copy
-#' (set) of all the elements, at any taxonomical level, under the requested
-#' taxonomical \code{groupName}.
-#' Equivalent to Subtaxonomy but as a set instead of a data.frame.
+#' (set) of all the taxa, at any taxonomic rank, under the requested
+#' taxonomic \code{groupName}.
+#' Equivalent to Subtaxonomy but as a set instead of a dataframe.
 #'
-#' \code{GetTaxaIn} returns a character vector including the taxa included in
-#' the requested \code{groupName}.
+#' \code{GetSpeciesIn} returns a character vector including the species included
+#' in the requested \code{groupName}.
 #'
 #' @examples
-#' ## Get taxa of genus Sus:
-#' GetTaxaIn("Sus")
+#' ## Get species of genus Sus:
+#' GetSpeciesIn("Sus")
 #'
-#' ## Get taxa of family Bovidae:
-#' GetTaxaIn("Bovidae")
+#' ## Get species of family Bovidae:
+#' GetSpeciesIn("Bovidae")
 #'
 #' ## Get the subtaxonomy of the Tribe Caprini:
 #' Subtaxonomy("Caprini")
@@ -81,12 +81,12 @@ SubtaxonomySet <- function(groupName, taxonomy = zoologTaxonomy,
 
 #' @rdname Subtaxonomy
 #' @export
-GetTaxaIn <- function(groupName, taxonomy = zoologTaxonomy,
-                      thesaurus = zoologThesaurus$taxon)
+GetSpeciesIn <- function(groupName, taxonomy = zoologTaxonomy,
+                         thesaurus = zoologThesaurus$taxon)
 {
 #  as.character(
 #    taxonomy$Taxon[as.logical(rowSums(taxonomy == groupName))])
-  as.character(Subtaxonomy(groupName, taxonomy, thesaurus)$Taxon)
+  as.character(Subtaxonomy(groupName, taxonomy, thesaurus)$Species)
 }
 
 # Check if including this InCategory.data.frame into the InCategory

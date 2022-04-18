@@ -3,7 +3,7 @@
 export(AddToThesaurus)
 export(AssembleReference)
 export(CondenseLogs)
-export(GetTaxaIn)
+export(GetSpeciesIn)
 export(InCategory)
 export(LogRatios)
 export(NewThesaurus)

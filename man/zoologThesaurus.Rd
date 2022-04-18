@@ -71,7 +71,7 @@ thesaurus set. It has a row for each thesaurus and seven columns
 \emph{AccentSensitive}, \emph{PunctuationSensitive},
 \emph{ApplyToColNames}, and \emph{ApplyToColValues}).
 Their meaning coincides with the description above. Observe that the
-case, accent, and punctuation sensitiveness is stored hear, instead of
+case, accent, and punctuation sensitiveness is stored here, instead of
 in each thesaurus.}
 \item{\code{identifierThesaurus.csv}}{Thesaurus for the identifiers used
 in \code{\link{LogRatios}} to identify the bone types and the measure

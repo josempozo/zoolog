@@ -37,10 +37,10 @@
 #' of them the log ratios must be computed from the same reference.
 #'
 #' The taxonomy allows also the automatic detection of data and reference
-#' sharing the same genus, although of different taxa. If
+#' sharing the same genus, although of different species. If
 #' \code{useGenusIfUnambiguous = TRUE} (default) the reference of a taxon is
 #' assumed to be used for any case of the same genus, provided that there is no
-#' ambiguity: only one taxon for each genus in the reference. For instance,
+#' ambiguity: only one species for each genus in the reference. For instance,
 #' \code{reference$Combi} includes a reference for \emph{Sus scrofa} in the
 #' genus \emph{Sus}. If the data includes cases of \emph{Sus domesticus}, their
 #' log ratios will be computed with respect to the provided reference for
@@ -49,12 +49,12 @@
 #' they know that this can be prevented by setting
 #' \code{useGenusIfUnambiguous = FALSE}.
 #'
-#' Using the taxonomy, the presence of cases identified by higher taxonomical
-#' levels are also automatically detected. For instance, if some cases only
+#' Using the taxonomy, the presence of cases identified by higher taxonomic
+#' ranks are also automatically detected. For instance, if some cases only
 #' partially identified have been recorded as "Ovis/Capra", this is recognized
-#' to denote the tribe \emph{Caprini}, which includes several possible taxa.
+#' to denote the tribe \emph{Caprini}, which includes several possible species.
 #' Then a warning is given informing the user of the detection of these cases
-#' and of the option to use any of the corresponding taxa in the reference by
+#' and of the option to use any of the corresponding species in the reference by
 #' using the argument \code{joinCategories} (unless this has been already done).
 #'
 #' There are some measures that are restricted to a subset of bones. For
@@ -84,8 +84,8 @@
 #' @param thesaurusSet A thesaurus allowing datasets with different nomenclatures
 #' to be merged. By default \code{thesaurusSet = \link{zoologThesaurus}}.
 #' @param taxonomy A taxonomy allowing the automatic detection of data and
-#' reference sharing the same genus (or higher taxonomical level), although of
-#' different taxa. By default \code{taxonomy = \link{zoologTaxonomy}}.
+#' reference sharing the same genus (or higher taxonomic rank), although of
+#' different species. By default \code{taxonomy = \link{zoologTaxonomy}}.
 #' @param joinCategories A list of named character vectors. Each vector is named
 #' by a category in the reference and includes a set of categories in the data
 #' for which to compute the log ratios with respect to that reference.
@@ -95,7 +95,8 @@
 #' same column, named as any of them. This practice only makes sense if only one
 #' of the measures can appear in each bone element.
 #' @param useGenusIfUnambiguous Boolean. If \code{TRUE} (default), data cases
-#' can use reference sharing the same genus, although of different taxa.
+#' are match to reference sharing the same genus, despite being of different
+#' species.
 #'
 #' @return
 #' A dataframe including the input dataframe and additional columns, one
@@ -174,10 +175,10 @@ LogRatios <- function(data,
   refValuesName <- StandardizeNomenclature(refValuesName,
                                            thesaurusSet$identifier)
 
-  dataStandard <- HandleTaxonomyAmbiguity(dataStandard, refStandard,
-                                          identifiers, taxonomy,
-                                          thesaurusSetJoined,
-                                          useGenusIfUnambiguous)
+  dataStandard <- HandleTaxonAmbiguity(dataStandard, refStandard,
+                                       identifiers, taxonomy,
+                                       thesaurusSetJoined,
+                                       useGenusIfUnambiguous)
 
   refMeasures <- levels(as.factor(refStandard[, refMeasuresName]))
   refMeasuresInData <- intersect(names(dataStandard), refMeasures)
@@ -222,11 +223,11 @@ GetGroup <- function(x, groups)
 
 
 JoinGenusForReference <- function(dataStandard,
-                                  taxon, taxGroup,
+                                  species, taxGroup,
                                   thesaurusSetJoined)
 {
   implicitJoinCategories <- list(taxGroup)
-  names(implicitJoinCategories) <- taxon
+  names(implicitJoinCategories) <- species
   thesaurusSetJoined <- SmartJoinCategories(thesaurusSetJoined,
                                             implicitJoinCategories)
   StandardizeDataSet(dataStandard, thesaurusSetJoined)
@@ -234,7 +235,7 @@ JoinGenusForReference <- function(dataStandard,
 
 
 WarnOfTaxonAmbiguity <- function(taxonomyWarning,
-                                 taxaInRef, taxLevel, taxGroup)
+                                 taxaInRef, rank, taxGroup)
 {
   taxonomyWarning$initialMessage <- "Data includes some cases recorded as\n"
   if(length(taxaInRef) > 0)
@@ -251,7 +252,7 @@ WarnOfTaxonAmbiguity <- function(taxonomyWarning,
     }
     taxonomyWarning$message <-
       paste0(taxonomyWarning$message,
-             "    * ", taxGroup, " (which is a ", taxLevel, ")\n",
+             "    * ", taxGroup, " (which is a ", rank, ")\n",
              "      for which the reference for ",
              paste(taxaInRef, collapse = " or "),
              " could be used.\n")
@@ -260,35 +261,35 @@ WarnOfTaxonAmbiguity <- function(taxonomyWarning,
 }
 
 
-HandleTaxonomyAmbiguity <- function(dataStandard,
-                                    refStandard,
-                                    identifiers,
-                                    taxonomy,
-                                    thesaurusSetJoined,
-                                    useGenusIfUnambiguous)
+HandleTaxonAmbiguity <- function(dataStandard,
+                                 refStandard,
+                                 identifiers,
+                                 taxonomy,
+                                 thesaurusSetJoined,
+                                 useGenusIfUnambiguous)
 {
   taxName <- identifiers[1]
-  taxonomyLevels <- names(taxonomy)
+  taxonomicRanks <- names(taxonomy)
   genusWarning <- ""
   taxonomyWarning <- list()
-  for(taxLevel in taxonomyLevels)
+  for(rank in taxonomicRanks)
   {
     taxGroups <- intersect(unique(dataStandard[[taxName]]),
-                           unique(taxonomy[[taxLevel]]))
+                           unique(taxonomy[[rank]]))
     for(taxGroup in taxGroups)
     {
-      if(taxLevel == taxName)
+      if(rank == "Species")
       {
         genus <- as.character(
-          taxonomy$Genus[taxonomy[[taxName]] == taxGroup])
-        taxa <- GetTaxaIn(genus, taxonomy)
+          taxonomy$Genus[taxonomy$Species == taxGroup])
+        species <- GetSpeciesIn(genus, taxonomy)
       }
       else
       {
-        taxa <- GetTaxaIn(taxGroup, taxonomy)
+        species <- GetSpeciesIn(taxGroup, taxonomy)
       }
-      taxaInRef <- intersect(taxa, unique(refStandard$Taxon))
-      if(taxLevel %in% c(taxName, "Genus") && length(taxaInRef) == 1 &&
+      taxaInRef <- intersect(species, unique(refStandard[[taxName]]))
+      if(rank %in% c("Species", "Genus") && length(taxaInRef) == 1 &&
          taxaInRef != taxGroup)
       {
         if(useGenusIfUnambiguous)
@@ -300,10 +301,10 @@ HandleTaxonomyAmbiguity <- function(dataStandard,
                                  " used for cases of ", taxGroup, ".\n   ")
         }
       }
-      else if(taxLevel != taxName)
+      else if(rank != "Species")
       {
         taxonomyWarning <- WarnOfTaxonAmbiguity(taxonomyWarning,
-                                                taxaInRef, taxLevel, taxGroup)
+                                                taxaInRef, rank, taxGroup)
       }
     }
   }

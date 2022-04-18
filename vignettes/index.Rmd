@@ -43,7 +43,9 @@ Several different sets of standard reference values are included in the package.
 
 In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
 
-The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. 
+The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
+
+The package includes also a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
 
 ## Acknowledgements
 We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.
@@ -136,11 +138,15 @@ measureThesaurus
 
 # Taxonomy
 
-A [taxonomy](../help/zoologTaxonomy) for the most typical taxa is structured as a data.frame, `zoologTaxonomy`, defining their taxonomical hierarchy up to the family level:
+A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa has been introduced in the *zoolog* major release 1.0.0. The taxonomic hierarchy is structured up to the family level:
 ``` {r, echo=FALSE}
 knitr::kable(zoologTaxonomy)
 ```
-This is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or set of taxa under a requested category at any taxonomical level. The taxonomy is also integrated in the function [LogRatios](../help/LogRatios), enabling it to automatically match different taxa in data and reference that are under the same genus, for instance, data of *Bos taurus* with reference of *Bos primigenius*, since both are *Bos*. It also enables the function `LogRatios` to detect when a case taxon has been only partially identified and recorded at a higher level, such as tribe or family, and to suggest the user the set of possible reference taxa.
+This taxonomy is intended to facilitate the management of cases recorded as identified at different taxonomic ranks and their match with the corresponding references.
+
+The taxonomy is integrated in the function [LogRatios](../help/LogRatios), enabling it to automatically match different species in data and reference that are under the same genus. For instance, data of *Bos taurus* can be matched with reference of *Bos primigenius*, since both are *Bos*. It also enables the function `LogRatios` to detect when a case taxon has been only partially identified and recorded at a higher taxonomic rank, such as tribe or family, and to suggest the user the set of possible reference species.
+
+Besides, it is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or set of species under a requested category at any taxonomic rank. 
 
 # Functions
 The full list of functions is available under the zoolog *help* page. We list them here sorted by their prominence for a typical user, and grouped by functionality:
