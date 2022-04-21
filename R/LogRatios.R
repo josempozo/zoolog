@@ -2,7 +2,8 @@
 #'
 #' Function to compute the (base 10) log ratios of the measurements
 #' relative to standard reference values.
-#' By default a reference is provided with the package.
+#' The default reference and several alternative references are provided with the
+#' package. But the user can use their own references if desired.
 #'
 #' Each log ratio is defined as the decimal logarithm of the ratio of the
 #' variable of interest to a corresponding reference value.
@@ -13,6 +14,18 @@
 #' element. For any case in the data, the log ratios are computed with respect
 #' to the reference values in the same bone type. If the reference does not
 #' include that bone type, the corresponding log ratios are set to \code{NA}.
+#'
+#' The taxonomy allows the matching of data and reference by genus, instead
+#' of by species. This is the default behaviour with
+#' \code{useGenusIfUnambiguous = TRUE}, unless there is some ambiguity:
+#' reference including more than one species for the same genus. For instance,
+#' \code{reference$Combi} includes a reference for \emph{Sus scrofa}.
+#' If the data includes cases of \emph{Sus domesticus}, their
+#' log ratios will be computed with respect to the provided reference for
+#' \emph{Sus scrofa}.
+#' However, a warning is given to inform the user of this assumption, and let
+#' they know that this can be prevented by setting
+#' \code{useGenusIfUnambiguous = FALSE}.
 #'
 #' For some applications it can be interesting to group some set of bone types
 #' into the same reference category to compute the log ratios. The parameter
@@ -36,22 +49,9 @@
 #' between the different bone types in the data, just indicates that for any
 #' of them the log ratios must be computed from the same reference.
 #'
-#' The taxonomy allows also the automatic detection of data and reference
-#' sharing the same genus, although of different species. If
-#' \code{useGenusIfUnambiguous = TRUE} (default) the reference of a taxon is
-#' assumed to be used for any case of the same genus, provided that there is no
-#' ambiguity: only one species for each genus in the reference. For instance,
-#' \code{reference$Combi} includes a reference for \emph{Sus scrofa} in the
-#' genus \emph{Sus}. If the data includes cases of \emph{Sus domesticus}, their
-#' log ratios will be computed with respect to the provided reference for
-#' \emph{Sus scrofa}.
-#' However, a warning is given to inform the user of this assumption, and let
-#' they know that this can be prevented by setting
-#' \code{useGenusIfUnambiguous = FALSE}.
-#'
 #' Using the taxonomy, the presence of cases identified by higher taxonomic
-#' ranks are also automatically detected. For instance, if some cases only
-#' partially identified have been recorded as "Ovis/Capra", this is recognized
+#' ranks are also automatically detected. For instance, if some partially
+#' identified cases have been recorded as "Ovis/Capra", this is recognized
 #' to denote the tribe \emph{Caprini}, which includes several possible species.
 #' Then a warning is given informing the user of the detection of these cases
 #' and of the option to use any of the corresponding species in the reference by
@@ -76,7 +76,7 @@
 #' The default \code{ref = reference$Combi} and other \link{reference} sets are
 #' provided with the package \pkg{zoolog}.
 #' @param identifiers A vector of column names in \code{ref} identifying
-#' a type of bone. By default \code{identifiers = c("TAX", "EL")}.
+#' a type of bone. By default \code{identifiers = c("Taxon", "Element")}.
 #' @param refMeasuresName The column name in \code{ref} identifying the type of
 #' bone measurement.
 #' @param refValuesName The column name in \code{ref} giving the measurement
@@ -95,7 +95,7 @@
 #' same column, named as any of them. This practice only makes sense if only one
 #' of the measures can appear in each bone element.
 #' @param useGenusIfUnambiguous Boolean. If \code{TRUE} (default), data cases
-#' are match to reference sharing the same genus, despite being of different
+#' are matched to reference sharing the same genus, instead of sharing the same
 #' species.
 #'
 #' @return
@@ -154,7 +154,7 @@
 #' @export
 LogRatios <- function(data,
                       ref = reference$Combi,
-                      identifiers = c("TAX", "EL"),
+                      identifiers = c("Taxon", "Element"),
                       refMeasuresName = "Measure",
                       refValuesName = "Standard",
                       thesaurusSet = zoologThesaurus,

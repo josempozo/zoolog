@@ -4,26 +4,26 @@
 #' particular taxonomic group, according to the \code{\link{zoologTaxonomy}}
 #' by default.
 #'
-#' @param groupName A name of any of the taxonomic groups at any rank from
-#' species to family.
-#' @param taxonomy The taxonomy from which to extract the subtaxonomy.
+#' @param taxon A name of any of the taxa, at any rank included in the taxonomy
+#' (from species to family in the zoolog taxonomy).
+#' @param taxonomy A taxonomy from which to extract the subtaxonomy.
 #' By default \code{taxonomy = \link{zoologTaxonomy}}.
 #' @param thesaurus A thesaurus allowing datasets with different nomenclatures
 #' to be merged. By default \code{thesaurus = \link{zoologThesaurus}$taxon}.
 #'
 #' @return
 #' \code{Subtaxonomy} returns a data.frame with the same structure of the input
-#' taxonomy but with only the species (rows) included in the requested
-#' taxonomic \code{groupName}, and with only the taxonomical levels (columns)
-#' up to the level of that taxonomical group.
+#' taxonomy but with only the species (rows) included in the queried
+#' \code{taxon}, and the taxonomic ranks (columns)
+#' up to its level.
 #'
 #' \code{SubtaxonomySet} returns a character vector including a unique copy
-#' (set) of all the taxa, at any taxonomic rank, under the requested
-#' taxonomic \code{groupName}.
+#' (set) of all the taxa, at any taxonomic rank, under the queried
+#' \code{taxon}.
 #' Equivalent to Subtaxonomy but as a set instead of a dataframe.
 #'
 #' \code{GetSpeciesIn} returns a character vector including the species included
-#' in the requested \code{groupName}.
+#' in the queried \code{taxon}.
 #'
 #' @examples
 #' ## Get species of genus Sus:
@@ -56,37 +56,37 @@
 
 #' @rdname Subtaxonomy
 #' @export
-Subtaxonomy <- function(groupName, taxonomy = zoologTaxonomy,
+Subtaxonomy <- function(taxon, taxonomy = zoologTaxonomy,
                         thesaurus = zoologThesaurus$taxon)
 {
-  groupLevel <- TaxonomyLevel(groupName, taxonomy, thesaurus, as.numeric = TRUE)
+  groupLevel <- TaxonomyLevel(taxon, taxonomy, thesaurus, as.numeric = TRUE)
   if(length(groupLevel) == 0)
-    stop(paste(groupName, " is not recognized in zoologTaxonomy."))
+    stop(paste(taxon, " is not recognized in zoologTaxonomy."))
   if(length(groupLevel) > 1)
     stop(paste("Ambiguity detected in zoologTaxonomy: \n",
-               groupName, " is in more than one level."))
-  selectedRows <- InCategory(taxonomy[, groupLevel], groupName, thesaurus) |
-                  taxonomy[, groupLevel] == groupName
+               taxon, " is in more than one level."))
+  selectedRows <- InCategory(taxonomy[, groupLevel], taxon, thesaurus) |
+                  taxonomy[, groupLevel] == taxon
   taxonomy[selectedRows, 1:groupLevel]
 }
 
 #' @rdname Subtaxonomy
 #' @export
-SubtaxonomySet <- function(groupName, taxonomy = zoologTaxonomy,
+SubtaxonomySet <- function(taxon, taxonomy = zoologTaxonomy,
                            thesaurus = zoologThesaurus$taxon)
 {
-  subtaxonomy <- Subtaxonomy(groupName, taxonomy, thesaurus)
+  subtaxonomy <- Subtaxonomy(taxon, taxonomy, thesaurus)
   as.character(unique(unlist(subtaxonomy)))
 }
 
 #' @rdname Subtaxonomy
 #' @export
-GetSpeciesIn <- function(groupName, taxonomy = zoologTaxonomy,
+GetSpeciesIn <- function(taxon, taxonomy = zoologTaxonomy,
                          thesaurus = zoologThesaurus$taxon)
 {
 #  as.character(
-#    taxonomy$Taxon[as.logical(rowSums(taxonomy == groupName))])
-  as.character(Subtaxonomy(groupName, taxonomy, thesaurus)$Species)
+#    taxonomy$Taxon[as.logical(rowSums(taxonomy == taxon))])
+  as.character(Subtaxonomy(taxon, taxonomy, thesaurus)$Species)
 }
 
 # Check if including this InCategory.data.frame into the InCategory
@@ -97,12 +97,12 @@ InCategory.array <- function(x, category, thesaurus)
   sapply(x, function(y) InCategory(y, category, thesaurus) | y == category)
 }
 
-TaxonomyLevel <- function(groupName,
+TaxonomyLevel <- function(taxon,
                           taxonomy = zoologTaxonomy,
                           thesaurus = zoologThesaurus$taxon,
                           as.numeric = FALSE)
 {
-  cases <- InCategory.array(taxonomy, groupName, thesaurus)
+  cases <- InCategory.array(taxonomy, taxon, thesaurus)
   groupLevel <- as.logical(colSums(cases))
   if(as.numeric)
   {

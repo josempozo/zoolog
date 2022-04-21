@@ -146,7 +146,7 @@ This taxonomy is intended to facilitate the management of cases recorded as iden
 
 The taxonomy is integrated in the function [LogRatios](../help/LogRatios), enabling it to automatically match different species in data and reference that are under the same genus. For instance, data of *Bos taurus* can be matched with reference of *Bos primigenius*, since both are *Bos*. It also enables the function `LogRatios` to detect when a case taxon has been only partially identified and recorded at a higher taxonomic rank, such as tribe or family, and to suggest the user the set of possible reference species.
 
-Besides, it is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or set of species under a requested category at any taxonomic rank. 
+Besides, it is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or the set of species under a queried taxon at any taxonomic rank. 
 
 # Functions
 The full list of functions is available under the zoolog *help* page. We list them here sorted by their prominence for a typical user, and grouped by functionality:
@@ -209,11 +209,27 @@ The full list of functions is available under the zoolog *help* page. We list th
 [**Nomenclature standardization**](../help/StandardizeNomenclature)
   : This includes two functions enabling the user to map data with heterogeneous
     nomenclature into a standard one as defined in a thesaurus:
-    
+
     * `StandardizeNomenclature` standardizes a character vector according to 
       a given thesaurus.
     * `StandardizeDataSet` standardizes column names and values of a data 
       frame according to a thesaurus set.
+
+[**Subtaxonomy**](../help/Subtaxonomy)
+  : This includes three functions enabling the user to query for some 
+  information on the subtaxonomy under a queried taxon at any taxonomic 
+  rank:
+
+    * `Subtaxonomy` provides the subtaxonomy dataframe collecting the 
+    species (rows) included in the queried taxon, and the taxonomic ranks
+    (columns) up to its level.
+    * `SubtaxonomySet` provides the set (character vector without repetions) 
+    of taxa, at any taxonomic rank, under 
+    the queried taxon.
+    * `GetSpeciesIn` provides the set of species included in the queried taxon.
+
+  : By default, the subtaxonomy information is extracted from the *zoolog* 
+  taxonomy.
 
 [**AssembleReference**](../help/AssembleReference)
   : It allows the user to build new references assembling the desired

@@ -7,28 +7,28 @@
 \title{Subtaxonomy under taxonomical category}
 \usage{
 Subtaxonomy(
-  groupName,
+  taxon,
   taxonomy = zoologTaxonomy,
   thesaurus = zoologThesaurus$taxon
 )
 
 SubtaxonomySet(
-  groupName,
+  taxon,
   taxonomy = zoologTaxonomy,
   thesaurus = zoologThesaurus$taxon
 )
 
 GetSpeciesIn(
-  groupName,
+  taxon,
   taxonomy = zoologTaxonomy,
   thesaurus = zoologThesaurus$taxon
 )
 }
 \arguments{
-\item{groupName}{A name of any of the taxonomic groups at any rank from
-species to family.}
+\item{taxon}{A name of any of the taxa, at any rank included in the taxonomy
+(from species to family in the zoolog taxonomy).}
 
-\item{taxonomy}{The taxonomy from which to extract the subtaxonomy.
+\item{taxonomy}{A taxonomy from which to extract the subtaxonomy.
 By default \code{taxonomy = \link{zoologTaxonomy}}.}
 
 \item{thesaurus}{A thesaurus allowing datasets with different nomenclatures
@@ -36,17 +36,17 @@ to be merged. By default \code{thesaurus = \link{zoologThesaurus}$taxon}.}
 }
 \value{
 \code{Subtaxonomy} returns a data.frame with the same structure of the input
-taxonomy but with only the species (rows) included in the requested
-taxonomic \code{groupName}, and with only the taxonomical levels (columns)
-up to the level of that taxonomical group.
+taxonomy but with only the species (rows) included in the queried
+\code{taxon}, and the taxonomic ranks (columns)
+up to its level.
 
 \code{SubtaxonomySet} returns a character vector including a unique copy
-(set) of all the taxa, at any taxonomic rank, under the requested
-taxonomic \code{groupName}.
+(set) of all the taxa, at any taxonomic rank, under the queried
+\code{taxon}.
 Equivalent to Subtaxonomy but as a set instead of a dataframe.
 
 \code{GetSpeciesIn} returns a character vector including the species included
-in the requested \code{groupName}.
+in the queried \code{taxon}.
 }
 \description{
 Functions to obtain the subtaxonomy or the set of taxa included in a
