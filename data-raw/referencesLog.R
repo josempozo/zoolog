@@ -15,9 +15,7 @@ lcCollateC({
     "inst/extdata/referencesDataBase.csv")
 
   referenceSets <- read.csv2("inst/extdata/referenceSets.csv",
-                             quote = "\"", na.strings = "",
                              header = TRUE, row.names = 1,
-                             stringsAsFactors = FALSE,
                              fileEncoding = "UTF-8",
                              check.names = FALSE)
 

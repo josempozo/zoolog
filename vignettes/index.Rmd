@@ -264,14 +264,16 @@ Finally, the resulting dataset is saved in a file in csv format.
 
 The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the [example dataset](../help/dataValenzuelaLamas2008) from @valenzuela2008alimentacio included in the package is used:
 
+```{r, echo = FALSE}
+options(stringsAsFactors = FALSE)
+```
 ```{r}
 library(zoolog)
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz", 
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote = "\"", header = TRUE, na.strings = "",
-                 encoding = "UTF-8",
-                 stringsAsFactors = TRUE)
+                 encoding = "UTF-8")
 knitr::kable(head(data)[, -c(6:20,32:64)])
 ```
 To enhance the visibility, we have shown only the most relevant columns.
@@ -281,6 +283,15 @@ We now calculate the log-ratios using the function `LogRatios`. Only measurement
 dataWithLog <- LogRatios(data)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
+
+### A note on the warnings of LogRatios
+Observe that `LogRatios` has output two warnings above. The first one informs the user that the data includes some cases of recorded taxa that did not match any species in the reference, but was matched by genus. In many cases this can be the behaviour expected by the user. For instance, using the reference of *Sus scrofa* for computing the log ratios of cases of *Sus domesticus*, can be acceptable if no better reference is available or if both (sub)species are being compared. The warning includes also cases recorded by genus, a recording practice that is understandable when working only with one species in the genus, such as *Oryctolagus* or *Ovis* above. However, the warning also informs the user that this matching by genus can be suppressed by setting the parameter `useGenusIfUnambiguous = FALSE`. This can be the case if the user wants to exclude from the analysis the cases with not matching species. Besides, this warning could make the user realize that the wrong reference was set by mistake.
+
+The second warning informs the user that the data includes some cases recorded with a taxon not specifying a species or genus, but at a higher taxonomical rank (for instance undecided *ovis/capra* (equivalent to tribe *Caprini*)). It also informs of the cases recorded by the genus but for which the reference includes more than one species (as happens with *Equus* above). In addition, the user is remembered of the option to use the parameter `joinCategories` to indicate which reference species should be used for them.
+
+These relationships between taxonomical categories is possible thanks to the taxonomy included in the package. The user can include their own taxonomy if desired.
+
+In the following examples, these warnings are suppressed unless some particular message is of interest for them.
 
 ## Dealing with *lazy* datasets
 If we observe the example dataset more carefully, we can see that the measures
@@ -295,7 +306,7 @@ knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 According to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
 
 The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
-```{r}
+```{r, warning = FALSE}
 GLandGLl <- list(c("GL", "GLl"))
 dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
@@ -304,11 +315,16 @@ This option allows us to automatically select, for each bone element, the corres
 
 ## Using the same ovis reference for all caprines
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
-```{r}
-caprineCategory <- list(ovar = c("sheep", "goat", "oc"))
+```{r, warning = FALSE}
+caprineCategory <- list(ovar = SubtaxonomySet("caprine"))
 dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
+The category to join can be manually defined, but here we have conveniently used the function `Subtaxonomy` applied to the tribe *Caprini*:
+```{r}
+SubtaxonomySet("caprine")
+```
+
 Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference ("ovar").
 
 ## Pruning the data from cases with no available measure
@@ -319,7 +335,7 @@ knitr::kable(head(dataWithLogPruned[, -c(6:20,32:64)]))
 ```
 
 You may want to write the resulting file in the working directory (you need to set it first):
-```{r, eval = FALSE}
+```{r, eval = FALSE, warning = FALSE}
 write.csv2(dataWithLogPruned, "myDataWithLogValues.csv", 
            quote=FALSE, row.names=FALSE, na="", 
            fileEncoding="UTF-8")
@@ -347,7 +363,7 @@ knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
 We may be interested in selecting all caprine elements. This can be done even without standardizing the data using the function `InCategory`:
 ```{r}
 dataOC <- subset(dataWithSummary, InCategory(Especie, 
-                                             c("sheep", "capra", "oc"),
+                                             SubtaxonomySet("caprine"),
                                              zoologThesaurus$taxon))
 knitr::kable(head(dataOC)[, -c(6:20,32:64)])
 ```
@@ -420,12 +436,12 @@ Here we reorder the factor levels of `dataOCStandardized$Taxon` to make
 the order of the boxplots more intuitive.
 
 ```{r}
-levels0 <- levels(dataOCStandardized$Taxon)
+levels0 <- unique(dataOCStandardized$Taxon)
 levels0
 ```
 ```{r}
 dataOCStandardized$Taxon <- factor(dataOCStandardized$Taxon, 
-                                   levels = levels0[c(2,3,1)])
+                                   levels = levels0[c(1,3,2)])
 levels(dataOCStandardized$Taxon)
 ```
 and assign specific colours for each category:

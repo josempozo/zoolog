@@ -113,12 +113,11 @@
 #'                         package="zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 na.strings = "",
-#'                                 encoding = "UTF-8",
-#'                                 stringsAsFactors = TRUE)
+#'                                 encoding = "UTF-8")
 #' ## For illustration purposes we keep now only a subset of cases to make
 #' ## the example run sufficiently fast.
 #' ## Avoid this step if you want to process the full example dataset.
-#' dataExample <- dataExample[145:1000, ]
+#' dataExample <- dataExample[1:1000, ]
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExample)[, -c(6:20,32:64)]
 #'
@@ -180,7 +179,7 @@ LogRatios <- function(data,
                                        thesaurusSetJoined,
                                        useGenusIfUnambiguous)
 
-  refMeasures <- levels(as.factor(refStandard[, refMeasuresName]))
+  refMeasures <- unique(refStandard[, refMeasuresName])
   refMeasuresInData <- intersect(names(dataStandard), refMeasures)
 
   # Merging tax, element, and measure combinations in a single vector.

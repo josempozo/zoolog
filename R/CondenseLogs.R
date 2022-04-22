@@ -64,8 +64,7 @@
 #'                         package="zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 na.strings = "",
-#'                                 encoding = "UTF-8",
-#'                                 stringsAsFactors = TRUE)
+#'                                 encoding = "UTF-8")
 #' ## Compute the log-ratios and select the cases with available log ratios:
 #' dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
 #' ## We can observe the first lines (excluding some columns for visibility):

@@ -71,7 +71,7 @@ catchError.AssembleReference <- function(source, taxId, tax, ref.db)
     stop(paste("The refereces' database is badly formatted: Taxon", tax,
                "appears more than once."))
   }
-  if(!(is.na(source) || source %in% names(ref.db[[taxId]])))
+  if(!(is.na(source) || source == "" || source %in% names(ref.db[[taxId]])))
   {
     stop(paste0("The references' database does not include any component ",
                 source, " for the taxon ", tax, "."))

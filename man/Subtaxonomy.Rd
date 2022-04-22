@@ -69,11 +69,10 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package="zoolog")
 dataExample <- utils::read.csv2(dataFile,
                                 na.strings = "",
-                                encoding = "UTF-8",
-                                stringsAsFactors = TRUE)
+                                encoding = "UTF-8")
 ## We illustrate with a subset of cases to make the example run
 ## sufficiently fast:
-dataExample <- dataExample[160:1000, ]
+dataExample <- dataExample[1:1000, ]
 ## Compute the log-ratios joining all taxa from tribe \emph{Caprini}
 ## to use the reference of \emph{Ovis aries}:
 categoriesCaprini <- list('Ovis aries' = SubtaxonomySet("Caprini"))

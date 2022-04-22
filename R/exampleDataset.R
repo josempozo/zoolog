@@ -60,8 +60,7 @@
 #'                         package="zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 na.strings = "",
-#'                                 encoding = "UTF-8",
-#'                                 stringsAsFactors = TRUE)
+#'                                 encoding = "UTF-8")
 #'
 #' @references
 #'   \insertAllCited{}

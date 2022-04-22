@@ -21,13 +21,12 @@
 #'                         package = "zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 na.strings = "",
-#'                                 encoding = "UTF-8",
-#'                                 stringsAsFactors = TRUE)
+#'                                 encoding = "UTF-8")
 #' ## We can observe the first lines (excluding some columns for visibility):
 #' head(dataExample)[, -c(6:20,32:64)]
 #'
 #' ## Remove the cases not including any measurement present in the reference.
-#' refMeasureNames <- levels(factor(reference$Combi$Measure))
+#' refMeasureNames <- unique(reference$Combi$Measure)
 #' refMeasureNames
 #' dataExamplePruned <- RemoveNACases(dataExample,
 #'                                    measureNames = refMeasureNames)
