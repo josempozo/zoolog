@@ -269,50 +269,28 @@ them:
 \code{referencesDatabase.csv}.}
 }\if{html}{\out{<div class="r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
                              package = "zoolog"))
-}\if{html}{\out{</div>}}\preformatted{##                              Genus                 Taxon     Source
-## 1                   Cattle - *Bos*            Bos taurus      Nieto
-## 2                   Cattle - *Bos*            Bos taurus      Basel
-## 3                   Cattle - *Bos*            Bos taurus  Johnstone
-## 4                   Cattle - *Bos*       Bos primigenius   Degerbol
-## 5                   Sheep - *Ovis*            Ovis aries      Davis
-## 6                   Sheep - *Ovis*            Ovis aries    Clutton
-## 7                   Sheep - *Ovis*       Ovis orientalis      Basel
-## 8                   Sheep - *Ovis*       Ovis orientalis   Uerpmann
-## 9                   Goat - *Capra*          Capra hircus      Basel
-## 10                  Goat - *Capra*          Capra hircus    Clutton
-## 11                  Goat - *Capra*        Capra aegagrus   Uerpmann
-## 12                     Pig - *Sus*        Sus domesticus  Albarella
-## 13                     Pig - *Sus*            Sus scrofa      Basel
-## 14                     Pig - *Sus*            Sus scrofa      Hongo
-## 15                     Pig - *Sus*            Sus scrofa      Payne
-## 16             Red deer - *Cervus*        Cervus elaphus      Basel
-## 17            Fallow deer - *Dama*     Dama mesopotamica      Haifa
-## 18             Gazelle - *Gazella*       Gazella gazella      Haifa
-## 19                 Equid - *Equus*          Equus asinus      Haifa
-## 20                 Equid - *Equus*        Equus caballus  Johnstone
-## 21 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
-##                          Filename
-## 1       referenceCattle_Nieto.csv
-## 2       referenceCattle_Basel.csv
-## 3   referenceCattle_Johnstone.csv
-## 4    referenceCattle_Degerbol.csv
-## 5        referenceSheep_Davis.csv
-## 6      referenceSheep_Clutton.csv
-## 7        referenceSheep_Basel.csv
-## 8     referenceSheep_Uerpmann.csv
-## 9         referenceGoat_Basel.csv
-## 10      referenceGoat_Clutton.csv
-## 11     referenceGoat_Uerpmann.csv
-## 12     referencePig_Albarella.csv
-## 13         referencePig_Basel.csv
-## 14         referencePig_Hongo.csv
-## 15         referencePig_Payne.csv
-## 16     referenceRedDeer_Basel.csv
-## 17        referenceDama_Haifa.csv
-## 18     referenceGazelle_Haifa.csv
-## 19       referenceEquid_Haifa.csv
-## 20   referenceEquid_Johnstone.csv
-## 21 referenceRabbit_Nottingham.csv
+}\if{html}{\out{</div>}}\preformatted{##                              Genus                 Taxon     Source                       Filename
+## 1                   Cattle - *Bos*            Bos taurus      Nieto      referenceCattle_Nieto.csv
+## 2                   Cattle - *Bos*            Bos taurus      Basel      referenceCattle_Basel.csv
+## 3                   Cattle - *Bos*            Bos taurus  Johnstone  referenceCattle_Johnstone.csv
+## 4                   Cattle - *Bos*       Bos primigenius   Degerbol   referenceCattle_Degerbol.csv
+## 5                   Sheep - *Ovis*            Ovis aries      Davis       referenceSheep_Davis.csv
+## 6                   Sheep - *Ovis*            Ovis aries    Clutton     referenceSheep_Clutton.csv
+## 7                   Sheep - *Ovis*       Ovis orientalis      Basel       referenceSheep_Basel.csv
+## 8                   Sheep - *Ovis*       Ovis orientalis   Uerpmann    referenceSheep_Uerpmann.csv
+## 9                   Goat - *Capra*          Capra hircus      Basel        referenceGoat_Basel.csv
+## 10                  Goat - *Capra*          Capra hircus    Clutton      referenceGoat_Clutton.csv
+## 11                  Goat - *Capra*        Capra aegagrus   Uerpmann     referenceGoat_Uerpmann.csv
+## 12                     Pig - *Sus*        Sus domesticus  Albarella     referencePig_Albarella.csv
+## 13                     Pig - *Sus*            Sus scrofa      Basel         referencePig_Basel.csv
+## 14                     Pig - *Sus*            Sus scrofa      Hongo         referencePig_Hongo.csv
+## 15                     Pig - *Sus*            Sus scrofa      Payne         referencePig_Payne.csv
+## 16             Red deer - *Cervus*        Cervus elaphus      Basel     referenceRedDeer_Basel.csv
+## 17            Fallow deer - *Dama*     Dama mesopotamica      Haifa        referenceDama_Haifa.csv
+## 18             Gazelle - *Gazella*       Gazella gazella      Haifa     referenceGazelle_Haifa.csv
+## 19                 Equid - *Equus*          Equus asinus      Haifa       referenceEquid_Haifa.csv
+## 20                 Equid - *Equus*        Equus caballus  Johnstone   referenceEquid_Johnstone.csv
+## 21 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham referenceRabbit_Nottingham.csv
 }
 }
 

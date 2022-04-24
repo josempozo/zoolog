@@ -1,6 +1,6 @@
 ---
 title: "***zoolog***:  \n Zooarchaeological Analysis with Log-Ratios"
-author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
+author: "Jose M Pozo, Angela Trentacoste,  Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, and Silvia Valenzuela-Lamas"
 email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: ../inst/REFERENCES.bib
