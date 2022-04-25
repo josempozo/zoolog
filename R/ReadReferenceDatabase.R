@@ -5,7 +5,8 @@ ReadReferenceDatabase <- function(file)
                                   quote = "\"", na.strings = "",
                                   header = TRUE,
                                   comment.char = "#",
-                                  fileEncoding = "UTF-8")
+                                  fileEncoding = "UTF-8",
+                                  stringsAsFactors = FALSE)
   for(i in 1:nrow(refDbStruct))
   {
     referencesDatabase[[refDbStruct$Taxon[i]]][[refDbStruct$Source[i]]] <-

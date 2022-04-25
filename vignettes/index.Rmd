@@ -45,7 +45,7 @@ In general, zooarchaeological datasets are composed of skeletal remains represen
 
 The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
 
-The package includes also a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
+The package also includes a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
 
 ## Acknowledgements
 We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.
@@ -73,7 +73,7 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 
 # Reference standards {#sec:refStandards}
 
-The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), and red deer (*Cervus elaphus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
+The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), fallow deer (*Dama mesopotamica*), gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*) and rabbit (*Oryctolagus cuniculus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
 
 The predefined reference sets included in *zoolog* are provided in the named list `reference`, currently comprising the following `r length(zoolog::reference)` sets:
 ```{r}
@@ -82,7 +82,7 @@ str(reference, max.level = 1)
 ```
 The reference set `reference$Combi` is the default reference for computing the [log ratios](../help/LogRatios), since it includes the most comprehensive reference for each species.
 
-The package includes also a `referencesDatabase` collecting the taxon-specific
+The package also includes a `referencesDatabase` collecting the taxon-specific
 reference standards from all the considered resources. Each reference set is
 composed of a different combination of taxon-specific standards selected from
 this `referencesDatabase`. The selection is defined by the data frame 
@@ -285,7 +285,7 @@ knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
 
 ### A note on the warnings of LogRatios
-Observe that `LogRatios` has output two warnings above. The first one informs the user that the data includes some cases of recorded taxa that did not match any species in the reference, but was matched by genus. In many cases this can be the behaviour expected by the user. For instance, using the reference of *Sus scrofa* for computing the log ratios of cases of *Sus domesticus*, can be acceptable if no better reference is available or if both (sub)species are being compared. The warning includes also cases recorded by genus, a recording practice that is understandable when working only with one species in the genus, such as *Oryctolagus* or *Ovis* above. However, the warning also informs the user that this matching by genus can be suppressed by setting the parameter `useGenusIfUnambiguous = FALSE`. This can be the case if the user wants to exclude from the analysis the cases with not matching species. Besides, this warning could make the user realize that the wrong reference was set by mistake.
+Observe that `LogRatios` has output two warnings above. The first one informs the user that the data includes some cases of recorded taxa that did not match any species in the reference, but was matched by genus. In many cases this can be the behaviour expected by the user. For instance, using the reference of *Sus scrofa* for computing the log ratios of cases of *Sus domesticus*, can be acceptable if no better reference is available or if both (sub)species are being compared. The warning also includes cases recorded by genus, a recording practice that is understandable when working only with one species in the genus, such as *Oryctolagus* or *Ovis* above. However, the warning also informs the user that this matching by genus can be suppressed by setting the parameter `useGenusIfUnambiguous = FALSE`. This can be the case if the user wants to exclude from the analysis the cases with not matching species. Besides, this warning could make the user realize that the wrong reference was set by mistake.
 
 The second warning informs the user that the data includes some cases recorded with a taxon not specifying a species or genus, but at a higher taxonomical rank (for instance undecided *ovis/capra* (equivalent to tribe *Caprini*)). It also informs of the cases recorded by the genus but for which the reference includes more than one species (as happens with *Equus* above). In addition, the user is remembered of the option to use the parameter `joinCategories` to indicate which reference species should be used for them.
 
@@ -303,12 +303,14 @@ select them with the help of the thesaurus without requiring to know the terms a
 AScases <- InCategory(dataWithLog$Os, "astragalus", zoologThesaurus$element)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
-According to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+For the involved taxa, according to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+
+The same effect happens for the measure *GLpe*, only relevant for the phalanges. 
 
 The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
 ```{r, warning = FALSE}
-GLandGLl <- list(c("GL", "GLl"))
-dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
+GLVariants <- list(c("GL", "GLl", "GLpe"))
+dataWithLog <- LogRatios(data, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
 This option allows us to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column *logGL*.
@@ -317,7 +319,7 @@ This option allows us to automatically select, for each bone element, the corres
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
 ```{r, warning = FALSE}
 caprineCategory <- list(ovar = SubtaxonomySet("caprine"))
-dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
+dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
 The category to join can be manually defined, but here we have conveniently used the function `Subtaxonomy` applied to the tribe *Caprini*:

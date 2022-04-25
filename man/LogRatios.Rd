@@ -122,14 +122,15 @@ Then a warning is given informing the user of the detection of these cases
 and of the option to use any of the corresponding species in the reference by
 using the argument \code{joinCategories} (unless this has been already done).
 
-There are some measures that are restricted to a subset of bones. For
-instance, \emph{GLl} is only relevant for the \emph{astragalus}, while
-\emph{GL} is not applicable to it. Thus, there cannot be any ambiguity
-between both measures since they can be identified by the bone element.
-This justifies that some users have simplified datasets where a single column
-records indistinctly \emph{GL} or \emph{GLl}. The optional parameter
-\code{mergedMeasures} facilitates the processing of this type of simplified
-dataset. For the alluded example,
+There are some measures that, for most usual taxa, are restricted to a subset
+of bones. For instance, for \emph{Bos}, \emph{Ovis}, \emph{Capra}, and \emph{Sus}, the measure
+\emph{GLl} is only relevant for the \emph{astragalus}, while \emph{GL} is not
+applicable to it.
+Thus, there cannot be any ambiguity between both measures since they can
+be identified by the bone element. This justifies that some users have
+simplified datasets where a single column records indistinctly \emph{GL} or
+\emph{GLl}. The optional parameter \code{mergedMeasures} facilitates the
+processing of this type of simplified dataset. For the alluded example,
 \code{mergedMeasures = list(c("GL", "GLl"))} automatically selects, for each
 bone element, the corresponding measure present in the reference.
 
