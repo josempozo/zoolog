@@ -120,9 +120,9 @@ WriteThesaurusSet <- function(thesaurusSet, file)
   data$FileName <- attr(thesaurusSet, "fileName")
   data$CaseSensitive <- sapply(zoologThesaurus,
                                function(x) attr(x, "caseSensitive"))
-  data$accentSensitive <- sapply(zoologThesaurus,
+  data$AccentSensitive <- sapply(zoologThesaurus,
                                  function(x) attr(x, "accentSensitive"))
-  data$punctuationSensitive <- sapply(zoologThesaurus,
+  data$PunctuationSensitive <- sapply(zoologThesaurus,
                                  function(x) attr(x, "punctuationSensitive"))
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
