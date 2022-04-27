@@ -41,7 +41,7 @@ where $x$ is the considered measure value and $x_\text{ref}$ is the correspondin
 
 Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. @davis1996measurements, @albarella2005neolithic) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in @von1976guide and @davis1992rapid. 
 
-In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
+In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length, width, and depth measurements of the anatomical elements still should not be directly aggregated for statistical analysis. 
 
 The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
 
@@ -167,9 +167,9 @@ The full list of functions is available under the zoolog *help* page. We list th
   : It condenses the calculated log ratio values into a reduced number of 
     features by grouping several measure log ratios and selecting or calculating 
     a representative feature value. By default the selected groups represent a
-    single dimension, i.e. *Length* and *Width*. Only one feature is extracted 
-    per group. Currently, two methods are possible: "priority" (default) or
-    "average". 
+    single dimension, i.e. *Length*, *Width*, and *Depth*. Only one feature is 
+    extracted per group. Currently, two methods are possible: "priority" 
+    (default) or "average". 
   : This operation is motivated by two circumstances. First, not all
     measurements are available for every bone specimen, which obstructs their
     direct comparison and statistical analysis. Second, several measurements 
@@ -183,7 +183,9 @@ The full list of functions is available under the zoolog *help* page. We list th
     and prioritization introduced in @trentacoste2018pre: 
     *Length* considers in order of priority *GL*, *GLl*, *GLm*, and *HTC*. 
     *Width* considers in order of priority  *BT*, *Bd*, *Bp*, *SD*, *Bfd*, 
-    and *Bfp*. This order maximises the robustness and
+    and *Bfp*. 
+    *Depth* considers in order of priority  *Dd*, *DD*, *BG*, and *Dp*. 
+    This order maximises the robustness and
     reliability of the measurements, as priority is given to the most abundant,
     more replicable, and less age dependent measurements. But users can set 
     their own features with any group of measures and priorities. 
@@ -344,13 +346,12 @@ write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
 ```
 
 ## Condensing log values
-After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in @trentacoste2018pre has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
+After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length, one width, and one depth value from each row and places these in new Length, Width, and Depth columns. The 'priority' method described in @trentacoste2018pre has been set as default. In this case, the default option has been used:
 ```{r}
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
 ```
-
-
+Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. 
 
 ## Standardizing the dataset nomenclature
 The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.

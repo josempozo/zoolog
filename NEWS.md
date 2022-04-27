@@ -14,6 +14,7 @@
    LogRatios warning messages and automatic detection of cases with same genus 
    but different taxon from reference.
 7. Corrected some entries in example dataset, dataValenzuelaLamas2008.
+8. Corrected bug on WriteThesaurusSet.
 
 # zoolog 0.5.0
 1. Included new functionality structuring the taxonomy hierarchy for the
