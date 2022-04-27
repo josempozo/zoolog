@@ -87,6 +87,11 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
 dataExample <- utils::read.csv2(dataFile,
                                 na.strings = "",
                                 encoding = "UTF-8")
+## For illustration purposes we keep now only a subset of cases to make
+## the example run sufficiently fast.
+## Avoid this step if you want to process the full example dataset.
+dataExample <- dataExample[1:1000, ]
+
 ## Compute the log-ratios and select the cases with available log ratios:
 dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
 ## We can observe the first lines (excluding some columns for visibility):
