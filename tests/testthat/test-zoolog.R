@@ -10,7 +10,7 @@ smthng <- "[[:print:][:space:]]+"
 test_that("LogRatio on data example with assumed taxon in genus.", {
   expect_warning(expect_warning(
     expect_equal(LogRatios(testData, ref = reference$Basel,
-                           mergedMeasures = list(c("GL", "GLl"))),
+                           mergedMeasures = list(c("GL", "GLl", "GLpe"))),
                  testDataWithLog_Basel, tolerance = 1e-10),
     paste0("Sus scrofa", smthng, "cases of Sus domesticus", smthng,
            "Ovis orientalis", smthng, "cases of Ovis aries", smthng,
@@ -25,7 +25,7 @@ test_that("LogRatio on data example with assumed taxon in genus.", {
 test_that("LogRatio on data example without assumed taxon in genus.", {
   expect_warning(
     expect_equal(LogRatios(testData, ref = reference$Basel,
-                           mergedMeasures = list(c("GL", "GLl")),
+                           mergedMeasures = list(c("GL", "GLl", "GLpe")),
                            useGenusIfUnambiguous = FALSE),
                  testDataWithLog_BaselNoGenus, tolerance = 1e-10),
     paste0("Data includes", smthng,
@@ -46,7 +46,7 @@ test_that("Defining caprineCategories using SubtaxonomySet.", {
 test_that("LogRatio expected result on data example with joinCategories.", {
   expect_equal(LogRatios(testData, ref = reference$NietoDavisAlbarella,
                          joinCategories = caprineCategories,
-                         mergedMeasures = list(c("GL", "GLl"))),
+                         mergedMeasures = list(c("GL", "GLl", "GLpe"))),
                testDataWithLog, tolerance = 1e-10)
 })
 
@@ -75,7 +75,7 @@ test_that("RemoveNACases on data example.", {
 test_that("LogRatios provides expected result on pruned data example.", {
   expect_equal(LogRatios(testDataPruned, ref = reference$NietoDavisAlbarella,
                          joinCategories = caprineCategories,
-                         mergedMeasures = list(c("GL", "GLl"))),
+                         mergedMeasures = list(c("GL", "GLl", "GLpe"))),
                testDataPrunedWithLog, tolerance=1e-10)
 })
 

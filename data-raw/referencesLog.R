@@ -17,7 +17,8 @@ lcCollateC({
   referenceSets <- read.csv2("inst/extdata/referenceSets.csv",
                              header = TRUE, row.names = 1,
                              fileEncoding = "UTF-8",
-                             check.names = FALSE)
+                             check.names = FALSE,
+                             stringsAsFactors = FALSE)
 
   reference <- apply(referenceSets, 1, AssembleReference,
                      ref.db = referencesDatabase,
