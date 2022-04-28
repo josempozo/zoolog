@@ -147,7 +147,7 @@ dataExample <- utils::read.csv2(dataFile,
 ## For illustration purposes we keep now only a subset of cases to make
 ## the example run sufficiently fast.
 ## Avoid this step if you want to process the full example dataset.
-dataExample <- dataExample[1:500, ]
+dataExample <- dataExample[1:400, ]
 ## We can observe the first lines (excluding some columns for visibility):
 head(dataExample)[, -c(6:20,32:64)]
 
