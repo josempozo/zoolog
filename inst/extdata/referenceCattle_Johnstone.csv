@@ -11,27 +11,27 @@
 ## Centre for Archaeology, Report 45/2002, tab.16, p. 70.
 ##########################################
 TAX;EL;Measure;Standard
-Bos;M3;W;15,4
-Bos;M3;L;35,6
-Bos;Scapula;SLC;43,1
-Bos;Humerus;BT;66,5
-Bos;Humerus;HTC;30,3
-Bos;MC;GL;177,1
-Bos;MC;SD;29,4
-Bos;MC;Bd;54,6
-Bos;MC;Dd;29,3
-Bos;MC;BatF;49,5
-Bos;MC;WCM;26,2
-Bos;MC;WCL;26,2
-Bos;MC;Davis.3;26,9
-Bos;Tibia;Bd;55,2
-Bos;Tibia;Dd;40,9
-Bos;Astragalus;GLl;59,3
-Bos;Astragalus;Bd;37,1
-Bos;Astragalus;Dl;32,9
-Bos;MT;Bd;49,9
-Bos;MT;Dd;29,3
-Bos;MT;BatF;46,9
-Bos;MT;WCM;23,9
-Bos;MT;WCL;22,9
-Bos;MT;Davis.3;25,6
+Bos taurus;M3;W;15,4
+Bos taurus;M3;L;35,6
+Bos taurus;Scapula;SLC;43,1
+Bos taurus;Humerus;BT;66,5
+Bos taurus;Humerus;HTC;30,3
+Bos taurus;MC;GL;177,1
+Bos taurus;MC;SD;29,4
+Bos taurus;MC;Bd;54,6
+Bos taurus;MC;Dd;29,3
+Bos taurus;MC;BatF;49,5
+Bos taurus;MC;WCM;26,2
+Bos taurus;MC;WCL;26,2
+Bos taurus;MC;Davis.3;26,9
+Bos taurus;Tibia;Bd;55,2
+Bos taurus;Tibia;Dd;40,9
+Bos taurus;Astragalus;GLl;59,3
+Bos taurus;Astragalus;Bd;37,1
+Bos taurus;Astragalus;Dl;32,9
+Bos taurus;MT;Bd;49,9
+Bos taurus;MT;Dd;29,3
+Bos taurus;MT;BatF;46,9
+Bos taurus;MT;WCM;23,9
+Bos taurus;MT;WCL;22,9
+Bos taurus;MT;Davis.3;25,6
