@@ -173,7 +173,7 @@ dataExampleWithLogs3 <- LogRatios(dataExample, ref = userReference)
 ## We can be interested in including the first and second phalanges without
 ## anterior-posterior identification ("phal 1" and "phal 2"), by computing
 ## their log ratios with respect to the reference of the corresponding
-## anterior first phalanges ("phal 1 ant" and "phal 2 ant", respectively).
+## anterior phalanges ("phal 1 ant" and "phal 2 ant", respectively).
 ## For this we use the optional argument joinCategories:
 categoriesPhalAnt <- list('phal 1 ant' = c("phal 1 ant", "phal 1"),
                           'phal 2 ant' = c("phal 2 ant", "phal 2"))
