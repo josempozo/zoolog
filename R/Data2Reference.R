@@ -37,7 +37,7 @@ Reference2Data <- function(ref,
                                    thesaurusSet$identifier))
   valueColumn <- which(InCategory(names(ref), refValuesName,
                                 thesaurusSet$identifier))
-  refMeasures <- levels(as.factor(ref[, measureColumn]))
+  refMeasures <- unique(ref[, measureColumn])
 
   refIdentification <- CollapseColumns(ref[, idColumns])
   refSamples <- unique(refIdentification)

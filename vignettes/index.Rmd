@@ -1,6 +1,6 @@
 ---
 title: "***zoolog***:  \n Zooarchaeological Analysis with Log-Ratios"
-author: "Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste,  Ariadna Nieto-Espinet and Silvia Guimarães Chiarelli"
+author: "Jose M Pozo, Angela Trentacoste,  Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, and Silvia Valenzuela-Lamas"
 email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
 date: "`r format(Sys.Date())`"
 bibliography: ../inst/REFERENCES.bib
@@ -41,9 +41,11 @@ where $x$ is the considered measure value and $x_\text{ref}$ is the correspondin
 
 Several different sets of standard reference values are included in the package. These standards include several published and widely used biometric datasets (e.g. @davis1996measurements, @albarella2005neolithic) as well as other less known standards. These references, as well as the data example provided with the package, are based on the measures and measure abbreviations defined in @von1976guide and @davis1992rapid. 
 
-In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length and width measurements of different anatomical elements still should not be directly compared or aggregated for statistical analysis. 
+In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length, width, and depth measurements of the anatomical elements still should not be directly aggregated for statistical analysis. 
 
-The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "Bos", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements. 
+The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
+
+The package also includes a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
 
 ## Acknowledgements
 We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.
@@ -71,7 +73,7 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 
 # Reference standards {#sec:refStandards}
 
-The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), and red deer (*Cervus elaphus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
+The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), fallow deer (*Dama mesopotamica*), gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*) and rabbit (*Oryctolagus cuniculus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
 
 The predefined reference sets included in *zoolog* are provided in the named list `reference`, currently comprising the following `r length(zoolog::reference)` sets:
 ```{r}
@@ -80,7 +82,7 @@ str(reference, max.level = 1)
 ```
 The reference set `reference$Combi` is the default reference for computing the [log ratios](../help/LogRatios), since it includes the most comprehensive reference for each species.
 
-The package includes also a `referencesDatabase` collecting the taxon-specific
+The package also includes a `referencesDatabase` collecting the taxon-specific
 reference standards from all the considered resources. Each reference set is
 composed of a different combination of taxon-specific standards selected from
 this `referencesDatabase`. The selection is defined by the data frame 
@@ -134,6 +136,18 @@ measureThesaurus
     abbreviations in @von1976guide) to be included. This thesaurus is case
     sensitive.
 
+# Taxonomy
+
+A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa has been introduced in the *zoolog* major release 1.0.0. The taxonomic hierarchy is structured up to the family level:
+``` {r, echo=FALSE}
+knitr::kable(zoologTaxonomy)
+```
+This taxonomy is intended to facilitate the management of cases recorded as identified at different taxonomic ranks and their match with the corresponding references.
+
+The taxonomy is integrated in the function [LogRatios](../help/LogRatios), enabling it to automatically match different species in data and reference that are under the same genus. For instance, data of *Bos taurus* can be matched with reference of *Bos primigenius*, since both are *Bos*. It also enables the function `LogRatios` to detect when a case taxon has been only partially identified and recorded at a higher taxonomic rank, such as tribe or family, and to suggest the user the set of possible reference species.
+
+Besides, it is complemented with a series of functions enabling the user to query for the [subtaxonomy](../help/Subtaxonomy) or the set of species under a queried taxon at any taxonomic rank. 
+
 # Functions
 The full list of functions is available under the zoolog *help* page. We list them here sorted by their prominence for a typical user, and grouped by functionality:
 
@@ -153,9 +167,9 @@ The full list of functions is available under the zoolog *help* page. We list th
   : It condenses the calculated log ratio values into a reduced number of 
     features by grouping several measure log ratios and selecting or calculating 
     a representative feature value. By default the selected groups represent a
-    single dimension, i.e. *Length* and *Width*. Only one feature is extracted 
-    per group. Currently, two methods are possible: "priority" (default) or
-    "average". 
+    single dimension, i.e. *Length*, *Width*, and *Depth*. Only one feature is 
+    extracted per group. Currently, two methods are possible: "priority" 
+    (default) or "average". 
   : This operation is motivated by two circumstances. First, not all
     measurements are available for every bone specimen, which obstructs their
     direct comparison and statistical analysis. Second, several measurements 
@@ -169,7 +183,9 @@ The full list of functions is available under the zoolog *help* page. We list th
     and prioritization introduced in @trentacoste2018pre: 
     *Length* considers in order of priority *GL*, *GLl*, *GLm*, and *HTC*. 
     *Width* considers in order of priority  *BT*, *Bd*, *Bp*, *SD*, *Bfd*, 
-    and *Bfp*. This order maximises the robustness and
+    and *Bfp*. 
+    *Depth* considers in order of priority  *Dd*, *DD*, *BG*, and *Dp*. 
+    This order maximises the robustness and
     reliability of the measurements, as priority is given to the most abundant,
     more replicable, and less age dependent measurements. But users can set 
     their own features with any group of measures and priorities. 
@@ -195,11 +211,27 @@ The full list of functions is available under the zoolog *help* page. We list th
 [**Nomenclature standardization**](../help/StandardizeNomenclature)
   : This includes two functions enabling the user to map data with heterogeneous
     nomenclature into a standard one as defined in a thesaurus:
-    
+
     * `StandardizeNomenclature` standardizes a character vector according to 
       a given thesaurus.
     * `StandardizeDataSet` standardizes column names and values of a data 
       frame according to a thesaurus set.
+
+[**Subtaxonomy**](../help/Subtaxonomy)
+  : This includes three functions enabling the user to query for some 
+  information on the subtaxonomy under a queried taxon at any taxonomic 
+  rank:
+
+    * `Subtaxonomy` provides the subtaxonomy dataframe collecting the 
+    species (rows) included in the queried taxon, and the taxonomic ranks
+    (columns) up to its level.
+    * `SubtaxonomySet` provides the set (character vector without repetions) 
+    of taxa, at any taxonomic rank, under 
+    the queried taxon.
+    * `GetSpeciesIn` provides the set of species included in the queried taxon.
+
+  : By default, the subtaxonomy information is extracted from the *zoolog* 
+  taxonomy.
 
 [**AssembleReference**](../help/AssembleReference)
   : It allows the user to build new references assembling the desired
@@ -234,14 +266,16 @@ Finally, the resulting dataset is saved in a file in csv format.
 
 The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the [example dataset](../help/dataValenzuelaLamas2008) from @valenzuela2008alimentacio included in the package is used:
 
+```{r, echo = FALSE}
+options(stringsAsFactors = FALSE)
+```
 ```{r}
 library(zoolog)
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz", 
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote = "\"", header = TRUE, na.strings = "",
-                 encoding = "UTF-8",
-                 stringsAsFactors = TRUE)
+                 encoding = "UTF-8")
 knitr::kable(head(data)[, -c(6:20,32:64)])
 ```
 To enhance the visibility, we have shown only the most relevant columns.
@@ -251,6 +285,15 @@ We now calculate the log-ratios using the function `LogRatios`. Only measurement
 dataWithLog <- LogRatios(data)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
+
+### A note on the warnings of LogRatios
+Observe that `LogRatios` has output two warnings above. The first one informs the user that the data includes some cases of recorded taxa that did not match any species in the reference, but was matched by genus. In many cases this can be the behaviour expected by the user. For instance, using the reference of *Sus scrofa* for computing the log ratios of cases of *Sus domesticus*, can be acceptable if no better reference is available or if both (sub)species are being compared. The warning also includes cases recorded by genus, a recording practice that is understandable when working only with one species in the genus, such as *Oryctolagus* or *Ovis* above. However, the warning also informs the user that this matching by genus can be suppressed by setting the parameter `useGenusIfUnambiguous = FALSE`. This can be the case if the user wants to exclude from the analysis the cases with not matching species. Besides, this warning could make the user realize that the wrong reference was set by mistake.
+
+The second warning informs the user that the data includes some cases recorded with a taxon not specifying a species or genus, but at a higher taxonomical rank (for instance undecided *ovis/capra* (equivalent to tribe *Caprini*)). It also informs of the cases recorded by the genus but for which the reference includes more than one species (as happens with *Equus* above). In addition, the user is remembered of the option to use the parameter `joinCategories` to indicate which reference species should be used for them.
+
+These relationships between taxonomical categories is possible thanks to the taxonomy included in the package. The user can include their own taxonomy if desired.
+
+In the following examples, these warnings are suppressed unless some particular message is of interest for them.
 
 ## Dealing with *lazy* datasets
 If we observe the example dataset more carefully, we can see that the measures
@@ -262,23 +305,30 @@ select them with the help of the thesaurus without requiring to know the terms a
 AScases <- InCategory(dataWithLog$Os, "astragalus", zoologThesaurus$element)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
-According to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+For the involved taxa, according to the measure definitions, astragali should have no *GL* measurement, but *GLl*. However, in the example dataset the *GLl* measurements have been recorded merged in the *GL* column. This is a data-entry simplification that is used by some researchers. It is possible because *GLl* is only relevant for the astragalus, while *GL* is not applicable to it. Thus, there cannot be any ambiguity between both measures since they can be identified by the bone element. However, since the zoolog reference uses the proper measure name for each bone element (*GLl* for the astragalus), the reference measure has not been correctly identified. Consequently, the log ratio *logGL* has `NA` values and the column *logGLl* does not exists.
+
+The same effect happens for the measure *GLpe*, only relevant for the phalanges. 
 
 The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use
-```{r}
-GLandGLl <- list(c("GL", "GLl"))
-dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
+```{r, warning = FALSE}
+GLVariants <- list(c("GL", "GLl", "GLpe"))
+dataWithLog <- LogRatios(data, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 ```
 This option allows us to automatically select, for each bone element, the corresponding measure present in the reference. Observe that now the log ratios have been computed and assigned to the column *logGL*.
 
 ## Using the same ovis reference for all caprines
 We could be interested in obtaining the log ratios of all caprines, including *Ovis aries*, *Capra hircus*, and undetermined *Ovis/Capra*, with respect to the reference for *Ovis aries*. This can be set using the argument `joinCategories`.
-```{r}
-caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
-dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
+```{r, warning = FALSE}
+caprineCategory <- list(ovar = SubtaxonomySet("caprine"))
+dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 ```
+The category to join can be manually defined, but here we have conveniently used the function `Subtaxonomy` applied to the tribe *Caprini*:
+```{r}
+SubtaxonomySet("caprine")
+```
+
 Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference ("ovar").
 
 ## Pruning the data from cases with no available measure
@@ -289,20 +339,19 @@ knitr::kable(head(dataWithLogPruned[, -c(6:20,32:64)]))
 ```
 
 You may want to write the resulting file in the working directory (you need to set it first):
-```{r, eval = FALSE}
+```{r, eval = FALSE, warning = FALSE}
 write.csv2(dataWithLogPruned, "myDataWithLogValues.csv", 
            quote=FALSE, row.names=FALSE, na="", 
            fileEncoding="UTF-8")
 ```
 
 ## Condensing log values
-After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length and one width value from each row and places these in new Length and Width columns.The 'priority' method described in @trentacoste2018pre has been set as default. Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. In this case, the default option has been used:
+After calculating log ratios using the `LogRatios` function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The `CondenseLogs` function extracts one length, one width, and one depth value from each row and places these in new Length, Width, and Depth columns. The 'priority' method described in @trentacoste2018pre has been set as default. In this case, the default option has been used:
 ```{r}
 dataWithSummary <- CondenseLogs(dataWithLogPruned)
 knitr::kable(head(dataWithSummary)[, -c(6:20,32:64,72:86)])
 ```
-
-
+Nevertheless, other options (e.g. average of all width log values for a given specimen) can be chosen if preferred. 
 
 ## Standardizing the dataset nomenclature
 The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
@@ -317,7 +366,7 @@ knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
 We may be interested in selecting all caprine elements. This can be done even without standardizing the data using the function `InCategory`:
 ```{r}
 dataOC <- subset(dataWithSummary, InCategory(Especie, 
-                                             c("sheep", "capra", "oc"),
+                                             SubtaxonomySet("caprine"),
                                              zoologThesaurus$taxon))
 knitr::kable(head(dataOC)[, -c(6:20,32:64)])
 ```
@@ -390,12 +439,12 @@ Here we reorder the factor levels of `dataOCStandardized$Taxon` to make
 the order of the boxplots more intuitive.
 
 ```{r}
-levels0 <- levels(dataOCStandardized$Taxon)
+levels0 <- unique(dataOCStandardized$Taxon)
 levels0
 ```
 ```{r}
 dataOCStandardized$Taxon <- factor(dataOCStandardized$Taxon, 
-                                   levels = levels0[c(2,3,1)])
+                                   levels = levels0[c(1,3,2)])
 levels(dataOCStandardized$Taxon)
 ```
 and assign specific colours for each category:

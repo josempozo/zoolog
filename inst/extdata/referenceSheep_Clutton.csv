@@ -60,21 +60,21 @@ OVAR;Metatarsus;SD;11,87
 OVAR;Metatarsus;Bd;22,63
 OVAR;Metatarsus;Dd;15,42
 OVAR;Metatarsus;WCM;9,65
-OVAR;P1 ant;GL;34,74
+OVAR;P1 ant;GLpe;34,74
 OVAR;P1 ant;Bp;11,9
 OVAR;P1 ant;Dp;14,54
 OVAR;P1 ant;SD;9,77
 OVAR;P1 ant;Bd;11,05
-OVAR;P1 post;GL;34,3
+OVAR;P1 post;GLpe;34,3
 OVAR;P1 post;Bp;11,08
 OVAR;P1 post;Dp;14
 OVAR;P1 post;SD;8,69
 OVAR;P1 post;Bd;9,9
-OVAR;P2 ant;GL;21,62
+OVAR;P2 ant;GLpe;21,62
 OVAR;P2 ant;Bp;11,11
 OVAR;P2 ant;Dp;12,27
 OVAR;P2 ant;Bd;9,69
-OVAR;P2 post;GL;21,14
+OVAR;P2 post;GLpe;21,14
 OVAR;P2 post;Bp;10,25
 OVAR;P2 post;Dp;11,14
 OVAR;P2 post;Bd;8,47

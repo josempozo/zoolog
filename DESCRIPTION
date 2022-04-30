@@ -1,16 +1,12 @@
 Package: zoolog
 Title: Zooarchaeological Analysis with Log-Ratios
-Version: 0.5.0.001
-Date: 2022-4-8
+Version: 1.0.0.9000
+Date: 2022-4-13
 Authors@R: c(
     person(c("Jose","M"), "Pozo",
            role = c("aut", "cre"),
            email = "josmpozo@gmail.com",
            comment = c(ORCID = "0000-0002-0759-3510")),
-    person("Silvia", "Valenzuela-Lamas",
-           role = c("aut"),
-           email = "svalenzuela@imf.csic.es",
-           comment = c(ORCID = "0000-0001-9886-0372")),
     person("Angela", "Trentacoste",
            role = c("aut"),
            email = "angela.trentacoste@arch.ox.ac.uk",
@@ -22,7 +18,11 @@ Authors@R: c(
     person("Silvia", "Guimarães Chiarelli",
            role = c("aut"),
            email = "biguimaraes@hotmail.com",
-           comment = c(ORCID = "0000-0002-3778-3315")))
+           comment = c(ORCID = "0000-0002-3778-3315")),
+    person("Silvia", "Valenzuela-Lamas",
+           role = c("aut"),
+           email = "svalenzuela@imf.csic.es",
+           comment = c(ORCID = "0000-0001-9886-0372")))
 Description: Includes functions and reference data to 
     generate and manipulate log-ratios (also known as log size index (LSI)
     values) from measurements obtained on zooarchaeological material. Log
@@ -53,6 +53,7 @@ Imports:
     utils,
     stringi,
     Rdpack (>= 0.7)
+Config/testthat/edition: 3
 RdMacros: Rdpack
 VignetteBuilder: knitr
 URL: https://josempozo.github.io/zoolog/

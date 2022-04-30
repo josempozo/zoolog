@@ -4,15 +4,15 @@
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ##########################################
-Bos taurus;Bos primigenius;Ovis aries;Ovis orientalis;Capra hircus;Capra aegagrus;Ovis/Capra;Sus domesticus;Sus scrofa;Cervus elaphus;Dama mesopotamica;Gazella gazella;Equus asinus;Equus caballus;Oryctolagus cuniculus
-bota;BP;ovar;ovis musimon;cahi;wild goat;oc;sudo;wild boar;ceel;;gazelle;Equus africanus asinus;Equus ferus caballus;O cuniculus
-bos;bos prim;ovis;muflon;capra;cabra salvatge;caprine;sus;senglar;cervus;;;E asinus;E caballus;European rabbit
-cattle;auroch;sheep;mouflon;goat;cabra selvagem ;s/g;pig;porc senglar;red deer;;;donkey;horse;rabbit
-BT;urus;OA;;CH;cabra salvaje;sheep/goat;SS;jabali;CE;;;ass;caballo;conejo
-bovino;ure;oveja;;cabra;chevre sauvage;Sh/G;cerdo;javali;ciervo;;;asno;cavall;conill
-Grands Bovides Boeuf;uro;Ovicaprines Mouton;;pecora;;ovicaprino;Suides Porc;sanglier;Cervides Cerf;;;ase;cheval;lapin
-vaca;auroque;ov;;cabra;;O/C;porc;wss;CEE;;;ane;cavalo;coelho
-B;;ovella;;CAH;;Ovicaprines Ovis-Capra;Suides;;cervol;;;;;
-;;OVA;;Ovicaprines Chevre;;ovicapri;;;;;;;;
-;;;;;;O;;;;;;;;
-;;;;;;Caprini;;;;;;;;
+Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus
+bota;BP;BoSP;ovar;ovis musimon;OvSP;cahi;wild goat;CaSP;Ovis/Capra;sudo;wild boar;SuSP;ceel;;;;gazelle;;Equus africanus asinus;Equus ferus caballus;EqSP;O cuniculus;oryct
+cattle;bos prim;B;sheep;muflon;;goat;cabra salvatge;;oc;pig;senglar;;red deer;;;;;;E asinus;E caballus;EquSP;European rabbit;
+BT;auroch;;OA;mouflon;;CH;cabra selvagem ;;caprine;SS;porc senglar;;CE;;;;;;donkey;horse;;rabbit;
+bovino;urus;;oveja;;;cabra;cabra salvaje;;s/g;cerdo;jabali;;ciervo;;;;;;ass;caballo;;conejo;
+Grands Bovides Boeuf;ure;;Ovicaprines Mouton;;;pecora;chevre sauvage;;sheep/goat;Suides Porc;javali;;Cervides Cerf;;;;;;asno;cavall;;conill;
+vaca;uro;;ov;;;cabra;;;Sh/G;porc;sanglier;;CEE;;;;;;ase;cheval;;lapin;
+;auroque;;ovella;;;CAH;;;ovicaprino;Suides;wss;;cervol;;;;;;ane;cavalo;;coelho;
+;;;OVA;;;Ovicaprines Chevre;;;O/C;;susc;;;;;;;;eqas;eqca;;orcu;
+;;;;;;;;;Ovicaprines Ovis-Capra;;;;;;;;;;;;;;
+;;;;;;;;;ovicapri;;;;;;;;;;;;;;
+;;;;;;;;;O;;;;;;;;;;;;;;

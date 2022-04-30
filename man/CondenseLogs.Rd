@@ -7,7 +7,7 @@
 CondenseLogs(
   data,
   grouping = list(Length = c("GL", "GLl", "GLm", "HTC"), Width = c("BT", "Bd", "Bp",
-    "SD", "Bfd", "Bfp")),
+    "SD", "Bfd", "Bfp"), Depth = c("Dd", "DD", "BG", "Dp")),
   method = "priority"
 )
 }
@@ -16,9 +16,11 @@ CondenseLogs(
 
 \item{grouping}{A list of named character vectors. The list includes a vector
 per selected group. Each vector gives the group of measurements in order of
-priority. By default the groups are \code{Length = c("GL", "GLl", "GLm", "HTC")}
-and \code{Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")}. The order is
-irrelevant for \code{method = "average"}.}
+priority. By default the groups are
+\code{Length = c("GL", "GLl", "GLm", "HTC")},
+\code{Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")}, and
+\code{Depth = c("Dd", "DD", "BG", "Dp")}.
+The order is irrelevant for \code{method = "average"}.}
 
 \item{method}{Character string indicating which method to use for extracting
 the condensed features. Currently accepted methods: \code{"priority"}
@@ -63,6 +65,7 @@ mean per group, ignoring the non-available measures.
 We provide the following by-default group and prioritization:
 For lengths, the order of priority is: GL, GLl, GLm, HTC.
 For widths, the order of priority is: BT, Bd, Bp, SD, Bfd, Bfp.
+For depths, the order of priority is: Dd, DD, BG, Dp
 This order maximises the robustness and reliability of the measurements,
 as priority is given to the most abundant, more replicable, and less age
 dependent measurements.
@@ -83,8 +86,12 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package="zoolog")
 dataExample <- utils::read.csv2(dataFile,
                                 na.strings = "",
-                                encoding = "UTF-8",
-                                stringsAsFactors = TRUE)
+                                encoding = "UTF-8")
+## For illustration purposes we keep now only a subset of cases to make
+## the example run sufficiently fast.
+## Avoid this step if you want to process the full example dataset.
+dataExample <- dataExample[1:1000, ]
+
 ## Compute the log-ratios and select the cases with available log ratios:
 dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
 ## We can observe the first lines (excluding some columns for visibility):

@@ -34,12 +34,12 @@
 #' thesaurus <- zoologThesaurus$taxon
 #' thesaurus
 #' ## Standardize an heterodox vector of taxa:
-#' StandardizeNomenclature(c("bota", "rabbit", "pig", "cattle"),
+#' StandardizeNomenclature(c("bota", "giraffe", "pig", "cattle"),
 #'                         thesaurus)
-#' ## Observe that "rabbit" is kept unchanged since it is not included in
+#' ## Observe that "giraffe" is kept unchanged since it is not included in
 #' ## any thesaurus category.
 #' ## But if mark.unknown is set to TRUE, it is marked as NA:
-#' StandardizeNomenclature(c("bota", "rabbit", "pig", "cattle"),
+#' StandardizeNomenclature(c("bota", "giraffe", "pig", "cattle"),
 #'                         thesaurus, mark.unknown = TRUE)
 #'
 #' ## This thesaurus is not case sensitive:
@@ -53,8 +53,7 @@
 #'                         package = "zoolog")
 #' dataExample <- utils::read.csv2(dataFile,
 #'                                 na.strings = "",
-#'                                 encoding = "UTF-8",
-#'                                 stringsAsFactors = TRUE)
+#'                                 encoding = "UTF-8")
 #' ## Observe mainly the first columns:
 #' head(dataExample[,1:5])
 #' ## Stadardize the dataset:

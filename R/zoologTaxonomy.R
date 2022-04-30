@@ -2,14 +2,15 @@
 #'
 #' The taxonomy hierarchy for all taxa included in the osteometrical references
 #' of the package \pkg{zoolog}.
-#' This is used allow the users to group the taxa by any taxonomical category
-#' from \emph{genus} to \emph{Family}. See
-#' \code{\link{GetTaxaIn}}.
+#' This is used to allow the users to group the taxa by any taxonomical category
+#' from \emph{species} to \emph{family}. See
+#' \code{\link{Subtaxonomy}}.
 #'
 #' @format
 #' The taxonomy is given as a data.frame with columns for
-#' \emph{Taxon}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and \emph{Family}.
-#' Each row lists the information for one taxon:
+#' \emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and
+#' \emph{Family}.
+#' Each row lists the information for one species:
 #'
 #' ``` {r, echo=FALSE}
 #' knitr::kable(zoologTaxonomy)

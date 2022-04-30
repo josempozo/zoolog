@@ -29,3 +29,5 @@
 ^knitr.sty$
 ^inst/logoAttempts$
 ^man/figures$
+^localScripts$
+^localR$

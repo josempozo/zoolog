@@ -71,7 +71,6 @@
 #' ```
 #'
 #' ``` {r, echo=FALSE}
-#' options(knitr.kable.NA = '')
 #' knitr::kable(referenceSets)
 #' ```
 #'
