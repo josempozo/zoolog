@@ -15,6 +15,10 @@
    but different taxon from reference.
 7. Corrected some entries in example dataset, dataValenzuelaLamas2008.
 8. Corrected bug on WriteThesaurusSet.
+9. Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as 
+   Davis-SD in order to resolve its incompatibility with Von den Driesch’s SD.
+   This has been modified in Davis' reference for sheep and added to the 
+   thesaurus for measures.
 
 # zoolog 0.5.0
 1. Included new functionality structuring the taxonomy hierarchy for the
