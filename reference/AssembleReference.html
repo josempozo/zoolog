@@ -18,7 +18,7 @@ the available specimens in the references' database."><!-- mathjax --><script sr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.0.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.9000</span>
       </span>
     </div>
 
@@ -94,25 +94,25 @@ corresponding taxon and source. The default
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## `referenceSets` includes a series of predefined reference compositions.</span></span>
 <span class="r-in"><span class="va">referenceSets</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Bos taurus Bos primigenius Ovis aries Ovis orientalis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella      Nieto            &lt;NA&gt;      Davis            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                    Basel            &lt;NA&gt;       &lt;NA&gt;           Basel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Combi                    Nieto            &lt;NA&gt;    Clutton            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                 &lt;NA&gt;        Degerbol       &lt;NA&gt;        Uerpmann</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella      Nieto                      Davis                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                    Basel                                      Basel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Combi                    Nieto                    Clutton                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                             Degerbol                   Uerpmann</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Capra hircus Capra aegagrus Sus domesticus Sus scrofa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella         &lt;NA&gt;           &lt;NA&gt;      Albarella       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                      Basel           &lt;NA&gt;           &lt;NA&gt;      Basel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Combi                    Clutton           &lt;NA&gt;           &lt;NA&gt;      Basel</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                   &lt;NA&gt;       Uerpmann           &lt;NA&gt;      Hongo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella                                  Albarella           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                      Basel                                    Basel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Combi                    Clutton                                    Basel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                              Uerpmann                     Hongo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Cervus elaphus Dama mesopotamica Gazella gazella</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella           &lt;NA&gt;              &lt;NA&gt;            &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                        Basel              &lt;NA&gt;            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella                                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                        Basel                                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combi                        Basel             Haifa           Haifa</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                     &lt;NA&gt;              &lt;NA&gt;            &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                                                           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Equus asinus Equus caballus Oryctolagus cuniculus</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella         &lt;NA&gt;           &lt;NA&gt;                  &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                       &lt;NA&gt;           &lt;NA&gt;                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella                                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Basel                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combi                      Haifa      Johnstone            Nottingham</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                   &lt;NA&gt;           &lt;NA&gt;                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                                                            </span>
 <span class="r-in"><span class="co">## Actually the package `references` is build from them.</span></span>
 <span class="r-in"><span class="co">## We can rebuild any of them:</span></span>
 <span class="r-in"><span class="va">referenceCombi</span> <span class="op">&lt;-</span> <span class="fu">AssembleReference</span><span class="op">(</span><span class="va">referenceSets</span><span class="op">[</span><span class="st">"Combi"</span>, <span class="op">]</span><span class="op">)</span></span>
@@ -133,11 +133,11 @@ corresponding taxon and source. The default
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
+  <p></p><p>Developed by Jose M Pozo, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, Silvia Valenzuela-Lamas.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer></div>

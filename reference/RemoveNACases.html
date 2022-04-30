@@ -21,7 +21,7 @@ The default setting removes the rows with no log-ratio available."><!-- mathjax 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.0.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.9000</span>
       </span>
     </div>
 
@@ -95,8 +95,7 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-in">                        package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
 <span class="r-in">                                na.strings <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span>,</span>
-<span class="r-in">                                stringsAsFactors <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
 <span class="r-in"><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
@@ -115,15 +114,14 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Remove the cases not including any measurement present in the reference.</span></span>
-<span class="r-in"><span class="va">refMeasureNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">reference</span><span class="op">$</span><span class="va">Combi</span><span class="op">$</span><span class="va">Measure</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">refMeasureNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">reference</span><span class="op">$</span><span class="va">Combi</span><span class="op">$</span><span class="va">Measure</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">refMeasureNames</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BFd"  "BFp"  "BT"   "Bd"   "Bp"   "Dd"   "Dp"   "GL"   "GLc"  "GLl" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] "HTC"  "SD"   "BG"   "BPC"  "DC"   "DPA"  "Dl"   "GB"   "GLP"  "H"   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] "L"    "LA"   "LG"   "SLC"  "WCM"  "GLm"  "LAR"  "LeP"  "SDO"  "SH"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "DEL"  "DEM " "DVL"  "DVM"  "Dm"   "GL "  "GLpe" "WCL"  "1"    "10"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [41] "2"    "24"   "3"    "34"   "38"   "40"   "41"   "43"   "45"   "48"  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [51] "50"   "9"    "DFd"  "DS"   "GH"   "GLC"  "Ll"   "GBT"  "GDT"  "GLT" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [61] "HS"   "LFo"  "SB"   "SBT"  "SDT" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] GL   GLc  Bp   Dp   SD   Bd   BT   HTC  Dd   BFp  BFd  GLl  GLpe SLC  GLP </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] LG   BG   DPA  BPC  WCM  LA   DC   Dl   GB   L    H    SDO  LAR  SH   GLm </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] LeP  GL   DEM  DVM  DEL  DVL  WCL  Dm   1    2    3    9    10   24   34  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 38   40   41   43   45   48   50   GLC  Ll   DFd  GH   DS   GLT  SBT  SDT </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] GBT  GDT  HS   LFo  SB  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65 Levels: BFd BFp BT Bd Bp Dd Dp GL GLc GLl GLpe HTC SD BG BPC DC DPA ... SDT</span>
 <span class="r-in"><span class="va">dataExamplePruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExample</span>,</span>
 <span class="r-in">                                   measureNames <span class="op">=</span> <span class="va">refMeasureNames</span><span class="op">)</span></span>
 <span class="r-in"><span class="co">## The first lines of the output data frame show at least one available</span></span>
@@ -146,6 +144,17 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## If we compute first the log-ratios</span></span>
 <span class="r-in"><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Ovis aries used for cases of Ovis.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Data includes some cases recorded as</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Equus (which is a Genus)</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Equus asinus or Equus caballus could be used.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
 <span class="r-in"><span class="co">## the cases not including any log-ratio can be removed with the</span></span>
 <span class="r-in"><span class="co">## default logPrefix</span></span>
 <span class="r-in"><span class="va">dataExampleWithLogsPruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span></span>
@@ -157,27 +166,27 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  ALP  4674 10227    cahi      hum    NA    NA   NA   NA   NA 26.0 25.7 22.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  ALP  4085 10253    cahi      hum    NA    NA   NA   NA   NA 27.9 27.3 23.2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  TFC    24   407    ceel       mc 262.7  41.3 30.8 25.0 21.2 41.1 27.1   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   GLc BFd Dl       logGL       logBp       logDp      logSD       logBd</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  NA  NA NA -0.10786052 -0.07991177 -0.07265930  0.2629585 -0.08911977</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  NA  NA NA -0.09992073 -0.09327573 -0.07620458 -0.1090810 -0.12428419</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  NA  NA NA          NA  0.40167955          NA -0.2116296 -0.15130497</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  NA  NA NA          NA          NA          NA         NA -0.17408218</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  NA  NA NA          NA          NA          NA         NA -0.14345133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA          NA          NA          NA         NA -0.03354115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         logDd logBT logGLc logBFd logDl logGB logSLC logGLP logBG logLG logDPA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -0.06787875    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.08282727    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -0.05659774    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          NA    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   logBPC logLA logLAR logSH logSB logL logH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     NA    NA     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   GLc BFd Dl logGL       logBp       logDp      logSD       logBd       logDd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  NA  NA NA    NA -0.07991177 -0.07265930  0.2629585 -0.08911977          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  NA  NA NA    NA -0.09327573 -0.07620458 -0.1090810 -0.12428419          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  NA  NA NA    NA  0.40167955          NA -0.2116296 -0.15130497 -0.06787875</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  NA  NA NA    NA          NA          NA         NA -0.17408218 -0.08282727</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  NA  NA NA    NA          NA          NA         NA -0.14345133 -0.05659774</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA    NA          NA          NA         NA -0.03354115          NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   logBT logGLc logBFd logDl logGB logSLC logGLP logBG logLG logDPA logBPC logLA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6    NA     NA     NA    NA    NA     NA     NA    NA    NA     NA     NA    NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   logLAR logSH logSB logL logH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     NA    NA    NA   NA   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     NA    NA    NA   NA   NA</span>
 </code></pre></div>
     </div>
   </div>
@@ -188,11 +197,11 @@ removing the rows with missing values for all measurements in the list.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
+  <p></p><p>Developed by Jose M Pozo, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, Silvia Valenzuela-Lamas.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer></div>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.5.0.001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0.9000</span>
       </span>
     </div>
 
@@ -53,6 +53,18 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.0" id="zoolog-100">zoolog 1.0.0<a class="anchor" aria-label="anchor" href="#zoolog-100"></a></h2>
+<ol style="list-style-type: decimal"><li>Completed the zoologTaxonomy as a new functionality structuring the taxonomy hierarchy for the taxa used in the references.</li>
+<li>New functions Subtaxonomy, SubtaxonomySet, and GetTaxaIn. All of them taking into account the zoologThesaurus$taxon</li>
+<li>Added new categories in zoologThesaurus$taxon to include also genera, in addition to taxa.</li>
+<li>Integrated the zoologTaxonomy into the function LogRatios. This allows the automatic detection of data and reference sharing the same genus, although of different taxa.</li>
+<li>Extended vignettes to incorporate description and illustration of the new functionalities.</li>
+<li>Added several tests for the new functionalities: SubtaxonomySet function and LogRatios warning messages and automatic detection of cases with same genus but different taxon from reference.</li>
+<li>Corrected some entries in example dataset, dataValenzuelaLamas2008.</li>
+<li>Corrected bug on WriteThesaurusSet.</li>
+<li>Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis-SD in order to resolve its incompatibility with Von den Driesch’s SD. This has been modified in Davis’ reference for sheep and added to the thesaurus for measures.</li>
+</ol></div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.5.0" id="zoolog-050">zoolog 0.5.0<a class="anchor" aria-label="anchor" href="#zoolog-050"></a></h2>
 <ol style="list-style-type: decimal"><li>Included new functionality structuring the taxonomy hierarchy for the taxa used in the references. There is now a zoologTaxonomy and a function, GetTaxaIn, facilitating its use.</li>
 <li>Corrected a few measurements in the example dataset.</li>
@@ -60,8 +72,7 @@
 </ol></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.2" id="zoolog-042">zoolog 0.4.2<a class="anchor" aria-label="anchor" href="#zoolog-042"></a></h2>
-<ol style="list-style-type: decimal"><li>Corrected a few measurements in the reference Equus_Johnstone.</li>
-</ol></div>
+<ol style="list-style-type: decimal"><li>Corrected a few measurements in the reference Equus_Johnstone.</li></ol></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.1" id="zoolog-041">zoolog 0.4.1<small>2021-09-02</small><a class="anchor" aria-label="anchor" href="#zoolog-041"></a></h2>
 <ol style="list-style-type: decimal"><li>Clarify in the documentation that log ratios are defined using base 10 logarithms.</li>
@@ -110,11 +121,11 @@
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by Jose M Pozo, Silvia Valenzuela-Lamas, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli.</p>
+  <p></p><p>Developed by Jose M Pozo, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, Silvia Valenzuela-Lamas.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer></div>
