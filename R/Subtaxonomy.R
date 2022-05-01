@@ -58,14 +58,19 @@
 Subtaxonomy <- function(taxon, taxonomy = zoologTaxonomy,
                         thesaurus = zoologThesaurus$taxon)
 {
-  groupLevel <- TaxonomyLevel(taxon, taxonomy, thesaurus, as.numeric = TRUE)
+  taxonomyStandardized <- as.data.frame(
+    sapply(taxonomy, StandardizeNomenclature, thesaurus = thesaurus),
+    stringsAsFactors = FALSE
+  )
+  taxonStandardized <- StandardizeNomenclature(taxon, thesaurus)
+  groupLevel <- which(sapply(taxonomyStandardized,
+                             function(x) any(x == taxonStandardized)))
   if(length(groupLevel) == 0)
     stop(paste(taxon, " is not recognized in zoologTaxonomy."))
   if(length(groupLevel) > 1)
     stop(paste("Ambiguity detected in zoologTaxonomy: \n",
                taxon, " is in more than one level."))
-  selectedRows <- InCategory(taxonomy[, groupLevel], taxon, thesaurus) |
-                  taxonomy[, groupLevel] == taxon
+  selectedRows <- taxonomyStandardized[, groupLevel] == taxonStandardized
   taxonomy[selectedRows, 1:groupLevel]
 }
 
@@ -83,8 +88,6 @@ SubtaxonomySet <- function(taxon, taxonomy = zoologTaxonomy,
 GetSpeciesIn <- function(taxon, taxonomy = zoologTaxonomy,
                          thesaurus = zoologThesaurus$taxon)
 {
-#  as.character(
-#    taxonomy$Taxon[as.logical(rowSums(taxonomy == taxon))])
   as.character(Subtaxonomy(taxon, taxonomy, thesaurus)$Species)
 }
 

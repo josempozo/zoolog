@@ -48,7 +48,7 @@ The package includes a *zoolog thesaurus* to facilitate its usage by research te
 The package also includes a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
 
 ## Acknowledgements
-We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, and Carly Ameen and Helene Benkert from the University of Exeter for providing additional reference sets.
+We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the University of Basel (Switzerland) for making the reference values of several specimens available through the ICAZ Roman Period Working Group, which have been included here with their permission. We also thank Francesca Slim and Dimitris Filioglou from the University of Groningen, Claudia Minniti from University of Salento, Sierra Harding and Nimrod Marom from the University of Haifa, Carly Ameen and Helene Benkert from the University of Exeter, and Mikolaj Lisowski from the University of York for providing additional reference sets. Allowen Evin (CNRS-ISEM Montpellier) saw potential pitfalls in the use of Davis' references for sheep, which have been now solved.
 
 The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.
 
@@ -74,6 +74,8 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 # Reference standards {#sec:refStandards}
 
 The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), fallow deer (*Dama mesopotamica*), gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*) and rabbit (*Oryctolagus cuniculus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
+
+These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in @von1976guide and @davis1992rapid. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in Release 1.0.0.
 
 The predefined reference sets included in *zoolog* are provided in the named list `reference`, currently comprising the following `r length(zoolog::reference)` sets:
 ```{r}
