@@ -1,6 +1,9 @@
 # zoolog 1.0.1
-1. Corrected reference Steppan for Bos primigenius. Some measurements had been
+1. Corrected Steppan's standard for Bos primigenius. Some measurements had been
    missing.
+2. Corrected Davis’ standard. The change from measure SD to Davis.SD in previous
+   release was an over-correction. Only tibia should have been affected by this
+   change.
 
 # zoolog 1.0.0
 1. Completed the zoologTaxonomy as a new functionality structuring the taxonomy
@@ -20,7 +23,7 @@
 7. Corrected some entries in example dataset, dataValenzuelaLamas2008.
 8. Corrected bug on WriteThesaurusSet.
 9. Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as 
-   Davis-SD in order to resolve its incompatibility with Von den Driesch’s SD.
+   Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD.
    This has been modified in Davis' reference for sheep and added to the 
    thesaurus for measures.
 10. Added reference "Steppan" for Bos primigenius. The standards are obtained
