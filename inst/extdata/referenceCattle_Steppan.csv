@@ -1,0 +1,101 @@
+##########################################
+## REFERENCE: Steppan
+## *Bos primigenius*.
+## Female aurochs from \insertCite{steppan2001ur;textual}{zoolog}.
+## Same specimen as in \insertCite{degerbol1970urus;textual}{zoolog},
+## but with new and more standandard measures \insertCite{von1976guide}{zoolog}.
+## Mean measurements from left and right bones when available.
+## SOURCE:
+## Steppan, K (2001). Rôle et statut de la chasse dans le Néolithique ancien
+## danubien (5500 - 4900 av. J.-C.) / Rolle und Bedeutung der Jagd während des
+## Frühneolithikums Mitteleuropas (Linearbandkeramik 5500 - 4900 v.Chr.).
+## In R M Arbogast, Ch Jeunesse, and J Schibler (eds),
+## Premières rencontres danubiennes, Strasbourg 20 et 21 novembre 1996, Actes
+## de la première table-ronde. Internationale Archäologie: 
+## Arbeitsgemeinschaft, Symposium, Tagung, Kongress Band 1, 171--186.
+##########################################
+Taxon;Element;Measure;Standard
+Bos primigenius;anterior first phalanx;Bd;34,26
+Bos primigenius;anterior first phalanx;Bp;38,34
+Bos primigenius;anterior first phalanx;GLpe;69,48
+Bos primigenius;anterior first phalanx;SD;32,08
+Bos primigenius;anterior second phalanx;Bd;32,24
+Bos primigenius;anterior second phalanx;Bp;35,22
+Bos primigenius;anterior second phalanx;GLpe;46,82
+Bos primigenius;anterior second phalanx;SD;28,41
+Bos primigenius;anterior third phalanx;DLS;92,66
+Bos primigenius;anterior third phalanx;Ld;69,24
+Bos primigenius;anterior third phalanx;MBS;37,22
+Bos primigenius;astragalus;Bd;52,53
+Bos primigenius;astragalus;Dl;47,06
+Bos primigenius;astragalus;GLl;82,36
+Bos primigenius;astragalus;GLm;75,72
+Bos primigenius;calcaneum;GL;165,76
+Bos primigenius;Centroquartale;GB;66,35
+Bos primigenius;femur;Bd;119
+Bos primigenius;femur;Bp;149
+Bos primigenius;femur;DC;56,3
+Bos primigenius;femur;GL;443
+Bos primigenius;femur;GLC;417,85
+Bos primigenius;femur;SD;45,52
+Bos primigenius;Horn cone;BC;270
+Bos primigenius;Horn cone;GD;94
+Bos primigenius;Horn cone;LD;74
+Bos primigenius;Horn cone;LoC;450
+Bos primigenius;humerus;Bd;100
+Bos primigenius;humerus;BP;116,5
+Bos primigenius;humerus;BT;90,28
+Bos primigenius;humerus;GL;357,15
+Bos primigenius;humerus;GLC;306,75
+Bos primigenius;humerus;SD;46,16
+Bos primigenius;mandibula;LCTR;170
+Bos primigenius;mandibula;LMR;111
+Bos primigenius;mandibula;LPMR;57
+Bos primigenius;metacarpus;Bd;71,85
+Bos primigenius;metacarpus;BmC;33,92
+Bos primigenius;metacarpus;Bp;73
+Bos primigenius;metacarpus;DdD;27,66
+Bos primigenius;metacarpus;DmC;40,3
+Bos primigenius;metacarpus;GL;245,15
+Bos primigenius;metacarpus;SD;39,82
+Bos primigenius;metatarsus;Bd;67,39
+Bos primigenius;metatarsus;BmC;30,84
+Bos primigenius;metatarsus;Bp;61,69
+Bos primigenius;metatarsus;DdD;31,02
+Bos primigenius;metatarsus;DmC;40,81
+Bos primigenius;metatarsus;GL;279,1
+Bos primigenius;metatarsus;SD;34,21
+Bos primigenius;Patella;GB;70,56
+Bos primigenius;Patella;GL;81,98
+Bos primigenius;pelvis;LA;88,79
+Bos primigenius;posterior first phalanx;Bd;33,96
+Bos primigenius;posterior first phalanx;Bp;35,56
+Bos primigenius;posterior first phalanx;GLpe;71,63
+Bos primigenius;posterior first phalanx;SD;28,98
+Bos primigenius;posterior second phalanx;Bd;29,16
+Bos primigenius;posterior second phalanx;Bp;34,23
+Bos primigenius;posterior second phalanx;GLpe;47,7
+Bos primigenius;posterior second phalanx;SD;27,64
+Bos primigenius;posterior third phalanx;DLS;81,72
+Bos primigenius;posterior third phalanx;Ld;65,55
+Bos primigenius;posterior third phalanx;MBS;29,62
+Bos primigenius;radius;Bd;88,5
+Bos primigenius;radius;BFd;83,07
+Bos primigenius;radius;BFp;90,18
+Bos primigenius;radius;Bp;99,48
+Bos primigenius;radius;GL;337,2
+Bos primigenius;radius;SD;53,68
+Bos primigenius;Sacrum;BFcr;77,93
+Bos primigenius;scapula;GLP;86,98
+Bos primigenius;scapula;SLC;68,63
+Bos primigenius;tibia;Bd;77,63
+Bos primigenius;tibia;Bp;124,76
+Bos primigenius;tibia;GL;418,75
+Bos primigenius;tibia;SD;48,78
+Bos primigenius;ulna;BPC;58,32
+Bos primigenius;ulna;DPA;76,93
+Bos primigenius;ulna;LO;112,85
+Bos primigenius;ulna;SDO;66,42
+Bos primigenius;Upper jaw;LCTR;161
+Bos primigenius;Upper jaw;LMR;97,63
+Bos primigenius;Upper jaw;LPMR;64,39

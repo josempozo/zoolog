@@ -174,7 +174,7 @@ hierarchy described above:\if{html}{\out{<div class="r">}}\preformatted{str(refe
 ##   ..$ Johnstone:'data.frame':	24 obs. of  4 variables:
 ##  $ Bos primigenius      :List of 2
 ##   ..$ Degerbol:'data.frame':	50 obs. of  4 variables:
-##   ..$ Steppan :'data.frame':	64 obs. of  4 variables:
+##   ..$ Steppan :'data.frame':	84 obs. of  4 variables:
 ##  $ Ovis aries           :List of 2
 ##   ..$ Davis  :'data.frame':	23 obs. of  4 variables:
 ##   ..$ Clutton:'data.frame':	71 obs. of  4 variables:
