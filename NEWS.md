@@ -1,3 +1,7 @@
+# zoolog 1.0.1
+1. Corrected reference Steppan for Bos primigenius. Some measurements had been
+   missing.
+
 # zoolog 1.0.0
 1. Completed the zoologTaxonomy as a new functionality structuring the taxonomy
    hierarchy for the taxa used in the references. 
