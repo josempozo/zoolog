@@ -1,6 +1,5 @@
 [![R-CMD-check](https://github.com/josempozo/zoolog/workflows/R-CMD-check/badge.svg)](https://github.com/josempozo/zoolog/actions)
-[![Build
-Status](https://travis-ci.com/josempozo/zoolog.svg?branch=main)](https://travis-ci.com/josempozo/zoolog)
+[![Build Status](https://travis-ci.org/josempozo/zoolog.svg?branch=master)](https://travis-ci.org/josempozo/zoolog)
 
 # ***zoolog**:* <img align="right" width="12.5%" style="min-width:0.65in"  src="https://josempozo.github.io/zoolog/inst/logos/zoologIcon.png"> <br> Zooarchaeological Analysis with Log-Ratios
 > [Jose M Pozo](mailto:josmpozo@gmail.com), 
