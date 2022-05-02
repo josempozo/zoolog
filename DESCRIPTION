@@ -1,6 +1,6 @@
 Package: zoolog
 Title: Zooarchaeological Analysis with Log-Ratios
-Version: 1.0.0.9000
+Version: 1.0.0
 Date: 2022-5-1
 Authors@R: c(
     person(c("Jose","M"), "Pozo",
