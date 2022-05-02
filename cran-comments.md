@@ -1,3 +1,6 @@
+## Resubmission of new major release 1.0.0 (2022-05-02)
+Corrected an error in the package data.
+
 ## Submission of new major release 1.0.0 (2022-05-02)
 zoolog 1.0.0
 
