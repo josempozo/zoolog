@@ -57,6 +57,12 @@ Age to Romano-British transition) of Elms Farm, Heybridge
 \item{Degerbøl}{
 \emph{Bos primigenius}.
 Female aurochs from \insertCite{degerbol1970urus;textual}{zoolog}.}
+\item{Steppan}{
+\emph{Bos primigenius}.
+Female aurochs from \insertCite{steppan2001ur;textual}{zoolog}.
+Same specimen as in \insertCite{degerbol1970urus;textual}{zoolog},
+but with new and more standandard measures.
+Mean measurements from left and right bones when available.}
 }}
 \item{\strong{Sheep - \emph{Ovis}}}{\describe{
 \item{Davis}{
@@ -164,8 +170,9 @@ hierarchy described above:\if{html}{\out{<div class="r">}}\preformatted{str(refe
 ##   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
 ##   ..$ Basel    :'data.frame':	50 obs. of  4 variables:
 ##   ..$ Johnstone:'data.frame':	24 obs. of  4 variables:
-##  $ Bos primigenius      :List of 1
+##  $ Bos primigenius      :List of 2
 ##   ..$ Degerbol:'data.frame':	50 obs. of  4 variables:
+##   ..$ Steppan :'data.frame':	64 obs. of  4 variables:
 ##  $ Ovis aries           :List of 2
 ##   ..$ Davis  :'data.frame':	23 obs. of  4 variables:
 ##   ..$ Clutton:'data.frame':	71 obs. of  4 variables:
@@ -274,45 +281,47 @@ them:
 ## 2                   Cattle - *Bos*            Bos taurus      Basel
 ## 3                   Cattle - *Bos*            Bos taurus  Johnstone
 ## 4                   Cattle - *Bos*       Bos primigenius   Degerbol
-## 5                   Sheep - *Ovis*            Ovis aries      Davis
-## 6                   Sheep - *Ovis*            Ovis aries    Clutton
-## 7                   Sheep - *Ovis*       Ovis orientalis      Basel
-## 8                   Sheep - *Ovis*       Ovis orientalis   Uerpmann
-## 9                   Goat - *Capra*          Capra hircus      Basel
-## 10                  Goat - *Capra*          Capra hircus    Clutton
-## 11                  Goat - *Capra*        Capra aegagrus   Uerpmann
-## 12                     Pig - *Sus*        Sus domesticus  Albarella
-## 13                     Pig - *Sus*            Sus scrofa      Basel
-## 14                     Pig - *Sus*            Sus scrofa      Hongo
-## 15                     Pig - *Sus*            Sus scrofa      Payne
-## 16             Red deer - *Cervus*        Cervus elaphus      Basel
-## 17            Fallow deer - *Dama*     Dama mesopotamica      Haifa
-## 18             Gazelle - *Gazella*       Gazella gazella      Haifa
-## 19                 Equid - *Equus*          Equus asinus      Haifa
-## 20                 Equid - *Equus*        Equus caballus  Johnstone
-## 21 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
+## 5                   Cattle - *Bos*       Bos primigenius    Steppan
+## 6                   Sheep - *Ovis*            Ovis aries      Davis
+## 7                   Sheep - *Ovis*            Ovis aries    Clutton
+## 8                   Sheep - *Ovis*       Ovis orientalis      Basel
+## 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann
+## 10                  Goat - *Capra*          Capra hircus      Basel
+## 11                  Goat - *Capra*          Capra hircus    Clutton
+## 12                  Goat - *Capra*        Capra aegagrus   Uerpmann
+## 13                     Pig - *Sus*        Sus domesticus  Albarella
+## 14                     Pig - *Sus*            Sus scrofa      Basel
+## 15                     Pig - *Sus*            Sus scrofa      Hongo
+## 16                     Pig - *Sus*            Sus scrofa      Payne
+## 17             Red deer - *Cervus*        Cervus elaphus      Basel
+## 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa
+## 19             Gazelle - *Gazella*       Gazella gazella      Haifa
+## 20                 Equid - *Equus*          Equus asinus      Haifa
+## 21                 Equid - *Equus*        Equus caballus  Johnstone
+## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
 ##                          Filename
 ## 1       referenceCattle_Nieto.csv
 ## 2       referenceCattle_Basel.csv
 ## 3   referenceCattle_Johnstone.csv
 ## 4    referenceCattle_Degerbol.csv
-## 5        referenceSheep_Davis.csv
-## 6      referenceSheep_Clutton.csv
-## 7        referenceSheep_Basel.csv
-## 8     referenceSheep_Uerpmann.csv
-## 9         referenceGoat_Basel.csv
-## 10      referenceGoat_Clutton.csv
-## 11     referenceGoat_Uerpmann.csv
-## 12     referencePig_Albarella.csv
-## 13         referencePig_Basel.csv
-## 14         referencePig_Hongo.csv
-## 15         referencePig_Payne.csv
-## 16     referenceRedDeer_Basel.csv
-## 17        referenceDama_Haifa.csv
-## 18     referenceGazelle_Haifa.csv
-## 19       referenceEquid_Haifa.csv
-## 20   referenceEquid_Johnstone.csv
-## 21 referenceRabbit_Nottingham.csv
+## 5     referenceCattle_Steppan.csv
+## 6        referenceSheep_Davis.csv
+## 7      referenceSheep_Clutton.csv
+## 8        referenceSheep_Basel.csv
+## 9     referenceSheep_Uerpmann.csv
+## 10        referenceGoat_Basel.csv
+## 11      referenceGoat_Clutton.csv
+## 12     referenceGoat_Uerpmann.csv
+## 13     referencePig_Albarella.csv
+## 14         referencePig_Basel.csv
+## 15         referencePig_Hongo.csv
+## 16         referencePig_Payne.csv
+## 17     referenceRedDeer_Basel.csv
+## 18        referenceDama_Haifa.csv
+## 19     referenceGazelle_Haifa.csv
+## 20       referenceEquid_Haifa.csv
+## 21   referenceEquid_Johnstone.csv
+## 22 referenceRabbit_Nottingham.csv
 }
 }
 

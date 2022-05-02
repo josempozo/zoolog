@@ -19,6 +19,9 @@
    Davis-SD in order to resolve its incompatibility with Von den Driesch’s SD.
    This has been modified in Davis' reference for sheep and added to the 
    thesaurus for measures.
+10.Added reference "Steppan" for Bos primigenius. The standards are obtained
+   from the same specimen as the reference "Degerbol", but with new and more 
+   standandard measures.
 
 # zoolog 0.5.0
 1. Included new functionality structuring the taxonomy hierarchy for the

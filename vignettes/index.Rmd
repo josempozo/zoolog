@@ -512,7 +512,7 @@ pairwise.t.test(dataOCStandardized$Width, dataOCStandardized$Site,
 # How to cite the package *zoolog*
 
 We have invested a lot of time and effort in creating zoolog. Please cite the package if you publish an analysis or results obtained using *zoolog*.
-For example, "Log ratios calculation and analysis was done using the package zoolog  [@pozo2021zoolog] in R 4.0.3 [@RCoreTeam2020]."
+For example, "Log ratios calculation and analysis was done using the package zoolog  [@pozo2022zoolog] in R 4.0.3 [@RCoreTeam2020]."
 
 To get the details of the most recent version of the package, you can use the R citation function: `citation("zoolog")`.
 

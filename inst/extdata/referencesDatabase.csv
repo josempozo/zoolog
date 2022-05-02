@@ -3,6 +3,7 @@ Cattle - *Bos*;Bos taurus;Nieto;referenceCattle_Nieto.csv
 Cattle - *Bos*;Bos taurus;Basel;referenceCattle_Basel.csv
 Cattle - *Bos*;Bos taurus;Johnstone;referenceCattle_Johnstone.csv
 Cattle - *Bos*;Bos primigenius;Degerbol;referenceCattle_Degerbol.csv
+Cattle - *Bos*;Bos primigenius;Steppan;referenceCattle_Steppan.csv
 Sheep - *Ovis*;Ovis aries;Davis;referenceSheep_Davis.csv
 Sheep - *Ovis*;Ovis aries;Clutton;referenceSheep_Clutton.csv
 Sheep - *Ovis*;Ovis orientalis;Basel;referenceSheep_Basel.csv
