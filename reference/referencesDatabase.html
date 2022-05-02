@@ -119,6 +119,15 @@ Age to Romano-British transition) of Elms Farm, Heybridge
 Female aurochs from Degerbøl and Fredskild (1970)
 .</p></dd>
 
+<dt>Steppan</dt>
+<dd><p><em>Bos primigenius</em>.
+Female aurochs from Steppan (2001)
+.
+Same specimen as in Degerbøl and Fredskild (1970)
+,
+but with new and more standandard measures.
+Mean measurements from left and right bones when available.</p></dd>
+
 
 </dl></dd>
 
@@ -276,8 +285,9 @@ hierarchy described above:</p><div class="r"><div class="sourceCode"><pre><code>
 <span class="co">##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span>
 <span class="co">##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span>
 <span class="co">##   ..$ Johnstone:'data.frame':  24 obs. of  4 variables:</span>
-<span class="co">##  $ Bos primigenius      :List of 1</span>
+<span class="co">##  $ Bos primigenius      :List of 2</span>
 <span class="co">##   ..$ Degerbol:'data.frame':  50 obs. of  4 variables:</span>
+<span class="co">##   ..$ Steppan :'data.frame':  64 obs. of  4 variables:</span>
 <span class="co">##  $ Ovis aries           :List of 2</span>
 <span class="co">##   ..$ Davis  :'data.frame':  23 obs. of  4 variables:</span>
 <span class="co">##   ..$ Clutton:'data.frame':  71 obs. of  4 variables:</span>
@@ -378,45 +388,47 @@ them:</p><dl><dt><code>referenceSets.csv</code></dt>
 <span class="co">## 2                   Cattle - *Bos*            Bos taurus      Basel</span>
 <span class="co">## 3                   Cattle - *Bos*            Bos taurus  Johnstone</span>
 <span class="co">## 4                   Cattle - *Bos*       Bos primigenius   Degerbol</span>
-<span class="co">## 5                   Sheep - *Ovis*            Ovis aries      Davis</span>
-<span class="co">## 6                   Sheep - *Ovis*            Ovis aries    Clutton</span>
-<span class="co">## 7                   Sheep - *Ovis*       Ovis orientalis      Basel</span>
-<span class="co">## 8                   Sheep - *Ovis*       Ovis orientalis   Uerpmann</span>
-<span class="co">## 9                   Goat - *Capra*          Capra hircus      Basel</span>
-<span class="co">## 10                  Goat - *Capra*          Capra hircus    Clutton</span>
-<span class="co">## 11                  Goat - *Capra*        Capra aegagrus   Uerpmann</span>
-<span class="co">## 12                     Pig - *Sus*        Sus domesticus  Albarella</span>
-<span class="co">## 13                     Pig - *Sus*            Sus scrofa      Basel</span>
-<span class="co">## 14                     Pig - *Sus*            Sus scrofa      Hongo</span>
-<span class="co">## 15                     Pig - *Sus*            Sus scrofa      Payne</span>
-<span class="co">## 16             Red deer - *Cervus*        Cervus elaphus      Basel</span>
-<span class="co">## 17            Fallow deer - *Dama*     Dama mesopotamica      Haifa</span>
-<span class="co">## 18             Gazelle - *Gazella*       Gazella gazella      Haifa</span>
-<span class="co">## 19                 Equid - *Equus*          Equus asinus      Haifa</span>
-<span class="co">## 20                 Equid - *Equus*        Equus caballus  Johnstone</span>
-<span class="co">## 21 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span>
+<span class="co">## 5                   Cattle - *Bos*       Bos primigenius    Steppan</span>
+<span class="co">## 6                   Sheep - *Ovis*            Ovis aries      Davis</span>
+<span class="co">## 7                   Sheep - *Ovis*            Ovis aries    Clutton</span>
+<span class="co">## 8                   Sheep - *Ovis*       Ovis orientalis      Basel</span>
+<span class="co">## 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann</span>
+<span class="co">## 10                  Goat - *Capra*          Capra hircus      Basel</span>
+<span class="co">## 11                  Goat - *Capra*          Capra hircus    Clutton</span>
+<span class="co">## 12                  Goat - *Capra*        Capra aegagrus   Uerpmann</span>
+<span class="co">## 13                     Pig - *Sus*        Sus domesticus  Albarella</span>
+<span class="co">## 14                     Pig - *Sus*            Sus scrofa      Basel</span>
+<span class="co">## 15                     Pig - *Sus*            Sus scrofa      Hongo</span>
+<span class="co">## 16                     Pig - *Sus*            Sus scrofa      Payne</span>
+<span class="co">## 17             Red deer - *Cervus*        Cervus elaphus      Basel</span>
+<span class="co">## 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa</span>
+<span class="co">## 19             Gazelle - *Gazella*       Gazella gazella      Haifa</span>
+<span class="co">## 20                 Equid - *Equus*          Equus asinus      Haifa</span>
+<span class="co">## 21                 Equid - *Equus*        Equus caballus  Johnstone</span>
+<span class="co">## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span>
 <span class="co">##                          Filename</span>
 <span class="co">## 1       referenceCattle_Nieto.csv</span>
 <span class="co">## 2       referenceCattle_Basel.csv</span>
 <span class="co">## 3   referenceCattle_Johnstone.csv</span>
 <span class="co">## 4    referenceCattle_Degerbol.csv</span>
-<span class="co">## 5        referenceSheep_Davis.csv</span>
-<span class="co">## 6      referenceSheep_Clutton.csv</span>
-<span class="co">## 7        referenceSheep_Basel.csv</span>
-<span class="co">## 8     referenceSheep_Uerpmann.csv</span>
-<span class="co">## 9         referenceGoat_Basel.csv</span>
-<span class="co">## 10      referenceGoat_Clutton.csv</span>
-<span class="co">## 11     referenceGoat_Uerpmann.csv</span>
-<span class="co">## 12     referencePig_Albarella.csv</span>
-<span class="co">## 13         referencePig_Basel.csv</span>
-<span class="co">## 14         referencePig_Hongo.csv</span>
-<span class="co">## 15         referencePig_Payne.csv</span>
-<span class="co">## 16     referenceRedDeer_Basel.csv</span>
-<span class="co">## 17        referenceDama_Haifa.csv</span>
-<span class="co">## 18     referenceGazelle_Haifa.csv</span>
-<span class="co">## 19       referenceEquid_Haifa.csv</span>
-<span class="co">## 20   referenceEquid_Johnstone.csv</span>
-<span class="co">## 21 referenceRabbit_Nottingham.csv</span></code></pre></div>
+<span class="co">## 5     referenceCattle_Steppan.csv</span>
+<span class="co">## 6        referenceSheep_Davis.csv</span>
+<span class="co">## 7      referenceSheep_Clutton.csv</span>
+<span class="co">## 8        referenceSheep_Basel.csv</span>
+<span class="co">## 9     referenceSheep_Uerpmann.csv</span>
+<span class="co">## 10        referenceGoat_Basel.csv</span>
+<span class="co">## 11      referenceGoat_Clutton.csv</span>
+<span class="co">## 12     referenceGoat_Uerpmann.csv</span>
+<span class="co">## 13     referencePig_Albarella.csv</span>
+<span class="co">## 14         referencePig_Basel.csv</span>
+<span class="co">## 15         referencePig_Hongo.csv</span>
+<span class="co">## 16         referencePig_Payne.csv</span>
+<span class="co">## 17     referenceRedDeer_Basel.csv</span>
+<span class="co">## 18        referenceDama_Haifa.csv</span>
+<span class="co">## 19     referenceGazelle_Haifa.csv</span>
+<span class="co">## 20       referenceEquid_Haifa.csv</span>
+<span class="co">## 21   referenceEquid_Johnstone.csv</span>
+<span class="co">## 22 referenceRabbit_Nottingham.csv</span></code></pre></div>
 
     </div>
     <div id="acknowledgement">
@@ -472,7 +484,10 @@ Ph.D. thesis, University of York.<br><br> Nieto-Espinet A (2018).
 <a href="https://doi.org/10.13140/RG.2.2.13512.78081" class="external-link">doi:10.13140/RG.2.2.13512.78081</a>
 .<br><br> Payne S, Bull G (1988).
 “Components of variation in measurements of pig bones and teeth, and the use of measurements to distinguish wild from domestic pig remains.”
-<em>Archaeozoologia</em>, <b>2</b>(1), 27--66.<br><br> Stopp B, Deschler-Erb S (2018).
+<em>Archaeozoologia</em>, <b>2</b>(1), 27--66.<br><br> Steppan K (2001).
+“Ur oder Hausrind? Die Variabilität der Wildtieranteile in linearbandkeramischen Tierknochenkomplexen.”
+In Arbogast R, Jeunesse C, Schibler J (eds.), <em>Rôle et statut de la chasse dans le Néolithique ancien danubien (5500 - 4900 av. J.-C.) /Rolle und Bedeutung der Jagd während des Frühneolithikums Mitteleuropas (Linearbandkeramik 5500 - 4900 v.Chr.). Premières rencontres danubiennes, Strasbourg 20 et 21 novembre 1996, Actes de la première table-ronde. Internationale Archäologie: Arbeitsgemeinschaft, Symposium, Tagung, Kongress Band 1</em>, 171--186.
+na.<br><br> Stopp B, Deschler-Erb S (2018).
 “Measurements compiled from the reference collection in the Integrative Prähistorische und Naturwissenschaftliche Archäologie (IPNA, University of Basel, Switzerland).”
 Personal communication, included permission to publish them as part of the package zoolog.<br><br> Uerpmann M, Uerpmann H (1994).
 “Animal bone finds from excavation 520 at Qala’at al-Bahrain.”
