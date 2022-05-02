@@ -56,12 +56,14 @@ Age to Romano-British transition) of Elms Farm, Heybridge
 \insertCite{johnstone2002late}{zoolog}.}
 \item{Degerbøl}{
 \emph{Bos primigenius}.
-Female aurochs from \insertCite{degerbol1970urus;textual}{zoolog}.}
+Female aurochs from \insertCite{degerbol1970urus;textual}{zoolog}.
+Non-standard measures converted to more standard ones
+\insertCite{von1976guide}{zoolog}}
 \item{Steppan}{
 \emph{Bos primigenius}.
 Female aurochs from \insertCite{steppan2001ur;textual}{zoolog}.
 Same specimen as in \insertCite{degerbol1970urus;textual}{zoolog},
-but with new and more standandard measures.
+but with new and more standandard measures \insertCite{von1976guide}{zoolog}.
 Mean measurements from left and right bones when available.}
 }}
 \item{\strong{Sheep - \emph{Ovis}}}{\describe{
@@ -327,27 +329,31 @@ them:
 
 \section{Acknowledgement}{
 
-We are grateful to Barbara Stopp and Sabine
-Deschler-Erb for providing the Basel references for cattle, sheep, goat,
-wild boar, and red deer
-\insertCite{stopp2018Basel}{zoolog},
+We are grateful to Barbara Stopp and Sabine Deschler-Erb
+(University of Basel, Switzerland)
+for providing the Basel references for cattle, sheep, goat, wild boar,
+and red deer \insertCite{stopp2018Basel}{zoolog},
 together with the permission to publish them as part of \pkg{zoolog}.
 
-We thank also Francesca Slim and Dimitris Filioglou for providing the
-references for aurochs, mouflon, wild goat, and wild boar
+We thank also Francesca Slim and Dimitris Filioglou (University of Groningen)
+for providing the references for aurochs, mouflon, wild goat, and wild boar
 \insertCite{degerbol1970urus,uerpmann1994animal,hongo2000faunal}{zoolog}
 in the Groningen set.
 
-We thank Claudia Minniti for providing Johnstone's reference for cattle.
-\insertCite{johnstone2002late}{zoolog}.
+We thank Claudia Minniti (University of Salento) for providing Johnstone's
+reference for cattle \insertCite{johnstone2002late}{zoolog}.
 
-We are also grateful to Sierra Harding and Nimrod Marom for providing the
-Haifa standard measurements for donkey, gazelle, and fallow deer
-\insertCite{Harding2021}{zoolog}.
+We are also grateful to Sierra Harding and Nimrod Marom (University of Haifa)
+for providing the Haifa standard measurements for donkey, gazelle, and
+fallow deer \insertCite{Harding2021}{zoolog}.
 
-We thank Carly Ameen and Helene Benkert for providing references for horse
-\insertCite{johnstone2004biometric}{zoolog} and rabbit
+We thank Carly Ameen and Helene Benkert (University of Exeter) for providing
+references for horse \insertCite{johnstone2004biometric}{zoolog} and rabbit
 \insertCite{Ameen2021}{zoolog}.
+
+We thank Mikolaj Lisowski (University of York) for pointing to the existence
+of the improved reference for Bos primigenius
+\insertCite{steppan2001ur}{zoolog} and providing its source.
 }
 
 \references{
