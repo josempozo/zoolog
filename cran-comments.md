@@ -1,5 +1,5 @@
 ## Submission of new major release 1.0.0 (2022-05-02)
-zoolog 5.0.0
+zoolog 1.0.0
 
 Changes described in NEWS.md.
 
