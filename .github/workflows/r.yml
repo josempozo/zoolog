@@ -24,7 +24,7 @@ jobs:
         config:
           - {os: windows-latest, r: 'release'}
           - {os: macos-latest, r: 'release'}
-          - {os: ubuntu-18.04, r: 'release'}
+          - {os: ubuntu-latest, r: 'release'}
           - {os: ubuntu-latest, r: 'devel'}
 
     env:
@@ -67,7 +67,6 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
