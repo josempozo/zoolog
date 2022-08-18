@@ -166,7 +166,7 @@ reference collection at University of Nottingham Arch department (ID RS139)
 
 The \pkg{zoolog} variable \code{referencesDatabase} collects all these
 references. It is structured as a named list of named lists, following the
-hierarchy described above:\if{html}{\out{<div class="r">}}\preformatted{str(referencesDatabase, max.level = 2)
+hierarchy described above:\if{html}{\out{<div class="sourceCode r">}}\preformatted{str(referencesDatabase, max.level = 2)
 }\if{html}{\out{</div>}}\preformatted{## List of 14
 ##  $ Bos taurus           :List of 3
 ##   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
@@ -214,7 +214,7 @@ zooarchaeological data to be analysed includes several taxa. Thus, the
 reference dataframe should include one reference standard for each relevant
 taxon.
 The \pkg{zoolog} variable \code{referenceSets} defines four possible
-references:\if{html}{\out{<div class="r">}}\preformatted{referenceSets
+references:\if{html}{\out{<div class="sourceCode r">}}\preformatted{referenceSets
 }\if{html}{\out{</div>}}\tabular{lllllllllllllll}{
     \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \cr
    NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
@@ -231,7 +231,7 @@ taking the selected taxon-specific references from the
 \code{referencesDatabase}.
 
 The \pkg{zoolog} variable \code{reference} is a named list including the
-references defined by \code{referenceSets}:\if{html}{\out{<div class="r">}}\preformatted{str(reference)
+references defined by \code{referenceSets}:\if{html}{\out{<div class="sourceCode r">}}\preformatted{str(reference)
 }\if{html}{\out{</div>}}\preformatted{## List of 4
 ##  $ NietoDavisAlbarella:'data.frame':	133 obs. of  4 variables:
 ##   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...
@@ -276,7 +276,7 @@ them:
 \code{referencesDatabase}.}
 \item{...}{A csv file for each taxon-specific reference, as named in
 \code{referencesDatabase.csv}.}
-}\if{html}{\out{<div class="r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
                              package = "zoolog"))
 }\if{html}{\out{</div>}}\preformatted{##                              Genus                 Taxon     Source
 ## 1                   Cattle - *Bos*            Bos taurus      Nieto
@@ -344,12 +344,12 @@ We thank Claudia Minniti (University of Salento) for providing Johnstone's
 reference for cattle \insertCite{johnstone2002late}{zoolog}.
 
 We are also grateful to Sierra Harding and Nimrod Marom (University of Haifa)
-for providing the Haifa standard measurements for donkey, gazelle, and
-fallow deer \insertCite{Harding2021}{zoolog}.
+for providing the Haifa standard measurements for donkey, mountain gazelle,
+and Persian fallow deer \insertCite{Harding2021}{zoolog}.
 
 We thank Carly Ameen and Helene Benkert (University of Exeter) for providing
-references for horse \insertCite{johnstone2004biometric}{zoolog} and rabbit
-\insertCite{Ameen2021}{zoolog}.
+references for horse \insertCite{johnstone2004biometric}{zoolog} and
+European rabbit \insertCite{Ameen2021}{zoolog}.
 
 We thank Mikolaj Lisowski (University of York) for pointing to the existence
 of the improved reference for Bos primigenius

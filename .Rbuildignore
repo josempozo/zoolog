@@ -13,6 +13,7 @@
 ^tests/\.DS_Store$
 ^tests/testthat\.DS_Store$
 ^vignettes/\.DS_Store$
+^Rplots.pdf$
 ^README_files$
 ^doc$
 ^Meta$
