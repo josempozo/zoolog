@@ -19,7 +19,7 @@ own osteometrical reference if preferred."><!-- mathjax --><script src="https://
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -62,11 +62,11 @@ own osteometrical reference if preferred.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="va">reference</span>
-
-<span class="va">referenceSets</span>
-
-<span class="va">referencesDatabase</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="va">reference</span></span>
+<span></span>
+<span><span class="va">referenceSets</span></span>
+<span></span>
+<span><span class="va">referencesDatabase</span></span></code></pre></div>
     </div>
 
     <div id="format">
@@ -283,43 +283,43 @@ reference collection at University of Nottingham Arch department (ID RS139)
 
 </dl><p>The <span class="pkg">zoolog</span> variable <code>referencesDatabase</code> collects all these
 references. It is structured as a named list of named lists, following the
-hierarchy described above:</p><div class="r"><div class="sourceCode"><pre><code><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">referencesDatabase</span>, max.level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div><p></p></div><div class="sourceCode"><pre><code><span class="co">## List of 14</span>
-<span class="co">##  $ Bos taurus           :List of 3</span>
-<span class="co">##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span>
-<span class="co">##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span>
-<span class="co">##   ..$ Johnstone:'data.frame':  24 obs. of  4 variables:</span>
-<span class="co">##  $ Bos primigenius      :List of 2</span>
-<span class="co">##   ..$ Degerbol:'data.frame':  50 obs. of  4 variables:</span>
-<span class="co">##   ..$ Steppan :'data.frame':  84 obs. of  4 variables:</span>
-<span class="co">##  $ Ovis aries           :List of 2</span>
-<span class="co">##   ..$ Davis  :'data.frame':  23 obs. of  4 variables:</span>
-<span class="co">##   ..$ Clutton:'data.frame':  71 obs. of  4 variables:</span>
-<span class="co">##  $ Ovis orientalis      :List of 2</span>
-<span class="co">##   ..$ Basel   :'data.frame':  36 obs. of  4 variables:</span>
-<span class="co">##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span>
-<span class="co">##  $ Capra hircus         :List of 2</span>
-<span class="co">##   ..$ Basel  :'data.frame':  35 obs. of  4 variables:</span>
-<span class="co">##   ..$ Clutton:'data.frame':  60 obs. of  4 variables:</span>
-<span class="co">##  $ Capra aegagrus       :List of 1</span>
-<span class="co">##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span>
-<span class="co">##  $ Sus domesticus       :List of 1</span>
-<span class="co">##   ..$ Albarella:'data.frame':  42 obs. of  4 variables:</span>
-<span class="co">##  $ Sus scrofa           :List of 3</span>
-<span class="co">##   ..$ Basel:'data.frame':  41 obs. of  4 variables:</span>
-<span class="co">##   ..$ Hongo:'data.frame':  96 obs. of  4 variables:</span>
-<span class="co">##   ..$ Payne:'data.frame':  33 obs. of  4 variables:</span>
-<span class="co">##  $ Cervus elaphus       :List of 1</span>
-<span class="co">##   ..$ Basel:'data.frame':  14 obs. of  4 variables:</span>
-<span class="co">##  $ Dama mesopotamica    :List of 1</span>
-<span class="co">##   ..$ Haifa:'data.frame':  60 obs. of  4 variables:</span>
-<span class="co">##  $ Gazella gazella      :List of 1</span>
-<span class="co">##   ..$ Haifa:'data.frame':  63 obs. of  4 variables:</span>
-<span class="co">##  $ Equus asinus         :List of 1</span>
-<span class="co">##   ..$ Haifa:'data.frame':  48 obs. of  4 variables:</span>
-<span class="co">##  $ Equus caballus       :List of 1</span>
-<span class="co">##   ..$ Johnstone:'data.frame':  75 obs. of  4 variables:</span>
-<span class="co">##  $ Oryctolagus cuniculus:List of 1</span>
-<span class="co">##   ..$ Nottingham:'data.frame':  58 obs. of  4 variables:</span></code></pre></div>
+hierarchy described above:</p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">referencesDatabase</span>, max.level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre><p></p></div><div class="sourceCode"><pre><code><span><span class="co">## List of 14</span></span>
+<span><span class="co">##  $ Bos taurus           :List of 3</span></span>
+<span><span class="co">##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Johnstone:'data.frame':  24 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Bos primigenius      :List of 2</span></span>
+<span><span class="co">##   ..$ Degerbol:'data.frame':  50 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Steppan :'data.frame':  84 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Ovis aries           :List of 2</span></span>
+<span><span class="co">##   ..$ Davis  :'data.frame':  23 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Clutton:'data.frame':  71 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Ovis orientalis      :List of 2</span></span>
+<span><span class="co">##   ..$ Basel   :'data.frame':  36 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Capra hircus         :List of 2</span></span>
+<span><span class="co">##   ..$ Basel  :'data.frame':  35 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Clutton:'data.frame':  60 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Capra aegagrus       :List of 1</span></span>
+<span><span class="co">##   ..$ Uerpmann:'data.frame':  50 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Sus domesticus       :List of 1</span></span>
+<span><span class="co">##   ..$ Albarella:'data.frame':  42 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Sus scrofa           :List of 3</span></span>
+<span><span class="co">##   ..$ Basel:'data.frame':  41 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Hongo:'data.frame':  96 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ Payne:'data.frame':  33 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Cervus elaphus       :List of 1</span></span>
+<span><span class="co">##   ..$ Basel:'data.frame':  14 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Dama mesopotamica    :List of 1</span></span>
+<span><span class="co">##   ..$ Haifa:'data.frame':  60 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Gazella gazella      :List of 1</span></span>
+<span><span class="co">##   ..$ Haifa:'data.frame':  63 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Equus asinus         :List of 1</span></span>
+<span><span class="co">##   ..$ Haifa:'data.frame':  48 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Equus caballus       :List of 1</span></span>
+<span><span class="co">##   ..$ Johnstone:'data.frame':  75 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Oryctolagus cuniculus:List of 1</span></span>
+<span><span class="co">##   ..$ Nottingham:'data.frame':  58 obs. of  4 variables:</span></span></code></pre></div>
 
     </div>
     <div id="reference-sets">
@@ -331,33 +331,33 @@ zooarchaeological data to be analysed includes several taxa. Thus, the
 reference dataframe should include one reference standard for each relevant
 taxon.
 The <span class="pkg">zoolog</span> variable <code>referenceSets</code> defines four possible
-references:</p><div class="r"><div class="sourceCode"><pre><code><span class="va">referenceSets</span></code></pre></div><p></p></div><table class="table table"><tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td><td>Dama mesopotamica</td><td>Gazella gazella</td><td>Equus asinus</td><td>Equus caballus</td><td>Oryctolagus cuniculus</td></tr><tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td><td>Haifa</td><td>Haifa</td><td>Haifa</td><td>Johnstone</td><td>Nottingham</td></tr><tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><p>Each row defines a reference set consisting of a reference source for
+references:</p><div class="sourceCode r"><pre><code><span><span class="va">referenceSets</span></span></code></pre><p></p></div><table class="table table"><tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td><td>Dama mesopotamica</td><td>Gazella gazella</td><td>Equus asinus</td><td>Equus caballus</td><td>Oryctolagus cuniculus</td></tr><tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td><td>Haifa</td><td>Haifa</td><td>Haifa</td><td>Johnstone</td><td>Nottingham</td></tr><tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><p>Each row defines a reference set consisting of a reference source for
 each taxon (column). The function
 <code><a href="AssembleReference.html">AssembleReference</a></code> allows us to build the reference set
 taking the selected taxon-specific references from the
 <code>referencesDatabase</code>.</p>
 <p>The <span class="pkg">zoolog</span> variable <code>reference</code> is a named list including the
-references defined by <code>referenceSets</code>:</p><div class="r"><div class="sourceCode"><pre><code><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">reference</span><span class="op">)</span></code></pre></div><p></p></div><div class="sourceCode"><pre><code><span class="co">## List of 4</span>
-<span class="co">##  $ NietoDavisAlbarella:'data.frame':  133 obs. of  4 variables:</span>
-<span class="co">##   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="co">##   ..$ EL      : Factor w/ 27 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
-<span class="co">##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span>
-<span class="co">##   ..$ Standard: num [1:133] 259 234 78.3 90.2 29 ...</span>
-<span class="co">##  $ Basel              :'data.frame':  176 obs. of  4 variables:</span>
-<span class="co">##   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="co">##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...</span>
-<span class="co">##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...</span>
-<span class="co">##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...</span>
-<span class="co">##  $ Combi              :'data.frame':  558 obs. of  4 variables:</span>
-<span class="co">##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="co">##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span>
-<span class="co">##   ..$ Measure : Factor w/ 65 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span>
-<span class="co">##   ..$ Standard: num [1:558] 259 234 78.3 90.2 29 ...</span>
-<span class="co">##  $ Groningen          :'data.frame':  246 obs. of  4 variables:</span>
-<span class="co">##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="co">##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...</span>
-<span class="co">##   ..$ Measure : Factor w/ 45 levels "BFp","BG","BT",..: 14 12 2 8 9 4 3 13 8 5 ...</span>
-<span class="co">##   ..$ Standard: num [1:246] 69 70 60 359 309 97 89 46 320 100 ...</span></code></pre></div>
+references defined by <code>referenceSets</code>:</p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">reference</span><span class="op">)</span></span></code></pre><p></p></div><div class="sourceCode"><pre><code><span><span class="co">## List of 4</span></span>
+<span><span class="co">##  $ NietoDavisAlbarella:'data.frame':  133 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">##   ..$ EL      : Factor w/ 27 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span></span>
+<span><span class="co">##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span></span>
+<span><span class="co">##   ..$ Standard: num [1:133] 259 234 78.3 90.2 29 ...</span></span>
+<span><span class="co">##  $ Basel              :'data.frame':  176 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...</span></span>
+<span><span class="co">##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...</span></span>
+<span><span class="co">##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...</span></span>
+<span><span class="co">##  $ Combi              :'data.frame':  558 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span></span>
+<span><span class="co">##   ..$ Measure : Factor w/ 65 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span></span>
+<span><span class="co">##   ..$ Standard: num [1:558] 259 234 78.3 90.2 29 ...</span></span>
+<span><span class="co">##  $ Groningen          :'data.frame':  246 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...</span></span>
+<span><span class="co">##   ..$ Measure : Factor w/ 45 levels "BFp","BG","BT",..: 14 12 2 8 9 4 3 13 8 5 ...</span></span>
+<span><span class="co">##   ..$ Standard: num [1:246] 69 70 60 359 309 97 89 46 320 100 ...</span></span></code></pre></div>
 
 <p><code>reference$Combi</code> includes the most comprehensive reference for each
 species so that more measurements can be considered. It is the default
@@ -385,53 +385,53 @@ them:</p><dl><dt><code>referenceSets.csv</code></dt>
 <code>referencesDatabase.csv</code>.</p></dd>
 
 
-</dl><p></p><div class="r"><div class="sourceCode"><pre><code><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"referencesDatabase.csv"</span>,
-                             package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span><span class="op">)</span></code></pre></div><p></p></div><div class="sourceCode"><pre><code><span class="co">##                              Genus                 Taxon     Source</span>
-<span class="co">## 1                   Cattle - *Bos*            Bos taurus      Nieto</span>
-<span class="co">## 2                   Cattle - *Bos*            Bos taurus      Basel</span>
-<span class="co">## 3                   Cattle - *Bos*            Bos taurus  Johnstone</span>
-<span class="co">## 4                   Cattle - *Bos*       Bos primigenius   Degerbol</span>
-<span class="co">## 5                   Cattle - *Bos*       Bos primigenius    Steppan</span>
-<span class="co">## 6                   Sheep - *Ovis*            Ovis aries      Davis</span>
-<span class="co">## 7                   Sheep - *Ovis*            Ovis aries    Clutton</span>
-<span class="co">## 8                   Sheep - *Ovis*       Ovis orientalis      Basel</span>
-<span class="co">## 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann</span>
-<span class="co">## 10                  Goat - *Capra*          Capra hircus      Basel</span>
-<span class="co">## 11                  Goat - *Capra*          Capra hircus    Clutton</span>
-<span class="co">## 12                  Goat - *Capra*        Capra aegagrus   Uerpmann</span>
-<span class="co">## 13                     Pig - *Sus*        Sus domesticus  Albarella</span>
-<span class="co">## 14                     Pig - *Sus*            Sus scrofa      Basel</span>
-<span class="co">## 15                     Pig - *Sus*            Sus scrofa      Hongo</span>
-<span class="co">## 16                     Pig - *Sus*            Sus scrofa      Payne</span>
-<span class="co">## 17             Red deer - *Cervus*        Cervus elaphus      Basel</span>
-<span class="co">## 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa</span>
-<span class="co">## 19             Gazelle - *Gazella*       Gazella gazella      Haifa</span>
-<span class="co">## 20                 Equid - *Equus*          Equus asinus      Haifa</span>
-<span class="co">## 21                 Equid - *Equus*        Equus caballus  Johnstone</span>
-<span class="co">## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span>
-<span class="co">##                          Filename</span>
-<span class="co">## 1       referenceCattle_Nieto.csv</span>
-<span class="co">## 2       referenceCattle_Basel.csv</span>
-<span class="co">## 3   referenceCattle_Johnstone.csv</span>
-<span class="co">## 4    referenceCattle_Degerbol.csv</span>
-<span class="co">## 5     referenceCattle_Steppan.csv</span>
-<span class="co">## 6        referenceSheep_Davis.csv</span>
-<span class="co">## 7      referenceSheep_Clutton.csv</span>
-<span class="co">## 8        referenceSheep_Basel.csv</span>
-<span class="co">## 9     referenceSheep_Uerpmann.csv</span>
-<span class="co">## 10        referenceGoat_Basel.csv</span>
-<span class="co">## 11      referenceGoat_Clutton.csv</span>
-<span class="co">## 12     referenceGoat_Uerpmann.csv</span>
-<span class="co">## 13     referencePig_Albarella.csv</span>
-<span class="co">## 14         referencePig_Basel.csv</span>
-<span class="co">## 15         referencePig_Hongo.csv</span>
-<span class="co">## 16         referencePig_Payne.csv</span>
-<span class="co">## 17     referenceRedDeer_Basel.csv</span>
-<span class="co">## 18        referenceDama_Haifa.csv</span>
-<span class="co">## 19     referenceGazelle_Haifa.csv</span>
-<span class="co">## 20       referenceEquid_Haifa.csv</span>
-<span class="co">## 21   referenceEquid_Johnstone.csv</span>
-<span class="co">## 22 referenceRabbit_Nottingham.csv</span></code></pre></div>
+</dl><p></p><div class="sourceCode r"><pre><code><span><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"referencesDatabase.csv"</span>,</span>
+<span>                             package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div><div class="sourceCode"><pre><code><span><span class="co">##                              Genus                 Taxon     Source</span></span>
+<span><span class="co">## 1                   Cattle - *Bos*            Bos taurus      Nieto</span></span>
+<span><span class="co">## 2                   Cattle - *Bos*            Bos taurus      Basel</span></span>
+<span><span class="co">## 3                   Cattle - *Bos*            Bos taurus  Johnstone</span></span>
+<span><span class="co">## 4                   Cattle - *Bos*       Bos primigenius   Degerbol</span></span>
+<span><span class="co">## 5                   Cattle - *Bos*       Bos primigenius    Steppan</span></span>
+<span><span class="co">## 6                   Sheep - *Ovis*            Ovis aries      Davis</span></span>
+<span><span class="co">## 7                   Sheep - *Ovis*            Ovis aries    Clutton</span></span>
+<span><span class="co">## 8                   Sheep - *Ovis*       Ovis orientalis      Basel</span></span>
+<span><span class="co">## 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann</span></span>
+<span><span class="co">## 10                  Goat - *Capra*          Capra hircus      Basel</span></span>
+<span><span class="co">## 11                  Goat - *Capra*          Capra hircus    Clutton</span></span>
+<span><span class="co">## 12                  Goat - *Capra*        Capra aegagrus   Uerpmann</span></span>
+<span><span class="co">## 13                     Pig - *Sus*        Sus domesticus  Albarella</span></span>
+<span><span class="co">## 14                     Pig - *Sus*            Sus scrofa      Basel</span></span>
+<span><span class="co">## 15                     Pig - *Sus*            Sus scrofa      Hongo</span></span>
+<span><span class="co">## 16                     Pig - *Sus*            Sus scrofa      Payne</span></span>
+<span><span class="co">## 17             Red deer - *Cervus*        Cervus elaphus      Basel</span></span>
+<span><span class="co">## 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa</span></span>
+<span><span class="co">## 19             Gazelle - *Gazella*       Gazella gazella      Haifa</span></span>
+<span><span class="co">## 20                 Equid - *Equus*          Equus asinus      Haifa</span></span>
+<span><span class="co">## 21                 Equid - *Equus*        Equus caballus  Johnstone</span></span>
+<span><span class="co">## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span></span>
+<span><span class="co">##                          Filename</span></span>
+<span><span class="co">## 1       referenceCattle_Nieto.csv</span></span>
+<span><span class="co">## 2       referenceCattle_Basel.csv</span></span>
+<span><span class="co">## 3   referenceCattle_Johnstone.csv</span></span>
+<span><span class="co">## 4    referenceCattle_Degerbol.csv</span></span>
+<span><span class="co">## 5     referenceCattle_Steppan.csv</span></span>
+<span><span class="co">## 6        referenceSheep_Davis.csv</span></span>
+<span><span class="co">## 7      referenceSheep_Clutton.csv</span></span>
+<span><span class="co">## 8        referenceSheep_Basel.csv</span></span>
+<span><span class="co">## 9     referenceSheep_Uerpmann.csv</span></span>
+<span><span class="co">## 10        referenceGoat_Basel.csv</span></span>
+<span><span class="co">## 11      referenceGoat_Clutton.csv</span></span>
+<span><span class="co">## 12     referenceGoat_Uerpmann.csv</span></span>
+<span><span class="co">## 13     referencePig_Albarella.csv</span></span>
+<span><span class="co">## 14         referencePig_Basel.csv</span></span>
+<span><span class="co">## 15         referencePig_Hongo.csv</span></span>
+<span><span class="co">## 16         referencePig_Payne.csv</span></span>
+<span><span class="co">## 17     referenceRedDeer_Basel.csv</span></span>
+<span><span class="co">## 18        referenceDama_Haifa.csv</span></span>
+<span><span class="co">## 19     referenceGazelle_Haifa.csv</span></span>
+<span><span class="co">## 20       referenceEquid_Haifa.csv</span></span>
+<span><span class="co">## 21   referenceEquid_Johnstone.csv</span></span>
+<span><span class="co">## 22 referenceRabbit_Nottingham.csv</span></span></code></pre></div>
 
     </div>
     <div id="acknowledgement">
@@ -453,13 +453,13 @@ in the Groningen set.</p>
 reference for cattle (Johnstone and Albarella 2002)
 .</p>
 <p>We are also grateful to Sierra Harding and Nimrod Marom (University of Haifa)
-for providing the Haifa standard measurements for donkey, gazelle, and
-fallow deer (Harding and Marom 2021)
+for providing the Haifa standard measurements for donkey, mountain gazelle,
+and Persian fallow deer (Harding and Marom 2021)
 .</p>
 <p>We thank Carly Ameen and Helene Benkert (University of Exeter) for providing
 references for horse (Johnstone 2004)
- and rabbit
-(Ameen 2021)
+ and
+European rabbit (Ameen 2021)
 .</p>
 <p>We thank Mikolaj Lisowski (University of York) for pointing to the existence
 of the improved reference for Bos primigenius
@@ -516,7 +516,7 @@ Peabody Museum Press.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

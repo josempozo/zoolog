@@ -20,7 +20,7 @@ package. But the user can use their own references if desired."><!-- mathjax -->
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -64,66 +64,89 @@ package. But the user can use their own references if desired.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">LogRatios</span><span class="op">(</span>
-  <span class="va">data</span>,
-  ref <span class="op">=</span> <span class="va">reference</span><span class="op">$</span><span class="va">Combi</span>,
-  identifiers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Taxon"</span>, <span class="st">"Element"</span><span class="op">)</span>,
-  refMeasuresName <span class="op">=</span> <span class="st">"Measure"</span>,
-  refValuesName <span class="op">=</span> <span class="st">"Standard"</span>,
-  thesaurusSet <span class="op">=</span> <span class="va">zoologThesaurus</span>,
-  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,
-  joinCategories <span class="op">=</span> <span class="cn">NULL</span>,
-  mergedMeasures <span class="op">=</span> <span class="cn">NULL</span>,
-  useGenusIfUnambiguous <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">LogRatios</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  ref <span class="op">=</span> <span class="va">reference</span><span class="op">$</span><span class="va">Combi</span>,</span>
+<span>  identifiers <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Taxon"</span>, <span class="st">"Element"</span><span class="op">)</span>,</span>
+<span>  refMeasuresName <span class="op">=</span> <span class="st">"Measure"</span>,</span>
+<span>  refValuesName <span class="op">=</span> <span class="st">"Standard"</span>,</span>
+<span>  thesaurusSet <span class="op">=</span> <span class="va">zoologThesaurus</span>,</span>
+<span>  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,</span>
+<span>  joinCategories <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  mergedMeasures <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  useGenusIfUnambiguous <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>A dataframe with the input measurements.</p></dd>
+
+
 <dt>ref</dt>
 <dd><p>A dataframe including the measurement values used as references.
 The default <code>ref = reference$Combi</code> and other <a href="referencesDatabase.html">reference</a> sets are
 provided with the package <span class="pkg">zoolog</span>.</p></dd>
+
+
 <dt>identifiers</dt>
 <dd><p>A vector of column names in <code>ref</code> identifying
 a type of bone. By default <code>identifiers = c("Taxon", "Element")</code>.</p></dd>
+
+
 <dt>refMeasuresName</dt>
 <dd><p>The column name in <code>ref</code> identifying the type of
 bone measurement.</p></dd>
+
+
 <dt>refValuesName</dt>
 <dd><p>The column name in <code>ref</code> giving the measurement
 value.</p></dd>
+
+
 <dt>thesaurusSet</dt>
 <dd><p>A thesaurus allowing datasets with different nomenclatures
 to be merged. By default <code>thesaurusSet = <a href="zoologThesaurus.html">zoologThesaurus</a></code>.</p></dd>
+
+
 <dt>taxonomy</dt>
 <dd><p>A taxonomy allowing the automatic detection of data and
 reference sharing the same genus (or higher taxonomic rank), although of
 different species. By default <code>taxonomy = <a href="zoologTaxonomy.html">zoologTaxonomy</a></code>.</p></dd>
+
+
 <dt>joinCategories</dt>
 <dd><p>A list of named character vectors. Each vector is named
 by a category in the reference and includes a set of categories in the data
 for which to compute the log ratios with respect to that reference.
 When <code>NULL</code> (default) no grouping is considered.</p></dd>
+
+
 <dt>mergedMeasures</dt>
 <dd><p>A list of character vectors or a single character vector.
 Each vector identifies a set of measures that the data presents merged in the
 same column, named as any of them. This practice only makes sense if only one
 of the measures can appear in each bone element.</p></dd>
+
+
 <dt>useGenusIfUnambiguous</dt>
 <dd><p>Boolean. If <code>TRUE</code> (default), data cases
 are matched to reference sharing the same genus, instead of sharing the same
 species.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A dataframe including the input dataframe and additional columns, one
+    
+
+<p>A dataframe including the input dataframe and additional columns, one
 for each extracted log ratio for each relevant measurement in the reference.
 The name of the added columns are constructed by prefixing each measurement by
-the internal variable <code>logPrefix</code>.
-If the input dataframe includes additional S3 classes (such as "tbl_df"),
+the internal variable <code>logPrefix</code>.</p>
+
+
+<p>If the input dataframe includes additional S3 classes (such as "tbl_df"),
 they are also passed to the output.</p>
     </div>
     <div id="details">
@@ -190,18 +213,18 @@ measures, the behaviour is unpredictable.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Read an example dataset:</span></span>
-<span class="r-in"><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span>
-<span class="r-in">                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
-<span class="r-in">                                na.strings <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## For illustration purposes we keep now only a subset of cases to make</span></span>
-<span class="r-in"><span class="co">## the example run sufficiently fast.</span></span>
-<span class="r-in"><span class="co">## Avoid this step if you want to process the full example dataset.</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">400</span>, <span class="op">]</span></span>
-<span class="r-in"><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Read an example dataset:</span></span></span>
+<span class="r-in"><span><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span></span>
+<span class="r-in"><span>                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span></span>
+<span class="r-in"><span>                                na.strings <span class="op">=</span> <span class="st">""</span>,</span></span>
+<span class="r-in"><span>                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## For illustration purposes we keep now only a subset of cases to make</span></span></span>
+<span class="r-in"><span><span class="co">## the example run sufficiently fast.</span></span></span>
+<span class="r-in"><span><span class="co">## Avoid this step if you want to process the full example dataset.</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">400</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -216,10 +239,10 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Compute the log-ratios with respect to the default reference in the</span></span>
-<span class="r-in"><span class="co">## package zoolog:</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Compute the log-ratios with respect to the default reference in the</span></span></span>
+<span class="r-in"><span><span class="co">## package zoolog:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
@@ -227,9 +250,9 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"><span class="co">## The output data frame include new columns with the log-ratios of the</span></span>
-<span class="r-in"><span class="co">## present measurements, in both data and reference, with a "log" prefix:</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="co">## The output data frame include new columns with the log-ratios of the</span></span></span>
+<span class="r-in"><span><span class="co">## present measurements, in both data and reference, with a "log" prefix:</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -258,9 +281,9 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA    NA    NA   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5     NA    NA    NA   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6     NA    NA    NA   NA   NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Compute the log-ratios with respect to a different reference:</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs2</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>, ref <span class="op">=</span> <span class="va">reference</span><span class="op">$</span><span class="va">Basel</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Compute the log-ratios with respect to a different reference:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs2</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>, ref <span class="op">=</span> <span class="va">reference</span><span class="op">$</span><span class="va">Basel</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Ovis orientalis used for cases of Ovis aries.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
@@ -269,7 +292,7 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis orientalis or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -291,30 +314,30 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4    NA     NA     NA    NA    NA     NA     NA    NA     NA    NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5    NA     NA     NA    NA    NA     NA     NA    NA     NA    NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6    NA     NA     NA    NA    NA     NA     NA    NA     NA    NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Define an altenative reference combining differently the references'</span></span>
-<span class="r-in"><span class="co">## database:</span></span>
-<span class="r-in"><span class="va">refComb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cattle <span class="op">=</span> <span class="st">"Nieto"</span>, sheep <span class="op">=</span> <span class="st">"Davis"</span>, Goat <span class="op">=</span> <span class="st">"Clutton"</span>,</span>
-<span class="r-in">                pig <span class="op">=</span> <span class="st">"Albarella"</span>, redDeer <span class="op">=</span> <span class="st">"Basel"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">userReference</span> <span class="op">&lt;-</span> <span class="fu"><a href="AssembleReference.html">AssembleReference</a></span><span class="op">(</span><span class="va">refComb</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## Compute the log-ratios with respect to this alternative reference:</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs3</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>, ref <span class="op">=</span> <span class="va">userReference</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Define an altenative reference combining differently the references'</span></span></span>
+<span class="r-in"><span><span class="co">## database:</span></span></span>
+<span class="r-in"><span><span class="va">refComb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cattle <span class="op">=</span> <span class="st">"Nieto"</span>, sheep <span class="op">=</span> <span class="st">"Davis"</span>, Goat <span class="op">=</span> <span class="st">"Clutton"</span>,</span></span>
+<span class="r-in"><span>                pig <span class="op">=</span> <span class="st">"Albarella"</span>, redDeer <span class="op">=</span> <span class="st">"Basel"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">userReference</span> <span class="op">&lt;-</span> <span class="fu"><a href="AssembleReference.html">AssembleReference</a></span><span class="op">(</span><span class="va">refComb</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## Compute the log-ratios with respect to this alternative reference:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs3</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>, ref <span class="op">=</span> <span class="va">userReference</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus domesticus used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Data includes some cases recorded as</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## We can be interested in including the first and second phalanges without</span></span>
-<span class="r-in"><span class="co">## anterior-posterior identification ("phal 1" and "phal 2"), by computing</span></span>
-<span class="r-in"><span class="co">## their log ratios with respect to the reference of the corresponding</span></span>
-<span class="r-in"><span class="co">## anterior phalanges ("phal 1 ant" and "phal 2 ant", respectively).</span></span>
-<span class="r-in"><span class="co">## For this we use the optional argument joinCategories:</span></span>
-<span class="r-in"><span class="va">categoriesPhalAnt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'phal 1 ant'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"phal 1 ant"</span>, <span class="st">"phal 1"</span><span class="op">)</span>,</span>
-<span class="r-in">                          <span class="st">'phal 2 ant'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"phal 2 ant"</span>, <span class="st">"phal 2"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs4</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>,</span>
-<span class="r-in">                                  joinCategories <span class="op">=</span> <span class="va">categoriesPhalAnt</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## We can be interested in including the first and second phalanges without</span></span></span>
+<span class="r-in"><span><span class="co">## anterior-posterior identification ("phal 1" and "phal 2"), by computing</span></span></span>
+<span class="r-in"><span><span class="co">## their log ratios with respect to the reference of the corresponding</span></span></span>
+<span class="r-in"><span><span class="co">## anterior phalanges ("phal 1 ant" and "phal 2 ant", respectively).</span></span></span>
+<span class="r-in"><span><span class="co">## For this we use the optional argument joinCategories:</span></span></span>
+<span class="r-in"><span><span class="va">categoriesPhalAnt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'phal 1 ant'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"phal 1 ant"</span>, <span class="st">"phal 1"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                          <span class="st">'phal 2 ant'</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"phal 2 ant"</span>, <span class="st">"phal 2"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs4</span> <span class="op">&lt;-</span> <span class="fu">LogRatios</span><span class="op">(</span><span class="va">dataExample</span>,</span></span>
+<span class="r-in"><span>                                  joinCategories <span class="op">=</span> <span class="va">categoriesPhalAnt</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
@@ -322,7 +345,7 @@ measures, the behaviour is unpredictable.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs4</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs4</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -365,7 +388,7 @@ measures, the behaviour is unpredictable.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

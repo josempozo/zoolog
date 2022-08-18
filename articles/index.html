@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 data-toc-skip class="author">Jose M Pozo, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, and Silvia Valenzuela-Lamas</h4>
             
-            <h4 data-toc-skip class="date">2022-05-13</h4>
+            <h4 data-toc-skip class="date">2022-08-18</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -118,26 +118,26 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h2>
 <p>You can install the released version of zoolog from <a href="https://CRAN.R-project.org/package=zoolog" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"zoolog"</span><span class="op">)</span></span></code></pre></div>
 <p>And the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"josempozo/zoolog@HEAD"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="sec:refStandards">Reference standards<a class="anchor" aria-label="anchor" href="#sec:refStandards"></a>
 </h2>
-<p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), red deer (<em>Cervus elaphus</em>), fallow deer (<em>Dama mesopotamica</em>), gazelle (<em>Gazella gazella</em>), donkey (<em>Equus asinus</em>), horse (<em>Equus caballus</em>) and rabbit (<em>Oryctolagus cuniculus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
+<p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), red deer (<em>Cervus elaphus</em>), Persian fallow deer (<em>Dama mesopotamica</em>), mountain gazelle (<em>Gazella gazella</em>), donkey (<em>Equus asinus</em>), horse (<em>Equus caballus</em>) and European rabbit (<em>Oryctolagus cuniculus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
 <p>These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in Release 1.0.0.</p>
 <p>The predefined reference sets included in <em>zoolog</em> are provided in the named list <code>reference</code>, currently comprising the following 4 sets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">reference</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; List of 4</span>
-<span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 133 obs. of  4 variables:</span>
-<span class="co">#&gt;  $ Basel              :'data.frame': 176 obs. of  4 variables:</span>
-<span class="co">#&gt;  $ Combi              :'data.frame': 558 obs. of  4 variables:</span>
-<span class="co">#&gt;  $ Groningen          :'data.frame': 246 obs. of  4 variables:</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">reference</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; List of 4</span></span>
+<span><span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 133 obs. of  4 variables:</span></span>
+<span><span class="co">#&gt;  $ Basel              :'data.frame': 176 obs. of  4 variables:</span></span>
+<span><span class="co">#&gt;  $ Combi              :'data.frame': 558 obs. of  4 variables:</span></span>
+<span><span class="co">#&gt;  $ Groningen          :'data.frame': 246 obs. of  4 variables:</span></span></code></pre></div>
 <p>The reference set <code>reference$Combi</code> is the default reference for computing the <a href="../help/LogRatios">log ratios</a>, since it includes the most comprehensive reference for each species.</p>
 <p>The package also includes a <code>referencesDatabase</code> collecting the taxon-specific reference standards from all the considered resources. Each reference set is composed of a different combination of taxon-specific standards selected from this <code>referencesDatabase</code>. The selection is defined by the data frame <code>referenceSets</code>:</p>
 <table style="width:100%;" class="table">
@@ -466,13 +466,13 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>This example reads a dataset from a file in csv format and computes the log-ratios. Then, the cases with no available log-ratios are removed. Finally, the resulting dataset is saved in a file in csv format.</p>
 <p>The first step is to set the local path to the folder where you have the dataset to be analysed (this is typically a comma-separated value (csv) file). Here the <a href="../help/dataValenzuelaLamas2008">example dataset</a> from <span class="citation">Valenzuela-Lamas (2008)</span> included in the package is used:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span>
-<span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, 
-                        package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span>
-<span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,
-                 quote <span class="op">=</span> <span class="st">"\""</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, na.strings <span class="op">=</span> <span class="st">""</span>,
-                 encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://josempozo.github.io/zoolog/" class="external-link">zoolog</a></span><span class="op">)</span></span>
+<span><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>, </span>
+<span>                        package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
+<span>                 quote <span class="op">=</span> <span class="st">"\""</span>, header <span class="op">=</span> <span class="cn">TRUE</span>, na.strings <span class="op">=</span> <span class="st">""</span>,</span>
+<span>                 encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">Site</th>
@@ -606,19 +606,19 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>To enhance the visibility, we have shown only the most relevant columns.</p>
 <p>We now calculate the log-ratios using the function <code>LogRatios</code>. Only measurements that have an associated standard will be included in this calculation. The log values will appear as new columns with the prefix ‘log’ following the original columns with the raw measurements:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Reference for Sus scrofa used for cases of Sus domesticus.</span>
-<span class="co">#&gt;    Reference for Sus scrofa used for cases of Sus.</span>
-<span class="co">#&gt;    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span>
-<span class="co">#&gt;    Reference for Ovis aries used for cases of Ovis.</span>
-<span class="co">#&gt;    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
-<span class="co">#&gt; Warning: Data includes some cases recorded as</span>
-<span class="co">#&gt;     * Equus (which is a Genus)</span>
-<span class="co">#&gt;       for which the reference for Equus asinus or Equus caballus could be used.</span>
-<span class="co">#&gt;     * Caprini (which is a Tribe)</span>
-<span class="co">#&gt;       for which the reference for Ovis aries or Capra hircus could be used.</span>
-<span class="co">#&gt;    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Reference for Sus scrofa used for cases of Sus domesticus.</span></span>
+<span><span class="co">#&gt;    Reference for Sus scrofa used for cases of Sus.</span></span>
+<span><span class="co">#&gt;    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span></span>
+<span><span class="co">#&gt;    Reference for Ovis aries used for cases of Ovis.</span></span>
+<span><span class="co">#&gt;    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span></span>
+<span><span class="co">#&gt; Warning: Data includes some cases recorded as</span></span>
+<span><span class="co">#&gt;     * Equus (which is a Genus)</span></span>
+<span><span class="co">#&gt;       for which the reference for Equus asinus or Equus caballus could be used.</span></span>
+<span><span class="co">#&gt;     * Caprini (which is a Tribe)</span></span>
+<span><span class="co">#&gt;       for which the reference for Ovis aries or Capra hircus could be used.</span></span>
+<span><span class="co">#&gt;    Set joinCategories as appropriate if you want to use any of them.</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
@@ -965,8 +965,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h3>
 <p>If we observe the example dataset more carefully, we can see that the measures recorded for the <em>astragali</em> presents a deviation from the measure definitions in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>. To see this, we can select the cases where the element is an astragalus. The function <a href="../help/InCategory">InCategory</a> allows us to select them with the help of the thesaurus without requiring to know the terms actually used:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">AScases</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">$</span><span class="va">Os</span>, <span class="st">"astragalus"</span>, <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">element</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">AScases</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">$</span><span class="va">Os</span>, <span class="st">"astragalus"</span>, <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">element</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
@@ -1311,9 +1311,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>The same effect happens for the measure <em>GLpe</em>, only relevant for the phalanges.</p>
 <p>The optional parameter mergedMeasures facilitates the processing of this type of simplified datasets. For the example data, we can use</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">GLVariants</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span>, <span class="st">"GLpe"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, mergedMeasures <span class="op">=</span> <span class="va">GLVariants</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">GLVariants</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span>, <span class="st">"GLpe"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, mergedMeasures <span class="op">=</span> <span class="va">GLVariants</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">[</span><span class="va">AScases</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
@@ -1661,9 +1661,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h3>
 <p>We could be interested in obtaining the log ratios of all caprines, including <em>Ovis aries</em>, <em>Capra hircus</em>, and undetermined <em>Ovis/Capra</em>, with respect to the reference for <em>Ovis aries</em>. This can be set using the argument <code>joinCategories</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">caprineCategory</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ovar <span class="op">=</span> <span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, joinCategories <span class="op">=</span> <span class="va">caprineCategory</span>, mergedMeasures <span class="op">=</span> <span class="va">GLVariants</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">caprineCategory</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>ovar <span class="op">=</span> <span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">dataWithLog</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">data</span>, joinCategories <span class="op">=</span> <span class="va">caprineCategory</span>, mergedMeasures <span class="op">=</span> <span class="va">GLVariants</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="1%">
@@ -1998,9 +1998,9 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>The category to join can be manually defined, but here we have conveniently used the function <code>Subtaxonomy</code> applied to the tribe <em>Caprini</em>:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Ovis aries"      "Ovis orientalis" "Capra hircus"    "Capra aegagrus" </span>
-<span class="co">#&gt; [5] "Ovis"            "Capra"           "Caprini"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Ovis aries"      "Ovis orientalis" "Capra hircus"    "Capra aegagrus" </span></span>
+<span><span class="co">#&gt; [5] "Ovis"            "Capra"           "Caprini"</span></span></code></pre></div>
 <p>Note that this option does not remove the distinction in the data between the different species, it just indicates that for these taxa the log ratios must be computed from the same reference (“ovar”).</p>
 </div>
 <div class="section level3">
@@ -2008,8 +2008,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h3>
 <p>The cases without log-ratios can be removed to facilitate subsequent analyses:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataWithLogPruned</span><span class="op">=</span><span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataWithLogPruned</span><span class="op">=</span><span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataWithLog</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="1%">
@@ -2344,17 +2344,17 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>You may want to write the resulting file in the working directory (you need to set it first):</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv2</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span>, <span class="st">"myDataWithLogValues.csv"</span>, 
-           quote<span class="op">=</span><span class="cn">FALSE</span>, row.names<span class="op">=</span><span class="cn">FALSE</span>, na<span class="op">=</span><span class="st">""</span>, 
-           fileEncoding<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/write.table.html" class="external-link">write.csv2</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span>, <span class="st">"myDataWithLogValues.csv"</span>, </span>
+<span>           quote<span class="op">=</span><span class="cn">FALSE</span>, row.names<span class="op">=</span><span class="cn">FALSE</span>, na<span class="op">=</span><span class="st">""</span>, </span>
+<span>           fileEncoding<span class="op">=</span><span class="st">"UTF-8"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="condensing-log-values">Condensing log values<a class="anchor" aria-label="anchor" href="#condensing-log-values"></a>
 </h3>
 <p>After calculating log ratios using the <code>LogRatios</code> function, many rows in the resultant dataframe (dataWithLog in the example above) may contain multiple log values, i.e. you will have several log values associated with a particular archaeological specimen. When analysing log ratios, it is preferential to avoid over-representation of bones with a greater number of measurements and account for each specimen only once. The <code>CondenseLogs</code> function extracts one length, one width, and one depth value from each row and places these in new Length, Width, and Depth columns. The ‘priority’ method described in <span class="citation">Trentacoste, Nieto-Espinet, and Valenzuela-Lamas (2018)</span> has been set as default. In this case, the default option has been used:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataWithSummary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CondenseLogs.html">CondenseLogs</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataWithSummary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/CondenseLogs.html">CondenseLogs</a></span><span class="op">(</span><span class="va">dataWithLogPruned</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
@@ -2599,8 +2599,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set <code>zoologThesaurus</code>. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance “sheep” and “ovis” for the same taxon or “hum” and “HU” for the bone element.</p>
 <p>If we standardize the studied data, we can see that <code>zoologThesaurus</code> will change “ovar” to “Ovis aries”, “hum” to “humerus”, and “Especie” to “Taxon”, for instance.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataWithSummary</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span>,<span class="fl">72</span><span class="op">:</span><span class="fl">86</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="2%">
@@ -2843,10 +2843,10 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h3>
 <p>We may be interested in selecting all caprine elements. This can be done even without standardizing the data using the function <code>InCategory</code>:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">dataWithSummary</span>, <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">Especie</span>, 
-                                             <span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span>,
-                                             <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span><span class="op">)</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataOC</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">dataWithSummary</span>, <span class="fu"><a href="../reference/InCategory.html">InCategory</a></span><span class="op">(</span><span class="va">Especie</span>, </span>
+<span>                                             <span class="fu"><a href="../reference/Subtaxonomy.html">SubtaxonomySet</a></span><span class="op">(</span><span class="st">"caprine"</span><span class="op">)</span>,</span>
+<span>                                             <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="1%">
@@ -3213,8 +3213,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </table>
 <p>Observe that no standardization is performed in the output subset. To standardize the subset data, <code>StandardizeDataSet</code> can be applied either before or after the subsetting.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOCStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataOCStandardized</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/StandardizeNomenclature.html">StandardizeDataSet</a></span><span class="op">(</span><span class="va">dataOC</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
 <col width="0%">
@@ -3582,8 +3582,8 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>Observe also that the distinction between <em>Ovis aries</em>, <em>Capra hircus</em>, and <em>Ovis/Capra</em> has not been removed from the data.</p>
 <p>If we were interested only in one summary measure, <em>Width</em> or <em>Length</em>, we could retain the cases including this measure:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOCWithWidth</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataOCStandardized</span>, measureNames <span class="op">=</span> <span class="st">"Width"</span><span class="op">)</span>
-<span class="va">dataOCWithLength</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataOCStandardized</span>, measureNames <span class="op">=</span> <span class="st">"Length"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataOCWithWidth</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataOCStandardized</span>, measureNames <span class="op">=</span> <span class="st">"Width"</span><span class="op">)</span></span>
+<span><span class="va">dataOCWithLength</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="va">dataOCStandardized</span>, measureNames <span class="op">=</span> <span class="st">"Length"</span><span class="op">)</span></span></code></pre></div>
 <p>which gives respectively 237 (<code>=nrow(dataOCWithWidth)</code>) and 149 (<code>=nrow(dataOCWithLength)</code>) cases.</p>
 </div>
 <div class="section level3">
@@ -3596,23 +3596,23 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <p>For the example plots we will use the package <strong>ggplot2</strong>.</p>
 <p>We can now create a boxplot for the widths:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine widths"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine widths"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-20-1.png" width="576" style="display: block; margin: auto;"></p>
 <p>And another boxplot for the lengths:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine lengths"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Length log-ratio"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Site</span>, y <span class="op">=</span> <span class="va">Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span>outlier.shape <span class="op">=</span> <span class="cn">NA</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.2</span>, height <span class="op">=</span> <span class="fl">0</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">2</span>, color <span class="op">=</span> <span class="fl">4</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine lengths"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"Length log-ratio"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">coord_flip</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-21-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level4">
@@ -3620,19 +3620,19 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h4>
 <p>We may choose to plot the width data as a histogram:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine widths"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">facet_grid</span><span class="op">(</span><span class="va">Site</span> <span class="op">~</span><span class="va">.</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>panel.grid.major.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,
-        panel.grid.minor.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span>,
-        axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,
-        axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Caprine widths"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">xlab</span><span class="op">(</span><span class="st">"Width log-ratio"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">facet_grid</span><span class="op">(</span><span class="va">Site</span> <span class="op">~</span><span class="va">.</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme</span><span class="op">(</span>panel.grid.major.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>        panel.grid.minor.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span>, size <span class="op">=</span> <span class="fl">14</span><span class="op">)</span>,</span>
+<span>        axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
+<span>        axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span>,</span>
+<span>        axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span> <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-22-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level4">
@@ -3640,48 +3640,48 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h4>
 <p>Here we reorder the factor levels of <code>dataOCStandardized$Taxon</code> to make the order of the boxplots more intuitive.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">levels0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
-<span class="va">levels0</span>
-<span class="co">#&gt; [1] "Ovis aries"   "Capra hircus" "Caprini"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">levels0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span></span>
+<span><span class="va">levels0</span></span>
+<span><span class="co">#&gt; [1] "Ovis aries"   "Capra hircus" "Caprini"</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span>, 
-                                   levels <span class="op">=</span> <span class="va">levels0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Ovis aries"   "Caprini"      "Capra hircus"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span>, </span>
+<span>                                   levels <span class="op">=</span> <span class="va">levels0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">2</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/levels.html" class="external-link">levels</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Taxon</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Ovis aries"   "Caprini"      "Capra hircus"</span></span></code></pre></div>
 <p>and assign specific colours for each category:</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Ocolour</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#A2A475"</span>, <span class="st">"#D8B70A"</span>, <span class="st">"#81A88D"</span><span class="op">)</span>
-<span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">Site</span>, y<span class="op">=</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill<span class="op">=</span><span class="va">Taxon</span><span class="op">)</span>, 
-               notch <span class="op">=</span> <span class="cn">TRUE</span>, alpha <span class="op">=</span> <span class="fl">0</span>, lwd <span class="op">=</span> <span class="fl">0.377</span>, outlier.alpha <span class="op">=</span> <span class="fl">0</span>,
-               width <span class="op">=</span> <span class="fl">0.5</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>,
-               position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.75</span><span class="op">)</span>,
-               show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">Taxon</span>, shape <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span>, 
-             alpha <span class="op">=</span> <span class="fl">0.7</span>, size <span class="op">=</span> <span class="fl">0.8</span>, 
-             position <span class="op">=</span> <span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>,
-             na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_colour_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">Ocolour</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_shape_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">16</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_bw</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ylab</span><span class="op">(</span><span class="st">"LSI value"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat LSI width values"</span><span class="op">)</span> </code></pre></div>
+<code class="sourceCode R"><span><span class="va">Ocolour</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#A2A475"</span>, <span class="st">"#D8B70A"</span>, <span class="st">"#81A88D"</span><span class="op">)</span></span>
+<span><span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">Site</span>, y<span class="op">=</span><span class="va">Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill<span class="op">=</span><span class="va">Taxon</span><span class="op">)</span>, </span>
+<span>               notch <span class="op">=</span> <span class="cn">TRUE</span>, alpha <span class="op">=</span> <span class="fl">0</span>, lwd <span class="op">=</span> <span class="fl">0.377</span>, outlier.alpha <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>               width <span class="op">=</span> <span class="fl">0.5</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>               position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span><span class="fl">0.75</span><span class="op">)</span>,</span>
+<span>               show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">Taxon</span>, shape <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span>, </span>
+<span>             alpha <span class="op">=</span> <span class="fl">0.7</span>, size <span class="op">=</span> <span class="fl">0.8</span>, </span>
+<span>             position <span class="op">=</span> <span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span>,</span>
+<span>             na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_colour_manual</span><span class="op">(</span>values<span class="op">=</span><span class="va">Ocolour</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_shape_manual</span><span class="op">(</span>values<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">18</span>, <span class="fl">16</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_bw</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ylab</span><span class="op">(</span><span class="st">"LSI value"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat LSI width values"</span><span class="op">)</span> </span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-25-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level4">
 <h4 id="histograms-grouped-by-taxon-and-site">Histograms grouped by taxon and site<a class="anchor" aria-label="anchor" href="#histograms-grouped-by-taxon-and-site"></a>
 </h4>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">TaxonSiteWidthHist</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span>, fill <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, position <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat Widths"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_grid</span><span class="op">(</span><span class="va">Site</span> <span class="op">~</span> <span class="va">Taxon</span><span class="op">)</span>
-<span class="va">TaxonSiteWidthHist</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">TaxonSiteWidthHist</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span>, fill <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, position <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat Widths"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_grid</span><span class="op">(</span><span class="va">Site</span> <span class="op">~</span> <span class="va">Taxon</span><span class="op">)</span></span>
+<span><span class="va">TaxonSiteWidthHist</span></span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-26-1.png" width="576" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">TaxonSiteWidthHist</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span>, fill <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, position <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat Widths"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_grid</span><span class="op">(</span><span class="op">~</span><span class="va">Site</span><span class="op">)</span>
-<span class="va">TaxonSiteWidthHist</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">TaxonSiteWidthHist</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">dataOCStandardized</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">Width</span>, fill <span class="op">=</span> <span class="va">Taxon</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span>bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, position <span class="op">=</span> <span class="st">"identity"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggtitle</span><span class="op">(</span><span class="st">"Sheep/goat Widths"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">facet_grid</span><span class="op">(</span><span class="op">~</span><span class="va">Site</span><span class="op">)</span></span>
+<span><span class="va">TaxonSiteWidthHist</span></span></code></pre></div>
 <p><img src="index_files/figure-html/unnamed-chunk-27-1.png" width="576" style="display: block; margin: auto;"></p>
 </div>
 </div>
@@ -3690,51 +3690,51 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 </h3>
 <p>We may run a statistical test (here a Student t-test) to check whether the differences in log ratio length values between the sites “OLD” and “ALP” are statistically significant:</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Length</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
-       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  Welch Two Sample t-test</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; data:  Length by Site</span>
-<span class="co">#&gt; t = -12.23, df = 4.2233, p-value = 0.0001865</span>
-<span class="co">#&gt; alternative hypothesis: true difference in means between group ALP and group OLD is not equal to 0</span>
-<span class="co">#&gt; 95 percent confidence interval:</span>
-<span class="co">#&gt;  -0.11262797 -0.07165242</span>
-<span class="co">#&gt; sample estimates:</span>
-<span class="co">#&gt; mean in group ALP mean in group OLD </span>
-<span class="co">#&gt;       -0.04589475        0.04624545</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Length</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, </span>
+<span>       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,</span>
+<span>       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  Length by Site</span></span>
+<span><span class="co">#&gt; t = -12.23, df = 4.2233, p-value = 0.0001865</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true difference in means between group ALP and group OLD is not equal to 0</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  -0.11262797 -0.07165242</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean in group ALP mean in group OLD </span></span>
+<span><span class="co">#&gt;       -0.04589475        0.04624545</span></span></code></pre></div>
 <p>Similarly, for the differences in log ratio width values:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Width</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, 
-       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,
-       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  Welch Two Sample t-test</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; data:  Width by Site</span>
-<span class="co">#&gt; t = -3.0613, df = 8.8203, p-value = 0.01386</span>
-<span class="co">#&gt; alternative hypothesis: true difference in means between group ALP and group OLD is not equal to 0</span>
-<span class="co">#&gt; 95 percent confidence interval:</span>
-<span class="co">#&gt;  -0.09749890 -0.01448767</span>
-<span class="co">#&gt; sample estimates:</span>
-<span class="co">#&gt; mean in group ALP mean in group OLD </span>
-<span class="co">#&gt;       -0.03922705        0.01676624</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html" class="external-link">t.test</a></span><span class="op">(</span><span class="va">Width</span> <span class="op">~</span> <span class="va">Site</span>, <span class="va">dataOCStandardized</span>, </span>
+<span>       subset <span class="op">=</span> <span class="va">Site</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"OLD"</span>, <span class="st">"ALP"</span><span class="op">)</span>,</span>
+<span>       na.action <span class="op">=</span> <span class="st">"na.omit"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Welch Two Sample t-test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  Width by Site</span></span>
+<span><span class="co">#&gt; t = -3.0613, df = 8.8203, p-value = 0.01386</span></span>
+<span><span class="co">#&gt; alternative hypothesis: true difference in means between group ALP and group OLD is not equal to 0</span></span>
+<span><span class="co">#&gt; 95 percent confidence interval:</span></span>
+<span><span class="co">#&gt;  -0.09749890 -0.01448767</span></span>
+<span><span class="co">#&gt; sample estimates:</span></span>
+<span><span class="co">#&gt; mean in group ALP mean in group OLD </span></span>
+<span><span class="co">#&gt;       -0.03922705        0.01676624</span></span></code></pre></div>
 <p>For testing all possible pairs of sites, the p-values must be adjusted for multiple comparisons:</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/pairwise.t.test.html" class="external-link">pairwise.t.test</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Width</span>, <span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Site</span>, 
-                pool.sd <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;  Pairwise comparisons using t tests with non-pooled SD </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; data:  dataOCStandardized$Width and dataOCStandardized$Site </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt;     ALP   OLD  </span>
-<span class="co">#&gt; OLD 0.042 -    </span>
-<span class="co">#&gt; TFC 0.450 0.051</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; P value adjustment method: holm</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">stats</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/pairwise.t.test.html" class="external-link">pairwise.t.test</a></span><span class="op">(</span><span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Width</span>, <span class="va">dataOCStandardized</span><span class="op">$</span><span class="va">Site</span>, </span>
+<span>                pool.sd <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Pairwise comparisons using t tests with non-pooled SD </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  dataOCStandardized$Width and dataOCStandardized$Site </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     ALP   OLD  </span></span>
+<span><span class="co">#&gt; OLD 0.042 -    </span></span>
+<span><span class="co">#&gt; TFC 0.450 0.051</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; P value adjustment method: holm</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -3811,7 +3811,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

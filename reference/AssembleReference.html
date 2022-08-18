@@ -18,7 +18,7 @@ the available specimens in the references' database."><!-- mathjax --><script sr
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -60,11 +60,11 @@ the available specimens in the references' database.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">AssembleReference</span><span class="op">(</span>
-  <span class="va">combination</span>,
-  ref.db <span class="op">=</span> <span class="va">referencesDatabase</span>,
-  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">AssembleReference</span><span class="op">(</span></span>
+<span>  <span class="va">combination</span>,</span>
+<span>  ref.db <span class="op">=</span> <span class="va">referencesDatabase</span>,</span>
+<span>  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -74,6 +74,8 @@ the available specimens in the references' database.</p>
 taxon. Each column or list element must have a single element of type
 character, identifying one of the sources included in the references'
 database.</p></dd>
+
+
 <dt>ref.db</dt>
 <dd><p>A reference database. This is a named list of named lists of
 dataframes. The first level is named by taxon and the second level is named
@@ -81,18 +83,23 @@ by reference source. Each dataframe includes the reference for the
 corresponding taxon and source. The default
 <code>ref.db = <a href="referencesDatabase.html">referencesDatabase</a></code> is provided as package
 <span class="pkg">zoolog</span> data.</p></dd>
+
+
 <dt>thesaurus</dt>
 <dd><p>A thesaurus for taxa.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A reference dataframe.</p>
+    
+
+<p>A reference dataframe.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## `referenceSets` includes a series of predefined reference compositions.</span></span>
-<span class="r-in"><span class="va">referenceSets</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## `referenceSets` includes a series of predefined reference compositions.</span></span></span>
+<span class="r-in"><span><span class="va">referenceSets</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                     Bos taurus Bos primigenius Ovis aries Ovis orientalis</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> NietoDavisAlbarella      Nieto                      Davis                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Basel                    Basel                                      Basel</span>
@@ -113,16 +120,16 @@ corresponding taxon and source. The default
 <span class="r-out co"><span class="r-pr">#&gt;</span> Basel                                                                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combi                      Haifa      Johnstone            Nottingham</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Groningen                                                            </span>
-<span class="r-in"><span class="co">## Actually the package `references` is build from them.</span></span>
-<span class="r-in"><span class="co">## We can rebuild any of them:</span></span>
-<span class="r-in"><span class="va">referenceCombi</span> <span class="op">&lt;-</span> <span class="fu">AssembleReference</span><span class="op">(</span><span class="va">referenceSets</span><span class="op">[</span><span class="st">"Combi"</span>, <span class="op">]</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Define an altenative reference combining differently the references'</span></span>
-<span class="r-in"><span class="co">## database:</span></span>
-<span class="r-in"><span class="va">refComb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cattle <span class="op">=</span> <span class="st">"Nieto"</span>, sheep <span class="op">=</span> <span class="st">"Davis"</span>, Goat <span class="op">=</span> <span class="st">"Clutton"</span>,</span>
-<span class="r-in">                pig <span class="op">=</span> <span class="st">"Albarella"</span>, redDeer <span class="op">=</span> <span class="st">"Basel"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">userReference</span> <span class="op">&lt;-</span> <span class="fu">AssembleReference</span><span class="op">(</span><span class="va">refComb</span><span class="op">)</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="co">## Actually the package `references` is build from them.</span></span></span>
+<span class="r-in"><span><span class="co">## We can rebuild any of them:</span></span></span>
+<span class="r-in"><span><span class="va">referenceCombi</span> <span class="op">&lt;-</span> <span class="fu">AssembleReference</span><span class="op">(</span><span class="va">referenceSets</span><span class="op">[</span><span class="st">"Combi"</span>, <span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Define an altenative reference combining differently the references'</span></span></span>
+<span class="r-in"><span><span class="co">## database:</span></span></span>
+<span class="r-in"><span><span class="va">refComb</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>cattle <span class="op">=</span> <span class="st">"Nieto"</span>, sheep <span class="op">=</span> <span class="st">"Davis"</span>, Goat <span class="op">=</span> <span class="st">"Clutton"</span>,</span></span>
+<span class="r-in"><span>                pig <span class="op">=</span> <span class="st">"Albarella"</span>, redDeer <span class="op">=</span> <span class="st">"Basel"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">userReference</span> <span class="op">&lt;-</span> <span class="fu">AssembleReference</span><span class="op">(</span><span class="va">refComb</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -137,7 +144,7 @@ corresponding taxon and source. The default
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

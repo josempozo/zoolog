@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -58,38 +58,49 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">ReadThesaurus</span><span class="op">(</span>
-  <span class="va">file</span>,
-  caseSensitive <span class="op">=</span> <span class="cn">FALSE</span>,
-  accentSensitive <span class="op">=</span> <span class="cn">FALSE</span>,
-  punctuationSensitive <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">ReadThesaurusSet</span><span class="op">(</span><span class="va">file</span><span class="op">)</span>
-
-<span class="fu">WriteThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">file</span><span class="op">)</span>
-
-<span class="fu">WriteThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSet</span>, <span class="va">file</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ReadThesaurus</span><span class="op">(</span></span>
+<span>  <span class="va">file</span>,</span>
+<span>  caseSensitive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  accentSensitive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  punctuationSensitive <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ReadThesaurusSet</span><span class="op">(</span><span class="va">file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">WriteThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">file</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">WriteThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSet</span>, <span class="va">file</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>file</dt>
 <dd><p>Name of a file.</p></dd>
+
+
 <dt>caseSensitive, accentSensitive, punctuationSensitive</dt>
 <dd><p>Logical. They set
 the case, accent, and punctuation sensitivity (<code>FALSE</code> by default) of
 the thesaurus.</p></dd>
+
+
 <dt>thesaurus</dt>
 <dd><p>A thesaurus object.</p></dd>
+
+
 <dt>thesaurusSet</dt>
 <dd><p>A thesaurus set.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>WriteThesaurus</code> and <code>WriteThesaurusSet</code> create or overwrite the
-corresponding files. No value is returned.
-<code>ReadThesaurus</code> and <code>ReadThesaurusSet</code> return the read thesaurus or
+    
+
+<p><code>WriteThesaurus</code> and <code>WriteThesaurusSet</code> create or overwrite the
+corresponding files. No value is returned.</p>
+
+
+<p><code>ReadThesaurus</code> and <code>ReadThesaurusSet</code> return the read thesaurus or
 thesaurusSet, respectively.</p>
     </div>
     <div id="see-also">
@@ -102,12 +113,12 @@ thesaurus set structure,</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Read a thesaurus for taxa:</span></span>
-<span class="r-in"><span class="va">thesaurusFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"taxonThesaurus.csv"</span>, package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurus</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurus</span><span class="op">(</span><span class="va">thesaurusFile</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## The attributes of the thesaurus include the fields 'caseSensitive',</span></span>
-<span class="r-in"><span class="co">## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Read a thesaurus for taxa:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"taxonThesaurus.csv"</span>, package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurus</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurus</span><span class="op">(</span><span class="va">thesaurusFile</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## The attributes of the thesaurus include the fields 'caseSensitive',</span></span></span>
+<span class="r-in"><span><span class="co">## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $names</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Bos taurus"            "Bos primigenius"       "Bos"                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Ovis aries"            "Ovis orientalis"       "Ovis"                 </span>
@@ -133,10 +144,10 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $punctuationSensitive</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Any of them can be set by the user if desired:</span></span>
-<span class="r-in"><span class="va">thesaurus2</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurus</span><span class="op">(</span><span class="va">thesaurusFile</span>, accentSensitive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurus2</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Any of them can be set by the user if desired:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurus2</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurus</span><span class="op">(</span><span class="va">thesaurusFile</span>, accentSensitive <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurus2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $names</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Bos taurus"            "Bos primigenius"       "Bos"                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Ovis aries"            "Ovis orientalis"       "Ovis"                 </span>
@@ -162,19 +173,19 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $punctuationSensitive</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Write the thesarus to a file:</span></span>
-<span class="r-in"><span class="va">fileExample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"thesaurusExample.csv"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">WriteThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">fileExample</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## Replace tempdir() for your preferred local path if you want to easily</span></span>
-<span class="r-in"><span class="co">## examine the written file.</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Read a thesaurus set:</span></span>
-<span class="r-in"><span class="va">thesaurusSetFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"zoologThesaurusSet.csv"</span>, package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurusSet</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSetFile</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## The attributes of the thesaurus set include information of the constituent</span></span>
-<span class="r-in"><span class="co">## thesauri: names, source file names, and their mode of application on datasets.</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurusSet</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Write the thesarus to a file:</span></span></span>
+<span class="r-in"><span><span class="va">fileExample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"thesaurusExample.csv"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">WriteThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">fileExample</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## Replace tempdir() for your preferred local path if you want to easily</span></span></span>
+<span class="r-in"><span><span class="co">## examine the written file.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Read a thesaurus set:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusSetFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"zoologThesaurusSet.csv"</span>, package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusSet</span> <span class="op">&lt;-</span> <span class="fu">ReadThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSetFile</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## The attributes of the thesaurus set include information of the constituent</span></span></span>
+<span class="r-in"><span><span class="co">## thesauri: names, source file names, and their mode of application on datasets.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurusSet</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $names</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "identifier" "taxon"      "element"    "measure"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -188,8 +199,8 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "identifierThesaurus.csv" "taxonThesaurus.csv"     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] "elementThesaurus.csv"    "measureThesaurus.csv"   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="co">## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurusSet</span><span class="op">$</span><span class="va">measure</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="co">## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurusSet</span><span class="op">$</span><span class="va">measure</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $names</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BatF"     "Bd"       "BFd"      "BFp"      "BFcr"     "BG"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Bp"       "BPC"      "BT"       "BTP"      "B.tr.pat" "Davis.3" </span>
@@ -218,15 +229,15 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $punctuationSensitive</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Write the thesaurus set to a file:</span></span>
-<span class="r-in"><span class="va">fileSetExample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"thesaurusSetExample.csv"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">WriteThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSet</span>, <span class="va">fileSetExample</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## It writes the thesaurus-set main data frame and each of the included</span></span>
-<span class="r-in"><span class="co">## thesaurus files.</span></span>
-<span class="r-in"><span class="co">## Again, replace tempdir() for your preferred local path if you want to</span></span>
-<span class="r-in"><span class="co">## easily examine the written files.</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Write the thesaurus set to a file:</span></span></span>
+<span class="r-in"><span><span class="va">fileSetExample</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"thesaurusSetExample.csv"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">WriteThesaurusSet</span><span class="op">(</span><span class="va">thesaurusSet</span>, <span class="va">fileSetExample</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## It writes the thesaurus-set main data frame and each of the included</span></span></span>
+<span class="r-in"><span><span class="co">## thesaurus files.</span></span></span>
+<span class="r-in"><span><span class="co">## Again, replace tempdir() for your preferred local path if you want to</span></span></span>
+<span class="r-in"><span><span class="co">## easily examine the written files.</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -241,7 +252,7 @@ thesaurus set structure,</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

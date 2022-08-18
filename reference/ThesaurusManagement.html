@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -58,17 +58,17 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">NewThesaurus</span><span class="op">(</span>
-  caseSensitive <span class="op">=</span> <span class="cn">FALSE</span>,
-  accentSensitive <span class="op">=</span> <span class="cn">FALSE</span>,
-  punctuationSensitive <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">newName</span>, <span class="va">category</span><span class="op">)</span>
-
-<span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span>
-
-<span class="fu">ThesaurusAmbiguity</span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">NewThesaurus</span><span class="op">(</span></span>
+<span>  caseSensitive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  accentSensitive <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  punctuationSensitive <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">newName</span>, <span class="va">category</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">ThesaurusAmbiguity</span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -77,34 +77,56 @@
 <dd><p>Logical. They set
 the case, accent, and punctuation sensitivity (<code>FALSE</code> by default) of
 the thesaurus.</p></dd>
+
+
 <dt>accentSensitive</dt>
 <dd><p>Logical. They set
 the case, accent, and punctuation sensitivity (<code>FALSE</code> by default) of
 the thesaurus.</p></dd>
+
+
 <dt>punctuationSensitive</dt>
 <dd><p>Logical. They set
 the case, accent, and punctuation sensitivity (<code>FALSE</code> by default) of
 the thesaurus.</p></dd>
+
+
 <dt>thesaurus</dt>
 <dd><p>A thesaurus object.</p></dd>
+
+
 <dt>newName</dt>
 <dd><p>Character vector with new names to be added to the thesaurus.</p></dd>
+
+
 <dt>category</dt>
 <dd><p>Character vector identifying the classes where the
 new names should be included.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>NewThesaurus</code> returns an empty thesaurus. This can then be
-populated by <code>AddToThesaurus</code>.
-<code>AddToThesaurus</code> returns the input thesaurus complemented with new
+    
+
+<p><code>NewThesaurus</code> returns an empty thesaurus. This can then be
+populated by <code>AddToThesaurus</code>.</p>
+
+
+<p><code>AddToThesaurus</code> returns the input thesaurus complemented with new
 names in the categories identified. If any of the categories is not present
-in the input thesaurus, new categories are added as required.
-<code>RemoveRepeatedNames</code> returns the input thesaurus pruned of redundant
+in the input thesaurus, new categories are added as required.</p>
+
+
+<p><code>RemoveRepeatedNames</code> returns the input thesaurus pruned of redundant
 names in each category. The redundancy is evaluated in agreement with the
-case and accent sensitivity of the thesaurus.
-<code>ThesaurusAmbiguity</code> returns FALSE if no ambiguity is present. When any
-ambiguity is found, it returns TRUE with an attribute <code>errmessage</code>including the names present in more than one category and the
+case and accent sensitivity of the thesaurus.</p>
+
+
+<p><code>ThesaurusAmbiguity</code> returns FALSE if no ambiguity is present. When any
+ambiguity is found, it returns TRUE with an attribute <code>errmessage</code></p>
+
+
+<p>including the names present in more than one category and the
 the involved categories. This is internally used by
 <code><a href="ThesaurusReaderWriter.html">ReadThesaurus</a></code> and <code>AddToThesaurus</code> to generate an
 error in case they attempt to read or generate an ambiguous thesaurus.</p>
@@ -119,11 +141,11 @@ thesaurus set structure,</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Load an example thesaurus:</span></span>
-<span class="r-in"><span class="va">thesaurus</span> <span class="op">&lt;-</span> <span class="fu"><a href="ThesaurusReaderWriter.html">ReadThesaurus</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"taxonThesaurus.csv"</span>,</span>
-<span class="r-in">                                       package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## with categories</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span> <span class="co">#  "bos taurus"  "ovis aries"  "sus domesticus"</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Load an example thesaurus:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurus</span> <span class="op">&lt;-</span> <span class="fu"><a href="ThesaurusReaderWriter.html">ReadThesaurus</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"taxonThesaurus.csv"</span>,</span></span>
+<span class="r-in"><span>                                       package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## with categories</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span> <span class="co">#  "bos taurus"  "ovis aries"  "sus domesticus"</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "Bos taurus"            "Bos primigenius"       "Bos"                  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [4] "Ovis aries"            "Ovis orientalis"       "Ovis"                 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Capra hircus"          "Capra aegagrus"        "Capra"                </span>
@@ -132,21 +154,21 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Dama mesopotamica"     "Dama"                  "Gazella gazella"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Gazella"               "Equus asinus"          "Equus caballus"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [22] "Equus"                 "Oryctolagus cuniculus" "Oryctolagus"          </span>
-<span class="r-in"><span class="co">## Add names to several categories:</span></span>
-<span class="r-in"><span class="va">thesaurusExtended</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>,</span>
-<span class="r-in">                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Kuh"</span>, <span class="st">"Schwein"</span><span class="op">)</span>,</span>
-<span class="r-in">                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bos taurus"</span>,<span class="st">"sus domesticus"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## This adds the name "Kuh" to the category "bos taurus" and</span></span>
-<span class="r-in"><span class="co">## the name "Schwein" to the category "sus domesticus".</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Generate a new thesaurus and populate it with two categories</span></span>
-<span class="r-in"><span class="co">## ("red" and "blue"):</span></span>
-<span class="r-in"><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">NewThesaurus</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span>
-<span class="r-in">                               <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"vermilion"</span>, <span class="st">"ruby"</span>, <span class="st">"cherry"</span>,</span>
-<span class="r-in">                                 <span class="st">"carmine"</span>, <span class="st">"wine"</span><span class="op">)</span>,</span>
-<span class="r-in">                               <span class="st">"red"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurusNew</span></span>
+<span class="r-in"><span><span class="co">## Add names to several categories:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusExtended</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>,</span></span>
+<span class="r-in"><span>                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Kuh"</span>, <span class="st">"Schwein"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                                    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bos taurus"</span>,<span class="st">"sus domesticus"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## This adds the name "Kuh" to the category "bos taurus" and</span></span></span>
+<span class="r-in"><span><span class="co">## the name "Schwein" to the category "sus domesticus".</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Generate a new thesaurus and populate it with two categories</span></span></span>
+<span class="r-in"><span><span class="co">## ("red" and "blue"):</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">NewThesaurus</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span></span>
+<span class="r-in"><span>                               <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"vermilion"</span>, <span class="st">"ruby"</span>, <span class="st">"cherry"</span>,</span></span>
+<span class="r-in"><span>                                 <span class="st">"carmine"</span>, <span class="st">"wine"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                               <span class="st">"red"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet</span>
@@ -155,11 +177,11 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine</span>
-<span class="r-in"><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span>
-<span class="r-in">                                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,</span>
-<span class="r-in">                                 <span class="st">"navy"</span>, <span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span>,</span>
-<span class="r-in">                               <span class="st">"blue"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurusNew</span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span></span>
+<span class="r-in"><span>                                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,</span></span>
+<span class="r-in"><span>                                 <span class="st">"navy"</span>, <span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                               <span class="st">"blue"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
@@ -170,17 +192,17 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Attempt to generate an ambiguous thesaurus</span></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="st">"scarlet"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Attempt to generate an ambiguous thesaurus</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="st">"scarlet"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in AddToThesaurus(thesaurusNew, "scarlet", "blue") : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   The resulting thesaurus would be ambiguous.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Ambiguity in pair ("red", "blue"). Shared names: scarlet</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Remove repeated names in the same category:</span></span>
-<span class="r-in"><span class="va">thesaurusWithRepetitions</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span>
-<span class="r-in">                                           <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span>, <span class="st">"red"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">thesaurusWithRepetitions</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Remove repeated names in the same category:</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusWithRepetitions</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span></span>
+<span class="r-in"><span>                                           <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span>, <span class="st">"red"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusWithRepetitions</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
@@ -191,7 +213,7 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8   scarlet       indigo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9      ruby         cyan</span>
-<span class="r-in"><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurusWithRepetitions</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurusWithRepetitions</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
@@ -202,7 +224,7 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -217,7 +239,7 @@ thesaurus set structure,</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

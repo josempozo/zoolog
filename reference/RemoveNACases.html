@@ -21,7 +21,7 @@ The default setting removes the rows with no log-ratio available."><!-- mathjax 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -66,38 +66,45 @@ The default setting removes the rows with no log-ratio available.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">data</span>, measureNames <span class="op">=</span> <span class="cn">NULL</span>, prefix <span class="op">=</span> <span class="va">logPrefix</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">data</span>, measureNames <span class="op">=</span> <span class="cn">NULL</span>, prefix <span class="op">=</span> <span class="va">logPrefix</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>A dataframe with the input measurements.</p></dd>
+
+
 <dt>measureNames</dt>
 <dd><p>A vector of characters with the list of measurements
 to be considered for missing values. If <code>NULL</code> (default), all measurements
 starting by <code>prefix</code> are considered.</p></dd>
+
+
 <dt>prefix</dt>
 <dd><p>A character string with the initial pattern to select the
 list of measurements. The default is given by the internal variable
 <code>logPrefix</code>. It is in effect only when <code>measureNames = NULL</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A dataframe with the same columns as the input dataframe but
+    
+
+<p>A dataframe with the same columns as the input dataframe but
 removing the rows with missing values for all measurements in the list.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Read an example dataset:</span></span>
-<span class="r-in"><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span>
-<span class="r-in">                        package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
-<span class="r-in">                                na.strings <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Read an example dataset:</span></span></span>
+<span class="r-in"><span><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span></span>
+<span class="r-in"><span>                        package <span class="op">=</span> <span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span></span>
+<span class="r-in"><span>                                na.strings <span class="op">=</span> <span class="st">""</span>,</span></span>
+<span class="r-in"><span>                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -112,21 +119,21 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Remove the cases not including any measurement present in the reference.</span></span>
-<span class="r-in"><span class="va">refMeasureNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">reference</span><span class="op">$</span><span class="va">Combi</span><span class="op">$</span><span class="va">Measure</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">refMeasureNames</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Remove the cases not including any measurement present in the reference.</span></span></span>
+<span class="r-in"><span><span class="va">refMeasureNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">reference</span><span class="op">$</span><span class="va">Combi</span><span class="op">$</span><span class="va">Measure</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">refMeasureNames</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] GL   GLc  Bp   Dp   SD   Bd   BT   HTC  Dd   BFp  BFd  GLl  GLpe SLC  GLP </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] LG   BG   DPA  BPC  WCM  LA   DC   Dl   GB   L    H    SDO  LAR  SH   GLm </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [31] LeP  GL   DEM  DVM  DEL  DVL  WCL  Dm   1    2    3    9    10   24   34  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [46] 38   40   41   43   45   48   50   GLC  Ll   DFd  GH   DS   GLT  SBT  SDT </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [61] GBT  GDT  HS   LFo  SB  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 65 Levels: BFd BFp BT Bd Bp Dd Dp GL GLc GLl GLpe HTC SD BG BPC DC DPA ... SDT</span>
-<span class="r-in"><span class="va">dataExamplePruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExample</span>,</span>
-<span class="r-in">                                   measureNames <span class="op">=</span> <span class="va">refMeasureNames</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## The first lines of the output data frame show at least one available</span></span>
-<span class="r-in"><span class="co">## measurement value in the selected list:</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExamplePruned</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="va">dataExamplePruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExample</span>,</span></span>
+<span class="r-in"><span>                                   measureNames <span class="op">=</span> <span class="va">refMeasureNames</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## The first lines of the output data frame show at least one available</span></span></span>
+<span class="r-in"><span><span class="co">## measurement value in the selected list:</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExamplePruned</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os   GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  4918 10364    bota    1 fal 54.0  31.3 30.6 28.1 26.3 27.5 20.0   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  4919 10364    bota    1 fal 54.5  27.9 31.8 26.0 22.8 25.3 19.5   NA</span>
@@ -141,9 +148,9 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  NA  NA NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  NA  NA NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## If we compute first the log-ratios</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## If we compute first the log-ratios</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span>
@@ -155,10 +162,10 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"><span class="co">## the cases not including any log-ratio can be removed with the</span></span>
-<span class="r-in"><span class="co">## default logPrefix</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogsPruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogsPruned</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="co">## the cases not including any log-ratio can be removed with the</span></span></span>
+<span class="r-in"><span><span class="co">## default logPrefix</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogsPruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogsPruned</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">64</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os    GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  3453 10410    ovar 1fal ant  27.1   9.9 12.3 17.9  9.0  9.0   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  3455 10410    ovar 1fal ant  27.6   9.6 12.2  7.6  8.9  8.3   NA   NA</span>
@@ -201,7 +208,7 @@ removing the rows with missing values for all measurements in the list.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

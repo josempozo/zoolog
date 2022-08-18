@@ -19,7 +19,7 @@ by default."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -62,23 +62,23 @@ by default.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">Subtaxonomy</span><span class="op">(</span>
-  <span class="va">taxon</span>,
-  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,
-  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span>
-<span class="op">)</span>
-
-<span class="fu">SubtaxonomySet</span><span class="op">(</span>
-  <span class="va">taxon</span>,
-  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,
-  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span>
-<span class="op">)</span>
-
-<span class="fu">GetSpeciesIn</span><span class="op">(</span>
-  <span class="va">taxon</span>,
-  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,
-  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">Subtaxonomy</span><span class="op">(</span></span>
+<span>  <span class="va">taxon</span>,</span>
+<span>  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,</span>
+<span>  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SubtaxonomySet</span><span class="op">(</span></span>
+<span>  <span class="va">taxon</span>,</span>
+<span>  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,</span>
+<span>  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">GetSpeciesIn</span><span class="op">(</span></span>
+<span>  <span class="va">taxon</span>,</span>
+<span>  taxonomy <span class="op">=</span> <span class="va">zoologTaxonomy</span>,</span>
+<span>  thesaurus <span class="op">=</span> <span class="va">zoologThesaurus</span><span class="op">$</span><span class="va">taxon</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -86,61 +86,72 @@ by default.</p>
     <dl><dt>taxon</dt>
 <dd><p>A name of any of the taxa, at any rank included in the taxonomy
 (from species to family in the zoolog taxonomy).</p></dd>
+
+
 <dt>taxonomy</dt>
 <dd><p>A taxonomy from which to extract the subtaxonomy.
 By default <code>taxonomy = <a href="zoologTaxonomy.html">zoologTaxonomy</a></code>.</p></dd>
+
+
 <dt>thesaurus</dt>
 <dd><p>A thesaurus allowing datasets with different nomenclatures
 to be merged. By default <code>thesaurus = <a href="zoologThesaurus.html">zoologThesaurus</a>$taxon</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><code>Subtaxonomy</code> returns a data.frame with the same structure of the input
+    
+
+<p><code>Subtaxonomy</code> returns a data.frame with the same structure of the input
 taxonomy but with only the species (rows) included in the queried
 <code>taxon</code>, and the taxonomic ranks (columns)
-up to its level.
-<code>SubtaxonomySet</code> returns a character vector including a unique copy
+up to its level.</p>
+
+
+<p><code>SubtaxonomySet</code> returns a character vector including a unique copy
 (set) of all the taxa, at any taxonomic rank, under the queried
 <code>taxon</code>.
-Equivalent to Subtaxonomy but as a set instead of a dataframe.
-<code>GetSpeciesIn</code> returns a character vector including the species included
+Equivalent to Subtaxonomy but as a set instead of a dataframe.</p>
+
+
+<p><code>GetSpeciesIn</code> returns a character vector including the species included
 in the queried <code>taxon</code>.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Get species of genus Sus:</span></span>
-<span class="r-in"><span class="fu">GetSpeciesIn</span><span class="op">(</span><span class="st">"Sus"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Get species of genus Sus:</span></span></span>
+<span class="r-in"><span><span class="fu">GetSpeciesIn</span><span class="op">(</span><span class="st">"Sus"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Sus domesticus" "Sus scrofa"    </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Get species of family Bovidae:</span></span>
-<span class="r-in"><span class="fu">GetSpeciesIn</span><span class="op">(</span><span class="st">"Bovidae"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Get species of family Bovidae:</span></span></span>
+<span class="r-in"><span><span class="fu">GetSpeciesIn</span><span class="op">(</span><span class="st">"Bovidae"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Bos taurus"      "Bos primigenius" "Ovis aries"      "Ovis orientalis"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5] "Capra hircus"    "Capra aegagrus"  "Gazella gazella"</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Get the subtaxonomy of the Tribe Caprini:</span></span>
-<span class="r-in"><span class="fu">Subtaxonomy</span><span class="op">(</span><span class="st">"Caprini"</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Get the subtaxonomy of the Tribe Caprini:</span></span></span>
+<span class="r-in"><span><span class="fu">Subtaxonomy</span><span class="op">(</span><span class="st">"Caprini"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           Species Genus   Tribe</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3      Ovis aries  Ovis Caprini</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 Ovis orientalis  Ovis Caprini</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5    Capra hircus Capra Caprini</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6  Capra aegagrus Capra Caprini</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Use SubtaxonomySet to join categories for computing log-ratios.</span></span>
-<span class="r-in"><span class="co">## For this, we read an example dataset:</span></span>
-<span class="r-in"><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span>
-<span class="r-in">                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
-<span class="r-in">                                na.strings <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## We illustrate with a subset of cases to make the example run</span></span>
-<span class="r-in"><span class="co">## sufficiently fast:</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>, <span class="op">]</span></span>
-<span class="r-in"><span class="co">## Compute the log-ratios joining all taxa from tribe \emph{Caprini}</span></span>
-<span class="r-in"><span class="co">## to use the reference of \emph{Ovis aries}:</span></span>
-<span class="r-in"><span class="va">categoriesCaprini</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'Ovis aries'</span> <span class="op">=</span> <span class="fu">SubtaxonomySet</span><span class="op">(</span><span class="st">"Caprini"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span>,</span>
-<span class="r-in">                                 joinCategories <span class="op">=</span> <span class="va">categoriesCaprini</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Use SubtaxonomySet to join categories for computing log-ratios.</span></span></span>
+<span class="r-in"><span><span class="co">## For this, we read an example dataset:</span></span></span>
+<span class="r-in"><span><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span></span>
+<span class="r-in"><span>                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span></span>
+<span class="r-in"><span>                                na.strings <span class="op">=</span> <span class="st">""</span>,</span></span>
+<span class="r-in"><span>                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## We illustrate with a subset of cases to make the example run</span></span></span>
+<span class="r-in"><span><span class="co">## sufficiently fast:</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span><span class="co">## Compute the log-ratios joining all taxa from tribe \emph{Caprini}</span></span></span>
+<span class="r-in"><span><span class="co">## to use the reference of \emph{Ovis aries}:</span></span></span>
+<span class="r-in"><span><span class="va">categoriesCaprini</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">'Ovis aries'</span> <span class="op">=</span> <span class="fu">SubtaxonomySet</span><span class="op">(</span><span class="st">"Caprini"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span>,</span></span>
+<span class="r-in"><span>                                 joinCategories <span class="op">=</span> <span class="va">categoriesCaprini</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
@@ -158,7 +169,7 @@ in the queried <code>taxon</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -21,7 +21,7 @@ Currently, two methods are possible: priority (default) or average."><!-- mathja
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
@@ -66,18 +66,20 @@ Currently, two methods are possible: priority (default) or average.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">CondenseLogs</span><span class="op">(</span>
-  <span class="va">data</span>,
-  grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span>, <span class="st">"GLm"</span>, <span class="st">"HTC"</span><span class="op">)</span>, Width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BT"</span>, <span class="st">"Bd"</span>, <span class="st">"Bp"</span>,
-    <span class="st">"SD"</span>, <span class="st">"Bfd"</span>, <span class="st">"Bfp"</span><span class="op">)</span>, Depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Dd"</span>, <span class="st">"DD"</span>, <span class="st">"BG"</span>, <span class="st">"Dp"</span><span class="op">)</span><span class="op">)</span>,
-  method <span class="op">=</span> <span class="st">"priority"</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">CondenseLogs</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GL"</span>, <span class="st">"GLl"</span>, <span class="st">"GLm"</span>, <span class="st">"HTC"</span><span class="op">)</span>, Width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BT"</span>, <span class="st">"Bd"</span>, <span class="st">"Bp"</span>,</span>
+<span>    <span class="st">"SD"</span>, <span class="st">"Bfd"</span>, <span class="st">"Bfp"</span><span class="op">)</span>, Depth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Dd"</span>, <span class="st">"DD"</span>, <span class="st">"BG"</span>, <span class="st">"Dp"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  method <span class="op">=</span> <span class="st">"priority"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>A dataframe with the input measurements.</p></dd>
+
+
 <dt>grouping</dt>
 <dd><p>A list of named character vectors. The list includes a vector
 per selected group. Each vector gives the group of measurements in order of
@@ -86,14 +88,19 @@ priority. By default the groups are
 <code>Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")</code>, and
 <code>Depth = c("Dd", "DD", "BG", "Dp")</code>.
 The order is irrelevant for <code>method = "average"</code>.</p></dd>
+
+
 <dt>method</dt>
 <dd><p>Character string indicating which method to use for extracting
 the condensed features. Currently accepted methods: <code>"priority"</code>
 (default) and <code>"average"</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A dataframe including the input dataframe and additional columns, one
+    
+
+<p>A dataframe including the input dataframe and additional columns, one
 for each extracted condensed feature, with the corresponding name given in
 <code>grouping</code>.</p>
     </div>
@@ -138,19 +145,19 @@ log-ratios determined by the <code>grouping</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Read an example dataset:</span></span>
-<span class="r-in"><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span>
-<span class="r-in">                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span>
-<span class="r-in">                                na.strings <span class="op">=</span> <span class="st">""</span>,</span>
-<span class="r-in">                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## For illustration purposes we keep now only a subset of cases to make</span></span>
-<span class="r-in"><span class="co">## the example run sufficiently fast.</span></span>
-<span class="r-in"><span class="co">## Avoid this step if you want to process the full example dataset.</span></span>
-<span class="r-in"><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>, <span class="op">]</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Compute the log-ratios and select the cases with available log ratios:</span></span>
-<span class="r-in"><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Read an example dataset:</span></span></span>
+<span class="r-in"><span><span class="va">dataFile</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dataValenzuelaLamas2008.csv.gz"</span>,</span></span>
+<span class="r-in"><span>                        package<span class="op">=</span><span class="st">"zoolog"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv2</a></span><span class="op">(</span><span class="va">dataFile</span>,</span></span>
+<span class="r-in"><span>                                na.strings <span class="op">=</span> <span class="st">""</span>,</span></span>
+<span class="r-in"><span>                                encoding <span class="op">=</span> <span class="st">"UTF-8"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## For illustration purposes we keep now only a subset of cases to make</span></span></span>
+<span class="r-in"><span><span class="co">## the example run sufficiently fast.</span></span></span>
+<span class="r-in"><span><span class="co">## Avoid this step if you want to process the full example dataset.</span></span></span>
+<span class="r-in"><span><span class="va">dataExample</span> <span class="op">&lt;-</span> <span class="va">dataExample</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1000</span>, <span class="op">]</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Compute the log-ratios and select the cases with available log ratios:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithLogs</span> <span class="op">&lt;-</span> <span class="fu"><a href="RemoveNACases.html">RemoveNACases</a></span><span class="op">(</span><span class="fu"><a href="LogRatios.html">LogRatios</a></span><span class="op">(</span><span class="va">dataExample</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
@@ -158,8 +165,8 @@ log-ratios determined by the <code>grouping</code>.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>     * Caprini (which is a Tribe)</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>       for which the reference for Ovis aries or Capra hircus could be used.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set joinCategories as appropriate if you want to use any of them.</span>
-<span class="r-in"><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span><span class="co">## We can observe the first lines (excluding some columns for visibility):</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os    GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  3453 10410    ovar 1fal ant  27.1   9.9 12.3 17.9  9.0  9.0   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  3455 10410    ovar 1fal ant  27.6   9.6 12.2  7.6  8.9  8.3   NA   NA</span>
@@ -188,10 +195,10 @@ log-ratios determined by the <code>grouping</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA    NA     NA    NA    NA   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5     NA    NA     NA    NA    NA   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6     NA    NA     NA    NA    NA   NA   NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Extract the default condensed features with the default "priority" method:</span></span>
-<span class="r-in"><span class="va">dataExampleWithSummary</span> <span class="op">&lt;-</span> <span class="fu">CondenseLogs</span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Extract the default condensed features with the default "priority" method:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithSummary</span> <span class="op">&lt;-</span> <span class="fu">CondenseLogs</span><span class="op">(</span><span class="va">dataExampleWithLogs</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithSummary</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os    GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  3453 10410    ovar 1fal ant  27.1   9.9 12.3 17.9  9.0  9.0   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  3455 10410    ovar 1fal ant  27.6   9.6 12.2  7.6  8.9  8.3   NA   NA</span>
@@ -220,12 +227,12 @@ log-ratios determined by the <code>grouping</code>.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4     NA    NA     NA    NA    NA   NA   NA     NA -0.17408218 -0.08282727</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5     NA    NA     NA    NA    NA   NA   NA     NA -0.14345133 -0.05659774</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6     NA    NA     NA    NA    NA   NA   NA     NA -0.03354115          NA</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Extract only width with "average" method:</span></span>
-<span class="r-in"><span class="va">dataExampleWithSummary2</span> <span class="op">&lt;-</span> <span class="fu">CondenseLogs</span><span class="op">(</span><span class="va">dataExampleWithLogs</span>,</span>
-<span class="r-in">                               grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BT"</span>, <span class="st">"Bd"</span>, <span class="st">"Bp"</span>, <span class="st">"SD"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                               method <span class="op">=</span> <span class="st">"average"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithSummary2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Extract only width with "average" method:</span></span></span>
+<span class="r-in"><span><span class="va">dataExampleWithSummary2</span> <span class="op">&lt;-</span> <span class="fu">CondenseLogs</span><span class="op">(</span><span class="va">dataExampleWithLogs</span>,</span></span>
+<span class="r-in"><span>                               grouping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"BT"</span>, <span class="st">"Bd"</span>, <span class="st">"Bp"</span>, <span class="st">"SD"</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                               method <span class="op">=</span> <span class="st">"average"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dataExampleWithSummary2</span><span class="op">)</span><span class="op">[</span>, <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span><span class="op">:</span><span class="fl">20</span>,<span class="fl">32</span><span class="op">:</span><span class="fl">63</span><span class="op">)</span><span class="op">]</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Site N.inv    UE Especie       Os    GL    Bp   Dp   SD   DD   Bd   Dd   BT</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  ALP  3453 10410    ovar 1fal ant  27.1   9.9 12.3 17.9  9.0  9.0   NA   NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  ALP  3455 10410    ovar 1fal ant  27.6   9.6 12.2  7.6  8.9  8.3   NA   NA</span>
@@ -268,7 +275,7 @@ log-ratios determined by the <code>grouping</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
