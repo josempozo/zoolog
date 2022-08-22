@@ -1,3 +1,8 @@
+## Submission of new version 1.1.0 (2022-08-22)
+zoolog 1.1.0
+
+Changes described in NEWS.md
+
 ## Submission of patch 1.0.1 (2022-05-02)
 zoolog 1.0.1
 Corrected an error in the package data.

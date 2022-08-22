@@ -21,15 +21,7 @@ RemoveRepeatedNames(thesaurus)
 ThesaurusAmbiguity(thesaurus)
 }
 \arguments{
-\item{caseSensitive}{Logical. They set
-the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
-the thesaurus.}
-
-\item{accentSensitive}{Logical. They set
-the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
-the thesaurus.}
-
-\item{punctuationSensitive}{Logical. They set
+\item{caseSensitive, accentSensitive, punctuationSensitive}{Logical. They set
 the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
 the thesaurus.}
 

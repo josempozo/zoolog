@@ -2,6 +2,8 @@
 1. Added Russell's standard for Canis lupus.
 2. Included genus Canis in the taxonomy and in the taxon thesaurus.
 3. Included new entries in the measure and element thesauri.
+4. Documentation generated with the updated version of roxygen2 (7.1.2)
+   avoiding notes on CRAN of previous zoolog version for devel platforms.
 
 # zoolog 1.0.1
 1. Corrected Steppan's standard for Bos primigenius. Some measurements had been
