@@ -21,7 +21,7 @@ The default setting removes the rows with no log-ratio available."><!-- mathjax 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -123,12 +123,49 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-in"><span><span class="co">## Remove the cases not including any measurement present in the reference.</span></span></span>
 <span class="r-in"><span><span class="va">refMeasureNames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">reference</span><span class="op">$</span><span class="va">Combi</span><span class="op">$</span><span class="va">Measure</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">refMeasureNames</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] GL   GLc  Bp   Dp   SD   Bd   BT   HTC  Dd   BFp  BFd  GLl  GLpe SLC  GLP </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] LG   BG   DPA  BPC  WCM  LA   DC   Dl   GB   L    H    SDO  LAR  SH   GLm </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] LeP  GL   DEM  DVM  DEL  DVL  WCL  Dm   1    2    3    9    10   24   34  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 38   40   41   43   45   48   50   GLC  Ll   DFd  GH   DS   GLT  SBT  SDT </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [61] GBT  GDT  HS   LFo  SB  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65 Levels: BFd BFp BT Bd Bp Dd Dp GL GLc GLl GLpe HTC SD BG BPC DC DPA ... SDT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] GL                                   GLc                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [3] Bp                                   Dp                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [5] SD                                   Bd                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] BT                                   HTC                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [9] Dd                                   BFp                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] BFd                                  GLl                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] GLpe                                 SLC                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [15] GLP                                  LG                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [17] BG                                   DPA                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] BPC                                  WCM                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] LA                                   DC                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [23] Dl                                   GB                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] L                                    H                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [27] SDO                                  LAR                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [29] SH                                   GLm                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] LeP                                  GL                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [33] DEM                                  DVM                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [35] DEL                                  DVL                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] WCL                                  Dm                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [39] 1                                    2                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 3                                    9                                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] 10                                   24                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [45] 34                                   38                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [47] 40                                   41                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] 43                                   45                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] 48                                   50                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [53] GLC                                  Ll                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] DFd                                  GH                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [57] DS                                   GLT                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [59] SBT                                  SDT                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] GBT                                  GDT                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [63] HS                                   LFo                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [65] SB                                   GLF                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [67] BFcr                                 BFcd                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [69] Breadth of caudal channel            LCDe                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [71] Breadth of cranial channel           LAPa                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [73] SBV                                  BPtr                                </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [75] BPacd                                PL                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [77] HFcr                                 DHA                                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [79] Breadth of acetabulum                LS                                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [81] Depth                                Distal depth, flat against posterior</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [83] Maximum lateral depth               </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83 Levels: BFd BFp BT Bd Bp Dd Dp GL GLc GLl GLpe HTC SD BG BPC DC DPA ... SBV</span>
 <span class="r-in"><span><span class="va">dataExamplePruned</span> <span class="op">&lt;-</span> <span class="fu">RemoveNACases</span><span class="op">(</span><span class="va">dataExample</span>,</span></span>
 <span class="r-in"><span>                                   measureNames <span class="op">=</span> <span class="va">refMeasureNames</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co">## The first lines of the output data frame show at least one available</span></span></span>
@@ -154,6 +191,7 @@ removing the rows with missing values for all measurements in the list.</p>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Reference for Sus scrofa used for cases of Sus domesticus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Sus scrofa used for cases of Sus.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Canis lupus used for cases of Canis.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Reference for Ovis aries used for cases of Ovis.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span>    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Data includes some cases recorded as</span>

@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
 Zooarchaeological Analysis with Log-Ratios</h1>
                         <h4 data-toc-skip class="author">Jose M Pozo, Angela Trentacoste, Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, and Silvia Valenzuela-Lamas</h4>
             
-            <h4 data-toc-skip class="date">2022-08-18</h4>
+            <h4 data-toc-skip class="date">2022-08-22</h4>
       
       
       <div class="hidden name"><code>index.Rmd</code></div>
@@ -127,7 +127,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <div class="section level2">
 <h2 id="sec:refStandards">Reference standards<a class="anchor" aria-label="anchor" href="#sec:refStandards"></a>
 </h2>
-<p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), red deer (<em>Cervus elaphus</em>), Persian fallow deer (<em>Dama mesopotamica</em>), mountain gazelle (<em>Gazella gazella</em>), donkey (<em>Equus asinus</em>), horse (<em>Equus caballus</em>) and European rabbit (<em>Oryctolagus cuniculus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
+<p>The package <em>zoolog</em> includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (<em>Bos</em>, <em>Ovis</em>, <em>Capra</em>, <em>Sus</em>), red deer (<em>Cervus elaphus</em>), Persian fallow deer (<em>Dama mesopotamica</em>), mountain gazelle (<em>Gazella gazella</em>), donkey (<em>Equus asinus</em>), horse (<em>Equus caballus</em>), European rabbit (<em>Oryctolagus cuniculus</em>), and grey wolf (<em>Canis lupus</em>). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.</p>
 <p>These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span>. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in Release 1.0.0.</p>
 <p>The predefined reference sets included in <em>zoolog</em> are provided in the named list <code>reference</code>, currently comprising the following 4 sets:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -136,7 +136,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span><span class="co">#&gt; List of 4</span></span>
 <span><span class="co">#&gt;  $ NietoDavisAlbarella:'data.frame': 133 obs. of  4 variables:</span></span>
 <span><span class="co">#&gt;  $ Basel              :'data.frame': 176 obs. of  4 variables:</span></span>
-<span><span class="co">#&gt;  $ Combi              :'data.frame': 558 obs. of  4 variables:</span></span>
+<span><span class="co">#&gt;  $ Combi              :'data.frame': 635 obs. of  4 variables:</span></span>
 <span><span class="co">#&gt;  $ Groningen          :'data.frame': 246 obs. of  4 variables:</span></span></code></pre></div>
 <p>The reference set <code>reference$Combi</code> is the default reference for computing the <a href="../help/LogRatios">log ratios</a>, since it includes the most comprehensive reference for each species.</p>
 <p>The package also includes a <code>referencesDatabase</code> collecting the taxon-specific reference standards from all the considered resources. Each reference set is composed of a different combination of taxon-specific standards selected from this <code>referencesDatabase</code>. The selection is defined by the data frame <code>referenceSets</code>:</p>
@@ -144,19 +144,20 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <colgroup>
 <col width="8%">
 <col width="4%">
-<col width="7%">
+<col width="6%">
 <col width="4%">
-<col width="7%">
+<col width="6%">
 <col width="5%">
 <col width="6%">
 <col width="6%">
 <col width="4%">
 <col width="6%">
 <col width="7%">
-<col width="7%">
+<col width="6%">
 <col width="5%">
 <col width="6%">
 <col width="9%">
+<col width="5%">
 </colgroup>
 <thead><tr class="header">
 <th align="left"></th>
@@ -174,6 +175,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <th align="left">Equus asinus</th>
 <th align="left">Equus caballus</th>
 <th align="left">Oryctolagus cuniculus</th>
+<th align="left">Canis lupus</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -185,6 +187,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Albarella</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -204,6 +207,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left">Basel</td>
 <td align="left">Basel</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -226,6 +230,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left">Haifa</td>
 <td align="left">Johnstone</td>
 <td align="left">Nottingham</td>
+<td align="left">Russell</td>
 </tr>
 <tr class="even">
 <td align="left">Groningen</td>
@@ -237,6 +242,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left">Uerpmann</td>
 <td align="left"></td>
 <td align="left">Hongo</td>
+<td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
@@ -259,10 +265,10 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <dd>For the column names that identify the variables used in computing the log ratios. It includes the categories <em>Taxon</em>, <em>Element</em>, <em>Measure</em>, and <em>Standard</em>. Each category provides a series of equivalent names. For instance, <em>Taxon</em> includes the options <em>Taxon</em>, <em>TAX</em>, <em>species</em>, <em>animal</em>, <em>Specie</em>, <em>GenusSpecies</em>, <em>Especie</em>, <em>Espece</em>. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Especie” is equivalent to “ESPECIE” or “Espècie”.
 </dd>
 <dt>taxonThesaurus</dt>
-<dd>For the names of the different taxa when recording animal bones. The current categories are <em>Bos taurus</em>, <em>Bos primigenius</em>, <em>Bos</em>, <em>Ovis aries</em>, <em>Ovis orientalis</em>, <em>Ovis</em>, <em>Capra hircus</em>, <em>Capra aegagrus</em>, <em>Capra</em>, <em>Caprini</em>, <em>Sus domesticus</em>, <em>Sus scrofa</em>, <em>Sus</em>, <em>Cervus elaphus</em>, <em>Cervus</em>, <em>Dama mesopotamica</em>, <em>Dama</em>, <em>Gazella gazella</em>, <em>Gazella</em>, <em>Equus asinus</em>, <em>Equus caballus</em>, <em>Equus</em>, <em>Oryctolagus cuniculus</em>, <em>Oryctolagus</em>, each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Bos” is equivalent to “bos”, “Bos.”, or “Bos ”.
+<dd>For the names of the different taxa when recording animal bones. The current categories are <em>Bos taurus</em>, <em>Bos primigenius</em>, <em>Bos</em>, <em>Ovis aries</em>, <em>Ovis orientalis</em>, <em>Ovis</em>, <em>Capra hircus</em>, <em>Capra aegagrus</em>, <em>Capra</em>, <em>Caprini</em>, <em>Sus domesticus</em>, <em>Sus scrofa</em>, <em>Sus</em>, <em>Cervus elaphus</em>, <em>Cervus</em>, <em>Dama mesopotamica</em>, <em>Dama</em>, <em>Gazella gazella</em>, <em>Gazella</em>, <em>Equus asinus</em>, <em>Equus caballus</em>, <em>Equus</em>, <em>Oryctolagus cuniculus</em>, <em>Oryctolagus</em>, <em>Canis familiaris</em>, <em>Canis lupus</em>, <em>Canis</em>, each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive, so that, for instance, “Bos” is equivalent to “bos”, “Bos.”, or “Bos ”.
 </dd>
 <dt>elementThesaurus</dt>
-<dd>Names of anatomical elements when recording animal bones. It currently includes 50 categories (<em>scapula</em>, <em>humerus</em>, <em>radius</em>, …), each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive.
+<dd>Names of anatomical elements when recording animal bones. It currently includes 53 categories (<em>scapula</em>, <em>humerus</em>, <em>radius</em>, …), each with different equivalent names. This thesaurus is case, accent, and punctuation insensitive.
 </dd>
 <dt>measureThesaurus</dt>
 <dd>Names of the measurements. While the English abbreviations from <span class="citation">Von den Driesch (1976)</span> and <span class="citation">Davis (1992)</span> are widely used in published literature, this thesaurus enables other nomenclatures (e.g. original German abbreviations in <span class="citation">Von den Driesch (1976)</span>) to be included. This thesaurus is case sensitive.
@@ -379,6 +385,20 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">Leporidae</td>
+</tr>
+<tr class="odd">
+<td align="left">Canis familiaris</td>
+<td align="left">Canis</td>
+<td align="left">Canini</td>
+<td align="left">Caninae</td>
+<td align="left">Canidae</td>
+</tr>
+<tr class="even">
+<td align="left">Canis lupus</td>
+<td align="left">Canis</td>
+<td align="left">Canini</td>
+<td align="left">Caninae</td>
+<td align="left">Canidae</td>
 </tr>
 </tbody>
 </table>
@@ -610,6 +630,7 @@ Zooarchaeological Analysis with Log-Ratios</h1>
 <span><span class="co">#&gt; Warning: Reference for Sus scrofa used for cases of Sus domesticus.</span></span>
 <span><span class="co">#&gt;    Reference for Sus scrofa used for cases of Sus.</span></span>
 <span><span class="co">#&gt;    Reference for Oryctolagus cuniculus used for cases of Oryctolagus.</span></span>
+<span><span class="co">#&gt;    Reference for Canis lupus used for cases of Canis.</span></span>
 <span><span class="co">#&gt;    Reference for Ovis aries used for cases of Ovis.</span></span>
 <span><span class="co">#&gt;    Set useGenusIfUnambiguous to FALSE if this behaviour is not desired.</span></span>
 <span><span class="co">#&gt; Warning: Data includes some cases recorded as</span></span>

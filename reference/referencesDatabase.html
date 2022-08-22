@@ -19,7 +19,7 @@ own osteometrical reference if preferred."><!-- mathjax --><script src="https://
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -280,10 +280,21 @@ reference collection at University of Nottingham Arch department (ID RS139)
 
 </dl></dd>
 
+<dt><strong>Canid - <em>Canis</em></strong></dt>
+<dd><dl><dt>Russell</dt>
+<dd><p><em>Canis lupus</em>.
+Hungarian Agricultural Museum:
+Specimen 73.4 (small mature female; probably local origin)
+from Russell (1993)
+.</p></dd>
+
+
+</dl></dd>
+
 
 </dl><p>The <span class="pkg">zoolog</span> variable <code>referencesDatabase</code> collects all these
 references. It is structured as a named list of named lists, following the
-hierarchy described above:</p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">referencesDatabase</span>, max.level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre><p></p></div><div class="sourceCode"><pre><code><span><span class="co">## List of 14</span></span>
+hierarchy described above:</p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">referencesDatabase</span>, max.level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre><p></p></div><div class="sourceCode"><pre><code><span><span class="co">## List of 15</span></span>
 <span><span class="co">##  $ Bos taurus           :List of 3</span></span>
 <span><span class="co">##   ..$ Nieto    :'data.frame':  68 obs. of  4 variables:</span></span>
 <span><span class="co">##   ..$ Basel    :'data.frame':  50 obs. of  4 variables:</span></span>
@@ -319,7 +330,9 @@ hierarchy described above:</p><div class="sourceCode r"><pre><code><span><span c
 <span><span class="co">##  $ Equus caballus       :List of 1</span></span>
 <span><span class="co">##   ..$ Johnstone:'data.frame':  75 obs. of  4 variables:</span></span>
 <span><span class="co">##  $ Oryctolagus cuniculus:List of 1</span></span>
-<span><span class="co">##   ..$ Nottingham:'data.frame':  58 obs. of  4 variables:</span></span></code></pre></div>
+<span><span class="co">##   ..$ Nottingham:'data.frame':  58 obs. of  4 variables:</span></span>
+<span><span class="co">##  $ Canis lupus          :List of 1</span></span>
+<span><span class="co">##   ..$ Russell:'data.frame':  77 obs. of  4 variables:</span></span></code></pre></div>
 
     </div>
     <div id="reference-sets">
@@ -331,7 +344,7 @@ zooarchaeological data to be analysed includes several taxa. Thus, the
 reference dataframe should include one reference standard for each relevant
 taxon.
 The <span class="pkg">zoolog</span> variable <code>referenceSets</code> defines four possible
-references:</p><div class="sourceCode r"><pre><code><span><span class="va">referenceSets</span></span></code></pre><p></p></div><table class="table table"><tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td><td>Dama mesopotamica</td><td>Gazella gazella</td><td>Equus asinus</td><td>Equus caballus</td><td>Oryctolagus cuniculus</td></tr><tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td><td>Haifa</td><td>Haifa</td><td>Haifa</td><td>Johnstone</td><td>Nottingham</td></tr><tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><p>Each row defines a reference set consisting of a reference source for
+references:</p><div class="sourceCode r"><pre><code><span><span class="va">referenceSets</span></span></code></pre><p></p></div><table class="table table"><tr><td></td><td>Bos taurus</td><td>Bos primigenius</td><td>Ovis aries</td><td>Ovis orientalis</td><td>Capra hircus</td><td>Capra aegagrus</td><td>Sus domesticus</td><td>Sus scrofa</td><td>Cervus elaphus</td><td>Dama mesopotamica</td><td>Gazella gazella</td><td>Equus asinus</td><td>Equus caballus</td><td>Oryctolagus cuniculus</td><td>Canis lupus</td></tr><tr><td>NietoDavisAlbarella</td><td>Nieto</td><td></td><td>Davis</td><td></td><td></td><td></td><td>Albarella</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td>Basel</td><td>Basel</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Combi</td><td>Nieto</td><td></td><td>Clutton</td><td></td><td>Clutton</td><td></td><td></td><td>Basel</td><td>Basel</td><td>Haifa</td><td>Haifa</td><td>Haifa</td><td>Johnstone</td><td>Nottingham</td><td>Russell</td></tr><tr><td>Groningen</td><td></td><td>Degerbol</td><td></td><td>Uerpmann</td><td></td><td>Uerpmann</td><td></td><td>Hongo</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table><p>Each row defines a reference set consisting of a reference source for
 each taxon (column). The function
 <code><a href="AssembleReference.html">AssembleReference</a></code> allows us to build the reference set
 taking the selected taxon-specific references from the
@@ -348,11 +361,11 @@ references defined by <code>referenceSets</code>:</p><div class="sourceCode r"><
 <span><span class="co">##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...</span></span>
 <span><span class="co">##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...</span></span>
 <span><span class="co">##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...</span></span>
-<span><span class="co">##  $ Combi              :'data.frame':  558 obs. of  4 variables:</span></span>
-<span><span class="co">##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
-<span><span class="co">##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span></span>
-<span><span class="co">##   ..$ Measure : Factor w/ 65 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span></span>
-<span><span class="co">##   ..$ Standard: num [1:558] 259 234 78.3 90.2 29 ...</span></span>
+<span><span class="co">##  $ Combi              :'data.frame':  635 obs. of  4 variables:</span></span>
+<span><span class="co">##   ..$ TAX     : Factor w/ 11 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span><span class="co">##   ..$ EL      : Factor w/ 69 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...</span></span>
+<span><span class="co">##   ..$ Measure : Factor w/ 83 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...</span></span>
+<span><span class="co">##   ..$ Standard: num [1:635] 259 234 78.3 90.2 29 ...</span></span>
 <span><span class="co">##  $ Groningen          :'data.frame':  246 obs. of  4 variables:</span></span>
 <span><span class="co">##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...</span></span>
 <span><span class="co">##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...</span></span>
@@ -409,6 +422,7 @@ them:</p><dl><dt><code>referenceSets.csv</code></dt>
 <span><span class="co">## 20                 Equid - *Equus*          Equus asinus      Haifa</span></span>
 <span><span class="co">## 21                 Equid - *Equus*        Equus caballus  Johnstone</span></span>
 <span><span class="co">## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham</span></span>
+<span><span class="co">## 23                 Canid - *Canis*           Canis lupus    Russell</span></span>
 <span><span class="co">##                          Filename</span></span>
 <span><span class="co">## 1       referenceCattle_Nieto.csv</span></span>
 <span><span class="co">## 2       referenceCattle_Basel.csv</span></span>
@@ -431,7 +445,8 @@ them:</p><dl><dt><code>referenceSets.csv</code></dt>
 <span><span class="co">## 19     referenceGazelle_Haifa.csv</span></span>
 <span><span class="co">## 20       referenceEquid_Haifa.csv</span></span>
 <span><span class="co">## 21   referenceEquid_Johnstone.csv</span></span>
-<span><span class="co">## 22 referenceRabbit_Nottingham.csv</span></span></code></pre></div>
+<span><span class="co">## 22 referenceRabbit_Nottingham.csv</span></span>
+<span><span class="co">## 23     referenceCanid_Russell.csv</span></span></code></pre></div>
 
     </div>
     <div id="acknowledgement">
@@ -491,7 +506,9 @@ Ph.D. thesis, University of York.<br><br> Nieto-Espinet A (2018).
 <a href="https://doi.org/10.13140/RG.2.2.13512.78081" class="external-link">doi:10.13140/RG.2.2.13512.78081</a>
 .<br><br> Payne S, Bull G (1988).
 “Components of variation in measurements of pig bones and teeth, and the use of measurements to distinguish wild from domestic pig remains.”
-<em>Archaeozoologia</em>, <b>2</b>(1), 27--66.<br><br> Steppan K (2001).
+<em>Archaeozoologia</em>, <b>2</b>(1), 27--66.<br><br> Russell N (1993).
+<em>Hunting, Herding and Feasting: human use of animals in Neolithic Southeast Europe</em>.
+Ph.D. thesis, University of California, Berkeley.<br><br> Steppan K (2001).
 “Ur oder Hausrind? Die Variabilität der Wildtieranteile in linearbandkeramischen Tierknochenkomplexen.”
 In Arbogast R, Jeunesse C, Schibler J (eds.), <em>Rôle et statut de la chasse dans le Néolithique ancien danubien (5500 - 4900 av. J.-C.) /Rolle und Bedeutung der Jagd während des Frühneolithikums Mitteleuropas (Linearbandkeramik 5500 - 4900 v.Chr.). Premières rencontres danubiennes, Strasbourg 20 et 21 novembre 1996, Actes de la première table-ronde. Internationale Archäologie: Arbeitsgemeinschaft, Symposium, Tagung, Kongress Band 1</em>, 171--186.
 na.<br><br> Stopp B, Deschler-Erb S (2018).

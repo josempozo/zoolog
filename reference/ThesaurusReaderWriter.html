@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -128,6 +128,7 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Dama mesopotamica"     "Dama"                  "Gazella gazella"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Gazella"               "Equus asinus"          "Equus caballus"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [22] "Equus"                 "Oryctolagus cuniculus" "Oryctolagus"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "Canis familiaris"      "Canis lupus"           "Canis"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $class</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data.frame"</span>
@@ -157,6 +158,7 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "Dama mesopotamica"     "Dama"                  "Gazella gazella"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Gazella"               "Equus asinus"          "Equus caballus"       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [22] "Equus"                 "Oryctolagus cuniculus" "Oryctolagus"          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "Canis familiaris"      "Canis lupus"           "Canis"                </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $class</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data.frame"</span>
@@ -202,17 +204,18 @@ thesaurus set structure,</p>
 <span class="r-in"><span><span class="co">## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">thesaurusSet</span><span class="op">$</span><span class="va">measure</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $names</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BatF"     "Bd"       "BFd"      "BFp"      "BFcr"     "BG"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "Bp"       "BPC"      "BT"       "BTP"      "B.tr.pat" "Davis.3" </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "DC"       "Dd"       "DD"       "DEL"      "DEM"      "DHA"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "Dl"       "Dm"       "Dp"       "DPA"      "DVL"      "DVM"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "GB"       "GD"       "GH"       "GL"       "GLC"      "GLl"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "GLm"      "GLP"      "GLpe"     "GLT"      "H"        "HS"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "HTC"      "L"        "LA"       "LAR"      "Ld"       "LeP"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [43] "LFo"      "LFOM"     "LG"       "Ll"       "LO"       "LTc"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [49] "LT(lat)"  "SB"       "SD"       "SDO"      "SDTc"     "SH"      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "SLC"      "SLFp"     "W"        "WA"       "WP"       "WCL"     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [61] "WCM"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BatF"     "Bd"       "BFcd"     "BFd"      "BFp"      "BFcr"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [7] "BG"       "Bp"       "BPacd"    "BPtr"     "BPC"      "BT"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [13] "BTP"      "B.tr.pat" "Davis.3"  "DC"       "Dd"       "DD"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "DEL"      "DEM"      "DHA"      "Dl"       "Dm"       "Dp"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [25] "DPA"      "DVL"      "DVM"      "GB"       "GD"       "GH"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] "GL"       "GLC"      "GLF"      "GLl"      "GLm"      "GLP"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "GLpe"     "GLT"      "H"        "HFcr"     "HS"       "HTC"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [43] "L"        "LA"       "LAPa"     "LAR"      "LCDe"     "Ld"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [49] "LeP"      "LFo"      "LFOM"     "LG"       "Ll"       "LO"      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "LS"       "LTc"      "LT(lat)"  "PL"       "SB"       "SBV"     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] "SD"       "SDO"      "SDTc"     "SH"       "SLC"      "SLFp"    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [67] "W"        "WA"       "WP"       "WCL"      "WCM"     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $class</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "data.frame"</span>
