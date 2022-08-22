@@ -1,3 +1,8 @@
+# zoolog 1.1.0
+1. Added Russell's standard for Canis lupus.
+2. Included genus Canis in the taxonomy and in the taxon thesaurus.
+3. Included new entries in the measure and element thesauri.
+
 # zoolog 1.0.1
 1. Corrected Steppan's standard for Bos primigenius. Some measurements had been
    missing.

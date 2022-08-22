@@ -24,6 +24,8 @@ Each row lists the information for one species:\tabular{lllll}{
    Equus asinus \tab Equus \tab Equini \tab Equinae \tab Equidae \cr
    Equus caballus \tab Equus \tab Equini \tab Equinae \tab Equidae \cr
    Oryctolagus cuniculus \tab Oryctolagus \tab  \tab  \tab Leporidae \cr
+   Canis familiaris \tab Canis \tab Canini \tab Caninae \tab Canidae \cr
+   Canis lupus \tab Canis \tab Canini \tab Caninae \tab Canidae \cr
 }
 }
 \usage{

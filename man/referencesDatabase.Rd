@@ -162,12 +162,19 @@ Adult male European rabbit from Audley End, Essex, UK, curated in the
 reference collection at University of Nottingham Arch department (ID RS139)
 \insertCite{Ameen2021}{zoolog}.}
 }}
+\item{\strong{Canid - \emph{Canis}}}{\describe{
+\item{Russell}{
+\emph{Canis lupus}.
+Hungarian Agricultural Museum:
+Specimen 73.4 (small mature female; probably local origin)
+from \insertCite{russell1993hunting;textual}{zoolog}.}
+}}
 }
 
 The \pkg{zoolog} variable \code{referencesDatabase} collects all these
 references. It is structured as a named list of named lists, following the
 hierarchy described above:\if{html}{\out{<div class="sourceCode r">}}\preformatted{str(referencesDatabase, max.level = 2)
-}\if{html}{\out{</div>}}\preformatted{## List of 14
+}\if{html}{\out{</div>}}\preformatted{## List of 15
 ##  $ Bos taurus           :List of 3
 ##   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
 ##   ..$ Basel    :'data.frame':	50 obs. of  4 variables:
@@ -204,6 +211,8 @@ hierarchy described above:\if{html}{\out{<div class="sourceCode r">}}\preformatt
 ##   ..$ Johnstone:'data.frame':	75 obs. of  4 variables:
 ##  $ Oryctolagus cuniculus:List of 1
 ##   ..$ Nottingham:'data.frame':	58 obs. of  4 variables:
+##  $ Canis lupus          :List of 1
+##   ..$ Russell:'data.frame':	77 obs. of  4 variables:
 }
 }
 
@@ -215,12 +224,12 @@ reference dataframe should include one reference standard for each relevant
 taxon.
 The \pkg{zoolog} variable \code{referenceSets} defines four possible
 references:\if{html}{\out{<div class="sourceCode r">}}\preformatted{referenceSets
-}\if{html}{\out{</div>}}\tabular{lllllllllllllll}{
-    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \cr
-   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
-   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \cr
-   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \cr
-   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \cr
+}\if{html}{\out{</div>}}\tabular{llllllllllllllll}{
+    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \tab Canis lupus \cr
+   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \tab Russell \cr
+   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
 }
 
 
@@ -243,11 +252,11 @@ references defined by \code{referenceSets}:\if{html}{\out{<div class="sourceCode
 ##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...
 ##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...
 ##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...
-##  $ Combi              :'data.frame':	558 obs. of  4 variables:
-##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
-##   ..$ Measure : Factor w/ 65 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
-##   ..$ Standard: num [1:558] 259 234 78.3 90.2 29 ...
+##  $ Combi              :'data.frame':	635 obs. of  4 variables:
+##   ..$ TAX     : Factor w/ 11 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...
+##   ..$ EL      : Factor w/ 69 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
+##   ..$ Measure : Factor w/ 83 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
+##   ..$ Standard: num [1:635] 259 234 78.3 90.2 29 ...
 ##  $ Groningen          :'data.frame':	246 obs. of  4 variables:
 ##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...
@@ -301,6 +310,7 @@ them:
 ## 20                 Equid - *Equus*          Equus asinus      Haifa
 ## 21                 Equid - *Equus*        Equus caballus  Johnstone
 ## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
+## 23                 Canid - *Canis*           Canis lupus    Russell
 ##                          Filename
 ## 1       referenceCattle_Nieto.csv
 ## 2       referenceCattle_Basel.csv
@@ -324,6 +334,7 @@ them:
 ## 20       referenceEquid_Haifa.csv
 ## 21   referenceEquid_Johnstone.csv
 ## 22 referenceRabbit_Nottingham.csv
+## 23     referenceCanid_Russell.csv
 }
 }
 

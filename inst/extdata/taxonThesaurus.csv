@@ -4,15 +4,15 @@
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ##########################################
-Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus
-bota;BP;BoSP;ovar;ovis musimon;OvSP;cahi;wild goat;CaSP;Ovis/Capra;sudo;wild boar;SuSP;ceel;;Persian fallow deer;fallow deer;mountain gazelle;gazelle;Equus africanus asinus;Equus ferus caballus;EqSP;O cuniculus;oryct
-cattle;bos prim;B;sheep;muflon;;goat;cabra salvatge;;oc;pig;senglar;;red deer;;;;;;E asinus;E caballus;EquSP;European rabbit;
-BT;auroch;;OA;mouflon;;CH;cabra selvagem ;;caprine;SS;porc senglar;;CE;;;;;;donkey;horse;;rabbit;
-bovino;urus;;oveja;;;cabra;cabra salvaje;;s/g;cerdo;jabali;;ciervo;;;;;;ass;caballo;;conejo;
-Grands Bovides Boeuf;ure;;Ovicaprines Mouton;;;pecora;chevre sauvage;;sheep/goat;Suides Porc;javali;;Cervides Cerf;;;;;;asno;cavall;;conill;
-vaca;uro;;ov;;;cabra;;;Sh/G;porc;sanglier;;CEE;;;;;;ase;cheval;;lapin;
-;auroque;;ovella;;;CAH;;;ovicaprino;Suides;wss;;cervol;;;;;;ane;cavalo;;coelho;
-;;;OVA;;;Ovicaprines Chevre;;;O/C;;susc;;;;;;;;eqas;eqca;;orcu;
-;;;;;;;;;Ovicaprines Ovis-Capra;;;;;;;;;;;;;;
-;;;;;;;;;ovicapri;;;;;;;;;;;;;;
-;;;;;;;;;O;;;;;;;;;;;;;;
+Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus;Canis familiaris;Canis lupus;Canis
+bota;BP;BoSP;ovar;ovis musimon;OvSP;cahi;wild goat;CaSP;Ovis/Capra;sudo;wild boar;SuSP;ceel;;Persian fallow deer;fallow deer;mountain gazelle;gazelle;Equus africanus asinus;Equus ferus caballus;EqSP;O cuniculus;oryct;Canis lupus familiaris;grey wolf;canine
+cattle;bos prim;B;sheep;muflon;;goat;cabra salvatge;;oc;pig;senglar;;red deer;;;;;;E asinus;E caballus;EquSP;European rabbit;;dog;wolf;
+BT;auroch;;OA;mouflon;;CH;cabra selvagem ;;caprine;SS;porc senglar;;CE;;;;;;donkey;horse;;rabbit;;domestic dog;gray wolf;
+bovino;urus;;oveja;;;cabra;cabra salvaje;;s/g;cerdo;jabali;;ciervo;;;;;;ass;caballo;;conejo;;perro;lobo;
+Grands Bovides Boeuf;ure;;Ovicaprines Mouton;;;pecora;chevre sauvage;;sheep/goat;Suides Porc;javali;;Cervides Cerf;;;;;;asno;cavall;;conill;;gos;llop;
+vaca;uro;;ov;;;cabra;;;Sh/G;porc;sanglier;;CEE;;;;;;ase;cheval;;lapin;;chien;loup;
+;auroque;;ovella;;;CAH;;;ovicaprino;Suides;wss;;cervol;;;;;;ane;cavalo;;coelho;;cao;;
+;;;OVA;;;Ovicaprines Chevre;;;O/C;;susc;;;;;;;;eqas;eqca;;orcu;;;;
+;;;;;;;;;Ovicaprines Ovis-Capra;;;;;;;;;;;;;;;;;
+;;;;;;;;;ovicapri;;;;;;;;;;;;;;;;;
+;;;;;;;;;O;;;;;;;;;;;;;;;;;

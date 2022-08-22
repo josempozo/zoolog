@@ -1,0 +1,90 @@
+##########################################
+## REFERENCE: Russell
+## *Canis lupus*.
+## Hungarian Agricultural Museum: 
+## Specimen 73.4 (small mature female; probably local origin)
+## from \insertCite{russell1993hunting;textual}{zoolog}.
+## SOURCE:
+## Russell, N. (1993).
+## Hunting, Herding and Feasting: human use of animals in 
+## Neolithic Southeast Europe.
+## PhD thesis, University of California, Berkeley.
+##########################################
+TAX;EL;Measure;Standard
+Canis lupus;Atlas;GL;43,2
+Canis lupus;Atlas;GLF;37,4
+Canis lupus;Atlas;GB;99
+Canis lupus;Atlas;BFcr;46,9
+Canis lupus;Atlas;BFcd;41,2
+Canis lupus;Atlas;Breadth of caudal channel;22,1
+Canis lupus;Atlas;H;21,5
+Canis lupus;Axis;LCDe;57,5
+Canis lupus;Axis;BFcr;39,5
+Canis lupus;Axis;Breadth of cranial channel;17,8
+Canis lupus;Axis;LAPa;60,7
+Canis lupus;Axis;SBV;28,4
+Canis lupus;Axis;BPtr;48,0
+Canis lupus;Axis;BPacd;25,8
+Canis lupus;Axis;BFcd;39,3
+Canis lupus;Axis;H;46,5
+Canis lupus;Sacrum;GL;51,5
+Canis lupus;Sacrum;PL;46,4
+Canis lupus;Sacrum;GB;56,2
+Canis lupus;Sacrum;BFcr;34,8
+Canis lupus;Sacrum;HFcr;17,6
+Canis lupus;Scapula;SLC;37,7
+Canis lupus;Scapula;GLP;43,2
+Canis lupus;Scapula;LG;36,2
+Canis lupus;Scapula;BG;24,6
+Canis lupus;Scapula;HS;168,2
+Canis lupus;Scapula;DHA;155
+Canis lupus;Humerus;Dp;55,9
+Canis lupus;Humerus;SD;16,2
+Canis lupus;Humerus;Bd;45
+Canis lupus;Radius;Bp;24,4
+Canis lupus;Radius;SD;16,5
+Canis lupus;Radius;Bd;33,9
+Canis lupus;Ulna;BPC;23,7
+Canis lupus;Ulna;DPA;33
+Canis lupus;Ulna;SDO;26
+Canis lupus;Metacarpal I;Bd;7
+Canis lupus;Metacarpal I;GL;24,2
+Canis lupus;Metacarpal II;Bd;11,9
+Canis lupus;Metacarpal II;GL;71,7
+Canis lupus;Metacarpal III;Bd;11,7
+Canis lupus;Metacarpal III;GL;82,9
+Canis lupus;Metacarpal IV;Bd;11,3
+Canis lupus;Metacarpal IV;GL;82,3
+Canis lupus;Metacarpal V;Bd;12,3
+Canis lupus;Metacarpal V;GL;69,8
+Canis lupus;Pelvis;LA;28,7
+Canis lupus;Pelvis;Breadth of acetabulum;26,8
+Canis lupus;Pelvis;GL;183,8
+Canis lupus;Pelvis;LS;59,9
+Canis lupus;Pelvis;SH;25,1
+Canis lupus;Pelvis;SB;13,4
+Canis lupus;Pelvis;LFo;37,7
+Canis lupus;Femur;Bp;53
+Canis lupus;Femur;DC;25,9
+Canis lupus;Femur;SD;16,9
+Canis lupus;Femur;Bd;44,7
+Canis lupus;Patella;GL;25,6
+Canis lupus;Patella;GB;14,6
+Canis lupus;Patella;Depth;12,1
+Canis lupus;Tibia;Bp;49,1
+Canis lupus;Tibia;SD;16,5
+Canis lupus;Tibia;Bd;32,2
+Canis lupus;Tibia;Dd;23,7
+Canis lupus;Tibia;Distal depth, flat against posterior;23,9
+Canis lupus;Astragalus;GLl;34,5
+Canis lupus;Calcaneus;GL;56,8
+Canis lupus;Calcaneus;GB;27
+Canis lupus;Calcaneus;Maximum lateral depth;25,3
+Canis lupus;metatarsal II;Bd;10,9
+Canis lupus;metatarsal II;GL;82,3
+Canis lupus;metatarsal III;Bd;10,9
+Canis lupus;metatarsal III;GL;92,4
+Canis lupus;metatarsal IV;Bd;11,3
+Canis lupus;metatarsal IV;GL;95,2
+Canis lupus;metatarsal V;Bd;10,3
+Canis lupus;metatarsal V;GL;86,2
