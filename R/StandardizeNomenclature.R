@@ -81,7 +81,7 @@ StandardizeNomenclature <- function(x, thesaurus,
   thesaurus <- lapply(normalized$thesaurus, function(a) a[a!=""])
   y <- sapply(thesaurus, is.element, el = normalized$x)
   if(mark.unknown) x[] <- NA
-  if(length(x)>1) ynames <- colnames(y) else ynames<-names(y)
+  if(length(x)>1) ynames <- colnames(y) else ynames <- names(y)
   x[(which(y)-1) %% n + 1] <- ynames[ceiling(which(y)/n)]
   if(x.isfactor) x <- as.factor(x)
   return(x)

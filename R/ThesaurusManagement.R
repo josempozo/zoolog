@@ -167,26 +167,21 @@ NormalizeForSensitiveness <- function(thesaurus, x = NULL)
                               "punctuationSensitive")
   sensitivenessAttr <- unlist(sapply(sensitivenessAttrNames, attr,
                                      x = thesaurus))
-  xprepared <- x
-  thesaurus <- lapply(thesaurus, SensitivenessTransformation, sensitivenessAttr)
-  xprepared <- SensitivenessTransformation(xprepared, sensitivenessAttr)
-  if(is.null(x)) return(thesaurus) else
-    return(list(thesaurus = thesaurus, x = xprepared))
+  normalizedThesaurus <- lapply(thesaurus, SensitivenessTransformation,
+                                sensitivenessAttr)
+  if(is.null(x)) return(normalizedThesaurus)
+
+  normalizedX <- SensitivenessTransformation(x, sensitivenessAttr)
+  return(list(thesaurus = normalizedThesaurus, x = normalizedX))
 }
 
 SensitivenessTransformation <- function(x, sensitiveness)
 {
-  if(is.null(sensitiveness)) return(x)
-  if(is.false.or.na(sensitiveness["caseSensitive"]))
+  if(!isTRUE(sensitiveness["caseSensitive"]))
     x <- stringi::stri_trans_general(x, "Any-lower")
-  if(is.false.or.na(sensitiveness["accentSensitive"]))
+  if(!isTRUE(sensitiveness["accentSensitive"]))
     x <- stringi::stri_trans_general(x, "Latin-ASCII")
-  if(is.false.or.na(sensitiveness["punctuationSensitive"]))
+  if(!isTRUE(sensitiveness["punctuationSensitive"]))
     x <- gsub("[[:punct:][:blank:]]+", "", x)
   return(x)
-}
-
-is.false.or.na <- function(x)
-{
-  is.na(x) || !x
 }

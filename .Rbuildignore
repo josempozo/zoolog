@@ -32,3 +32,5 @@
 ^man/figures$
 ^localScripts$
 ^localR$
+^LanguageStructuredThesauri$
+^CRAN-SUBMISSION$
