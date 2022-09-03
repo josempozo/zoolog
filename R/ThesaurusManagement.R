@@ -114,7 +114,8 @@ RemoveRepeatedNames <- function(thesaurus)
 {
   thesClean <- mapply(function(x,y) x[!duplicated(y) & y!=""],
                       thesaurus,
-                      NormalizeForSensitiveness(thesaurus))
+                      NormalizeForSensitiveness(thesaurus),
+                      SIMPLIFY = FALSE)
   ThesaurusFromList(thesClean, attributes(thesaurus))
 }
 
