@@ -2,8 +2,17 @@
 #'
 #' Functions to modify and check thesauri.
 #'
+#' In the function \code{AddToThesaurus} the categories in which to add new
+#' names can be specified either as names of a named list given as argument
+#' \code{newName} or explicitly in the argument \code{category}. See the
+#' examples below illustrating both alternatives.
+#'
+#' From version 1.2.0 \code{AddToThesurus} directly removes repeated names in
+#' the resulting thesaurus.
+#'
 #' @inheritParams ThesaurusReaderWriter
-#' @param newName Character vector with new names to be added to the thesaurus.
+#' @param newName Character vector or (named) list of character vectors
+#' with new names to be added to the thesaurus.
 #' @param category Character vector identifying the classes where the
 #' new names should be included.
 #'
@@ -53,14 +62,24 @@
 #'                                "blue")
 #' thesaurusNew
 #'
+#' ## Categories and names can also be included as named list
+#' thesaurusNew2 <- NewThesaurus()
+#' thesaurusNew2 <- AddToThesaurus(thesaurusNew2, list(
+#'   red = c("scarlet", "vermilion", "ruby", "cherry", "carmine", "wine"),
+#'   blue = c("sky blue", "azure", "sapphire", "cerulean","navy",
+#'            "lapis lazuli", "indigo", "cyan")) )
+#'
 #' ## Attempt to generate an ambiguous thesaurus
 #' try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 #'
+#' ## From version 1.2.0 AddToThesurus directly removes repeated names:
+#' AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
+#'
 #' ## Remove repeated names in the same category:
-#' thesaurusWithRepetitions <- AddToThesaurus(thesaurusNew,
-#'                                            c("scarlet", "ruby"), "red")
-#' thesaurusWithRepetitions
-#' RemoveRepeatedNames(thesaurusWithRepetitions)
+#' ## If we included any repetitions
+#' thesaurusNew[8:9,1] <- c("scarlet", "ruby")
+#' ## they can be removed with
+#' RemoveRepeatedNames(thesaurusNew)
 #'
 #' @seealso
 #' \code{\link{zoologThesaurus}} for a description of the thesaurus and
@@ -85,21 +104,21 @@ NewThesaurus <- function(caseSensitive = FALSE, accentSensitive = FALSE,
 
 #' @rdname ThesaurusManagement
 #' @export
-AddToThesaurus <- function(thesaurus, newName, category)
+AddToThesaurus <- function(thesaurus, newName, category = NULL)
 {
-  if(length(chainName <- intersect(newName, category))>0)
-    stop(paste0("Inconsistent \"newName\" and \"category\". ",
-                "Repeated name: ", paste0(chainName, collapse = ", "), "."))
+  if(is.null(category)) category <- names(newName)
+  if(is.null(category))
+    stop("Missing category: \n",
+         "Provided them as names of the argument newName\n",
+         "or explicitly in the argument category.")
+  standardNames <- StandardizeNomenclature(category, thesaurus)
+  newName <- as.list(newName)
 
-  standardName <- StandardizeNomenclature(category, thesaurus)
-  newColumns <- setdiff(standardName, names(thesaurus))
-  newName <- c(newColumns, newName)
-  standardName <- c(newColumns, standardName)
   thesNew <- lapply(thesaurus, function(a) a[a!=""])
-  for(i in 1:length(newName))
+  for(i in seq_len(length(newName)))
   {
-    case <- standardName[min(i,length(standardName))]
-    thesNew[[case]] <- c(thesNew[[case]], newName[i])
+    case <- standardNames[min(i, length(standardNames))]
+    thesNew[[case]] <- unique(c(case, thesNew[[case]], newName[[i]]))
   }
   thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
   if(ambiguity <- ThesaurusAmbiguity(thesNew))

@@ -1,3 +1,10 @@
+# zoolog 1.1.1
+1. Corrected bug when using RemoveRepeatedNames on a thesaurus with only one
+   cathegory.
+2. Included option in AddToThesaurus to parse the new names and categories 
+   better structured as a named list.
+3. AddToThesaurus now internally remove resulting repeated names.
+
 # zoolog 1.1.0
 1. Added Russell's standard for Canis lupus.
 2. Included genus Canis in the taxonomy and in the taxon thesaurus.
