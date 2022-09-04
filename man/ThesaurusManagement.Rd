@@ -14,7 +14,7 @@ NewThesaurus(
   punctuationSensitive = FALSE
 )
 
-AddToThesaurus(thesaurus, newName, category)
+AddToThesaurus(thesaurus, newName, category = NULL)
 
 RemoveRepeatedNames(thesaurus)
 
@@ -27,7 +27,8 @@ the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 
-\item{newName}{Character vector with new names to be added to the thesaurus.}
+\item{newName}{Character vector or (named) list of character vectors
+with new names to be added to the thesaurus.}
 
 \item{category}{Character vector identifying the classes where the
 new names should be included.}
@@ -53,6 +54,15 @@ error in case they attempt to read or generate an ambiguous thesaurus.
 }
 \description{
 Functions to modify and check thesauri.
+}
+\details{
+In the function \code{AddToThesaurus} the categories in which to add new
+names can be specified either as names of a named list given as argument
+\code{newName} or explicitly in the argument \code{category}. See the
+examples below illustrating both alternatives.
+
+From version 1.2.0 \code{AddToThesurus} directly removes repeated names in
+the resulting thesaurus.
 }
 \examples{
 ## Load an example thesaurus:
@@ -81,14 +91,24 @@ thesaurusNew <- AddToThesaurus(thesaurusNew,
                                "blue")
 thesaurusNew
 
+## Categories and names can also be included as named list
+thesaurusNew2 <- NewThesaurus()
+thesaurusNew2 <- AddToThesaurus(thesaurusNew2, list(
+  red = c("scarlet", "vermilion", "ruby", "cherry", "carmine", "wine"),
+  blue = c("sky blue", "azure", "sapphire", "cerulean","navy",
+           "lapis lazuli", "indigo", "cyan")) )
+
 ## Attempt to generate an ambiguous thesaurus
 try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 
+## From version 1.2.0 AddToThesurus directly removes repeated names:
+AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
+
 ## Remove repeated names in the same category:
-thesaurusWithRepetitions <- AddToThesaurus(thesaurusNew,
-                                           c("scarlet", "ruby"), "red")
-thesaurusWithRepetitions
-RemoveRepeatedNames(thesaurusWithRepetitions)
+## If we included any repetitions
+thesaurusNew[8:9,1] <- c("scarlet", "ruby")
+## they can be removed with
+RemoveRepeatedNames(thesaurusNew)
 
 }
 \seealso{
