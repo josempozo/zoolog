@@ -64,7 +64,7 @@
 <span>  punctuationSensitive <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">newName</span>, <span class="va">category</span><span class="op">)</span></span>
+<span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurus</span>, <span class="va">newName</span>, category <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurus</span><span class="op">)</span></span>
 <span></span>
@@ -84,7 +84,8 @@ the thesaurus.</p></dd>
 
 
 <dt>newName</dt>
-<dd><p>Character vector with new names to be added to the thesaurus.</p></dd>
+<dd><p>Character vector or (named) list of character vectors
+with new names to be added to the thesaurus.</p></dd>
 
 
 <dt>category</dt>
@@ -118,6 +119,15 @@ ambiguity is found, it returns TRUE with an attribute <code>errmessage</code></p
 the involved categories. This is internally used by
 <code><a href="ThesaurusReaderWriter.html">ReadThesaurus</a></code> and <code>AddToThesaurus</code> to generate an
 error in case they attempt to read or generate an ambiguous thesaurus.</p>
+    </div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>In the function <code>AddToThesaurus</code> the categories in which to add new
+names can be specified either as names of a named list given as argument
+<code>newName</code> or explicitly in the argument <code>category</code>. See the
+examples below illustrating both alternatives.</p>
+<p>From version 1.2.0 <code>AddToThesurus</code> directly removes repeated names in
+the resulting thesaurus.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -182,16 +192,21 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Categories and names can also be included as named list</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew2</span> <span class="op">&lt;-</span> <span class="fu">NewThesaurus</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew2</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew2</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  red <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"vermilion"</span>, <span class="st">"ruby"</span>, <span class="st">"cherry"</span>, <span class="st">"carmine"</span>, <span class="st">"wine"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  blue <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,<span class="st">"navy"</span>,</span></span>
+<span class="r-in"><span>           <span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Attempt to generate an ambiguous thesaurus</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="st">"scarlet"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in AddToThesaurus(thesaurusNew, "scarlet", "blue") : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   The resulting thesaurus would be ambiguous.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Ambiguity in pair ("red", "blue"). Shared names: scarlet</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co">## Remove repeated names in the same category:</span></span></span>
-<span class="r-in"><span><span class="va">thesaurusWithRepetitions</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span></span>
-<span class="r-in"><span>                                           <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span>, <span class="st">"red"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">thesaurusWithRepetitions</span></span></span>
+<span class="r-in"><span><span class="co">## From version 1.2.0 AddToThesurus directly removes repeated names:</span></span></span>
+<span class="r-in"><span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span>, <span class="st">"red"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
@@ -202,7 +217,12 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
-<span class="r-in"><span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurusWithRepetitions</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Remove repeated names in the same category:</span></span></span>
+<span class="r-in"><span><span class="co">## If we included any repetitions</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span><span class="op">[</span><span class="fl">8</span><span class="op">:</span><span class="fl">9</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## they can be removed with</span></span></span>
+<span class="r-in"><span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurusNew</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
