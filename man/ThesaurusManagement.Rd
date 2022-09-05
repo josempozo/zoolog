@@ -86,17 +86,16 @@ thesaurusNew <- AddToThesaurus(thesaurusNew,
                                "red")
 thesaurusNew
 thesaurusNew <- AddToThesaurus(thesaurusNew,
-                                c("sky blue", "azure", "sapphire", "cerulean",
-                                 "navy", "lapis lazuli", "indigo", "cyan"),
+                               c("sky blue", "azure", "sapphire", "cerulean",
+                                 "navy"),
                                "blue")
 thesaurusNew
 
 ## Categories and names can also be included as named list
-thesaurusNew2 <- NewThesaurus()
-thesaurusNew2 <- AddToThesaurus(thesaurusNew2, list(
-  red = c("scarlet", "vermilion", "ruby", "cherry", "carmine", "wine"),
-  blue = c("sky blue", "azure", "sapphire", "cerulean","navy",
-           "lapis lazuli", "indigo", "cyan")) )
+thesaurusNew <- AddToThesaurus(thesaurusNew, list(
+  blue = c("lapis lazuli", "indigo", "cyan"),
+  brown = c("hazel", "chocolate-coloured", "brunette", "mousy", "beige")) )
+thesaurusNew
 
 ## Attempt to generate an ambiguous thesaurus
 try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
@@ -107,6 +106,7 @@ AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 ## Remove repeated names in the same category:
 ## If we included any repetitions
 thesaurusNew[8:9,1] <- c("scarlet", "ruby")
+thesaurusNew
 ## they can be removed with
 RemoveRepeatedNames(thesaurusNew)
 
