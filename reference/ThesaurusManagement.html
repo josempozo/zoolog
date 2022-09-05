@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zoolog</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.1.001</span>
       </span>
     </div>
 
@@ -177,27 +177,34 @@ thesaurus set structure,</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine</span>
 <span class="r-in"><span><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>,</span></span>
-<span class="r-in"><span>                                <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,</span></span>
-<span class="r-in"><span>                                 <span class="st">"navy"</span>, <span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                               <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,</span></span>
+<span class="r-in"><span>                                 <span class="st">"navy"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>                               <span class="st">"blue"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">thesaurusNew</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         red     blue</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red     blue</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet sky blue</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion    azure</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby sapphire</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry cerulean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine     navy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine         </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Categories and names can also be included as named list</span></span></span>
-<span class="r-in"><span><span class="va">thesaurusNew2</span> <span class="op">&lt;-</span> <span class="fu">NewThesaurus</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">thesaurusNew2</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew2</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  red <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"vermilion"</span>, <span class="st">"ruby"</span>, <span class="st">"cherry"</span>, <span class="st">"carmine"</span>, <span class="st">"wine"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  blue <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"sky blue"</span>, <span class="st">"azure"</span>, <span class="st">"sapphire"</span>, <span class="st">"cerulean"</span>,<span class="st">"navy"</span>,</span></span>
-<span class="r-in"><span>           <span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span> <span class="op">&lt;-</span> <span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  blue <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lapis lazuli"</span>, <span class="st">"indigo"</span>, <span class="st">"cyan"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  brown <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hazel"</span>, <span class="st">"chocolate-coloured"</span>, <span class="st">"brunette"</span>, <span class="st">"mousy"</span>, <span class="st">"beige"</span><span class="op">)</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue              hazel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure chocolate-coloured</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire           brunette</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean              mousy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy              beige</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan                   </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Attempt to generate an ambiguous thesaurus</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="st">"scarlet"</span>, <span class="st">"blue"</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -207,32 +214,43 @@ thesaurus set structure,</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## From version 1.2.0 AddToThesurus directly removes repeated names:</span></span></span>
 <span class="r-in"><span><span class="fu">AddToThesaurus</span><span class="op">(</span><span class="va">thesaurusNew</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span>, <span class="st">"red"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue              hazel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure chocolate-coloured</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire           brunette</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean              mousy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy              beige</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan                   </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## Remove repeated names in the same category:</span></span></span>
 <span class="r-in"><span><span class="co">## If we included any repetitions</span></span></span>
 <span class="r-in"><span><span class="va">thesaurusNew</span><span class="op">[</span><span class="fl">8</span><span class="op">:</span><span class="fl">9</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"scarlet"</span>, <span class="st">"ruby"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">thesaurusNew</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue              hazel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure chocolate-coloured</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire           brunette</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean              mousy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy              beige</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   scarlet       indigo                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      ruby         cyan                   </span>
 <span class="r-in"><span><span class="co">## they can be removed with</span></span></span>
 <span class="r-in"><span><span class="fu">RemoveRepeatedNames</span><span class="op">(</span><span class="va">thesaurusNew</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       red         blue              brown</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   scarlet     sky blue              hazel</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 vermilion        azure chocolate-coloured</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      ruby     sapphire           brunette</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5    cherry     cerulean              mousy</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   carmine         navy              beige</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      wine lapis lazuli                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                 indigo                   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                   cyan                   </span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
