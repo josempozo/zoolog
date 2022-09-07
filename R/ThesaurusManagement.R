@@ -118,12 +118,13 @@ AddToThesaurus <- function(thesaurus, newName, category = NULL)
   for(i in seq_len(length(newName)))
   {
     case <- standardNames[min(i, length(standardNames))]
-    thesNew[[case]] <- unique(c(case, thesNew[[case]], newName[[i]]))
+    thesNew[[case]] <- c(case, thesNew[[case]], newName[[i]])
   }
   thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
   if(ambiguity <- ThesaurusAmbiguity(thesNew))
     stop(paste0("The resulting thesaurus would be ambiguous.\n",
                 attr(ambiguity, "errmessage")))
+  thesNew <- RemoveRepeatedNames(thesNew)
   return(thesNew)
 }
 
