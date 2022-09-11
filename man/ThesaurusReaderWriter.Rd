@@ -12,7 +12,8 @@ ReadThesaurus(
   file,
   caseSensitive = FALSE,
   accentSensitive = FALSE,
-  punctuationSensitive = FALSE
+  punctuationSensitive = FALSE,
+  structuredByLanguage = FALSE
 )
 
 ReadThesaurusSet(file)

@@ -16,7 +16,8 @@ GetAfterPattern <- function(x, pattern)
   xSelected <- x[StartsBy(x, pattern)]
   xWithoutInitialSpaces <- sub("( )+", "", xSelected)
   xWithoutPattern <- substring(xWithoutInitialSpaces, nchar(pattern)+1)
-  sub("( )+", "", xWithoutPattern)
+  xWithoutSymbols <- sub("( )+", "", xWithoutPattern)
+  utils::type.convert(xWithoutSymbols, as.is = TRUE)
 }
 
 StartsBy <- function(x, pattern)

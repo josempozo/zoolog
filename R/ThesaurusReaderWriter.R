@@ -65,38 +65,63 @@
 ReadThesaurus <- function(file,
                           caseSensitive = FALSE,
                           accentSensitive = FALSE,
-                          punctuationSensitive = FALSE)
+                          punctuationSensitive = FALSE,
+                          structuredByLanguage = FALSE)
 {
-  thesaurus <- utils::read.csv2(file, stringsAsFactors = FALSE, header = FALSE,
-                                comment.char = "#")
-  names(thesaurus) <- thesaurus[1,]
-  attrib <- ReadThesaurusAttributes(file)
+  da <- ReadDataAndAttributes(file, repeatHeader = !structuredByLanguage)
+  if(structuredByLanguage)
+    thesaurus <- ReadThesaurusLanguageSet(da$data, file)
+  else
+    thesaurus <- da$data
+
   for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
   {
-    if(!eval(call("missing", as.name(sensitive))) || is.null(attrib[[sensitive]]))
-      attrib[[sensitive]] <- eval(as.name(sensitive))
-    attr(thesaurus, sensitive) <- attrib[[sensitive]]
+    if(!eval(call("missing", as.name(sensitive))) || is.null(da$attr[[sensitive]]))
+      da$attr[[sensitive]] <- eval(as.name(sensitive))
+    attr(thesaurus, sensitive) <- da$attr[[sensitive]]
   }
-  if(ambiguity <- ThesaurusAmbiguity(thesaurus))
+
+  if(!structuredByLanguage && (ambiguity <- ThesaurusAmbiguity(thesaurus)))
     stop(paste0("Ambiguous thesaurus in ", file , ":\n",
                 attr(ambiguity, "errmessage")))
   return(thesaurus)
+}
+
+ReadThesaurusLanguageSet <- function(data, file)
+{
+#  thesaurus <- list()
+  dir <- dirname(file)
+  filenames <- file.path(dir, data$FileName)
+#  for(i in seq_len(nrow(data)))
+#  {
+#    thesaurus[[data$Language[i]]] <-
+#      ReadThesaurus(filenames[i], NULL, NULL, NULL)
+#  }
+  thesaurusSet <- lapply(filenames, ReadThesaurus,
+                         NULL, NULL, NULL)
+  names(thesaurusSet) <- data$Language
+  attr(thesaurusSet, "fileName") <- data$FileName
+  return(thesaurusSet)
 }
 
 #' @rdname ThesaurusReaderWriter
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  data <- utils::read.csv2(file, comment.char = "#")
+  data <- ReadDataAndAttributes(file)$data
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
+  structuredByLanguage <- data$StructuredByLanguage
+  if(is.null(structuredByLanguage)) structuredByLanguage <- FALSE
   thesaurusSet <- mapply(ReadThesaurus, filenames,
                          data$CaseSensitive, data$AccentSensitive,
-                         data$PunctuationSensitive)
+                         data$PunctuationSensitive,
+                         structuredByLanguage)
   names(thesaurusSet) <- data$ThesaurusName
   attr(thesaurusSet, "applyToColNames") <- data$ApplyToColNames
   attr(thesaurusSet, "applyToColValues") <- data$ApplyToColValues
-  attr(thesaurusSet, "fileName") <- as.character(data$FileName)
+  attr(thesaurusSet, "fileName") <- data$FileName
+  attr(thesaurusSet, "structuredByLanguage") <- data$StructuredByLanguage
   return(thesaurusSet)
 }
 
@@ -136,14 +161,10 @@ WriteThesaurusSet <- function(thesaurusSet, file)
 
 ReadThesaurusAttributes <- function(file)
 {
-  x <- ReadCommentLines(file)
-  attrib <- list()
-  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
-  {
-    value <- as.logical(GetAfterPattern(x, sensitive))
-    if(length(value) > 0) attrib[[sensitive]] <- value[1]
-  }
-  return(attrib)
+  ReadComplementVariables(
+    file,
+    c("caseSensitive", "accentSensitive", "punctuationSensitive", "encoding")
+  )
 }
 
 WriteThesaurusAttributes <- function(thesaurus, file)
@@ -154,4 +175,28 @@ WriteThesaurusAttributes <- function(thesaurus, file)
     lines = c(lines, paste("##", sensitive, attr(thesaurus, sensitive)))
   lines = c(lines, commentLine)
   writeLines(lines, file)
+}
+
+ReadComplementVariables <- function(file, variables)
+{
+  x <- ReadCommentLines(file)
+  attrib <- list()
+  for(variable in variables)
+  {
+    value <- GetAfterPattern(x, variable)
+    if(length(value) > 0) attrib[[variable]] <- value[1]
+  }
+  return(attrib)
+}
+
+ReadDataAndAttributes <- function(file, repeatHeader = FALSE)
+{
+  attr <- ReadThesaurusAttributes(file)
+  if(is.null(attr$encoding)) attr$encoding = "unknown"
+  data <- utils::read.csv2(file, comment.char = "#",
+                           stringsAsFactors = FALSE,
+                           encoding = attr$encoding,
+                           header = !repeatHeader)
+  if(repeatHeader) names(data) <- data[1,]
+  list(data = data, attr = attr)
 }
