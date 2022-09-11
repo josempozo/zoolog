@@ -1,0 +1,15 @@
+##########################################################
+## zoolog thesaurus for identifiers of reference values.
+## Language Base
+## Base corresponds to the scientific nomenclature
+## and some variants and acronyms.
+##########################################################
+Taxon;Element;Measure;Standard
+TAX;EL;measurement;estandar
+species;anat;Mass;
+animal;bone;measurements;
+Specie;Osso;measures;
+GenusSpecies;BoneBoneElement;Medida;
+Especie;Skelettteil;Mida;
+Espece;elemento;;
+;Os;;

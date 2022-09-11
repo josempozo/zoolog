@@ -1,0 +1,15 @@
+##########################################
+## zoolog thesaurus
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+##########################################
+Taxon;Element;Measure;Standard
+TAX;EL;measurement;estandar
+species;anat;Mass;
+animal;bone;measurements;
+Specie;Osso;measures;
+GenusSpecies;BoneBoneElement;Medida;
+Especie;Skelettteil;Mida;
+Espece;elemento;;
+;Os;;

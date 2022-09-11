@@ -3,6 +3,8 @@ AssembleThesaurus <- function(
     combination = names(thesaurus.db)
 )
 {
+  if(!isTRUE(attr(thesaurus.db, "structuredByLanguage"))) return(thesaurus.db)
+
   assembledThesaurus <- NewThesaurus(
     attr(thesaurus.db, "caseSensitive"),
     attr(thesaurus.db, "accentSensitive"),
@@ -40,16 +42,7 @@ AssembleThesaurusSet <- function(
   combination = GetAvailableLanguages(thesaurusSet.db)
 )
 {
-  structuredByLanguage <- attr(thesaurusSet.db, "structuredByLanguage")
-
-  thesaurusSet <- mapply(
-    function(thesaurus.db, combination, structuredByLanguage)
-    {
-      if(!structuredByLanguage) return(thesaurus.db)
-      AssembleThesaurus(thesaurus.db, combination)
-    },
-    thesaurusSet.db, list(combination), structuredByLanguage
-  )
+  thesaurusSet <- mapply(AssembleThesaurus, thesaurusSet.db, list(combination))
   for(attrib in c("applyToColNames", "applyToColValues", "fileName"))
     attr(thesaurusSet, attrib) <- attr(thesaurusSet.db, attrib)
   return(thesaurusSet)

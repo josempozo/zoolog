@@ -12,8 +12,7 @@ ReadThesaurus(
   file,
   caseSensitive = FALSE,
   accentSensitive = FALSE,
-  punctuationSensitive = FALSE,
-  structuredByLanguage = FALSE
+  punctuationSensitive = FALSE
 )
 
 ReadThesaurusSet(file)
@@ -45,7 +44,7 @@ Functions to read and write thesauri and thesaurus sets.
 }
 \examples{
 ## Read a thesaurus for taxa:
-thesaurusFile <- system.file("extdata", "taxonThesaurus.csv", package="zoolog")
+thesaurusFile <- system.file("extdata", "taxonThesaurusAssembled.csv", package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
 ## The attributes of the thesaurus include the fields 'caseSensitive',
 ## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
@@ -62,7 +61,7 @@ WriteThesaurus(thesaurus, fileExample)
 ## examine the written file.
 
 ## Read a thesaurus set:
-thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
+thesaurusSetFile <- system.file("extdata", "thesaurusSetAssembled.csv", package="zoolog")
 thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 ## The attributes of the thesaurus set include information of the constituent
 ## thesauri: names, source file names, and their mode of application on datasets.

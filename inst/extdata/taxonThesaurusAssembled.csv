@@ -1,0 +1,25 @@
+##########################################
+## zoolog thesaurus
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+## encoding UTF-8
+##########################################
+Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus;Canis familiaris;Canis lupus;Canis
+bota;BP;BoSP;ovar;ovis musimon;OvSP;cahi;cabra salvatge;CaSP;Ovis/Capra;sudo;susc;SuSP;ceel;cérvol;daina persa;daina;Gasela d’Aràbia;gasela;Equus africanus asinus;Equus ferus caballus;EqSP;O cuniculus;oryct;Canis lupus familiaris;llop;canine
+BT;bos prim;B;OA;Ovis gmelini;ovin;CH;wild goat;chèvre ;o/c;SS;wss;suidé;CE;cervo;Persian fallow deer;fallow deer;mountain gazelle;gazelle;E asinus;E caballus;EquSP;orcu;coniglio;gos;grey wolf;canino
+vaca;ur;bovino;ov;mufló;;CAH;chèvre sauvage;ovicaprines chèvre;s/g;porc;senglar;;CEE;veado;Daim Persan;Daim;gazelle de montagne;gazzella;eqas;eqca;equine;conill;coelho;dog;wolf;
+cattle;aurochs;;OVA;mouflon;;cabra;egagro;;O;pig;porc senglar;;cérvol comú;ciervo;daino persiano;daino;gazelle Edmi;gazela;ase;cavall;equino;European rabbit;;domestic dog;gray wolf;
+Bœuf domestique;auroch;;ovella;muflone;;goat;cabra selvagem;;ovicapri;suidés porc;wild boar;;red deer;;gamo persa;gamo;gazzella di montagna;gacela;donkey;horse;;rabbit;;chien;Loup gris;
+Grands Bovides Bœuf;urus;;sheep;muflão asiático ;;chèvre domestique;cabra salvaje;;caprine;maiale;sanglier;;cerf élaphe;;;;gazela da montanha;;ass;cheval;;Lapin;;cane domestico;Loup;
+toro;ure;;mouton;muflão;;capra domestica;;;ovicaprid;porco doméstico ;porc sanglier;;cervides cerf ;;;;gacela arábiga;;âne commun;cavallo domestico;;Lapin commun;;cane;lupo girigo;
+vacca;uro;;ovicaprines mouton;muflón;;;;;sheep/goat;porco;cinghiale;;cervo nobile;;;;;;âne;cavallo;;coniglio selvatico europeo;;cão;lupo;
+Gado bovino doméstico;auroque;;pecora ;;;;;;Sh/G;cerdo;javali;;cervo reale;;;;;;asino;cavalo;;coniglio europeo;;perro;lobo;
+;;;ovelha doméstica;;;;;;Ovicaprines Ovis-Capra;;jabalí;;cervo rosso;;;;;;asno;caballo;;coelho europeu;;;;
+;;;ovelha;;;;;;caprin;;;;cervo europeo;;;;;;;;;conejo;;;;
+;;;oveja;;;;;;ovicaprino;;;;veado vermelho;;;;;;;;;;;;;
+;;;;;;;;;;;;;cervo vermelho;;;;;;;;;;;;;
+;;;;;;;;;;;;;ciervo común;;;;;;;;;;;;;
+;;;;;;;;;;;;;ciervo rojo;;;;;;;;;;;;;
+;;;;;;;;;;;;;ciervo europeo;;;;;;;;;;;;;
+;;;;;;;;;;;;;venado;;;;;;;;;;;;;

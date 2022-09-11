@@ -1,15 +1,15 @@
-##########################################
+##########################################################
 ## zoolog thesaurus for identifiers of reference values.
 ## caseSensitive FALSE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
-##########################################
-Taxon;Element;Measure;Standard
-TAX;EL;measurement;estandar
-species;anat;Mass;
-animal;bone;measurements;
-Specie;Osso;measures;
-GenusSpecies;BoneBoneElement;Medida;
-Especie;Skelettteil;Mida;
-Espece;elemento;;
-;Os;;
+## structuredByLanguage TRUE
+##########################################################
+Language;FileName;Active
+Base;identifierThesaurus_Base.csv;TRUE
+Catalan;identifierThesaurus_Catalan.csv;TRUE
+English;identifierThesaurus_English.csv;TRUE
+French;identifierThesaurus_French.csv;TRUE
+Italian;identifierThesaurus_Italian.csv;TRUE
+Portuguese;identifierThesaurus_Portuguese.csv;TRUE
+Spanish;identifierThesaurus_Spanish.csv;TRUE

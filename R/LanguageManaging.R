@@ -26,11 +26,11 @@ AllAvailableLanguages <- function()
 
 GetAvailableLanguages <- function(thesaurusSet.db)
 {
-  structuredByLanguage <- attr(thesaurusSet.db, "structuredByLanguage")
   languageNames <- c()
-  for(thesaurus.db in thesaurusSet.db[structuredByLanguage])
+  for(thesaurus.db in thesaurusSet.db)
   {
-    languageNames <- union(languageNames, names(thesaurus.db))
+    if(isTRUE(attr(thesaurus.db, "structuredByLanguage")))
+      languageNames <- union(languageNames, names(thesaurus.db))
   }
   return(languageNames)
 }

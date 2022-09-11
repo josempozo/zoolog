@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' ## Read a thesaurus for taxa:
-#' thesaurusFile <- system.file("extdata", "taxonThesaurus.csv", package="zoolog")
+#' thesaurusFile <- system.file("extdata", "taxonThesaurusAssembled.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
 #' ## The attributes of the thesaurus include the fields 'caseSensitive',
 #' ## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
@@ -35,7 +35,7 @@
 #' ## examine the written file.
 #'
 #' ## Read a thesaurus set:
-#' thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
+#' thesaurusSetFile <- system.file("extdata", "thesaurusSetAssembled.csv", package="zoolog")
 #' thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 #' ## The attributes of the thesaurus set include information of the constituent
 #' ## thesauri: names, source file names, and their mode of application on datasets.
@@ -65,11 +65,10 @@
 ReadThesaurus <- function(file,
                           caseSensitive = FALSE,
                           accentSensitive = FALSE,
-                          punctuationSensitive = FALSE,
-                          structuredByLanguage = FALSE)
+                          punctuationSensitive = FALSE)
 {
-  da <- ReadDataAndAttributes(file, repeatHeader = !structuredByLanguage)
-  if(structuredByLanguage)
+  da <- ReadDataAndAttributes(file)
+  if(isTRUE(da$attr$structuredByLanguage))
     thesaurus <- ReadThesaurusLanguageSet(da$data, file)
   else
     thesaurus <- da$data
@@ -80,8 +79,9 @@ ReadThesaurus <- function(file,
       da$attr[[sensitive]] <- eval(as.name(sensitive))
     attr(thesaurus, sensitive) <- da$attr[[sensitive]]
   }
+  attr(thesaurus, "structuredByLanguage") <- da$attr$structuredByLanguage
 
-  if(!structuredByLanguage && (ambiguity <- ThesaurusAmbiguity(thesaurus)))
+  if(!isTRUE(da$attr$structuredByLanguage) && (ambiguity <- ThesaurusAmbiguity(thesaurus)))
     stop(paste0("Ambiguous thesaurus in ", file , ":\n",
                 attr(ambiguity, "errmessage")))
   return(thesaurus)
@@ -89,14 +89,8 @@ ReadThesaurus <- function(file,
 
 ReadThesaurusLanguageSet <- function(data, file)
 {
-#  thesaurus <- list()
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
-#  for(i in seq_len(nrow(data)))
-#  {
-#    thesaurus[[data$Language[i]]] <-
-#      ReadThesaurus(filenames[i], NULL, NULL, NULL)
-#  }
   thesaurusSet <- lapply(filenames, ReadThesaurus,
                          NULL, NULL, NULL)
   names(thesaurusSet) <- data$Language
@@ -108,20 +102,18 @@ ReadThesaurusLanguageSet <- function(data, file)
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  data <- ReadDataAndAttributes(file)$data
+  data <- ReadDataAndAttributes(file, FALSE)$data
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
   structuredByLanguage <- data$StructuredByLanguage
   if(is.null(structuredByLanguage)) structuredByLanguage <- FALSE
   thesaurusSet <- mapply(ReadThesaurus, filenames,
                          data$CaseSensitive, data$AccentSensitive,
-                         data$PunctuationSensitive,
-                         structuredByLanguage)
+                         data$PunctuationSensitive)
   names(thesaurusSet) <- data$ThesaurusName
   attr(thesaurusSet, "applyToColNames") <- data$ApplyToColNames
   attr(thesaurusSet, "applyToColValues") <- data$ApplyToColValues
   attr(thesaurusSet, "fileName") <- data$FileName
-  attr(thesaurusSet, "structuredByLanguage") <- data$StructuredByLanguage
   return(thesaurusSet)
 }
 
@@ -163,7 +155,8 @@ ReadThesaurusAttributes <- function(file)
 {
   ReadComplementVariables(
     file,
-    c("caseSensitive", "accentSensitive", "punctuationSensitive", "encoding")
+    c("caseSensitive", "accentSensitive", "punctuationSensitive",
+      "structuredByLanguage", "encoding")
   )
 }
 
@@ -189,10 +182,11 @@ ReadComplementVariables <- function(file, variables)
   return(attrib)
 }
 
-ReadDataAndAttributes <- function(file, repeatHeader = FALSE)
+ReadDataAndAttributes <- function(file, repeatHeader = NULL)
 {
   attr <- ReadThesaurusAttributes(file)
   if(is.null(attr$encoding)) attr$encoding = "unknown"
+  if(is.null(repeatHeader)) repeatHeader = !isTRUE(attr$structuredByLanguage)
   data <- utils::read.csv2(file, comment.char = "#",
                            stringsAsFactors = FALSE,
                            encoding = attr$encoding,

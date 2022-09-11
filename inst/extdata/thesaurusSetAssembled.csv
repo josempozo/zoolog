@@ -1,0 +1,5 @@
+ThesaurusName;FileName;CaseSensitive;AccentSensitive;PunctuationSensitive;ApplyToColNames;ApplyToColValues
+identifier;identifierThesaurusAssembled.csv;FALSE;FALSE;FALSE;TRUE;FALSE
+taxon;taxonThesaurusAssembled.csv;FALSE;FALSE;FALSE;FALSE;TRUE
+element;elementThesaurusAssembled.csv;FALSE;FALSE;FALSE;FALSE;TRUE
+measure;measureThesaurusAssembled.csv;TRUE;FALSE;FALSE;TRUE;TRUE

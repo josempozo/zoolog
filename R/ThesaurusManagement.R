@@ -37,7 +37,7 @@
 #'
 #' @examples
 #' ## Load an example thesaurus:
-#' thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurus.csv",
+#' thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurusAssembled.csv",
 #'                                        package="zoolog"))
 #' ## with categories
 #' names(thesaurus) #  "bos taurus"  "ovis aries"  "sus domesticus"
