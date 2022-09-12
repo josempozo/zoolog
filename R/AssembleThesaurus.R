@@ -43,7 +43,23 @@ AssembleThesaurusSet <- function(
 )
 {
   thesaurusSet <- mapply(AssembleThesaurus, thesaurusSet.db, list(combination))
-  for(attrib in c("applyToColNames", "applyToColValues", "fileName"))
+  for(attrib in c("applyToColNames", "applyToColValues"))
     attr(thesaurusSet, attrib) <- attr(thesaurusSet.db, attrib)
+
+  structuredByLanguage <- lapply(thesaurusSet.db, attr, "structuredByLanguage")
+  attr(thesaurusSet, "fileName") <- MarkFileNamesWhenAssembled(thesaurusSet.db)
   return(thesaurusSet)
+}
+
+MarkFileNamesWhenAssembled <- function(thesaurusSet.db)
+{
+  structuredByLanguage <- lapply(thesaurusSet.db, attr, "structuredByLanguage")
+  fileNames <- mapply(
+    function(x, y)
+      paste0(tools::file_path_sans_ext(x), "(Assembled)"[y],
+             ".", tools::file_ext(x)),
+    attr(thesaurusSet.db, "fileName"), structuredByLanguage,
+    USE.NAMES = FALSE
+  )
+  return(fileNames)
 }
