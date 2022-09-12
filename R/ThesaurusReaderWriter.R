@@ -121,11 +121,18 @@ ReadThesaurusSet <- function(file)
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
+  encodings <- Encoding(unlist(thesaurus))
+  encoding <- encodings[encodings != "unknown"][1]
+  if(is.na(encoding))
+    encoding = ""
+  else
+    attr(thesaurus, "encoding") = encoding
+
   WriteThesaurusAttributes(thesaurus, file)
   utils::write.table(thesaurus, file,
                      sep = ";", dec = ",", qmethod = "double",
                      row.names = FALSE, col.names = FALSE, quote = FALSE,
-                     append = TRUE)
+                     append = TRUE, fileEncoding = encoding)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -164,8 +171,11 @@ WriteThesaurusAttributes <- function(thesaurus, file)
 {
   commentLine = c("##########################################")
   lines = c(commentLine, "## zoolog thesaurus")
-  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
-    lines = c(lines, paste("##", sensitive, attr(thesaurus, sensitive)))
+  for(sensitive in c("caseSensitive", "accentSensitive",
+                     "punctuationSensitive", "structuredByLanguage",
+                     "encoding"))
+    if(!is.null(attr(thesaurus, sensitive)))
+      lines = c(lines, paste("##", sensitive, attr(thesaurus, sensitive)))
   lines = c(lines, commentLine)
   writeLines(lines, file)
 }
