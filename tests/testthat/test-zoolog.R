@@ -79,4 +79,11 @@ test_that("LogRatios provides expected result on pruned data example.", {
                testDataPrunedWithLog, tolerance=1e-10)
 })
 
+test_that("ReadThesaurusSet is the exact inverse of WriteThesaurusSet.", {
+  file <- file.path(tempdir(), "thesaurusSet.csv")
+  WriteThesaurusSet(zoologThesaurusByLanguage, file)
+  thesaurusSet <- ReadThesaurusSet(file)
+  expect_equal(thesaurusSet, zoologThesaurusByLanguage)
+})
+
 invisible(Sys.setlocale("LC_COLLATE",lc_collocate0))
