@@ -81,21 +81,13 @@ ReadThesaurus <- function(file,
   }
   attr(thesaurus, "structuredByLanguage") <- da$attr$structuredByLanguage
 
-  if(!isTRUE(da$attr$structuredByLanguage) && (ambiguity <- ThesaurusAmbiguity(thesaurus)))
+  if(!isTRUE(da$attr$structuredByLanguage) &&
+     (ambiguity <- ThesaurusAmbiguity(thesaurus)))
+  {
     stop(paste0("Ambiguous thesaurus in ", file , ":\n",
                 attr(ambiguity, "errmessage")))
+  }
   return(thesaurus)
-}
-
-ReadThesaurusLanguageSet <- function(data, file)
-{
-  dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
-  thesaurusSet <- lapply(filenames, ReadThesaurus,
-                         NULL, NULL, NULL)
-  names(thesaurusSet) <- data$Language
-  attr(thesaurusSet, "fileName") <- data$FileName
-  return(thesaurusSet)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -121,18 +113,16 @@ ReadThesaurusSet <- function(file)
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
-  encodings <- Encoding(unlist(thesaurus))
-  encoding <- encodings[encodings != "unknown"][1]
-  if(is.na(encoding))
-    encoding = ""
-  else
-    attr(thesaurus, "encoding") = encoding
+  structuredByLanguage <- isTRUE(attr(thesaurus, "structuredByLanguage"))
+  if(structuredByLanguage)
+  {
+    data <- thesaurus
+    thesaurus <- BuildThesaurusLanguageSetData(thesaurus)
+  }
 
-  WriteThesaurusAttributes(thesaurus, file)
-  utils::write.table(thesaurus, file,
-                     sep = ";", dec = ",", qmethod = "double",
-                     row.names = FALSE, col.names = FALSE, quote = FALSE,
-                     append = TRUE, fileEncoding = encoding)
+  WriteDataAndAttributes(thesaurus, file, col.names = structuredByLanguage)
+
+  if(structuredByLanguage) WriteThesaurusLanguageSet(data, file)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -150,14 +140,19 @@ WriteThesaurusSet <- function(thesaurusSet, file)
                                  function(x) attr(x, "punctuationSensitive"))
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
-  utils::write.csv2(data, file, row.names = FALSE, quote = FALSE)
+  WriteDataAndAttributes(data, file)
 
   dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
   filenames <- file.path(dir, data$FileName)
   noreturn <- mapply(WriteThesaurus, thesaurusSet, filenames)
 }
 
+
+###########################################
+# From here, internal help functions
+
+###########################################
+# Read and write attributes:
 ReadThesaurusAttributes <- function(file)
 {
   ReadComplementVariables(
@@ -171,11 +166,11 @@ WriteThesaurusAttributes <- function(thesaurus, file)
 {
   commentLine = c("##########################################")
   lines = c(commentLine, "## zoolog thesaurus")
-  for(sensitive in c("caseSensitive", "accentSensitive",
+  for(attribute in c("caseSensitive", "accentSensitive",
                      "punctuationSensitive", "structuredByLanguage",
                      "encoding"))
-    if(!is.null(attr(thesaurus, sensitive)))
-      lines = c(lines, paste("##", sensitive, attr(thesaurus, sensitive)))
+    if(!is.null(attr(thesaurus, attribute)))
+      lines = c(lines, paste("##", attribute, attr(thesaurus, attribute)))
   lines = c(lines, commentLine)
   writeLines(lines, file)
 }
@@ -192,6 +187,9 @@ ReadComplementVariables <- function(file, variables)
   return(attrib)
 }
 
+###########################################
+# Read and write attributes and data
+# taking into account the string encoding:
 ReadDataAndAttributes <- function(file, repeatHeader = NULL)
 {
   attr <- ReadThesaurusAttributes(file)
@@ -203,4 +201,60 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
                            header = !repeatHeader)
   if(repeatHeader) names(data) <- data[1,]
   list(data = data, attr = attr)
+}
+
+WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE)
+{
+  encoding <- GetFirstNonTrivialEncoding(unlist(thesaurus))
+  if(encoding != "") attr(thesaurus, "encoding") <- encoding
+
+  WriteThesaurusAttributes(thesaurus, file)
+  # Assigning the names as first row instead of write.table argument
+  # col.names, avoids its warning when appending.
+  if(col.names) thesaurus <- rbind(names(thesaurus), thesaurus)
+  utils::write.table(thesaurus, file,
+                     sep = ";", dec = ",", qmethod = "double",
+                     row.names = FALSE, col.names = FALSE,
+                     quote = FALSE,
+                     append = TRUE, fileEncoding = encoding)
+}
+
+GetFirstNonTrivialEncoding <- function(x)
+{
+  encodings <- Encoding(x)
+  encoding <- encodings[encodings != "unknown"][1]
+  if(is.na(encoding)) encoding = ""
+  return(encoding)
+}
+
+###########################################
+# Help functions to connect with the
+# structured by language thesauri:
+ReadThesaurusLanguageSet <- function(data, file)
+{
+  dir <- dirname(file)
+  filenames <- file.path(dir, data$FileName)
+  thesaurusSet <- lapply(filenames, ReadThesaurus,
+                         NULL, NULL, NULL)
+  names(thesaurusSet) <- data$Language
+  attr(thesaurusSet, "fileName") <- data$FileName
+  return(thesaurusSet)
+}
+
+BuildThesaurusLanguageSetData <- function(thesaurus)
+{
+  data <- as.data.frame(lapply(c("names", "fileName"), attr, x = thesaurus),
+                        stringsAsFactors = FALSE)
+  names(data) <- c("Language", "FileName")
+  attribs <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
+               "structuredByLanguage")
+  attributes(data)[attribs] <- attributes(thesaurus)[attribs]
+  return(data)
+}
+
+WriteThesaurusLanguageSet <- function(data, file)
+{
+  dir <- dirname(file)
+  filenames <- file.path(dir, attr(data, "fileName"))
+  noreturn <- mapply(WriteThesaurus, data, filenames)
 }
