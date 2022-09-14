@@ -7,7 +7,7 @@ lcCollateC({
   caprineCategories = list(ovis = c("ovis", "capra", "oc"))
   testData <- read.csv2("inst/testdata/testData.csv",
                         quote = "\"", na = "",
-                        header = TRUE, stringsAsFactors = TRUE,
+                        header = TRUE, stringsAsFactors = FALSE,
                         fileEncoding = "UTF-8"
   )
   testDataWithLog_Basel <- LogRatios(testData, ref = reference$Basel,
