@@ -38,7 +38,9 @@ SmartJoinCategories <- function(thesaurusSet, joinCategories)
   if(length(joinCategories)==0) return(thesaurusSet)
   coincidences <- sapply(joinCategories, function(x) {
     sapply(thesaurusSet, function(y) {
-      any(x %in% as.character(unlist(lapply(y, function(a) a[a!=""]))))
+      normalized <- NormalizeForSensitiveness(y, x)
+      any(normalized$x %in% as.character(
+        unlist(lapply(normalized$thesaurus, function(a) a[a!=""]))))
     })
   })
   if(any(colSums(coincidences)>1))
