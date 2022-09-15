@@ -1,7 +1,7 @@
 Package: zoolog
 Title: Zooarchaeological Analysis with Log-Ratios
-Version: 1.1.1.001
-Date: 2022-9-5
+Version: 1.1.1.002
+Date: 2022-9-15
 Authors@R: c(
     person(c("Jose","M"), "Pozo",
            role = c("aut", "cre"),
