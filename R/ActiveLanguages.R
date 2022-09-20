@@ -19,6 +19,11 @@
 #' \code{GetActiveLanguages} returns a character vector containing the list
 #' of active languages.
 #'
+#' @seealso
+#' \code{\link{zoologThesaurus}}
+#' for a description of the thesaurus and thesaurus set structure,
+#' \code{\link{StandardizeNomenclature}}, \code{\link{InCategory}}.
+#'
 #' @examples
 #' ## Viewing all available languages:
 #' AllAvailableLanguages()

@@ -14,7 +14,7 @@ bibliography: ../inst/REFERENCES.bib
 ## to create the vignettes 'inside' the package, without table of content (toc)
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{zoolog}
+  %\VignetteIndexEntry{zoolog: Zooarchaeological Analysis with Log-Ratios}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -52,7 +52,7 @@ We are particularly grateful to Sabine Deschler-Erb and Barbara Stopp, from the 
 
 The thesaurus has benefited from the contributions from Moussab Albesso, Canan Çakirlar, Jwana Chahoud, Jacopo De Grossi Mazzorin, Sabine Deschler-Erb, Dimitrios Filioglou, Armelle Gardeisen, Sierra Harding, Pilar Iborra, Michael MacKinnon, Nimrod Marom, Claudia Minniti, Francesca Slim, Barbara Stopp, and Emmanuelle Vila.
 
-We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that *zoolog* can be expanded and adapted to any database.
+We are grateful to all of them for their contributions, comments, and help. In addition, users are encouraged to contribute to the thesaurus and other references so that *zoolog* can be expanded and adapted to any database and language.
 
 
 # Installation
@@ -101,9 +101,17 @@ A detailed description of the reference data, including its structure, propertie
 
 A [thesaurus set](../help/zoologThesaurus) is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarchaeological datasets. This enables the function [LogRatios](../help/LogRatios) to match values in the user's dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
 
+From *zoolog* release 1.2.0, the thesaurus set is internally structured by language. Currently, the available languages are 
+``` {r, echo=FALSE, results='asis'}
+library(zoolog)
+res <- zoolog:::FormatListOfNames(AllAvailableLanguages(), c("*", "*"))
+cat(paste0(res, "."))
+```
+This allows the user to set which languages are [active](../help/ActiveLanguages). This modular structure facilitates the contribution of new languages by the user (see [creating new thesaurus languages](thesaurusLanguages.html)). In addition, the capacity to activate only the required languages, might avoid potential ambiguities between conflicting terms in different languages.
+
 The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package.
 
-Currently, the zoolog thesaurus set includes four thesauri:
+The zoolog thesaurus set includes four thesauri:
 
 identifierThesaurus
   : For the column names that identify the variables used in computing
@@ -239,6 +247,9 @@ The full list of functions is available under the zoolog *help* page. We list th
   : It allows the user to build new references assembling the desired
     taxon-specific references included in the *zoolog* `referencesDataSet` or
     in any other provided by the user.
+
+[**ActiveLanguages**](../help/ActiveLanguages)
+  : This includes functions to get the inventory of available languages (`AllAvailableLanguages`) for the thesaurus and to get and set the active languages (`GetActiveLanguages` and `SetActiveLanguages`).
 
 [**Thesaurus readers and writers**](../help/ThesaurusReaderWriter)
   : This includes functions to read and write a single thesaurus 

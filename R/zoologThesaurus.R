@@ -2,7 +2,12 @@
 #'
 #' The thesaurus set defined for the package \pkg{zoolog}.
 #' This is used to make the methods robust to different nomenclatures used
-#' in datasets created by different authors. The user can also use other
+#' in datasets created by different authors.
+#' The \code{zoologThesaurus} is generated from an internal thesaurus set
+#' structured by language. The set of available languages can be
+#' accessed and the active languages can be controlled by the user
+#' (see \code{\link{ActiveLanguages}}).
+#' The user can also use other
 #' thesaurus sets, or can modify the provided thesaurus set (see
 #' \code{\link{ThesaurusManagement}} and \code{\link{ThesaurusReaderWriter}}).
 #'
@@ -50,9 +55,12 @@
 #'
 #' @section File Structure:
 #' \code{zoologThesaurus} is an exported variable automatically loaded in
-#' memory. In addition, the source files generating it are included in the
+#' memory. It is automatically generated from an internal thesaurus structured
+#' by languages and according to the selected active languages. In addition,
+#' the source files generating the internal thesarus are included in the
 #' \pkg{zoolog} \code{extdata} folder. There is one file for the thesaurus set
-#' main structure and one file for each included thesaurus. All of them are in
+#' main structure, one file for each included thesaurus, and one file for each
+#' available language in each thesaurus. All of them are in
 #' semicolon separated format. Thus, they can be examined in any text editor
 #' or imported into any spreadsheet application. The files are:
 #' \describe{
@@ -66,15 +74,29 @@
 #'     in each thesaurus.}
 #'   \item{\code{identifierThesaurus.csv}}{Thesaurus for the identifiers used
 #'     in \code{\link{LogRatios}} to identify the bone types and the measure
-#'     names in the data and the references. It has for columns:
+#'     names in the data and the references. This file gives the language
+#'     structure of the thesaurus, presenting two columns:
+#'     \emph{Language} and \emph{FileName}.}
+#'   \item{\code{identifierThesaurus_####.csv}}{Each of the listed files,
+#'     presenting the corresponding contribution to the thesaurus by one of the
+#'     languages. They have for columns:
 #'     \emph{Taxon}, \emph{Element}, \emph{Measure}, and \emph{Standard}.}
-#'   \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa. There is one
-#'     column for each category of taxon considered.}
+#'   \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa.
+#'     This file gives the language structure of the thesaurus.}
+#'   \item{\code{taxonThesaurus_####.csv}}{Each of the listed files for each
+#'     language. There is one column for each category of taxon considered.}
 #'   \item{\code{elementThesaurus.csv}}{Thesaurus for the skeletal elements.
-#'     One column for each category.}
-#'   \item{\code{measureThesaurus.csv}}{Thesaurus for the measure names.
+#'     This file gives the language structure of the thesaurus.}
+#'   \item{\code{elementThesaurus_####.csv}}{Each of the listed files for each
+#'     language. One column for each anatomical element.}
+#'   \item{\code{measureThesaurus.csv}}{Thesaurus for the measure names. This
+#'     thesarurus is not structured by language.
 #'     One column for each category.}
 #' }
+#'
+#' @seealso
+#' \code{\link{ThesaurusReaderWriter}}, \code{\link{ThesaurusManagement}},
+#' and \code{\link{ActiveLanguages}}.
 #'
 #' @examples
 #' ## List of thesaurus names and characteristics in the thesaurus set:

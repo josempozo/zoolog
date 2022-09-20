@@ -62,3 +62,8 @@ GetActiveLanguages()
 ## Reseting all available languages as active
 SetActiveLanguages(AllAvailableLanguages())
 }
+\seealso{
+\code{\link{zoologThesaurus}}
+for a description of the thesaurus and thesaurus set structure,
+\code{\link{StandardizeNomenclature}}, \code{\link{InCategory}}.
+}
