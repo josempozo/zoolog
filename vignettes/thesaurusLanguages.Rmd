@@ -1,0 +1,33 @@
+---
+title: "Generating new languages for the zoolog thesaurus"
+author: "Jose M Pozo, Angela Trentacoste,  Ariadna Nieto-Espinet, Silvia Guimarães Chiarelli, and Silvia Valenzuela-Lamas"
+email: "josmpozo@gmail.com, svalenzuela@imf.csic.es"
+date: "`r format(Sys.Date())`"
+bibliography: ../inst/REFERENCES.bib
+## to create the vignettes 'outside' the package, with table of content (toc)
+#output:
+#  html_document:
+#    toc: true
+#    toc_float:
+#      collapsed: false
+#      smooth_scroll: false
+## to create the vignettes 'inside' the package, without table of content (toc)
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Generating new languages for the zoolog thesaurus}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+The package *zoolog* includes functions and reference data to generate and 
+manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts [@meadow1999use]. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. *zoolog* is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.
+
