@@ -178,29 +178,34 @@ The full list of functions is available under the zoolog *help* page. We list th
     features by grouping several measure log ratios and selecting or calculating 
     a representative feature value. By default the selected groups represent a
     single dimension, i.e. *Length*, *Width*, and *Depth*. Only one feature is 
-    extracted per group. Currently, two methods are possible: "priority" 
-    (default) or "average". 
-  : This operation is motivated by two circumstances. First, not all
+    extracted per group. Currently, three methods are possible: "priority" 
+    (default), "average", or "random". 
+  : This operation is motivated by two circumstances. First, not all 
     measurements are available for every bone specimen, which obstructs their
-    direct comparison and statistical analysis. Second, several measurements 
-    can be strongly correlated (e.g. SD and Bd both represent bone width). 
-    Thus, considering them as independent would produce an over-representation 
-    of bone remains with multiple measurements per axis. Condensing each group 
-    of measurements into a single feature (e.g. one measure per axis) alleviates
-    both problems. 
+    direct comparison and statistical analysis. Second, several measurements can
+    be strongly correlated (e.g. SD and Bd both represent bone width).
+    Thus, mistakenly considering them as independent would invalidated any
+    statistical test relying on the independence assumption. In addition, it
+    could produce an over-representation of bone remains with multiple 
+    measurements per axis. Condensing each group of measurements into a single
+    feature (e.g. one measure per axis) alleviates both problems.
   : The default method ("priority"), selects the first available log ratio in 
     each group. Besides, `CondenseLogs` employs the following by-default group
     and prioritization introduced in @trentacoste2018pre: 
     *Length* considers in order of priority *GL*, *GLl*, *GLm*, and *HTC*. 
     *Width* considers in order of priority  *BT*, *Bd*, *Bp*, *SD*, *Bfd*, 
     and *Bfp*. 
-    *Depth* considers in order of priority  *Dd*, *DD*, *BG*, and *Dp*. 
-    This order maximises the robustness and
-    reliability of the measurements, as priority is given to the most abundant,
-    more replicable, and less age dependent measurements. But users can set 
+    *Depth* considers in order of priority  *Dd*, *DD*, *BG*, and *Dp*.
+    The order of priority has been set on the basis of frequency and 
+    reliability of measurements
+    This order maximises the robustness and reliability of the measurements, 
+    as priority is given to the most abundant, more replicable, and less age
+    dependent measurements (see @davis1996measurements for a discussion). 
+    But users can set 
     their own features with any group of measures and priorities. 
     The method "average" extracts the mean per group, ignoring the 
-    non-available log ratios.
+    non-available log ratios. The method "random" randomly selects one measure
+    log-ratio from the available ones per specimen and group.
 
 [**RemoveNACases**](../help/RemoveNACases)
   : It removes the cases (table rows) for which all measurements of interest are

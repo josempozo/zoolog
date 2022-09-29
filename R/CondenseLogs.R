@@ -4,16 +4,17 @@
 #' of features by grouping log ratio values and selecting or calculating a
 #' feature value. By default the selected groups each represents a single dimension,
 #' i.e. \code{Length} and \code{Width}. Only one feature is extracted per group.
-#' Currently, two methods are possible: priority (default) or average.
+#' Currently, three methods are possible: priority (default), average, or random.
 #'
 #' This operation is motivated by two circumstances. First, not all measurements
 #' are available for every bone specimen, which obstructs their direct comparison
 #' and statistical analysis. Second, several measurements can be strongly
 #' correlated (e.g. SD and Bd both represent bone width).
-#' Thus, considering them as independent would
-#' produce an over-representation of bone remains with more measurements per
-#' axis. Condensing each group of measurements into a single feature
-#' (e.g. one measure per axis) palliates both problems.
+#' Thus, mistakenly considering them as independent would invalidated any
+#' statistical test relying on the independence assumption. In addition, it
+#' could produce an over-representation of bone remains with more measurements
+#' per axis. Condensing each group of measurements into a single feature
+#' (e.g. one measure per axis) alleviates both problems.
 #'
 #' Observe that an important property of the log-ratios from a reference is that
 #' it makes the different measures comparable. For instance, if a bone is
@@ -27,21 +28,23 @@
 #' \code{logPrefix}. But the selection is made from the log-ratios.
 #'
 #' The default method is \code{"priority"}, which selects the first available
-#' measure log-ratio in each group. The method \code{"average"} extracts the
-#' mean per group, ignoring the non-available measures.
+#' measure log-ratio in each group.
 #' We provide the following by-default group and prioritization:
 #' For lengths, the order of priority is: GL, GLl, GLm, HTC.
 #' For widths, the order of priority is: BT, Bd, Bp, SD, Bfd, Bfp.
 #' For depths, the order of priority is: Dd, DD, BG, Dp
 #' This order maximises the robustness and reliability of the measurements,
 #' as priority is given to the most abundant, more replicable, and less age
-#' dependent measurements.
+#' dependent measurements
+#' (see \insertCite{davis1996measurements;textual}{zoolog} for a discussion).
+#' This method was first used in
+#' \insertCite{trentacoste2018pre;textual}{zoolog}.
 #'
-#' This method was first used in:
-#' Trentacoste, A., Nieto-Espinet, A., & Valenzuela-Lamas, S. (2018).
-#' Pre-Roman improvements to agricultural production: Evidence from livestock
-#' husbandry in late prehistoric Italy.
-#' PloS one, 13(12), e0208109.
+#' The method \code{"average"} extracts the mean per specimen and group,
+#' ignoring the non-available measure log-ratios.
+#'
+#' The method \code{"random"} randomly selects one measure log-ratio
+#' from the available ones per specimen and group.
 #'
 #' Alternatively, a user-defined \code{method} can be provided as a function
 #' with a single argument (data.frame) assumed to have as columns the measure
@@ -54,13 +57,17 @@
 #' \code{Length = c("GL", "GLl", "GLm", "HTC")},
 #' \code{Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")}, and
 #' \code{Depth = c("Dd", "DD", "BG", "Dp")}.
-#' The order is irrelevant for \code{method = "average"}.
+#' The order is only relevant for \code{method = "priority"}.
 #' @param method Character string indicating which method to use for extracting
 #' the condensed features. Currently accepted methods: \code{"priority"}
-#' (default) and \code{"average"}.
+#' (default), \code{"average"}, and \code{"random"}.
 #' @return A dataframe including the input dataframe and additional columns, one
 #' for each extracted condensed feature, with the corresponding name given in
 #' \code{grouping}.
+#'
+#' @references
+#'   \insertAllCited{}
+#'
 #' @examples
 #' ## Read an example dataset:
 #' dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
@@ -139,5 +146,17 @@ condenseMethod <- list(
     avLog <- rowMeans(data, na.rm = TRUE)
     avLog[is.nan(avLog)] <- NA
     return(avLog)
+  },
+
+  random = function(data)
+  {
+    apply(data, 1, function(x)
+      {
+        y <- x[!is.na(x)]
+        if(length(y)>0)
+          return(sample(x[!is.na(x)], 1))
+        else
+          return(NA)
+      })
   }
 )
