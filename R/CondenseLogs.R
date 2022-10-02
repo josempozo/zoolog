@@ -10,8 +10,9 @@
 #' are available for every bone specimen, which obstructs their direct comparison
 #' and statistical analysis. Second, several measurements can be strongly
 #' correlated (e.g. SD and Bd both represent bone width).
-#' Thus, mistakenly considering them as independent would invalidated any
-#' statistical test relying on the independence assumption. In addition, it
+#' Thus, mistakenly considering them as independent would invalidate any
+#' statistical test relying on the independence assumption
+#' \insertCite{myers2013research,Zimmerman2002}{zoolog}. In addition, it
 #' could produce an over-representation of bone remains with more measurements
 #' per axis. Condensing each group of measurements into a single feature
 #' (e.g. one measure per axis) alleviates both problems.
