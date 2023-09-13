@@ -172,6 +172,7 @@ WriteThesaurusAttributes <- function(thesaurus, file)
     if(!is.null(attr(thesaurus, attribute)))
       lines = c(lines, paste("##", attribute, attr(thesaurus, attribute)))
   lines = c(lines, commentLine)
+  CreateDirsIfNeeded(file)
   writeLines(lines, file)
 }
 
@@ -257,4 +258,19 @@ WriteThesaurusLanguageSet <- function(data, file)
   dir <- dirname(file)
   filenames <- file.path(dir, attr(data, "fileName"))
   noreturn <- mapply(WriteThesaurus, data, filenames)
+}
+
+CreateDirsIfNeeded <- function(file)
+{
+  dir <- dirname(file)
+  dirsToCreate <- c()
+  while (!file.exists(dir))
+  {
+    dirsToCreate <- c(dir, dirsToCreate)
+    dir <- dirname(dir)
+  }
+  for(dir in dirsToCreate)
+  {
+    dir.create(dir)
+  }
 }

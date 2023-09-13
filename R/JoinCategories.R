@@ -5,9 +5,15 @@ JoinCategories <- function(thesaurus, categories)
                           thesaurus, mark.unknown = TRUE)
   names(categStandard) <- lapply(names(categories), StandardizeNomenclature,
                                  thesaurus)
+  termsNotInThesaurus <- mapply(function(x, y) y[is.na(x)],
+                                categStandard, categories,
+                                SIMPLIFY = FALSE)
   if(any(is.na(unlist(categStandard))))
-    stop(paste("The provided categories include names not belonging",
-               "to any category in the thesaurus."))
+    warning(paste("The provided categories include the names",
+                  FormatListOfNames(unlist(termsNotInThesaurus),
+                                    formatMarks = c("\"", "\"")),
+                  "not belonging to any category in the thesaurus."))
+
 
   categStandard <- mapply(function(x,y) {
                             if(y %in% names(thesaurus) && !(y %in% x))
@@ -20,7 +26,8 @@ JoinCategories <- function(thesaurus, categories)
   thesList <- lapply(thesaurus, function(a) a[a!=""])
   namesToAdd <- lapply(categStandard,
                        function(x) as.character(unlist(thesList[x])))
-  namesToAdd <- mapply(function(x,y) c(x,y), names(namesToAdd), namesToAdd,
+  namesToAdd <- mapply(function(x,y,z) c(x,y,z),
+                       names(namesToAdd), namesToAdd, termsNotInThesaurus,
                        SIMPLIFY = FALSE)
   thesList <- thesList[!(names(thesList) %in%
                            c(names(namesToAdd),

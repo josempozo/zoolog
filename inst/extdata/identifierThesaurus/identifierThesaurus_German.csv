@@ -1,0 +1,10 @@
+##########################################################
+## zoolog thesaurus for identifiers of reference values.
+## Language German
+## encoding UTF-8
+##########################################################
+Taxon;Element;Measure;Standard
+Taxon;Skelettteil;Maßnahme;Standard
+Spezies;Knochen;Messung;
+Gattung;;;
+Tier;;;
