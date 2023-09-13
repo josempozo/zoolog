@@ -3,3 +3,7 @@
 ## Language English
 ##########################################################
 Taxon;Element;Measure;Standard
+Species;Bone;Measurement;
+Genus;BoneBoneElement;Measurements;
+GenusSpecies;;Measures;
+Animal;;;

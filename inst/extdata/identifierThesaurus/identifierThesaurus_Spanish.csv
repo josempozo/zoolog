@@ -1,5 +1,10 @@
 ##########################################################
 ## zoolog thesaurus for identifiers of reference values.
 ## Language Spanish
+## encoding UTF-8
 ##########################################################
 Taxon;Element;Measure;Standard
+Taxón;Elemento;Medida;Estándar
+Especie;Hueso;;
+Género;;;
+Animal;;;
