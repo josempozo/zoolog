@@ -9,10 +9,11 @@ JoinCategories <- function(thesaurus, categories)
                                 categStandard, categories,
                                 SIMPLIFY = FALSE)
   if(any(is.na(unlist(categStandard))))
-    warning(paste("The provided categories include the names",
-                  FormatListOfNames(unlist(termsNotInThesaurus),
-                                    formatMarks = c("\"", "\"")),
-                  "not belonging to any category in the thesaurus."))
+    warning(paste0("The provided categories include the name",
+                   FormatListOfNames(unlist(termsNotInThesaurus),
+                                     formatMarks = c("\"", "\""),
+                                     preMessage = c("", "s")),
+                  " not belonging to any category in the thesaurus."))
 
 
   categStandard <- mapply(function(x,y) {

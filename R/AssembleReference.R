@@ -41,8 +41,11 @@ AssembleReference <- function(combination, ref.db = referencesDatabase,
                                        names(ref.db) %in% x))
   if(any(duplicated(taxIds) & sapply(taxIds, length)>0 -> dup))
   {
-    stop(paste("The taxon", names(ref.db)[taxIds[dup]],
-               "is duplicated in the requested combination."))
+    stop(paste0("The taxon",
+                FormatListOfNames(names(ref.db)[taxIds[dup]], c("\"", "\""),
+                                  preMessage = c("", "s"),
+                                  postMessage = c("is", "are")),
+                " duplicated in the requested combination."))
   }
   for(tax in names(combination))
   {

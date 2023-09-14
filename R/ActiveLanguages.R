@@ -78,8 +78,12 @@ SetActiveLanguages <- function(languages)
   notAvailableLanguages <- setdiff(languages, AllAvailableLanguages())
   if(length(notAvailableLanguages) > 0)
   {
-    warning(paste0("The requested language ", notAvailableLanguages,
-                   " is not available.", collapse = ".\n"))
+    warning(paste0("The requested language",
+                   FormatListOfNames(notAvailableLanguages,
+                                     formatMarks = c("\"", "\""),
+                                     preMessage = c("", "s"),
+                                     postMessage = c("is", "are")),
+                   " not available."))
     languages <- setdiff(languages, notAvailableLanguages)
   }
   assign("activeLanguages", languages, envir = internalEnvironment)
