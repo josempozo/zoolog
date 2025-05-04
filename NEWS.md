@@ -1,3 +1,12 @@
+# zoolog 2.0.0
+1. Structuring of thesauri by language, together with the functionalities to
+   allow the user to select which languages should be active or inactive.
+2. Separating metatarsus and metatarsus I as two different elements.
+   Analogously for metacarpus and metacarpus I. 
+   Metatarsus and metacarpus are meant to species with a single element
+   (result of fusion and lose).
+3. Documentation generated with the updated version of roxygen2 (7.2.3).
+
 # zoolog 1.1.1
 1. Corrected bug when using RemoveRepeatedNames on a thesaurus with only one
    cathegory.
