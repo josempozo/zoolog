@@ -90,7 +90,7 @@ structure of the thesaurus, presenting two columns:
 \emph{Language} and \emph{FileName}.}
 \item{\code{identifierThesaurus_####.csv}}{Each of the listed files,
 presenting the corresponding contribution to the thesaurus by one of the
-languages. They have for columns:
+languages. They have four columns:
 \emph{Taxon}, \emph{Element}, \emph{Measure}, and \emph{Standard}.}
 \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa.
 This file gives the language structure of the thesaurus.}
