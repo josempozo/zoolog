@@ -21,6 +21,7 @@ AssembleThesaurus <- function(
     combination <- setdiff(combination, nonPresentLanguages)
   }
   errorMessage <- ""
+  includedLanguages <- c()
   for(language in combination)
   {
     assembledThesaurus <- tryCatch(
@@ -32,9 +33,10 @@ AssembleThesaurus <- function(
     if(isFALSE(assembledThesaurus))
       stop(paste0("Language ", language,
                   " incompatible with some previous language:\n    ",
-                  paste(combination[seq_len(which(combination == language)-1)],
-                        collapse = ", "), ".\n",
+                  FormatListOfNames(includedLanguages, c("\"", "\""),
+                                    conjunction = "or"), ".\n",
                   errorMessage))
+    includedLanguages <- c(includedLanguages, language)
   }
   return(assembledThesaurus)
 }
