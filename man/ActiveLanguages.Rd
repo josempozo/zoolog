@@ -34,13 +34,16 @@ On loading the package, all available languages are active.
 
 Observe that the function \code{SetActiveLanguages} globally changes the
 behaviour of the package by modifying the thesaurus in use.
+
+There is a specially treated language "Base" including the scientific
+nomenclature, which is always active.
 }
 \examples{
 ## Viewing all available languages:
 AllAvailableLanguages()
 
-## Setting only Base and English as active
-SetActiveLanguages(c("Base", "English"))
+## Setting only English as active
+SetActiveLanguages(c("English"))
 ## We can check that "cattle" is identified as "Bos taurus", but that
 ## "Boeuf domestique" is not
 InCategory(c("cattle", "Boeuf domestique"),
@@ -49,14 +52,15 @@ InCategory(c("cattle", "Boeuf domestique"),
 # TRUE FALSE
 
 ## But if we activate also French
-SetActiveLanguages(c("Base", "English", "French"))
+SetActiveLanguages(c("English", "French"))
 ## Both alternatives are identified
 InCategory(c("cattle", "Boeuf domestique"),
            category = "Bos taurus",
            thesaurus = zoologThesaurus$taxon)
 # TRUE TRUE
 
-## Checking which languages are active
+## Checking which languages are active.
+## Observe that "Base" is always active even if not requested
 GetActiveLanguages()
 
 ## Reseting all available languages as active
