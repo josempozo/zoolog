@@ -161,7 +161,8 @@ LogRatios <- function(data,
                       taxonomy = zoologTaxonomy,
                       joinCategories = NULL,
                       mergedMeasures = NULL,
-                      useGenusIfUnambiguous = TRUE) {
+                      useGenusIfUnambiguous = TRUE)
+{
   thesaurusSetJoined <- thesaurusSet
   if(!is.null(joinCategories))
     thesaurusSetJoined <- SmartJoinCategories(thesaurusSetJoined,

@@ -8,7 +8,8 @@ CondenseLogs(
   data,
   grouping = list(Length = c("GL", "GLl", "GLm", "HTC"), Width = c("BT", "Bd", "Bp",
     "SD", "Bfd", "Bfp"), Depth = c("Dd", "DD", "BG", "Dp")),
-  method = "priority"
+  method = "priority",
+  useLogPrefix = TRUE
 )
 }
 \arguments{
@@ -25,6 +26,10 @@ The order is only relevant for \code{method = "priority"}.}
 \item{method}{Character string indicating which method to use for extracting
 the condensed features. Currently accepted methods: \code{"priority"}
 (default), \code{"average"}, and \code{"random"}.}
+
+\item{useLogPrefix}{Boolean. If \code{TRUE} (default), the variables used
+for the requested \code{grouping} are taken from the corresponding logRatios (by
+internally adding the \code{logPrefix}).}
 }
 \value{
 A dataframe including the input dataframe and additional columns, one
@@ -58,8 +63,11 @@ width, then all width related measures
 same log-ratio (\code{log(2)}). In contrast, the
 absolute measures are not directly comparable.
 
-The measurement names in the grouping list are given without the
-\code{logPrefix}. But the selection is made from the log-ratios.
+The measurement names in the grouping list are given without
+the \code{logPrefix}. But the selection is made from the log-ratios by
+default. If this behaviour were not desired, the user could set
+\code{useLogPrefix} to \code{FALSE} (see example below for a potential use of
+this).
 
 The default method is \code{"priority"}, which selects the first available
 measure log-ratio in each group.
@@ -94,7 +102,7 @@ dataExample <- utils::read.csv2(dataFile,
 ## For illustration purposes we keep now only a subset of cases to make
 ## the example run sufficiently fast.
 ## Avoid this step if you want to process the full example dataset.
-dataExample <- dataExample[1:1000, ]
+dataExample <- dataExample[350:1000, ]
 
 ## Compute the log-ratios and select the cases with available log ratios:
 dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
@@ -105,11 +113,19 @@ head(dataExampleWithLogs)[, -c(6:20,32:63)]
 dataExampleWithSummary <- CondenseLogs(dataExampleWithLogs)
 head(dataExampleWithSummary)[, -c(6:20,32:63)]
 
-## Extract only width with "average" method:
+## Extract only Width with "average" method:
 dataExampleWithSummary2 <- CondenseLogs(dataExampleWithLogs,
                                grouping = list(Width = c("BT", "Bd", "Bp", "SD")),
                                method = "average")
 head(dataExampleWithSummary2)[, -c(6:20,32:63)]
+
+## If the user would like to calculate the average of Length and Width
+## previously computed, they could use:
+dataExampleWithSummary <- CondenseLogs(dataExampleWithSummary,
+                               grouping = list(AverageSize = c("Length", "Width")),
+                               method = "average",
+                               useLogPrefix = FALSE)
+head(dataExampleWithSummary)[, -c(6:20,32:64)]
 }
 \references{
 \insertAllCited{}

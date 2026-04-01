@@ -25,8 +25,11 @@
 #' same log-ratio (\code{log(2)}). In contrast, the
 #' absolute measures are not directly comparable.
 #'
-#' The measurement names in the grouping list are given without the
-#' \code{logPrefix}. But the selection is made from the log-ratios.
+#' The measurement names in the grouping list are given without
+#' the \code{logPrefix}. But the selection is made from the log-ratios by
+#' default. If this behaviour were not desired, the user could set
+#' \code{useLogPrefix} to \code{FALSE} (see example below for a potential use of
+#' this).
 #'
 #' The default method is \code{"priority"}, which selects the first available
 #' measure log-ratio in each group.
@@ -62,6 +65,9 @@
 #' @param method Character string indicating which method to use for extracting
 #' the condensed features. Currently accepted methods: \code{"priority"}
 #' (default), \code{"average"}, and \code{"random"}.
+#' @param useLogPrefix Boolean. If \code{TRUE} (default), the variables used
+#' for the requested \code{grouping} are taken from the corresponding logRatios (by
+#' internally adding the \code{logPrefix}).
 #' @return A dataframe including the input dataframe and additional columns, one
 #' for each extracted condensed feature, with the corresponding name given in
 #' \code{grouping}.
@@ -79,7 +85,7 @@
 #' ## For illustration purposes we keep now only a subset of cases to make
 #' ## the example run sufficiently fast.
 #' ## Avoid this step if you want to process the full example dataset.
-#' dataExample <- dataExample[1:1000, ]
+#' dataExample <- dataExample[350:1000, ]
 #'
 #' ## Compute the log-ratios and select the cases with available log ratios:
 #' dataExampleWithLogs <- RemoveNACases(LogRatios(dataExample))
@@ -90,11 +96,20 @@
 #' dataExampleWithSummary <- CondenseLogs(dataExampleWithLogs)
 #' head(dataExampleWithSummary)[, -c(6:20,32:63)]
 #'
-#' ## Extract only width with "average" method:
+#' ## Extract only Width with "average" method:
 #' dataExampleWithSummary2 <- CondenseLogs(dataExampleWithLogs,
 #'                                grouping = list(Width = c("BT", "Bd", "Bp", "SD")),
 #'                                method = "average")
 #' head(dataExampleWithSummary2)[, -c(6:20,32:63)]
+#'
+#' ## If the user would like to calculate the average of Length and Width
+#' ## previously computed, they could use:
+#' dataExampleWithSummary <- CondenseLogs(dataExampleWithSummary,
+#'                                grouping = list(AverageSize = c("Length", "Width")),
+#'                                method = "average",
+#'                                useLogPrefix = FALSE)
+#' head(dataExampleWithSummary)[, -c(6:20,32:64)]
+
 
 #' @export
 CondenseLogs <- function(data,
@@ -102,9 +117,9 @@ CondenseLogs <- function(data,
                              Length = c("GL", "GLl", "GLm", "HTC"),
                              Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp"),
                              Depth = c("Dd", "DD", "BG", "Dp") ),
-                         method = "priority"
-                        ) {
-
+                         method = "priority",
+                         useLogPrefix = TRUE)
+{
   if(!is.data.frame(data)) stop("data must be a data.frame.")
   if(is.character(method) && (method %in% names(condenseMethod)))
     method <- condenseMethod[[method]]
@@ -119,8 +134,10 @@ CondenseLogs <- function(data,
   data[, summaryMeasures] <- NA
   for (sumMeasure in summaryMeasures)
   {
-    groupingWithLog <- paste0(logPrefix, grouping[[sumMeasure]])
-    logMeasuresInData <- intersect(groupingWithLog, colnames(data))
+    groupingVariables <- grouping[[sumMeasure]]
+    if(useLogPrefix)
+      groupingVariables <- paste0(logPrefix, groupingVariables)
+    logMeasuresInData <- intersect(groupingVariables, colnames(data))
     dataSelected <- as.data.frame(data[, logMeasuresInData])
     data[, sumMeasure] <- method(dataSelected)
   }
