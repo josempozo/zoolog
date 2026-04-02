@@ -24,7 +24,7 @@ of the data frame is a category of names with equivalent meaning in the
 intended application. The column name identifies the category and is used
 as the standard when applying \code{\link{StandardizeNomenclature}}.
 
-The names in each column (category) must not be included in any other
+The terms in each column (category) must not be included in any other
 column, since this would make the thesaurus ambiguous (see
 \code{\link{ThesaurusAmbiguity}}).
 
@@ -76,17 +76,16 @@ semicolon separated format. Thus, they can be examined in any text editor
 or imported into any spreadsheet application. The files are:
 \describe{
 \item{\code{zoologThesaurusSet.csv}}{Defines the main structure of the
-thesaurus set. It has a row for each thesaurus and seven columns
-(\emph{ThesaurusName}, \emph{FileName}, \emph{CaseSensitive},
-\emph{AccentSensitive}, \emph{PunctuationSensitive},
+thesaurus set. It has a row for each thesaurus and four columns
+(\emph{ThesaurusName}, \emph{FileName},
 \emph{ApplyToColNames}, and \emph{ApplyToColValues}).
-Their meaning coincides with the description above. Observe that the
-case, accent, and punctuation sensitiveness is stored here, instead of
-in each thesaurus.}
+Their meaning coincides with the description above.}
 \item{\code{identifierThesaurus.csv}}{Thesaurus for the identifiers
 typically used as column names in zooarchaeological data. This file gives
 the language structure of the thesaurus, presenting two columns:
-\emph{Language} and \emph{FileName}.}
+\emph{Language} and \emph{FileName}. In addition, the thesaurus
+case, accent, and punctuation sensitivenesses are included in the file as
+initial comments.}
 \item{\code{identifierThesaurus_####.csv}}{Each of the listed files,
 presenting the corresponding contribution to the thesaurus by one of the
 languages. They have one column for each category. In particular,
@@ -98,16 +97,19 @@ It also includes other categories structuring the data such as
 \emph{Site}, \emph{Stratigraphic Unit}, \emph{Chronology}, and
 \emph{Laterality}, among others.}
 \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa.
-This file gives the language structure of the thesaurus.}
+This file gives the language structure of the thesaurus and the
+sensitivenesses}
 \item{\code{taxonThesaurus_####.csv}}{Each of the listed files for each
 language. There is one column for each category of taxon considered.}
 \item{\code{elementThesaurus.csv}}{Thesaurus for the skeletal elements.
-This file gives the language structure of the thesaurus.}
+This file gives the language structure of the thesaurus and the
+sensitivenesses}
 \item{\code{elementThesaurus_####.csv}}{Each of the listed files for each
 language. One column for each anatomical element.}
 \item{\code{measureThesaurus.csv}}{Thesaurus for the measure names. This
-thesarurus is not structured by language.
-One column for each category.}
+thesarurus is not structured by language. One column for each category.
+Still, the case, accent, and punctuation sensitivenesses are included in
+the file as initial comments.}
 }
 }
 

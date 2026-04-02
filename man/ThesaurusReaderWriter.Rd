@@ -8,12 +8,7 @@
 \alias{WriteThesaurusSet}
 \title{Thesaurus Readers and Writers}
 \usage{
-ReadThesaurus(
-  file,
-  caseSensitive = FALSE,
-  accentSensitive = FALSE,
-  punctuationSensitive = FALSE
-)
+ReadThesaurus(file)
 
 ReadThesaurusSet(file)
 
@@ -23,10 +18,6 @@ WriteThesaurusSet(thesaurusSet, file)
 }
 \arguments{
 \item{file}{Name of a file.}
-
-\item{caseSensitive, accentSensitive, punctuationSensitive}{Logical. They set
-the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
-the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 
@@ -44,15 +35,11 @@ Functions to read and write thesauri and thesaurus sets.
 }
 \examples{
 ## Read a thesaurus for taxa:
-thesaurusFile <- system.file("extdata", "taxonThesaurusAssembled.csv", package="zoolog")
+thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
 ## The attributes of the thesaurus include the fields 'caseSensitive',
-## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
+## 'accentSensitive', and 'punctuationSensitive', as read from the file.
 attributes(thesaurus)
-
-## Any of them can be set by the user if desired:
-thesaurus2 <- ReadThesaurus(thesaurusFile, accentSensitive = TRUE)
-attributes(thesaurus2)
 
 ## Write the thesarus to a file:
 fileExample <- file.path(tempdir(), "thesaurusExample.csv")
@@ -61,7 +48,7 @@ WriteThesaurus(thesaurus, fileExample)
 ## examine the written file.
 
 ## Read a thesaurus set:
-thesaurusSetFile <- system.file("extdata", "thesaurusSetAssembled.csv", package="zoolog")
+thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
 thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 ## The attributes of the thesaurus set include information of the constituent
 ## thesauri: names, source file names, and their mode of application on datasets.

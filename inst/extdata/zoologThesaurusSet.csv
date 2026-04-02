@@ -1,8 +1,8 @@
 ##################################################
 ## zoolog thesaurus set structure.
 ##################################################
-ThesaurusName;FileName;CaseSensitive;AccentSensitive;PunctuationSensitive;ApplyToColNames;ApplyToColValues
-identifier;identifierThesaurus.csv;FALSE;FALSE;FALSE;TRUE;FALSE
-taxon;taxonThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
-element;elementThesaurus.csv;FALSE;FALSE;FALSE;FALSE;TRUE
-measure;measureThesaurus.csv;TRUE;FALSE;FALSE;TRUE;TRUE
+ThesaurusName;FileName;ApplyToColNames;ApplyToColValues
+identifier;identifierThesaurus.csv;TRUE;FALSE
+taxon;taxonThesaurus.csv;FALSE;TRUE
+element;elementThesaurus.csv;FALSE;TRUE
+measure;measureThesaurus.csv;TRUE;TRUE

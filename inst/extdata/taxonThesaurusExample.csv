@@ -1,0 +1,13 @@
+##########################################
+## example thesaurus for taxa
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+##########################################
+Bos taurus;Ovis aries;Sus domesticus
+bota;ovar;sudo
+BT;OA;SS
+cattle;ov;pig
+;OVA;
+;sheep;
+

@@ -5,9 +5,6 @@
 #' @param file Name of a file.
 #' @param thesaurus A thesaurus object.
 #' @param thesaurusSet A thesaurus set.
-#' @param caseSensitive,accentSensitive,punctuationSensitive Logical. They set
-#' the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
-#' the thesaurus.
 #'
 #' @return
 #' \code{WriteThesaurus} and \code{WriteThesaurusSet} create or overwrite the
@@ -18,15 +15,11 @@
 #'
 #' @examples
 #' ## Read a thesaurus for taxa:
-#' thesaurusFile <- system.file("extdata", "taxonThesaurusAssembled.csv", package="zoolog")
+#' thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
 #' ## The attributes of the thesaurus include the fields 'caseSensitive',
-#' ## 'accentSensitive', and 'punctuationSensitive', all FALSE by default.
+#' ## 'accentSensitive', and 'punctuationSensitive', as read from the file.
 #' attributes(thesaurus)
-#'
-#' ## Any of them can be set by the user if desired:
-#' thesaurus2 <- ReadThesaurus(thesaurusFile, accentSensitive = TRUE)
-#' attributes(thesaurus2)
 #'
 #' ## Write the thesarus to a file:
 #' fileExample <- file.path(tempdir(), "thesaurusExample.csv")
@@ -35,7 +28,7 @@
 #' ## examine the written file.
 #'
 #' ## Read a thesaurus set:
-#' thesaurusSetFile <- system.file("extdata", "thesaurusSetAssembled.csv", package="zoolog")
+#' thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
 #' thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 #' ## The attributes of the thesaurus set include information of the constituent
 #' ## thesauri: names, source file names, and their mode of application on datasets.
@@ -62,10 +55,7 @@
 
 #' @rdname ThesaurusReaderWriter
 #' @export
-ReadThesaurus <- function(file,
-                          caseSensitive = FALSE,
-                          accentSensitive = FALSE,
-                          punctuationSensitive = FALSE)
+ReadThesaurus <- function(file)
 {
   da <- ReadDataAndAttributes(file)
   if(isTRUE(da$attr$structuredByLanguage))
@@ -75,8 +65,8 @@ ReadThesaurus <- function(file,
 
   for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
   {
-    if(!eval(call("missing", as.name(sensitive))) || is.null(da$attr[[sensitive]]))
-      da$attr[[sensitive]] <- eval(as.name(sensitive))
+    if(is.null(da$attr[[sensitive]]))
+      da$attr[[sensitive]] <- FALSE
     attr(thesaurus, sensitive) <- da$attr[[sensitive]]
   }
   attr(thesaurus, "structuredByLanguage") <- da$attr$structuredByLanguage
@@ -99,9 +89,7 @@ ReadThesaurusSet <- function(file)
   filenames <- file.path(dir, data$FileName)
   structuredByLanguage <- data$StructuredByLanguage
   if(is.null(structuredByLanguage)) structuredByLanguage <- FALSE
-  thesaurusSet <- mapply(ReadThesaurus, filenames,
-                         data$CaseSensitive, data$AccentSensitive,
-                         data$PunctuationSensitive)
+  thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- data$ThesaurusName
   attr(thesaurusSet, "applyToColNames") <- data$ApplyToColNames
   attr(thesaurusSet, "applyToColValues") <- data$ApplyToColValues
@@ -132,12 +120,6 @@ WriteThesaurusSet <- function(thesaurusSet, file)
   data <- data.frame()
   data[1:length(thesaurusSet),"ThesaurusName"] <- names(thesaurusSet)
   data$FileName <- attr(thesaurusSet, "fileName")
-  data$CaseSensitive <- sapply(zoologThesaurus,
-                               function(x) attr(x, "caseSensitive"))
-  data$AccentSensitive <- sapply(zoologThesaurus,
-                                 function(x) attr(x, "accentSensitive"))
-  data$PunctuationSensitive <- sapply(zoologThesaurus,
-                                 function(x) attr(x, "punctuationSensitive"))
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
   WriteDataAndAttributes(data, file)
@@ -235,8 +217,7 @@ ReadThesaurusLanguageSet <- function(data, file)
 {
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
-  thesaurusSet <- lapply(filenames, ReadThesaurus,
-                         NULL, NULL, NULL)
+  thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- data$Language
   attr(thesaurusSet, "fileName") <- data$FileName
   return(thesaurusSet)

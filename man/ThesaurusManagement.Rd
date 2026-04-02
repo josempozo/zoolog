@@ -66,16 +66,16 @@ the resulting thesaurus.
 }
 \examples{
 ## Load an example thesaurus:
-thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurusAssembled.csv",
+thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurusExample.csv",
                                        package="zoolog"))
 ## with categories
-names(thesaurus) #  "bos taurus"  "ovis aries"  "sus domesticus"
+names(thesaurus) #  "Bos taurus"  "Ovis aries"  "Sus domesticus"
 ## Add names to several categories:
 thesaurusExtended <- AddToThesaurus(thesaurus,
                                     c("Kuh", "Schwein"),
                                     c("bos taurus","sus domesticus"))
-## This adds the name "Kuh" to the category "bos taurus" and
-## the name "Schwein" to the category "sus domesticus".
+## This adds the name "Kuh" to the category "Bos taurus" and
+## the name "Schwein" to the category "Sus domesticus".
 
 ## Generate a new thesaurus and populate it with two categories
 ## ("red" and "blue"):
@@ -100,7 +100,7 @@ thesaurusNew
 ## Attempt to generate an ambiguous thesaurus
 try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 
-## From version 1.2.0 AddToThesurus directly removes repeated names:
+## From version 2.0.0 AddToThesurus directly removes repeated names:
 AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 
 ## Remove repeated names in the same category:
