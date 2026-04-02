@@ -3,8 +3,7 @@
 ## Language French
 ## encoding UTF-8
 ##########################################################
-Taxon;Element;Measure;Standard
-Taxon;Élément;Mesure;Standard
-Espèce;Os;;
-Genre;;;
-Animal;;;
+Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Site;Region;Site type;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
+Taxon;Élément;Portion;Côté;Mesure;Standard;Pays;Gisement;Région;Type;Unité Stratigraphique;Année;Aire;Fait;Chronologie;Periode;;Commentaires
+Espèce;Os;;Lateralité;;;;;;Type site;US;Campagne;;Structure;;;;Observations
+Animal;;;;;;;;;Type gisement;;;;;;;;

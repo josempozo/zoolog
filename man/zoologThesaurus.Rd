@@ -43,7 +43,7 @@ thesaurus should be differentiated by the presence of punctuation
 marks.}
 }
 
-The examples below show the content and characteristics of the first
+The examples below show the content and characteristics of the identifier
 thesaurus in \code{zoologThesaurus}.
 }
 \usage{
@@ -83,15 +83,20 @@ thesaurus set. It has a row for each thesaurus and seven columns
 Their meaning coincides with the description above. Observe that the
 case, accent, and punctuation sensitiveness is stored here, instead of
 in each thesaurus.}
-\item{\code{identifierThesaurus.csv}}{Thesaurus for the identifiers used
-in \code{\link{LogRatios}} to identify the bone types and the measure
-names in the data and the references. This file gives the language
-structure of the thesaurus, presenting two columns:
+\item{\code{identifierThesaurus.csv}}{Thesaurus for the identifiers
+typically used as column names in zooarchaeological data. This file gives
+the language structure of the thesaurus, presenting two columns:
 \emph{Language} and \emph{FileName}.}
 \item{\code{identifierThesaurus_####.csv}}{Each of the listed files,
 presenting the corresponding contribution to the thesaurus by one of the
-languages. They have four columns:
-\emph{Taxon}, \emph{Element}, \emph{Measure}, and \emph{Standard}.}
+languages. They have one column for each category. In particular,
+this includes the categories required by \code{\link{LogRatios}} to
+identify the bone types and the measure names in the data and the
+references:
+\emph{Taxon}, \emph{Element}, \emph{Measure}, and \emph{Standard}.
+It also includes other categories structuring the data such as
+\emph{Site}, \emph{Stratigraphic Unit}, \emph{Chronology}, and
+\emph{Laterality}, among others.}
 \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa.
 This file gives the language structure of the thesaurus.}
 \item{\code{taxonThesaurus_####.csv}}{Each of the listed files for each
@@ -109,7 +114,7 @@ One column for each category.}
 \examples{
 ## List of thesaurus names and characteristics in the thesaurus set:
 attributes(zoologThesaurus)
-## Content of the first thesaurus:
+## Content of the identifier thesaurus:
 zoologThesaurus$identifier
 attributes(zoologThesaurus$identifier)
 

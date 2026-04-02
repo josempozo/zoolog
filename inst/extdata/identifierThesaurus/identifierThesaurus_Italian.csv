@@ -1,9 +1,9 @@
 ##########################################################
 ## zoolog thesaurus for identifiers of reference values.
 ## Language Italian
+## encoding UTF-8
 ##########################################################
-Taxon;Element;Measure;Standard
-Taxon;Elemento;Misura;Standard
-Specie;Osso;Misurazione;
-Genere;;;
-Animale;;;
+Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
+Taxon;Elemento;Frammento;Lateralità;Misura;Standard;Paese;Regione;Tipo di sito;Sito;SU;Anno;Area;Struttura;Cronologia;Periodo;Fase;Commenti
+Specie;Osso;Framm;Lato;Misurazione;;;;Tipo;;Unità stratigrafica;campagna;;Strutt.;Crono;;;Comms
+Animale;EL;Porzione ;;;;;;;;US;Scavo;;;;;;

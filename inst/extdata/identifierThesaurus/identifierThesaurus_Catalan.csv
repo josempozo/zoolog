@@ -3,8 +3,8 @@
 ## Language Catalan
 ## encoding UTF-8
 ##########################################################
-Taxon;Element;Measure;Standard
-Tàxon;Element;Mesura;Estàndard
-Espècie;Os;Mida;
-Gènere;;;
-Animal;;;
+Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
+Tàxon;Element;Fragment;Lateralitat;Mesura;Estàndard;País;Regió;Tipus jaciment;Jaciment;Unitat Estratigràfica;Any;Àrea;Fet;Cronologia;Periode;Fase;Comentaris
+Espècie;Os;Part;Costat;Mida;;;;Tipus;;UE;Campanya;Zona;Estructura;Crono;;;Observacions
+;Element anatòmic;Porció;;;;;;;;;;;;;;;
+;Anat;;;;;;;;;;;;;;;;

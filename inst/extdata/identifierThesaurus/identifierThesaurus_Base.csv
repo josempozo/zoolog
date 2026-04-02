@@ -4,6 +4,6 @@
 ## Base corresponds to the scientific nomenclature
 ## and some variants and acronyms.
 ##########################################################
-Taxon;Element;Measure;Standard
-TAX;EL;Mass;
-;anat;;
+Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
+TAX;EL;;Lat;Mass;;;;Type;;SU;;;;Chrono;;;
+TX;anat;;;;;;;;;;;;;;;;
