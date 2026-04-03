@@ -10,6 +10,7 @@ Base;taxonThesaurus/taxonThesaurus_Base.csv;TRUE
 Catalan;taxonThesaurus/taxonThesaurus_Catalan.csv;TRUE
 English;taxonThesaurus/taxonThesaurus_English.csv;TRUE
 French;taxonThesaurus/taxonThesaurus_French.csv;TRUE
+German;taxonThesaurus/taxonThesaurus_German.csv;TRUE
 Italian;taxonThesaurus/taxonThesaurus_Italian.csv;TRUE
 Portuguese;taxonThesaurus/taxonThesaurus_Portuguese.csv;TRUE
 Spanish;taxonThesaurus/taxonThesaurus_Spanish.csv;TRUE
