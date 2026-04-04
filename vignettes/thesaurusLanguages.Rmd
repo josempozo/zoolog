@@ -26,8 +26,29 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Introduction
+## Introduction
 
-The package *zoolog* includes functions and reference data to generate and 
-manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts [@meadow1999use]. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. *zoolog* is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.
+This document describes the process to generate a new language for the zoologThesaurus and contribute it to be integrated in the package *zoolog*.
+
+## File format
+
+For each thesaurus and language, there is a csv file, which can be edited in any text editor or in any spreadsheet application. We recommend the use of the latter to visualize and generate the new language. Once generated, the files for the new language can be submitted in `.csv` format or directly in the spreadsheet application native format, such as `.xlsx` or `.numbers`.
+
+## Generating the files
+
+A language-specific file must be generated for each of the language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. For each of them, there is a folder with the same name in the package repository `inst/extdata/`.
+Let's consider, for instance, the identifierThesaurus. In the folder `inst/extdata/identifierThesaurus/` there is a file for each language. In particular, the file `identifierThesaurus_Base.csv` can be used as a template to generate the new language-specific thesaurus. The file can be found in the source of the installed package or can be downloaded from the GitHub repository [https://github.com/josempozo/zoolog].
+
+We recomend to copy the file `identifierThesaurus_Base.csv` into `identifierThesaurus_[NewLanguage].csv`, and then to edit the latter as an initial template. First, all rows can be removed except the first one giving the column names and representing the standard name of the category. Second, any number of rows can be added, including in each column alternative terms in the intended language for the corresponding category. Each column can have a different number of terms, leaving a blank in any remaining cell. See for instance `identifierThesaurus_English.csv`
+
+It is expected that the contributor provides the language-specific thesaurus for each of the three language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. But any partial contribution is also welcome.
+
+## Complementing already existing languages
+
+The contributor can also complement existing language-specific thesauri by adding new terms that could have been missing. For this, they must copy the corresponding file, appending *Extension*. For instance, `identifierThesaurus_German.csv` can be copied into `identifierThesaurus_German_Extension.csv`. Then edit the new file adding as many cells or rows as necessary. The new terms should be added always below the already existing ones, to facilitate its revision.
+
+## Contributing the files
+
+The generated new files shoud be sent to the maintainer through the email address josmpozo@gmail.com
+
 

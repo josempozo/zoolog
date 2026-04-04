@@ -63,7 +63,7 @@ You can install the released version of zoolog from [CRAN](https://CRAN.R-projec
 install.packages("zoolog")
 ```
 
-And the development version from [GitHub](https://github.com/) with:
+And the development version from [GitHub](https://github.com/josempozo/zoolog) with:
 
 ``` r
 install.packages("devtools")
@@ -73,7 +73,7 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 
 # Reference standards {#sec:refStandards}
 
-The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), Persian fallow deer (*Dama mesopotamica*), mountain gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*), European rabbit (*Oryctolagus cuniculus*), and grey wolf (*Canis lupus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
+The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), Persian fallow deer (*Dama mesopotamica*), mountain gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*), European rabbit (*Oryctolagus cuniculus*), and grey wolf (*Canis lupus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address [josmpozo@gmail.com] to make the new reference fully accessible within the package.
 
 These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in @von1976guide and @davis1992rapid. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in release 1.0.0.
 
@@ -109,7 +109,7 @@ cat(paste0(res, "."))
 ```
 This allows the user to set which languages are [active](../help/ActiveLanguages). This modular structure facilitates the contribution of new languages by the user (see [creating new thesaurus languages](thesaurusLanguages.html)). In addition, the capacity to activate only the required languages, might avoid potential ambiguities between conflicting terms in different languages.
 
-The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address so that the additions can be incorporated into the new versions of the package.
+The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address [josmpozo@gmail.com] so that the additions can be incorporated into the new versions of the package.
 
 The zoolog thesaurus set includes four thesauri:
 
