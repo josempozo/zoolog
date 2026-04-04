@@ -75,7 +75,7 @@ devtools::install_github("josempozo/zoolog@HEAD", build_vignettes = TRUE)
 
 The package *zoolog* includes several osteometrical references. Currently, the references include reference values for the main domesticates and their agriotypes (*Bos*, *Ovis*, *Capra*, *Sus*), red deer (*Cervus elaphus*), Persian fallow deer (*Dama mesopotamica*), mountain gazelle (*Gazella gazella*), donkey (*Equus asinus*), horse (*Equus caballus*), European rabbit (*Oryctolagus cuniculus*), and grey wolf (*Canis lupus*). These are drawn from a variety of publications and resources (see below). In addition, the user can consider other references, or the provided references can be extended and updated integrating newer research data. Submission of extended/improved references is encouraged. Please, contact the maintainer through the provided email address to make the new reference fully accessible within the package.
 
-These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in @von1976guide and @davis1992rapid. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in Release 1.0.0.
+These references, as well as the data example provided with the package, are based on the measurements and measure abbreviations defined in @von1976guide and @davis1992rapid. Please, note that Davis’ standard SD, equivalent to Von den Driesch’s DD, has been denoted as Davis.SD in order to resolve its incompatibility with Von den Driesch’s SD. This affects only Davis’ sheep reference and was introduced in release 1.0.0.
 
 The predefined reference sets included in *zoolog* are provided in the named list `reference`, currently comprising the following `r length(zoolog::reference)` sets:
 ```{r}
@@ -101,7 +101,7 @@ A detailed description of the reference data, including its structure, propertie
 
 A [thesaurus set](../help/zoologThesaurus) is defined in order to make the package compatible with the different recording conventions and languages used by authors of zooarchaeological datasets. This enables the function [LogRatios](../help/LogRatios) to match values in the user's dataset with the corresponding ones in the reference standard, regardless of differences in nomenclature or naming conventions, as long as both terms are included in the relevant thesaurus. The thesaurus also allows the user to [standardize the nomenclature](../help/StandardizeNomenclature) of the dataset if desired. 
 
-From *zoolog* release 1.2.0, the thesaurus set is internally structured by language. Currently, the available languages are 
+From *zoolog* release 2.0.0, the thesaurus set is internally structured by language. Currently, the available languages are
 ``` {r, echo=FALSE, results='asis'}
 library(zoolog)
 res <- zoolog:::FormatListOfNames(AllAvailableLanguages(), c("*", "*"))
@@ -114,20 +114,23 @@ The user can also use other thesaurus sets or modify the provided one. In this l
 The zoolog thesaurus set includes four thesauri:
 
 identifierThesaurus
-  : For the column names that identify the variables used in computing
-    the log ratios. It includes the categories *Taxon*, *Element*, *Measure*, 
-    and *Standard*. Each category provides a series of equivalent names. 
-    For instance, *Taxon* includes the options 
-    `r a <- zoologThesaurus$identifier$Taxon; 
-      paste0("*", paste(a[a != ""], collapse = "*, *"), "*")`. 
+  : For the column names that typically identify different concepts in
+    zooarchaeological data. This includes the variables used in computing
+    the log ratios (categories *Taxon*, *Element*, *Measure*,
+    and *Standard*) and many others structuring the data (such as *Site*,
+    *Stratigraphic Unit*, *Chronology*, and *Laterality*, among others). Each
+    category provides a series of equivalent names.
+    For instance, with all languages active, *Taxon* includes the options
+    `r a <- zoologThesaurus$identifier$Taxon;
+      zoolog:::FormatListOfNames(a[a != ""], c("*", "*"))`.
     This thesaurus is case, accent, and punctuation insensitive, so that, for
-    instance, "Especie" is equivalent to 
+    instance, "Especie" is equivalent to
     "ESPECIE" or "Espècie".
 
 taxonThesaurus
   : For the names of the different taxa when recording animal
     bones. The current categories are 
-    *`r paste(names(zoologThesaurus$taxon), collapse = "*, *")`*,
+    `r zoolog:::FormatListOfNames(names(zoologThesaurus$taxon), c("*", "*"))`,
     each with different equivalent names. This thesaurus is case, accent,
     and punctuation insensitive, so that, for instance, "Bos" is equivalent to 
     "bos", "Bos.", or "Bos\ ".
@@ -135,7 +138,8 @@ taxonThesaurus
 elementThesaurus
   : Names of anatomical elements when recording animal bones. It currently
     includes `r ncol(zoologThesaurus$element)` categories
-    (*`r paste(names(zoologThesaurus$element)[1:3], collapse = "*, *")`*, ...),
+    (`r a <- names(zoologThesaurus$element)[1:3]
+      zoolog:::FormatListOfNames(a, c("*", "*"), conjunction = "")`, ...),
     each with different equivalent names. 
     This thesaurus is case, accent, and punctuation insensitive.
 
@@ -143,8 +147,8 @@ measureThesaurus
   : Names of the measurements. While the English abbreviations from
     @von1976guide and @davis1992rapid are widely used in published
     literature, this thesaurus enables other nomenclatures (e.g. original German
-    abbreviations in @von1976guide) to be included. This thesaurus is case
-    sensitive.
+    abbreviations in @von1976guide) to be included. This thesaurus is case and
+    punctuation sensitive.
 
 # Taxonomy
 
