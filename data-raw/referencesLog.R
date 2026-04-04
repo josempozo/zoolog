@@ -12,7 +12,7 @@ lcCollateC({
   source("R/AssembleReference.R")
 
   referencesDatabase <- ReadReferenceDatabase(
-    "inst/extdata/referencesDataBase.csv")
+    "inst/extdata/referencesDatabase.csv")
 
   referenceSets <- read.csv2("inst/extdata/referenceSets.csv",
                              header = TRUE, row.names = 1,

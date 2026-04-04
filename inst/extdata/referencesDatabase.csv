@@ -1,25 +1,25 @@
 Genus;Taxon;Source;Filename
-Cattle - *Bos*;Bos taurus;Nieto;referenceCattle_Nieto.csv
-Cattle - *Bos*;Bos taurus;Basel;referenceCattle_Basel.csv
-Cattle - *Bos*;Bos taurus;Johnstone;referenceCattle_Johnstone.csv
-Cattle - *Bos*;Bos primigenius;Degerbol;referenceCattle_Degerbol.csv
-Cattle - *Bos*;Bos primigenius;Steppan;referenceCattle_Steppan.csv
-Sheep - *Ovis*;Ovis aries;Davis;referenceSheep_Davis.csv
-Sheep - *Ovis*;Ovis aries;Clutton;referenceSheep_Clutton.csv
-Sheep - *Ovis*;Ovis orientalis;Basel;referenceSheep_Basel.csv
-Sheep - *Ovis*;Ovis orientalis;Uerpmann;referenceSheep_Uerpmann.csv
-Goat - *Capra*;Capra hircus;Basel;referenceGoat_Basel.csv
-Goat - *Capra*;Capra hircus;Clutton;referenceGoat_Clutton.csv
-Goat - *Capra*;Capra aegagrus;Uerpmann;referenceGoat_Uerpmann.csv
-Pig - *Sus*;Sus domesticus;Albarella;referencePig_Albarella.csv
-Pig - *Sus*;Sus scrofa;Basel;referencePig_Basel.csv
-Pig - *Sus*;Sus scrofa;Hongo;referencePig_Hongo.csv
-Pig - *Sus*;Sus scrofa;Payne;referencePig_Payne.csv
-Red deer - *Cervus*;Cervus elaphus;Basel;referenceRedDeer_Basel.csv
-Fallow deer - *Dama*;Dama mesopotamica;Haifa;referenceDama_Haifa.csv
-Gazelle - *Gazella*;Gazella gazella;Haifa;referenceGazelle_Haifa.csv
-Equid - *Equus*;Equus asinus;Haifa;referenceEquid_Haifa.csv
-Equid - *Equus*;Equus caballus;Johnstone;referenceEquid_Johnstone.csv
-European rabbit - *Oryctolagus*;Oryctolagus cuniculus;Nottingham;referenceRabbit_Nottingham.csv
-Canid - *Canis*;Canis lupus;Russell;referenceCanid_Russell.csv
+Cattle - *Bos*;Bos taurus;Nieto;references/referenceCattle_Nieto.csv
+Cattle - *Bos*;Bos taurus;Basel;references/referenceCattle_Basel.csv
+Cattle - *Bos*;Bos taurus;Johnstone;references/referenceCattle_Johnstone.csv
+Cattle - *Bos*;Bos primigenius;Degerbol;references/referenceCattle_Degerbol.csv
+Cattle - *Bos*;Bos primigenius;Steppan;references/referenceCattle_Steppan.csv
+Sheep - *Ovis*;Ovis aries;Davis;references/referenceSheep_Davis.csv
+Sheep - *Ovis*;Ovis aries;Clutton;references/referenceSheep_Clutton.csv
+Sheep - *Ovis*;Ovis orientalis;Basel;references/referenceSheep_Basel.csv
+Sheep - *Ovis*;Ovis orientalis;Uerpmann;references/referenceSheep_Uerpmann.csv
+Goat - *Capra*;Capra hircus;Basel;references/referenceGoat_Basel.csv
+Goat - *Capra*;Capra hircus;Clutton;references/referenceGoat_Clutton.csv
+Goat - *Capra*;Capra aegagrus;Uerpmann;references/referenceGoat_Uerpmann.csv
+Pig - *Sus*;Sus domesticus;Albarella;references/referencePig_Albarella.csv
+Pig - *Sus*;Sus scrofa;Basel;references/referencePig_Basel.csv
+Pig - *Sus*;Sus scrofa;Hongo;references/referencePig_Hongo.csv
+Pig - *Sus*;Sus scrofa;Payne;references/referencePig_Payne.csv
+Red deer - *Cervus*;Cervus elaphus;Basel;references/referenceRedDeer_Basel.csv
+Fallow deer - *Dama*;Dama mesopotamica;Haifa;references/referenceDama_Haifa.csv
+Gazelle - *Gazella*;Gazella gazella;Haifa;references/referenceGazelle_Haifa.csv
+Equid - *Equus*;Equus asinus;Haifa;references/referenceEquid_Haifa.csv
+Equid - *Equus*;Equus caballus;Johnstone;references/referenceEquid_Johnstone.csv
+European rabbit - *Oryctolagus*;Oryctolagus cuniculus;Nottingham;references/referenceRabbit_Nottingham.csv
+Canid - *Canis*;Canis lupus;Russell;references/referenceCanid_Russell.csv
 
