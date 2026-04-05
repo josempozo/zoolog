@@ -1,17 +1,18 @@
-Species;Genus;Tribe;Subfamily;Family
-Bos taurus;Bos;Bovini;Bovinae;Bovidae
-Bos primigenius;Bos;Bovini;Bovinae;Bovidae
-Ovis aries;Ovis;Caprini;Caprinae;Bovidae
-Ovis orientalis;Ovis;Caprini;Caprinae;Bovidae
-Capra hircus;Capra;Caprini;Caprinae;Bovidae
-Capra aegagrus;Capra;Caprini;Caprinae;Bovidae
-Gazella gazella;Gazella;Antilopini;Antilopinae;Bovidae
-Sus domesticus;Sus;Suini;Suinae;Suidae
-Sus scrofa;Sus;Suini;Suinae;Suidae
-Cervus elaphus;Cervus;Cervini;Cervinae;Cervidae
-Dama mesopotamica;Dama;Cervini;Cervinae;Cervidae
-Equus asinus;Equus;Equini;Equinae;Equidae
-Equus caballus;Equus;Equini;Equinae;Equidae
-Oryctolagus cuniculus;Oryctolagus;;;Leporidae
-Canis familiaris;Canis;Canini;Caninae;Canidae
-Canis lupus;Canis;Canini;Caninae;Canidae
+Species;Genus;Tribe;Subfamily;Family;Order;Class
+Bos taurus;Bos;Bovini;Bovinae;Bovidae;Artiodactyla;Mammalia
+Bos primigenius;Bos;Bovini;Bovinae;Bovidae;Artiodactyla;Mammalia
+Ovis aries;Ovis;Caprini;Caprinae;Bovidae;Artiodactyla;Mammalia
+Ovis orientalis;Ovis;Caprini;Caprinae;Bovidae;Artiodactyla;Mammalia
+Capra hircus;Capra;Caprini;Caprinae;Bovidae;Artiodactyla;Mammalia
+Capra aegagrus;Capra;Caprini;Caprinae;Bovidae;Artiodactyla;Mammalia
+Gazella gazella;Gazella;Antilopini;Antilopinae;Bovidae;Artiodactyla;Mammalia
+Sus domesticus;Sus;Suini;Suinae;Suidae;Artiodactyla;Mammalia
+Sus scrofa;Sus;Suini;Suinae;Suidae;Artiodactyla;Mammalia
+Cervus elaphus;Cervus;Cervini;Cervinae;Cervidae;Artiodactyla;Mammalia
+Dama mesopotamica;Dama;Cervini;Cervinae;Cervidae;Artiodactyla;Mammalia
+Equus asinus;Equus;Equini;Equinae;Equidae;Perissodactyla;Mammalia
+Equus caballus;Equus;Equini;Equinae;Equidae;Perissodactyla;Mammalia
+Oryctolagus cuniculus;Oryctolagus;;;Leporidae;Lagomorpha;Mammalia
+Canis familiaris;Canis;Canini;Caninae;Canidae;Carnivora;Mammalia
+Canis lupus;Canis;Canini;Caninae;Canidae;Carnivora;Mammalia
+Gallus gallus;Gallus;Gallini;Phasianinae;Phasianidae;Galliformes;Aves

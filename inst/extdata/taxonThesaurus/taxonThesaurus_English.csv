@@ -2,9 +2,9 @@
 ## zoolog thesaurus for taxa.
 ## Language English
 ####################################################
-Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus;Canis familiaris;Canis lupus;Canis;Gallus gallus;Galliform;Ave
-cattle;aurochs;;sheep;mouflon;;goat;wild goat;;caprine;pig;wild boar;;red deer;;Persian fallow deer;fallow deer;mountain gazelle;gazelle;donkey;horse;equine;European rabbit;;dog;grey wolf;canine;Chicken;;Bird
-;auroch;;;;;;;;ovicaprid;;;;;;;;;;ass;;;rabbit;;domestic dog;wolf;;Hen;;
-;urus;;;;;;;;sheep/goat;;;;;;;;;;;;;;;;gray wolf;;;;
-;ure;;;;;;;;Sh/G;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;Ovicaprines Ovis-Capra;;;;;;;;;;;;;;;;;;;;
+Bos taurus;Bos primigenius;Bos;Ovis aries;Ovis orientalis;Ovis;Capra hircus;Capra aegagrus;Capra;Caprini;Sus domesticus;Sus scrofa;Sus;Cervus elaphus;Cervus;Dama mesopotamica;Dama;Gazella gazella;Gazella;Equus asinus;Equus caballus;Equus;Oryctolagus cuniculus;Oryctolagus;Canis familiaris;Canis lupus;Canis;Gallus gallus;Gallus;Gallini;Galliformes;Aves
+cattle;aurochs;;sheep;mouflon;;goat;wild goat;;caprine;pig;wild boar;;red deer;;Persian fallow deer;fallow deer;mountain gazelle;gazelle;donkey;horse;equine;European rabbit;;dog;grey wolf;canine;Chicken;;;gallinaceous;Bird
+;auroch;;;;;;;;ovicaprid;;;;;;;;;;ass;;;rabbit;;domestic dog;wolf;;Hen;;;gallinaceous birds;
+;urus;;;;;;;;sheep/goat;;;;;;;;;;;;;;;;gray wolf;;;;;landfowl;
+;ure;;;;;;;;Sh/G;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;Ovicaprines Ovis-Capra;;;;;;;;;;;;;;;;;;;;;;

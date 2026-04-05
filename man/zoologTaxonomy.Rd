@@ -6,26 +6,27 @@
 \title{Taxonomy hierarchy for \pkg{zoolog}}
 \format{
 The taxonomy is given as a data.frame with columns for
-\emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and
-\emph{Family}.
-Each row lists the information for one species:\tabular{lllll}{
-   Species \tab Genus \tab Tribe \tab Subfamily \tab Family \cr
-   Bos taurus \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \cr
-   Bos primigenius \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \cr
-   Ovis aries \tab Ovis \tab Caprini \tab Caprinae \tab Bovidae \cr
-   Ovis orientalis \tab Ovis \tab Caprini \tab Caprinae \tab Bovidae \cr
-   Capra hircus \tab Capra \tab Caprini \tab Caprinae \tab Bovidae \cr
-   Capra aegagrus \tab Capra \tab Caprini \tab Caprinae \tab Bovidae \cr
-   Gazella gazella \tab Gazella \tab Antilopini \tab Antilopinae \tab Bovidae \cr
-   Sus domesticus \tab Sus \tab Suini \tab Suinae \tab Suidae \cr
-   Sus scrofa \tab Sus \tab Suini \tab Suinae \tab Suidae \cr
-   Cervus elaphus \tab Cervus \tab Cervini \tab Cervinae \tab Cervidae \cr
-   Dama mesopotamica \tab Dama \tab Cervini \tab Cervinae \tab Cervidae \cr
-   Equus asinus \tab Equus \tab Equini \tab Equinae \tab Equidae \cr
-   Equus caballus \tab Equus \tab Equini \tab Equinae \tab Equidae \cr
-   Oryctolagus cuniculus \tab Oryctolagus \tab  \tab  \tab Leporidae \cr
-   Canis familiaris \tab Canis \tab Canini \tab Caninae \tab Canidae \cr
-   Canis lupus \tab Canis \tab Canini \tab Caninae \tab Canidae \cr
+\emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, \emph{Family},
+\emph{Order}, and \emph{Class}.
+Each row lists the information for one species:\tabular{lllllll}{
+   Species \tab Genus \tab Tribe \tab Subfamily \tab Family \tab Order \tab Class \cr
+   Bos taurus \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Bos primigenius \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Ovis aries \tab Ovis \tab Caprini \tab Caprinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Ovis orientalis \tab Ovis \tab Caprini \tab Caprinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Capra hircus \tab Capra \tab Caprini \tab Caprinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Capra aegagrus \tab Capra \tab Caprini \tab Caprinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Gazella gazella \tab Gazella \tab Antilopini \tab Antilopinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr
+   Sus domesticus \tab Sus \tab Suini \tab Suinae \tab Suidae \tab Artiodactyla \tab Mammalia \cr
+   Sus scrofa \tab Sus \tab Suini \tab Suinae \tab Suidae \tab Artiodactyla \tab Mammalia \cr
+   Cervus elaphus \tab Cervus \tab Cervini \tab Cervinae \tab Cervidae \tab Artiodactyla \tab Mammalia \cr
+   Dama mesopotamica \tab Dama \tab Cervini \tab Cervinae \tab Cervidae \tab Artiodactyla \tab Mammalia \cr
+   Equus asinus \tab Equus \tab Equini \tab Equinae \tab Equidae \tab Perissodactyla \tab Mammalia \cr
+   Equus caballus \tab Equus \tab Equini \tab Equinae \tab Equidae \tab Perissodactyla \tab Mammalia \cr
+   Oryctolagus cuniculus \tab Oryctolagus \tab  \tab  \tab Leporidae \tab Lagomorpha \tab Mammalia \cr
+   Canis familiaris \tab Canis \tab Canini \tab Caninae \tab Canidae \tab Carnivora \tab Mammalia \cr
+   Canis lupus \tab Canis \tab Canini \tab Caninae \tab Canidae \tab Carnivora \tab Mammalia \cr
+   Gallus gallus \tab Gallus \tab Gallini \tab Phasianinae \tab Phasianidae \tab Galliformes \tab Aves \cr
 }
 }
 \usage{

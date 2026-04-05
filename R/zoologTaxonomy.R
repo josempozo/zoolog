@@ -8,8 +8,8 @@
 #'
 #' @format
 #' The taxonomy is given as a data.frame with columns for
-#' \emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, and
-#' \emph{Family}.
+#' \emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, \emph{Family},
+#' \emph{Order}, and \emph{Class}.
 #' Each row lists the information for one species:
 #'
 #' ``` {r, echo=FALSE}
