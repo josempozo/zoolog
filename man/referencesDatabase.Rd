@@ -16,9 +16,9 @@ Each reference is a data.frame including 4 columns:
 All the measurements are expressed in millimetres.}
 }
 
-An object of class \code{data.frame} with 4 rows and 15 columns.
+An object of class \code{data.frame} with 4 rows and 16 columns.
 
-An object of class \code{list} of length 15.
+An object of class \code{list} of length 16.
 }
 \usage{
 reference
@@ -169,6 +169,12 @@ Hungarian Agricultural Museum:
 Specimen 73.4 (small mature female; probably local origin)
 from \insertCite{russell1993hunting;textual}{zoolog}.}
 }}
+\item{\strong{Hen - \emph{Gallus}}}{\describe{
+\item{Bouchite}{
+\emph{Gallus gallus}.
+Mean values group A (likely hens) from the medieval site of Tiffauges (Vendée)
+\insertCite{Bouchite2016}{zoolog}.}
+}}
 }
 
 The \pkg{zoolog} variable \code{referencesDatabase} collects all these
@@ -176,7 +182,7 @@ references. It is structured as a named list of named lists, following the
 hierarchy described above:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{str(referencesDatabase, max.level = 2)
-#> List of 15
+#> List of 16
 #>  $ Bos taurus           :List of 3
 #>   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
 #>   ..$ Basel    :'data.frame':	50 obs. of  4 variables:
@@ -215,6 +221,8 @@ hierarchy described above:
 #>   ..$ Nottingham:'data.frame':	58 obs. of  4 variables:
 #>  $ Canis lupus          :List of 1
 #>   ..$ Russell:'data.frame':	77 obs. of  4 variables:
+#>  $ Gallus gallus        :List of 1
+#>   ..$ Bouchite:'data.frame':	98 obs. of  4 variables:
 }\if{html}{\out{</div>}}
 }
 
@@ -228,12 +236,12 @@ The \pkg{zoolog} variable \code{referenceSets} defines four possible
 references:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{referenceSets
-}\if{html}{\out{</div>}}\tabular{llllllllllllllll}{
-    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \tab Canis lupus \cr
-   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
-   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \tab  \cr
-   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \tab Russell \cr
-   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+}\if{html}{\out{</div>}}\tabular{lllllllllllllllll}{
+    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \tab Canis lupus \tab Gallus gallus \cr
+   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \tab Russell \tab Bouchite \cr
+   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
 }
 
 
@@ -258,11 +266,11 @@ references defined by \code{referenceSets}:
 #>   ..$ EL      : chr [1:176] "Scapula" "Scapula" "Scapula" "Scapula" ...
 #>   ..$ Measure : chr [1:176] "SLC" "GLP" "LG" "BG" ...
 #>   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...
-#>  $ Combi              :'data.frame':	635 obs. of  4 variables:
-#>   ..$ TAX     : chr [1:635] "bota" "bota" "bota" "bota" ...
-#>   ..$ EL      : chr [1:635] "HU" "HU" "HU" "HU" ...
-#>   ..$ Measure : chr [1:635] "GL" "GLc" "Bp" "Dp" ...
-#>   ..$ Standard: num [1:635] 259 234 78.3 90.2 29 ...
+#>  $ Combi              :'data.frame':	733 obs. of  4 variables:
+#>   ..$ TAX     : chr [1:733] "bota" "bota" "bota" "bota" ...
+#>   ..$ EL      : chr [1:733] "HU" "HU" "HU" "HU" ...
+#>   ..$ Measure : chr [1:733] "GL" "GLc" "Bp" "Dp" ...
+#>   ..$ Standard: num [1:733] 259 234 78.3 90.2 29 ...
 #>  $ Groningen          :'data.frame':	246 obs. of  4 variables:
 #>   ..$ TAX     : chr [1:246] "Bos primigenius" "Bos primigenius" "Bos primigenius" "Bos primigenius" ...
 #>   ..$ EL      : chr [1:246] "Scapula" "Scapula" "Scapula" "Humerus" ...
@@ -319,6 +327,7 @@ them:
 #> 21                 Equid - *Equus*        Equus caballus  Johnstone
 #> 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
 #> 23                 Canid - *Canis*           Canis lupus    Russell
+#> 24                  Hen - *Gallus*         Gallus gallus   Bouchite
 #>                                     Filename
 #> 1       references/referenceCattle_Nieto.csv
 #> 2       references/referenceCattle_Basel.csv
@@ -343,6 +352,7 @@ them:
 #> 21   references/referenceEquid_Johnstone.csv
 #> 22 references/referenceRabbit_Nottingham.csv
 #> 23     references/referenceCanid_Russell.csv
+#> 24   references/referenceGallus_Bouchite.csv
 }\if{html}{\out{</div>}}
 }
 

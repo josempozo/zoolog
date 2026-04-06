@@ -6,10 +6,14 @@
 #' from \emph{species} to \emph{family}. See
 #' \code{\link{Subtaxonomy}}.
 #'
+#' @importFrom Rdpack reprompt
+#'
 #' @format
 #' The taxonomy is given as a data.frame with columns for
-#' \emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, \emph{Family},
-#' \emph{Order}, and \emph{Class}.
+#' ``` {r, echo=FALSE, results='asis'}
+#' res <- zoolog:::FormatListOfNames(names(zoologTaxonomy), c("\\emph{", "}"))
+#' cat(paste0(" ", res, "."))
+#' ```
 #' Each row lists the information for one species:
 #'
 #' ``` {r, echo=FALSE}

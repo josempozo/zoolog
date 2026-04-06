@@ -5,9 +5,7 @@
 \alias{zoologTaxonomy}
 \title{Taxonomy hierarchy for \pkg{zoolog}}
 \format{
-The taxonomy is given as a data.frame with columns for
-\emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, \emph{Family},
-\emph{Order}, and \emph{Class}.
+The taxonomy is given as a data.frame with columns for \emph{Species}, \emph{Genus}, \emph{Tribe}, \emph{Subfamily}, \emph{Family}, \emph{Order}, and \emph{Class}.
 Each row lists the information for one species:\tabular{lllllll}{
    Species \tab Genus \tab Tribe \tab Subfamily \tab Family \tab Order \tab Class \cr
    Bos taurus \tab Bos \tab Bovini \tab Bovinae \tab Bovidae \tab Artiodactyla \tab Mammalia \cr

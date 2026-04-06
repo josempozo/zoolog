@@ -1,0 +1,111 @@
+##########################################
+## REFERENCE: Bouchite
+## *Gallus gallus*.
+## Mean values group A (likely hens) from the medieval site of Tiffauges (Vendée)
+## \insertCite{Bouchite2016}{zoolog}.
+## SOURCE:
+## Bouchité, K. (2016).
+## Référentiel ostéométrique de l’espèce Gallus gallus domesticus:
+## L’assemblage avifaunique du site médiéval de Tiffauges, Vendée.
+## Mémoire de Master, Université Paul Valéry Montpellier
+## encoding UTF-8
+##########################################
+TAX;EL;Measure;Standard
+Gallus gallus;Humerus;GL;64,83
+Gallus gallus;Humerus;VL;60,49
+Gallus gallus;Humerus;DL;60,7
+Gallus gallus;Humerus;SM;6,21
+Gallus gallus;Humerus;SD;5,16
+Gallus gallus;Humerus;Bp;17,52
+Gallus gallus;Humerus;LpH;11,38
+Gallus gallus;Humerus;BpH;6,96
+Gallus gallus;Humerus;LVe;9,08
+Gallus gallus;Humerus;BpC;7,65
+Gallus gallus;Humerus;BcC;2,28
+Gallus gallus;Humerus;Bd;13,6
+Gallus gallus;Humerus;LvC;5
+Gallus gallus;Humerus;BvC;5,15
+Gallus gallus;Humerus;LdC;6,6
+Gallus gallus;Humerus;TdC;7,25
+Gallus gallus;Radius;GL;57,78
+Gallus gallus;Radius;SD;2,28
+Gallus gallus;Radius;SM;2,85
+Gallus gallus;Radius;Bp;4,67
+Gallus gallus;Radius;Dp;4,788
+Gallus gallus;Radius;Bd;6,24
+Gallus gallus;Radius;TL;1,93
+Gallus gallus;Radius;BA;2,16
+Gallus gallus;Ulna;GL;63,36
+Gallus gallus;Ulna;DL;71
+Gallus gallus;Ulna;VL;59,51
+Gallus gallus;Ulna;SD;5
+Gallus gallus;Ulna;SR;3,85
+Gallus gallus;Ulna;Bp;8,01
+Gallus gallus;Ulna;LvC;9,16
+Gallus gallus;Ulna;LdC;11,48
+Gallus gallus;Ulna;BO;2,49
+Gallus gallus;Ulna;LO;3,12
+Gallus gallus;Ulna;Lve;7,53
+Gallus gallus;Ulna;Tve;1,41
+Gallus gallus;Ulna;Bd;7,45
+Gallus gallus;Ulna;BcC;5,69
+Gallus gallus;Ulna;LdC;6,84
+Gallus gallus;Ulna;LC;4,77
+Gallus gallus;Ulna;TC;1,53
+Gallus gallus;Ulna;Bcv;3,61
+Gallus gallus;Ulna;Bdv;5,88
+Gallus gallus;Ulna;BT;5,47
+Gallus gallus;Ulna;LT;3,6
+Gallus gallus;Femur;GL;72,31
+Gallus gallus;Femur;ML;67,39
+Gallus gallus;Femur;CL;66,41
+Gallus gallus;Femur;SD;5,82
+Gallus gallus;Femur;SM;6,07
+Gallus gallus;Femur;Bp;14,12
+Gallus gallus;Femur;Tp;10,38
+Gallus gallus;Femur;TT;1,15
+Gallus gallus;Femur;LH;5,66
+Gallus gallus;Femur;DH;5,92
+Gallus gallus;Femur;Bd;13,99
+Gallus gallus;Femur;CaB;9,04
+Gallus gallus;Femur;CrB;11,89
+Gallus gallus;Femur;LB;5,59
+Gallus gallus;Femur;DmC;11,67
+Gallus gallus;Femur;DlC;11,74
+Gallus gallus;Femur;TC;2,86
+Gallus gallus;Femur;DT;9,75
+Gallus gallus;Tibiotarsus;GL;101,75
+Gallus gallus;Tibiotarsus;ML;103,47
+Gallus gallus;Tibiotarsus;CL;102,87
+Gallus gallus;Tibiotarsus;SM;6,36
+Gallus gallus;Tibiotarsus;SD;5,78
+Gallus gallus;Tibiotarsus;Bp;20,12
+Gallus gallus;Tibiotarsus;BE;11,16
+Gallus gallus;Tibiotarsus;MD;10,43
+Gallus gallus;Tibiotarsus;LlF;6,32
+Gallus gallus;Tibiotarsus;DlF;6,35
+Gallus gallus;Tibiotarsus;LC;17,51
+Gallus gallus;Tibiotarsus;Lfc;18,42
+Gallus gallus;Tibiotarsus;Bd;10,23
+Gallus gallus;Tibiotarsus;ID;7,05
+Gallus gallus;Tibiotarsus;LlC;7,58
+Gallus gallus;Tibiotarsus;DlC;10,09
+Gallus gallus;Tibiotarsus;BlC;3,98
+Gallus gallus;Tibiotarsus;LmC;8,42
+Gallus gallus;Tibiotarsus;DmC;11,13
+Gallus gallus;Tibiotarsus;BmC;3,87
+Gallus gallus;Tibiotarsus;DL;10,77
+Gallus gallus;Tibiotarsus;LB;3,75
+Gallus gallus;Tarsusmetatarsus;Bd;12,7
+Gallus gallus;Tarsusmetatarsus;Bm;9,5
+Gallus gallus;Tarsusmetatarsus;LmII ;5,4
+Gallus gallus;Tarsusmetatarsus;BmII;3,7
+Gallus gallus;Tarsusmetatarsus;HmII;5,9
+Gallus gallus;Tarsusmetatarsus;Be;2,9
+Gallus gallus;Tarsusmetatarsus;LmIII;5
+Gallus gallus;Tarsusmetatarsus;BmIII;5,3
+Gallus gallus;Tarsusmetatarsus;LmIV;6,3
+Gallus gallus;Tarsusmetatarsus;BmIV;3,3
+Gallus gallus;Tarsusmetatarsus;IL;12,9
+Gallus gallus;Tarsusmetatarsus;Dap;4,5
+Gallus gallus;Tarsusmetatarsus;Ds;5,6
