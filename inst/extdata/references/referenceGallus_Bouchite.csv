@@ -45,7 +45,7 @@ Gallus gallus;Ulna;LvC;9,16
 Gallus gallus;Ulna;LdC;11,48
 Gallus gallus;Ulna;BO;2,49
 Gallus gallus;Ulna;LO;3,12
-Gallus gallus;Ulna;Lve;7,53
+Gallus gallus;Ulna;LVe;7,53
 Gallus gallus;Ulna;Tve;1,41
 Gallus gallus;Ulna;Bd;7,45
 Gallus gallus;Ulna;BcC;5,69
@@ -98,7 +98,7 @@ Gallus gallus;Tibiotarsus;DL;10,77
 Gallus gallus;Tibiotarsus;LB;3,75
 Gallus gallus;Tarsusmetatarsus;Bd;12,7
 Gallus gallus;Tarsusmetatarsus;Bm;9,5
-Gallus gallus;Tarsusmetatarsus;LmII ;5,4
+Gallus gallus;Tarsusmetatarsus;LmII;5,4
 Gallus gallus;Tarsusmetatarsus;BmII;3,7
 Gallus gallus;Tarsusmetatarsus;HmII;5,9
 Gallus gallus;Tarsusmetatarsus;Be;2,9
