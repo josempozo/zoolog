@@ -1,3 +1,6 @@
+# Function to help checking the structure of the reference dataset.
+# It will check if the included colnames, measures and taxa are included in the
+# corresponding thesaurus.
 CheckReferenceStructure <- function(ref)
 {
   if(!is.data.frame(ref)) {
@@ -16,15 +19,18 @@ CheckReferenceStructure <- function(ref)
 
 CheckRefColNames <- function(ref)
 {
-  expectedColNames <- c("TAX", "EL", "Measure", "Standard")
-  if(!all.equal(names(ref), expectedColNames))
+  cols <- c("TAX", "EL", "Measure", "Standard")
+  expectedColNames <- StandardizeNomenclature(cols, zoologThesaurus$identifier)
+  refColNames <- StandardizeNomenclature(names(ref), zoologThesaurus$identifier)
+  if(!all.equal(refColNames, expectedColNames))
     print(paste("Reference with non-expected column names:\n\t",
                 names(ref)))
 }
 
 CheckReferenceForNewTerms <- function(ref, column, thesaurus)
 {
-  missingTerms <- is.na(StandardizeNomenclature(ref[, column], thesaurus,
+  colId <- which(InCategory(names(ref), column, zoologThesaurus$identifier))
+  missingTerms <- is.na(StandardizeNomenclature(ref[, colId], thesaurus,
                                                 mark.unknown = TRUE))
   if(any(missingTerms))
   {
