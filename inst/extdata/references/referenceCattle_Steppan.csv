@@ -11,7 +11,7 @@
 ## Frühneolithikums Mitteleuropas (Linearbandkeramik 5500 - 4900 v.Chr.).
 ## In R M Arbogast, Ch Jeunesse, and J Schibler (eds),
 ## Premières rencontres danubiennes, Strasbourg 20 et 21 novembre 1996, Actes
-## de la première table-ronde. Internationale Archäologie: 
+## de la première table-ronde. Internationale Archäologie:
 ## Arbeitsgemeinschaft, Symposium, Tagung, Kongress Band 1, 171--186.
 ##########################################
 Taxon;Element;Measure;Standard
@@ -38,10 +38,10 @@ Bos primigenius;femur;DC;56,3
 Bos primigenius;femur;GL;443
 Bos primigenius;femur;GLC;417,85
 Bos primigenius;femur;SD;45,52
-Bos primigenius;Horn cone;BC;270
-Bos primigenius;Horn cone;GD;94
-Bos primigenius;Horn cone;LD;74
-Bos primigenius;Horn cone;LoC;450
+Bos primigenius;Horn core;BC;270
+Bos primigenius;Horn core;GD;94
+Bos primigenius;Horn core;LD;74
+Bos primigenius;Horn core;LoC;450
 Bos primigenius;humerus;Bd;100
 Bos primigenius;humerus;Bp;116,5
 Bos primigenius;humerus;BT;90,28
