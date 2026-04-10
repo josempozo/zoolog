@@ -105,4 +105,18 @@ test_that("SetActiveLanguage correctly taken into account by LogRatios (2).", {
   expect_equal(testData2Log, testDataWithLog_Basel2)
 })
 
+test_that("References' Taxa, elements, and measures included in thesauri.", {
+  refCheckMessage <- capture_output(
+    zoolog:::CheckReferenceStructure(referencesDatabase))
+  refCheckExpectedMessage <- capture_output(
+    for(name in names(referencesDatabase))
+    {
+      print(paste("Checking", name))
+      for(ref in names(referencesDatabase[[name]]))
+        print(paste("Checking", ref))
+    }
+  )
+  expect_equal(refCheckMessage, refCheckExpectedMessage)
+})
+
 invisible(Sys.setlocale("LC_COLLATE",lc_collocate0))
