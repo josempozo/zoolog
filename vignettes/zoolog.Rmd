@@ -270,12 +270,15 @@ The full list of functions is available under the zoolog *help* page. We list th
   : This includes functions to modify and check thesauri:
   
     * `NewThesaurus` generates an empty thesarus.
-    * `AddToThesaurus` adds new names and categories to an existing thesaurus.
-    * `RemoveRepeatedNames` cleans a thesarus from any repeated names on any 
+    * `AddToThesaurus` adds new terms and categories to an existing thesaurus.
+    * `RemoveRepeatedNames` cleans a thesarus from any repeated terms on any 
       category.
-    * `ThesaurusAmbiguity` checks if there are names included in more than one
+    * `ThesaurusAmbiguity` checks if there are terms included in more than one
       category in a thesaurus.
-
+    * `RemoveTermFromThesaurus` remove terms from a thesaurus.
+    * `ChangeStandardInThesaurus` change the terms defining the standard on a
+      thesaurus.
+    * `RemoveCategory` remove categories from a thesaurus.
 
 # Examples
 The following examples are designed to be read and run sequentially. They 

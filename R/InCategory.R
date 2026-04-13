@@ -31,7 +31,22 @@ InCategory <- function(x, category, thesaurus)
   thesList <- lapply(thesaurus, function(a) a[a!=""])
   category <- StandardizeNomenclature(category, thesaurus)
   namesInCategory <- as.character(unlist(thesList[category]))
-  namesInCategory <- NormalizeForSensitiveness(thesaurus, namesInCategory)$x
-  x <- NormalizeForSensitiveness(thesaurus, x)$x
-  x %in% namesInCategory
+  SensitiveIn(x, namesInCategory, thesaurus)
+}
+
+#
+# From here internal functions. Not exported.
+#
+SensitiveIn <- function(x, y, thesaurus)
+{
+  xNormalized <- NormalizeForSensitiveness(thesaurus, x)$x
+  yNormalized <- NormalizeForSensitiveness(thesaurus, y)$x
+  xNormalized %in% yNormalized
+}
+
+SensitiveEqual <- function(x, y, thesaurus)
+{
+  xNormalized <- NormalizeForSensitiveness(thesaurus, x)$x
+  yNormalized <- NormalizeForSensitiveness(thesaurus, y)$x
+  xNormalized == yNormalized
 }

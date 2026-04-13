@@ -3,7 +3,7 @@
 #' Functions to modify and check thesauri.
 #'
 #' In the function \code{AddToThesaurus} the categories in which to add new
-#' names can be specified either as names of a named list given as argument
+#' terms can be specified either as names of a named list given as argument
 #' \code{newName} or explicitly in the argument \code{category}. See the
 #' examples below illustrating both alternatives.
 #'
@@ -11,10 +11,11 @@
 #' the resulting thesaurus.
 #'
 #' @inheritParams ThesaurusReaderWriter
-#' @param newName Character vector or (named) list of character vectors
-#' with new names to be added to the thesaurus.
-#' @param category Character vector identifying the classes where the
-#' new names should be included.
+#' @param term Character vector of terms.
+#' @param newName Character vector or named list of character vectors
+#' with new terms to be added to the thesaurus.
+#' @param category Character vector identifying the categories to be removed or
+#' where the new names should be included.
 #' @param caseSensitive,accentSensitive,punctuationSensitive Logical. They set
 #' the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
 #' the thesaurus.
@@ -24,11 +25,11 @@
 #' populated by \code{AddToThesaurus}.
 #'
 #' \code{AddToThesaurus} returns the input thesaurus complemented with new
-#' names in the categories identified. If any of the categories is not present
+#' terms in the categories identified. If any of the categories is not present
 #' in the input thesaurus, new categories are added as required.
 #'
 #' \code{RemoveRepeatedNames} returns the input thesaurus pruned of redundant
-#' names in each category. The redundancy is evaluated in agreement with the
+#' terms in each category. The redundancy is evaluated in agreement with the
 #' case and accent sensitivity of the thesaurus.
 #'
 #' \code{ThesaurusAmbiguity} returns FALSE if no ambiguity is present. When any
@@ -37,6 +38,15 @@
 #' the involved categories. This is internally used by
 #' \code{\link{ReadThesaurus}} and \code{\link{AddToThesaurus}} to generate an
 #' error in case they attempt to read or generate an ambiguous thesaurus.
+#'
+#' \code{RemoveTermFromThesaurus} returns the thesaurus after removing the
+#' specified terms.
+#'
+#' \code{ChangeStandardInThesaurus} returns the thesaurus where each of the
+#' specified terms is set as the standard for category including it.
+#'
+#' \code{RemoveCategory} returns the thesaurus after removing the specified
+#' categories.
 #'
 #' @examples
 #' ## Load an example thesaurus:
@@ -82,7 +92,22 @@
 #' thesaurusNew[8:9,1] <- c("scarlet", "ruby")
 #' thesaurusNew
 #' ## they can be removed with
-#' RemoveRepeatedNames(thesaurusNew)
+#' thesaurusNew <- RemoveRepeatedNames(thesaurusNew)
+#' thesaurusNew
+#'
+#' ## Terms can also be explicitly removed from the thesaurus:
+#' thesaurusNew <- RemoveTermFromThesaurus(thesaurusNew,
+#'                                         c("vermilion", "cerulean", "indigo"))
+#' thesaurusNew
+#'
+#' ## Also categories can be removed:
+#' thesaurusNew <- RemoveCategory(thesaurusNew, "azure")
+#' thesaurusNew
+#'
+#' ## The standard term of any category can be changed to a different term in
+#' ## the category:
+#' thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("wine", "hazel"))
+#' thesaurusNew
 #'
 #' @seealso
 #' \code{\link{zoologThesaurus}} for a description of the thesaurus and
@@ -112,7 +137,7 @@ AddToThesaurus <- function(thesaurus, newName, category = NULL)
   if(is.null(category)) category <- names(newName)
   if(is.null(category))
     stop("Missing category: \n",
-         "Provided them as names of the argument newName\n",
+         "Provide them as names of the argument newName\n",
          "or explicitly in the argument category.")
   standardNames <- StandardizeNomenclature(category, thesaurus)
   newName <- as.list(newName)
@@ -167,6 +192,98 @@ ThesaurusAmbiguity <- function(thesaurus)
   return(res)
 }
 
+#' @rdname ThesaurusManagement
+#' @export
+RemoveTermFromThesaurus <- function(thesaurus, term)
+{
+  foundTerm <- InCategory(term, names(thesaurus), thesaurus)
+  if(!all(foundTerm))
+  {
+    warning(paste(FormatListOfNames(term[!foundTerm], c("\"", "\""),
+                                    c("Term", "Terms"), c("is", "are")),
+                  "not present in the thesaurus."))
+    term <- term[foundTerm]
+  }
+
+  standardTerm <- StandardizeNomenclature(term, thesaurus)
+  foundStandard <- SensitiveEqual(term, standardTerm, thesaurus)
+  if(any(foundStandard))
+  {
+    warning(paste("The standard",
+                  FormatListOfNames(standardTerm[foundStandard],
+                                    c("\"", "\""), c("term", "terms")),
+                  "cannot be removed from the thesaurus.\n"),
+            "To change the standard term use ChangeStandardInThesaurus.\n",
+            "To remove the category from the thesaurus use RemoveCategory.")
+    term <- term[!foundStandard]
+    standardTerm <- standardTerm[!foundStandard]
+  }
+
+  thesNew <- lapply(thesaurus, function(a) a[a!=""])
+  for(i in seq_len(length(term)))
+  {
+    stdTerm <- standardTerm[i]
+    termId <- SensitiveEqual(thesNew[[stdTerm]], term[i], thesaurus)
+    thesNew[[stdTerm]] <- thesNew[[stdTerm]][!termId]
+  }
+  thesNew <- lapply(thesNew, function(a) a[!is.na(a)])
+  thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
+  return(thesNew)
+}
+
+#' @rdname ThesaurusManagement
+#' @export
+ChangeStandardInThesaurus <- function(thesaurus, term)
+{
+  foundTerm <- InCategory(term, names(thesaurus), thesaurus)
+  if(!all(foundTerm))
+  {
+    warning(paste(FormatListOfNames(term[!foundTerm], c("\"", "\""),
+                                    c("Term", "Terms"), c("is", "are")),
+                  "not present in the thesaurus."))
+    term <- term[foundTerm]
+  }
+
+  standardTerm <- StandardizeNomenclature(term, thesaurus)
+
+  thesNew <- lapply(thesaurus, function(a) a[a!=""])
+  for(i in seq_len(length(term)))
+  {
+    cathegoryId <- which(names(thesaurus) == standardTerm[i])
+    termId <- which(SensitiveEqual(thesNew[[cathegoryId]], term[i], thesaurus))
+    names(thesNew)[cathegoryId] <- term[i]
+    thesNew[[cathegoryId]][termId[1]] <- thesNew[[cathegoryId]][1]
+    thesNew[[cathegoryId]][1] <- term[i]
+  }
+  thesNew <- lapply(thesNew, function(a) a[!is.na(a)])
+  thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
+  return(thesNew)
+}
+
+#' @rdname ThesaurusManagement
+#' @export
+RemoveCategory <- function(thesaurus, category)
+{
+  standardCategory <- StandardizeNomenclature(category, thesaurus)
+
+  foundCategory <- standardCategory %in% names(thesaurus)
+  if(!all(foundCategory))
+  {
+    warning(paste(FormatListOfNames(category[!foundCategory], c("\"", "\""),
+                                    c("Category", "Categories"),
+                                    c("is", "are")),
+                  "not present in the thesaurus."))
+    standardCategory <- standardCategory[foundCategory]
+  }
+
+  thesNew <- lapply(thesaurus, function(a) a[a!=""])
+  toRemove <- names(thesaurus) %in% standardCategory
+  thesNew <- thesNew[!toRemove]
+  thesNew <- lapply(thesNew, function(a) a[!is.na(a)])
+  thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
+  return(thesNew)
+}
+
 #
 # From here internal functions. Not exported.
 #
@@ -189,8 +306,7 @@ NormalizeForSensitiveness <- function(thesaurus, x = NULL)
   sensitivenessAttrNames <- c("caseSensitive",
                               "accentSensitive",
                               "punctuationSensitive")
-  sensitivenessAttr <- unlist(sapply(sensitivenessAttrNames, attr,
-                                     x = thesaurus))
+  sensitivenessAttr <- sapply(sensitivenessAttrNames, attr, x = thesaurus)
   normalizedThesaurus <- lapply(thesaurus, SensitivenessTransformation,
                                 sensitivenessAttr)
   if(is.null(x)) return(normalizedThesaurus)

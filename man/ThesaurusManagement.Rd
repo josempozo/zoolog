@@ -6,6 +6,9 @@
 \alias{AddToThesaurus}
 \alias{RemoveRepeatedNames}
 \alias{ThesaurusAmbiguity}
+\alias{RemoveTermFromThesaurus}
+\alias{ChangeStandardInThesaurus}
+\alias{RemoveCategory}
 \title{Thesaurus Management}
 \usage{
 NewThesaurus(
@@ -19,6 +22,12 @@ AddToThesaurus(thesaurus, newName, category = NULL)
 RemoveRepeatedNames(thesaurus)
 
 ThesaurusAmbiguity(thesaurus)
+
+RemoveTermFromThesaurus(thesaurus, term)
+
+ChangeStandardInThesaurus(thesaurus, term)
+
+RemoveCategory(thesaurus, category)
 }
 \arguments{
 \item{caseSensitive, accentSensitive, punctuationSensitive}{Logical. They set
@@ -27,22 +36,24 @@ the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 
-\item{newName}{Character vector or (named) list of character vectors
-with new names to be added to the thesaurus.}
+\item{newName}{Character vector or named list of character vectors
+with new terms to be added to the thesaurus.}
 
-\item{category}{Character vector identifying the classes where the
-new names should be included.}
+\item{category}{Character vector identifying the categories to be removed or
+where the new names should be included.}
+
+\item{term}{Character vector of terms.}
 }
 \value{
 \code{NewThesaurus} returns an empty thesaurus. This can then be
 populated by \code{AddToThesaurus}.
 
 \code{AddToThesaurus} returns the input thesaurus complemented with new
-names in the categories identified. If any of the categories is not present
+terms in the categories identified. If any of the categories is not present
 in the input thesaurus, new categories are added as required.
 
 \code{RemoveRepeatedNames} returns the input thesaurus pruned of redundant
-names in each category. The redundancy is evaluated in agreement with the
+terms in each category. The redundancy is evaluated in agreement with the
 case and accent sensitivity of the thesaurus.
 
 \code{ThesaurusAmbiguity} returns FALSE if no ambiguity is present. When any
@@ -51,13 +62,22 @@ including the names present in more than one category and the
 the involved categories. This is internally used by
 \code{\link{ReadThesaurus}} and \code{\link{AddToThesaurus}} to generate an
 error in case they attempt to read or generate an ambiguous thesaurus.
+
+\code{RemoveTermFromThesaurus} returns the thesaurus after removing the
+specified terms.
+
+\code{ChangeStandardInThesaurus} returns the thesaurus where each of the
+specified terms is set as the standard for category including it.
+
+\code{RemoveCategory} returns the thesaurus after removing the specified
+categories.
 }
 \description{
 Functions to modify and check thesauri.
 }
 \details{
 In the function \code{AddToThesaurus} the categories in which to add new
-names can be specified either as names of a named list given as argument
+terms can be specified either as names of a named list given as argument
 \code{newName} or explicitly in the argument \code{category}. See the
 examples below illustrating both alternatives.
 
@@ -108,7 +128,22 @@ AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 thesaurusNew[8:9,1] <- c("scarlet", "ruby")
 thesaurusNew
 ## they can be removed with
-RemoveRepeatedNames(thesaurusNew)
+thesaurusNew <- RemoveRepeatedNames(thesaurusNew)
+thesaurusNew
+
+## Terms can also be explicitly removed from the thesaurus:
+thesaurusNew <- RemoveTermFromThesaurus(thesaurusNew,
+                                        c("vermilion", "cerulean", "indigo"))
+thesaurusNew
+
+## Also categories can be removed:
+thesaurusNew <- RemoveCategory(thesaurusNew, "azure")
+thesaurusNew
+
+## The standard term of any category can be changed to a different term in
+## the category:
+thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("wine", "hazel"))
+thesaurusNew
 
 }
 \seealso{
