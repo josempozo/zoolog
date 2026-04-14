@@ -65,9 +65,8 @@ ReadThesaurus <- function(file)
 
   for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
   {
-    if(is.null(da$attr[[sensitive]]))
-      da$attr[[sensitive]] <- FALSE
-    attr(thesaurus, sensitive) <- da$attr[[sensitive]]
+    if(!is.null(da$attr[[sensitive]]))
+      attr(thesaurus, sensitive) <- da$attr[[sensitive]]
   }
   attr(thesaurus, "structuredByLanguage") <- da$attr$structuredByLanguage
 
