@@ -1,7 +1,7 @@
-##########################################################
+############################################################
 ## zoolog thesaurus for identifiers of reference values.
 ## Language English
-##########################################################
+############################################################
 Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
 Species;Bone;;;Measurement;;;;;;SU;;;;Chrono;;;Comms
 Animal;Bone Element;;;Measurements;;;;;;;;;;;;;

@@ -14,7 +14,12 @@ GetCommentLines <- function(x, comment.char = "#")
 GetAfterPattern <- function(x, pattern)
 {
   xSelected <- x[StartsBy(x, pattern)]
-  xWithoutInitialSpaces <- sub("( )+", "", xSelected)
+  DiscardPattern(xSelected, pattern)
+}
+
+DiscardPattern <- function(x, pattern)
+{
+  xWithoutInitialSpaces <- sub("( )+", "", x)
   xWithoutPattern <- substring(xWithoutInitialSpaces, nchar(pattern)+1)
   xWithoutSymbols <- sub("( )+", "", xWithoutPattern)
   utils::type.convert(xWithoutSymbols, as.is = TRUE)

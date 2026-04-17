@@ -34,7 +34,7 @@
 #'     description <- ReadCommentLines(file)
 #'     nameLine <- which(StartsBy(description, "REFERENCE:"))
 #'     if(length(nameLine)>0) {
-#'       name <- GetAfterPattern(description[nameLine[1]], "REFERENCE:")
+#'       name <- DiscardPattern(description[nameLine[1]], "REFERENCE:")
 #'       description <- description[-nameLine[1]]
 #'     } else {
 #'       name <- refDatabase$Source[i]

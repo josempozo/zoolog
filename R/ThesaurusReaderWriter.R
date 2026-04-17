@@ -63,12 +63,11 @@ ReadThesaurus <- function(file)
   else
     thesaurus <- da$data
 
-  for(sensitive in c("caseSensitive", "accentSensitive", "punctuationSensitive"))
+  for(variable in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                    "structuredByLanguage", "description"))
   {
-    if(!is.null(da$attr[[sensitive]]))
-      attr(thesaurus, sensitive) <- da$attr[[sensitive]]
+      attr(thesaurus, variable) <- da$attr[[variable]]
   }
-  attr(thesaurus, "structuredByLanguage") <- da$attr$structuredByLanguage
 
   if(!isTRUE(da$attr$structuredByLanguage) &&
      (ambiguity <- ThesaurusAmbiguity(thesaurus)))
@@ -83,16 +82,17 @@ ReadThesaurus <- function(file)
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  data <- ReadDataAndAttributes(file, FALSE)$data
+  x <- ReadDataAndAttributes(file, FALSE)
   dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
-  structuredByLanguage <- data$StructuredByLanguage
+  filenames <- file.path(dir, x$data$FileName)
+  structuredByLanguage <- x$data$StructuredByLanguage
   if(is.null(structuredByLanguage)) structuredByLanguage <- FALSE
   thesaurusSet <- lapply(filenames, ReadThesaurus)
-  names(thesaurusSet) <- data$ThesaurusName
-  attr(thesaurusSet, "applyToColNames") <- data$ApplyToColNames
-  attr(thesaurusSet, "applyToColValues") <- data$ApplyToColValues
-  attr(thesaurusSet, "fileName") <- data$FileName
+  names(thesaurusSet) <- x$data$ThesaurusName
+  attr(thesaurusSet, "applyToColNames") <- x$data$ApplyToColNames
+  attr(thesaurusSet, "applyToColValues") <- x$data$ApplyToColValues
+  attr(thesaurusSet, "fileName") <- x$data$FileName
+  attr(thesaurusSet, "description") <- x$attr$description
   return(thesaurusSet)
 }
 
@@ -121,6 +121,7 @@ WriteThesaurusSet <- function(thesaurusSet, file)
   data$FileName <- attr(thesaurusSet, "fileName")
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
+  attr(data, "description") <- attr(thesaurusSet, "description")
   WriteDataAndAttributes(data, file)
 
   dir <- dirname(file)
@@ -136,37 +137,50 @@ WriteThesaurusSet <- function(thesaurusSet, file)
 # Read and write attributes:
 ReadThesaurusAttributes <- function(file)
 {
-  ReadComplementVariables(
-    file,
+  lines <- ReadCommentLines(file)
+  y <- ExtractComplementVariables(
+    lines,
     c("caseSensitive", "accentSensitive", "punctuationSensitive",
       "structuredByLanguage", "encoding")
   )
+  y$attrib[["description"]] <- y$text[y$text != ""]
+  return(y$attrib)
 }
 
 WriteThesaurusAttributes <- function(thesaurus, file)
 {
-  commentLine = c("##########################################")
-  lines = c(commentLine, "## zoolog thesaurus")
+  description <- attr(thesaurus, "description")
+  n <- min(max(nchar(description) + 10, 40), 60)
+  commentLine = paste(rep("#", n), collapse = "")
+  if(is.null(description))
+    lines = c(commentLine, "## zoolog thesaurus")
+  else
+    lines = c(commentLine, paste("##", description))
   for(attribute in c("caseSensitive", "accentSensitive",
                      "punctuationSensitive", "structuredByLanguage",
                      "encoding"))
-    if(!is.null(attr(thesaurus, attribute)))
-      lines = c(lines, paste("##", attribute, attr(thesaurus, attribute)))
+    if(!is.null(value <- attr(thesaurus, attribute)))
+      lines = c(lines, paste("##", attribute, value))
   lines = c(lines, commentLine)
   CreateDirsIfNeeded(file)
   writeLines(lines, file)
 }
 
-ReadComplementVariables <- function(file, variables)
+ExtractComplementVariables <- function(text, variables)
 {
-  x <- ReadCommentLines(file)
   attrib <- list()
   for(variable in variables)
   {
-    value <- GetAfterPattern(x, variable)
-    if(length(value) > 0) attrib[[variable]] <- value[1]
+    line <- which(StartsBy(text, variable))
+    if(length(line) > 0)
+    {
+      line <- line[1]
+      value <- DiscardPattern(text[line], variable)
+      attrib[[variable]] <- value
+      text <- text[-line]
+    }
   }
-  return(attrib)
+  return(list(attrib = attrib, text = text))
 }
 
 ###########################################
@@ -282,7 +296,7 @@ BuildThesaurusLanguageSetData <- function(thesaurus)
                         stringsAsFactors = FALSE)
   names(data) <- c("Language", "FileName")
   attribs <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
-               "structuredByLanguage")
+               "structuredByLanguage", "description")
   attributes(data)[attribs] <- attributes(thesaurus)[attribs]
   return(data)
 }

@@ -1,6 +1,6 @@
-##################################################
+#########################################
 ## zoolog thesaurus set structure.
-##################################################
+#########################################
 ThesaurusName;FileName;ApplyToColNames;ApplyToColValues
 identifier;identifierThesaurus.csv;TRUE;FALSE
 taxon;taxonThesaurus.csv;FALSE;TRUE

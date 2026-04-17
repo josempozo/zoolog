@@ -1,8 +1,8 @@
-##########################################################
+############################################################
 ## zoolog thesaurus for identifiers of reference values.
 ## Language Spanish
 ## encoding UTF-8
-##########################################################
+############################################################
 Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
 Taxón;Elemento;Fragmento;Lateralidad;Medida;Estándar;País;Región geográfica;Tipo de yacimiento;Yacimiento;Unidad Estratigráfica;Año;Área;Estructura;Cronología;Periodo;Fase;Comentarios
 Especie;Hueso;Parte;Lat;;;;Región;Tipo yacimiento;Sitio;UE;Campaña excavación;Zona;Hecho;;;;Observaciones
