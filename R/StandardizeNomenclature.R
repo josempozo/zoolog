@@ -73,8 +73,8 @@
 StandardizeNomenclature <- function(x, thesaurus,
                                     mark.unknown = FALSE)
 {
-  if(is.null(thesaurus) || is.null(x) || length(thesaurus)==0) return(x)
   n <- length(x)
+  if(is.null(thesaurus) || n == 0 || length(thesaurus) == 0) return(x)
   x.isfactor <- is.factor(x)
   if(x.isfactor) x <- as.character(x)
   normalized <- NormalizeForSensitiveness(thesaurus, x)
