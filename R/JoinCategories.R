@@ -3,6 +3,7 @@ JoinCategories <- function(thesaurus, categories)
   if(length(categories) == 0) return(thesaurus)
   categStandard <- lapply(categories, StandardizeNomenclature,
                           thesaurus, mark.unknown = TRUE)
+  categStandard <- lapply(categStandard, unique)
   names(categStandard) <- lapply(names(categories), StandardizeNomenclature,
                                  thesaurus)
   termsNotInThesaurus <- mapply(function(x, y) y[is.na(x)],
@@ -38,7 +39,7 @@ JoinCategories <- function(thesaurus, categories)
   if(ambiguity <- ThesaurusAmbiguity(thesNew))
     stop(paste0("Joining these categories would result in ambiguous thesaurus.\n",
                 attr(ambiguity, "errmessage")))
-  RemoveRepeatedNames(thesNew)
+  return(thesNew)
 }
 
 SmartJoinCategories <- function(thesaurusSet, joinCategories)
