@@ -142,7 +142,7 @@ thesaurusNew
 
 ## The standard term of any category can be changed to a different term in
 ## the category:
-thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("wine", "hazel"))
+thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("hazel", "wine"))
 thesaurusNew
 
 }

@@ -77,9 +77,10 @@ StandardizeNomenclature <- function(x, thesaurus,
   if(is.null(thesaurus) || n == 0 || length(thesaurus) == 0) return(x)
   x.isfactor <- is.factor(x)
   if(x.isfactor) x <- as.character(x)
-  normalized <- NormalizeForSensitiveness(thesaurus, x)
-  thesaurus <- lapply(normalized$thesaurus, function(a) a[a!=""])
-  y <- sapply(thesaurus, is.element, el = normalized$x)
+  normalizedX <- NormalizeForSensitiveness(x, thesaurus)
+  normalizedThes <- lapply(thesaurus, NormalizeForSensitiveness, thesaurus)
+  thesaurus <- lapply(normalizedThes, function(a) a[a!=""])
+  y <- sapply(thesaurus, is.element, el = normalizedX)
   if(mark.unknown) x[] <- NA
   if(length(x)>1) ynames <- colnames(y) else ynames <- names(y)
   x[(which(y)-1) %% n + 1] <- ynames[ceiling(which(y)/n)]

@@ -39,14 +39,14 @@ InCategory <- function(x, category, thesaurus)
 #
 SensitiveIn <- function(x, y, thesaurus)
 {
-  xNormalized <- NormalizeForSensitiveness(thesaurus, x)$x
-  yNormalized <- NormalizeForSensitiveness(thesaurus, y)$x
+  xNormalized <- NormalizeForSensitiveness(x, thesaurus)
+  yNormalized <- NormalizeForSensitiveness(y, thesaurus)
   xNormalized %in% yNormalized
 }
 
 SensitiveEqual <- function(x, y, thesaurus)
 {
-  xNormalized <- NormalizeForSensitiveness(thesaurus, x)$x
-  yNormalized <- NormalizeForSensitiveness(thesaurus, y)$x
+  xNormalized <- NormalizeForSensitiveness(x, thesaurus)
+  yNormalized <- NormalizeForSensitiveness(y, thesaurus)
   xNormalized == yNormalized
 }

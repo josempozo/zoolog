@@ -106,7 +106,7 @@
 #'
 #' ## The standard term of any category can be changed to a different term in
 #' ## the category:
-#' thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("wine", "hazel"))
+#' thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("hazel", "wine"))
 #' thesaurusNew
 #'
 #' @seealso
@@ -162,7 +162,7 @@ RemoveRepeatedNames <- function(thesaurus)
 {
   thesClean <- mapply(function(x,y) x[!duplicated(y) & y!=""],
                       thesaurus,
-                      NormalizeForSensitiveness(thesaurus),
+                      lapply(thesaurus, NormalizeForSensitiveness, thesaurus),
                       SIMPLIFY = FALSE)
   ThesaurusFromList(thesClean, attributes(thesaurus))
 }
@@ -172,7 +172,7 @@ RemoveRepeatedNames <- function(thesaurus)
 ThesaurusAmbiguity <- function(thesaurus)
 {
   if(length(thesaurus)<2) return(FALSE)
-  thesaurus <- NormalizeForSensitiveness(thesaurus)
+  thesaurus <- lapply(thesaurus, NormalizeForSensitiveness, thesaurus)
   thesaurus <- lapply(thesaurus, function(a) a[a!=""])
   pairs <- utils::combn(names(thesaurus), 2)
   ambiguities <- list()
@@ -301,27 +301,24 @@ ThesaurusFromList <- function(thesaurusList, attrib)
   return(thesaurus)
 }
 
-NormalizeForSensitiveness <- function(thesaurus, x = NULL)
+NormalizeForSensitiveness <- function(x, thesaurus)
 {
   sensitivenessAttrNames <- c("caseSensitive",
                               "accentSensitive",
                               "punctuationSensitive")
-  sensitivenessAttr <- sapply(sensitivenessAttrNames, attr, x = thesaurus)
-  normalizedThesaurus <- lapply(thesaurus, SensitivenessTransformation,
-                                sensitivenessAttr)
-  if(is.null(x)) return(normalizedThesaurus)
-
+  sensitivenessAttr <- unlist(attributes(thesaurus)[sensitivenessAttrNames])
   normalizedX <- SensitivenessTransformation(x, sensitivenessAttr)
-  return(list(thesaurus = normalizedThesaurus, x = normalizedX))
+  return(normalizedX)
 }
 
 SensitivenessTransformation <- function(x, sensitiveness)
 {
-  if(!isTRUE(sensitiveness["caseSensitive"]))
+  if(isFALSE(sensitiveness["caseSensitive"]))
     x <- stringi::stri_trans_general(x, "Any-lower")
-  if(!isTRUE(sensitiveness["accentSensitive"]))
+  if(isFALSE(sensitiveness["accentSensitive"]))
     x <- stringi::stri_trans_general(x, "Latin-ASCII")
-  if(!isTRUE(sensitiveness["punctuationSensitive"]))
+  if(isFALSE(sensitiveness["punctuationSensitive"]))
     x <- gsub("[[:punct:][:blank:]]+", "", x)
   return(x)
 }
+
