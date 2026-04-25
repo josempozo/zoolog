@@ -22,7 +22,7 @@
 #'
 #' @examples
 #' InCategory(c("sheep", "cattle", "goat", "red deer"),
-#'            c("ovis", "capra"),
+#'            c("Ovis aries", "cabra"),
 #'            zoologThesaurus$taxon)
 #'
 #' @export
@@ -37,16 +37,75 @@ InCategory <- function(x, category, thesaurus)
 #
 # From here internal functions. Not exported.
 #
+# Concept definition:
+# According to the sensitiveness a term represents a set of terms.
+# For a term x, we denote here the set or represented terms as [x].
+# For a set x = {x_1, ... x_n}, we denote [x] := union([x_1], ..., [x_n])
+# When wordOrderSensitive and punctuationSensitive are both FALSE,
+# this does not define equivalent classes. In particular, two terms can
+# represent different sets, but with non empty intersection.
+# Thus, a careful definition of relationships is required.
+#
+# For each element of x, is it in y?
+# For x_i \in x, is x_i \in [y]?
 SensitiveIn <- function(x, y, thesaurus)
 {
+  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+    y <- unlist(ExpandWordOrder(y))
   xNormalized <- NormalizeForSensitiveness(x, thesaurus)
   yNormalized <- NormalizeForSensitiveness(y, thesaurus)
   xNormalized %in% yNormalized
 }
 
+# For each element of x, is the set of terms it represents a subset of y?
+# For x_i \in x, does [x_i] \subset [y]?
+SensitiveIncluded <- function(x, y, thesaurus)
+{
+  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  {
+    x <- ExpandWordOrder(x)
+    y <- unlist(ExpandWordOrder(y))
+  }
+  x <- lapply(x, function(z) NormalizeForSensitiveness(z, thesaurus))
+  y <- NormalizeForSensitiveness(y, thesaurus)
+  sapply(x, function(z) any(all(z %in% y)))
+}
+
+# Does the i-th element of x and the i-th element of y represent the same set?
+# Does [x_i] = [y_i]?
+# If y is a single term, then each element of x is compared with it.
 SensitiveEqual <- function(x, y, thesaurus)
 {
-  xNormalized <- NormalizeForSensitiveness(x, thesaurus)
-  yNormalized <- NormalizeForSensitiveness(y, thesaurus)
-  xNormalized == yNormalized
+  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  {
+    x <- ExpandWordOrder(x)
+    y <- ExpandWordOrder(y)
+  }
+  x <- lapply(x, function(z) NormalizeForSensitiveness(z, thesaurus))
+  y <- lapply(y, function(z) NormalizeForSensitiveness(z, thesaurus))
+  mapply(setequal, x, y)
 }
+
+ExpandThesaurusForWordOrderSensitiveness <- function(thesaurus)
+{
+  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  {
+    thesList <- lapply(thesaurus, function(a) unique(a[a!=""]))
+    thesList <- ExpandWordOrder(thesList)
+    thesaurus <- ThesaurusFromList(thesList, attributes(thesaurus))
+  }
+  return(thesaurus)
+}
+
+JointWords <- function(x) paste(x, collapse = " ")
+JointWordsPerRow <- function(x) apply(x, 1, JointWords)
+
+WordPermutations <- function(x)
+  lapply(lapply(strsplit(x, " "), pracma::perms), JointWordsPerRow)
+
+ExpandWordOrder <- function(x)
+  lapply(x, function(y) unique(unlist(WordPermutations(y))))
+
+WordSort <- function(x, collapse = " ")
+  sapply(lapply(strsplit(x, " "), sort),
+         function(y) paste(y, collapse = collapse))

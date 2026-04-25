@@ -48,6 +48,8 @@
 #'   \item{punctuationSensitive}{Logical indicating whether the names in the
 #'           thesaurus should be differentiated by the presence of punctuation
 #'           marks.}
+#'   \item{wordOrderSensitive}{Logical indicating whether multi-word names
+#'           should be differentiated by the order of the words.}
 #' }
 #'
 #' The examples below show the content and characteristics of the identifier
@@ -73,8 +75,8 @@
 #'     typically used as column names in zooarchaeological data. This file gives
 #'     the language structure of the thesaurus, presenting two columns:
 #'     \emph{Language} and \emph{FileName}. In addition, the thesaurus
-#'     case, accent, and punctuation sensitivenesses are included in the file as
-#'     initial comments.}
+#'     case, accent, punctuation, and word-order sensitivenesses are included
+#'     in the file as initial comments.}
 #'   \item{\code{identifierThesaurus_####.csv}}{Each of the listed files,
 #'     presenting the corresponding contribution to the thesaurus by one of the
 #'     languages. They have one column for each category. In particular,
@@ -97,8 +99,8 @@
 #'     language. One column for each anatomical element.}
 #'   \item{\code{measureThesaurus.csv}}{Thesaurus for the measure names. This
 #'     thesarurus is not structured by language. One column for each category.
-#'     Still, the case, accent, and punctuation sensitivenesses are included in
-#'     the file as initial comments.}
+#'     Still, the case, accent, punctuation, and word-order sensitivenesses are
+#'     included in the file as initial comments.}
 #' }
 #'
 #' @seealso

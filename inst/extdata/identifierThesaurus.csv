@@ -3,6 +3,7 @@
 ## caseSensitive FALSE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
+## wordOrderSensitive TRUE
 ## structuredByLanguage TRUE
 ############################################################
 Language;FileName

@@ -29,7 +29,7 @@ checks for equality assuming the equivalencies defined in the given thesaurus.
 }
 \examples{
 InCategory(c("sheep", "cattle", "goat", "red deer"),
-           c("ovis", "capra"),
+           c("Ovis aries", "cabra"),
            zoologThesaurus$taxon)
 
 }

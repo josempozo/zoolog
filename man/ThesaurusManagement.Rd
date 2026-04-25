@@ -14,7 +14,8 @@
 NewThesaurus(
   caseSensitive = FALSE,
   accentSensitive = FALSE,
-  punctuationSensitive = FALSE
+  punctuationSensitive = FALSE,
+  wordOrderSensitive = TRUE
 )
 
 AddToThesaurus(thesaurus, newName, category = NULL)
@@ -30,9 +31,8 @@ ChangeStandardInThesaurus(thesaurus, term)
 RemoveCategory(thesaurus, category)
 }
 \arguments{
-\item{caseSensitive, accentSensitive, punctuationSensitive}{Logical. They set
-the case, accent, and punctuation sensitivity (\code{FALSE} by default) of
-the thesaurus.}
+\item{caseSensitive, accentSensitive, punctuationSensitive, wordOrderSensitive}{Logical. They set the case, accent, punctuation (\code{FALSE} by default),
+and word-order sensitivity (\code{TRUE} by default) of the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 

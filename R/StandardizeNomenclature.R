@@ -77,6 +77,7 @@ StandardizeNomenclature <- function(x, thesaurus,
   if(is.null(thesaurus) || n == 0 || length(thesaurus) == 0) return(x)
   x.isfactor <- is.factor(x)
   if(x.isfactor) x <- as.character(x)
+  thesaurus <- ExpandThesaurusForWordOrderSensitiveness(thesaurus)
   normalizedX <- NormalizeForSensitiveness(x, thesaurus)
   normalizedThes <- lapply(thesaurus, NormalizeForSensitiveness, thesaurus)
   thesaurus <- lapply(normalizedThes, function(a) a[a!=""])

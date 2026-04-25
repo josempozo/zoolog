@@ -141,7 +141,7 @@ elementThesaurus
     (`r a <- names(zoologThesaurus$element)[1:3]
       zoolog:::FormatListOfNames(a, c("*", "*"), conjunction = "")`, ...),
     each with different equivalent names. 
-    This thesaurus is case, accent, and punctuation insensitive.
+    This thesaurus is case, accent, punctuation, and also word-order insensitive.
 
 measureThesaurus
   : Names of the measurements. While the English abbreviations from
@@ -152,7 +152,7 @@ measureThesaurus
 
 # Taxonomy
 
-A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa has been introduced in the *zoolog* major release 1.0.0. The taxonomic hierarchy is structured up to the family level:
+A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa has been introduced in the *zoolog* major release 1.0.0. The taxonomic hierarchy is structured up to the class level:
 ``` {r, echo=FALSE}
 knitr::kable(zoologTaxonomy)
 ```

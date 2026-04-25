@@ -18,7 +18,8 @@
 #' thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
 #' ## The attributes of the thesaurus include the fields 'caseSensitive',
-#' ## 'accentSensitive', and 'punctuationSensitive', as read from the file.
+#' ## 'accentSensitive', 'punctuationSensitive', "wordOrderSensitive', and
+#' ## 'description' as read from the file.
 #' attributes(thesaurus)
 #'
 #' ## Write the thesarus to a file:
@@ -64,6 +65,7 @@ ReadThesaurus <- function(file)
     thesaurus <- da$data
 
   for(variable in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                    "wordOrderSensitive",
                     "structuredByLanguage", "description"))
   {
       attr(thesaurus, variable) <- da$attr[[variable]]
@@ -141,7 +143,7 @@ ReadThesaurusAttributes <- function(file)
   y <- ExtractComplementVariables(
     lines,
     c("caseSensitive", "accentSensitive", "punctuationSensitive",
-      "structuredByLanguage", "encoding")
+      "wordOrderSensitive", "structuredByLanguage", "encoding")
   )
   y$attrib[["description"]] <- y$text[y$text != ""]
   return(y$attrib)
@@ -156,9 +158,8 @@ WriteThesaurusAttributes <- function(thesaurus, file)
     lines = c(commentLine, "## zoolog thesaurus")
   else
     lines = c(commentLine, paste("##", description))
-  for(attribute in c("caseSensitive", "accentSensitive",
-                     "punctuationSensitive", "structuredByLanguage",
-                     "encoding"))
+  for(attribute in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                     "wordOrderSensitive", "structuredByLanguage", "encoding"))
     if(!is.null(value <- attr(thesaurus, attribute)))
       lines = c(lines, paste("##", attribute, value))
   lines = c(lines, commentLine)
@@ -296,7 +297,7 @@ BuildThesaurusLanguageSetData <- function(thesaurus)
                         stringsAsFactors = FALSE)
   names(data) <- c("Language", "FileName")
   attribs <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
-               "structuredByLanguage", "description")
+               "wordOrderSensitive", "structuredByLanguage", "description")
   attributes(data)[attribs] <- attributes(thesaurus)[attribs]
   return(data)
 }

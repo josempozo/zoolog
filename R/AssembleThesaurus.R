@@ -5,11 +5,11 @@ AssembleThesaurus <- function(
 {
   if(!isTRUE(attr(thesaurus.db, "structuredByLanguage"))) return(thesaurus.db)
 
-  assembledThesaurus <- NewThesaurus(
-    attr(thesaurus.db, "caseSensitive"),
-    attr(thesaurus.db, "accentSensitive"),
-    attr(thesaurus.db, "punctuationSensitive")
-  )
+  assembledThesaurus <- NewThesaurus()
+  for(attrib in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                  "wordOrderSensitive", "description"))
+    attr(assembledThesaurus, attrib) <- attr(thesaurus.db, attrib)
+
   nonPresentLanguages <- setdiff(combination, names(thesaurus.db))
   if(length(nonPresentLanguages) > 0)
   {
@@ -46,7 +46,7 @@ AssembleThesaurusSet <- function(
   combination = GetAvailableLanguages(thesaurusSet.db)
 )
 {
-  thesaurusSet <- mapply(AssembleThesaurus, thesaurusSet.db, list(combination))
+  thesaurusSet <- lapply(thesaurusSet.db, AssembleThesaurus, combination)
   for(attrib in c("applyToColNames", "applyToColValues"))
     attr(thesaurusSet, attrib) <- attr(thesaurusSet.db, attrib)
 
