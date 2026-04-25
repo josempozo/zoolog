@@ -21,7 +21,7 @@
 #' @examples
 #' ## `referenceSets` includes a series of predefined reference compositions.
 #' referenceSets
-#' ## Actually the package `references` is build from them.
+#' ## Actually, the zoolog variable `reference` is build from them.
 #' ## We can rebuild any of them:
 #' referenceCombi <- AssembleReference(referenceSets["Combi", ])
 #'
