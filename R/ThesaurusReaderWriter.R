@@ -186,17 +186,20 @@ ExtractComplementVariables <- function(text, variables)
 
 ###########################################
 # Read and write data:
-ReadThesaurusData <- function(file, encoding, format)
+# Alternative formats are possible depending on the file-extension:
+# csv (the default and documented) and hocon (only simplified version).
+# The alternative formats can help to modify the thesaurus more easily.
+ReadThesaurusData <- function(file, encoding)
 {
-  if(format %in% c("columnwise", "rowwise"))
+  format <- tools::file_ext(file)
+  if(format == "csv")
   {
     data <- utils::read.csv2(file, comment.char = "#",
                              stringsAsFactors = FALSE,
                              encoding = encoding,
                              header = FALSE)
-    if(format == "rowwise") data <- as.data.frame(t(data))
   }
-  if(format == "hocon")
+  else if(format == "hocon")
   {
     dataHocon <- readLines(file, encoding = encoding)
     attrLines <- sapply(dataHocon, function(x) substr(x, 1, 1) == "#")
@@ -211,21 +214,23 @@ ReadThesaurusData <- function(file, encoding, format)
     dataList <- sapply(dataHocon, hoconToVector, USE.NAMES = FALSE)
     data <- ThesaurusFromList(dataList, NULL)
   }
+  else
+    stop("Wrong file extension in ", file, ".")
   return(data)
 }
 
-WriteThesaurusData <- function(thesaurus, file, encoding, format)
+WriteThesaurusData <- function(thesaurus, file, encoding)
 {
-  if(format %in% c("columnwise", "rowwise"))
+  format <- tools::file_ext(file)
+  if(format == "csv")
   {
-    if(format == "rowwise") thesaurus <- as.data.frame(t(thesaurus))
     utils::write.table(thesaurus, file,
                        sep = ";", dec = ",", qmethod = "double",
                        row.names = FALSE, col.names = FALSE,
                        quote = FALSE,
                        append = TRUE, fileEncoding = encoding)
   }
-  if(format == "hocon")
+  else if(format == "hocon")
   {
     thesaurusList <- lapply(thesaurus, function(a) a[a!=""])
     vectorToHocon <- function(x)
@@ -235,21 +240,19 @@ WriteThesaurusData <- function(thesaurus, file, encoding, format)
     writeLines(thesaurusHocon, fileConn)
     close(fileConn)
   }
+  else
+    stop("Wrong file extension in ", file, ".")
 }
 
 ###########################################
 # Read and write attributes and data
 # taking into account the string encoding.
-# It also allows to write and read in alternative formats:
-# columnwise (the default and documented), rowwise, and hocon (simplified).
-# The alternative formats can help to modify them more easily.
-ReadDataAndAttributes <- function(file, repeatHeader = NULL,
-                                  format = "columnwise")
+ReadDataAndAttributes <- function(file, repeatHeader = NULL)
 {
   attr <- ReadThesaurusAttributes(file)
   if(is.null(attr$encoding)) attr$encoding <- "unknown"
   if(is.null(repeatHeader)) repeatHeader <- !isTRUE(attr$structuredByLanguage)
-  data <- ReadThesaurusData(file, attr$encoding, format)
+  data <- ReadThesaurusData(file, attr$encoding)
   names(data) <- data[1,]
   if(!repeatHeader) data <- data[-1,]
   data <- utils::type.convert(data, as.is = TRUE)
@@ -257,8 +260,7 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL,
   list(data = data, attr = attr)
 }
 
-WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE,
-                                   format = "columnwise")
+WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE)
 {
   encoding <- GetFirstNonTrivialEncoding(unlist(thesaurus))
   if(encoding != "") attr(thesaurus, "encoding") <- encoding
@@ -267,7 +269,7 @@ WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE,
   # Assigning the names as first row instead of write.table argument
   # col.names, avoids its warning when appending.
   if(col.names) thesaurus <- rbind(names(thesaurus), thesaurus)
-  WriteThesaurusData(thesaurus, file, encoding, format)
+  WriteThesaurusData(thesaurus, file, encoding)
 }
 
 GetFirstNonTrivialEncoding <- function(x)

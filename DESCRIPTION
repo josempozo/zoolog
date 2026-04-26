@@ -53,6 +53,7 @@ Imports:
     utils,
     stringi,
     pracma,
+    tools,
     Rdpack (>= 0.7)
 Config/testthat/edition: 3
 RdMacros: Rdpack
