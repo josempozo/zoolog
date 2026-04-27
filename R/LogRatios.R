@@ -118,20 +118,20 @@
 #' ## For illustration purposes we keep now only a subset of cases to make
 #' ## the example run sufficiently fast.
 #' ## Avoid this step if you want to process the full example dataset.
-#' dataExample <- dataExample[1:400, ]
+#' dataExample <- dataExample[c(13:14, 446:447, 6549:7000), ]
 #' ## We can observe the first lines (excluding some columns for visibility):
-#' head(dataExample)[, -c(6:20,32:64)]
+#' head(dataExample)[, c(1:5, 21:28)]
 #'
 #' ## Compute the log-ratios with respect to the default reference in the
 #' ## package zoolog:
 #' dataExampleWithLogs <- LogRatios(dataExample)
-#' ## The output data frame include new columns with the log-ratios of the
+#' ## The output data frame includes new columns with the log-ratios of the
 #' ## present measurements, in both data and reference, with a "log" prefix:
-#' head(dataExampleWithLogs)[, -c(6:20,32:64)]
+#' head(dataExampleWithLogs)[, c(1:5, 21:28, 65:71)]
 #'
 #' ## Compute the log-ratios with respect to a different reference:
 #' dataExampleWithLogs2 <- LogRatios(dataExample, ref = reference$Basel)
-#' head(dataExampleWithLogs2)[, -c(6:20,32:64)]
+#' head(dataExampleWithLogs2)[, c(1:5, 21:28, 65:70)]
 #'
 #' ## Define an altenative reference combining differently the references'
 #' ## database:
@@ -140,6 +140,7 @@
 #' userReference <- AssembleReference(refComb)
 #' ## Compute the log-ratios with respect to this alternative reference:
 #' dataExampleWithLogs3 <- LogRatios(dataExample, ref = userReference)
+#' head(dataExampleWithLogs3)[, c(1:5, 21:28, 65:72)]
 #'
 #' ## We can be interested in including the first and second phalanges without
 #' ## anterior-posterior identification ("phal 1" and "phal 2"), by computing
@@ -150,7 +151,7 @@
 #'                           'phal 2 ant' = c("phal 2 ant", "phal 2"))
 #' dataExampleWithLogs4 <- LogRatios(dataExample,
 #'                                   joinCategories = categoriesPhalAnt)
-#' head(dataExampleWithLogs4)[, -c(6:20,32:64)]
+#' head(dataExampleWithLogs4)[, c(1:5, 21:28, 65:71)]
 #' @export
 LogRatios <- function(data,
                       ref = reference$Combi,
