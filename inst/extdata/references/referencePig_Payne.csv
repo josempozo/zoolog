@@ -25,23 +25,23 @@ Sus scrofa;Femur;DC;30,3
 Sus scrofa;Tibia;BdP;34,6
 Sus scrofa;Astragalus;GLl;48,7
 Sus scrofa;Calcaneus;GL;95,2
-Sus scrofa;D4;L;17,2
-Sus scrofa;D4;WP;13,2
-Sus scrofa;M1;L;20,3
-Sus scrofa;M1;WA;15,9
-Sus scrofa;M1;WP;16,2
-Sus scrofa;M2;L;25,2
-Sus scrofa;M2;WA;20,0
-Sus scrofa;M2;WP;19,5
-Sus scrofa;M3;L;38,8
-Sus scrofa;M3;WA;21,7
-Sus scrofa;LD4;L;22,7
-Sus scrofa;LD4;WP;10,1
-Sus scrofa;LM1;L;20,4
-Sus scrofa;LM1;WA;11,9
-Sus scrofa;LM1;WP;13,0
-Sus scrofa;LM2;L;25,4
-Sus scrofa;LM2;WA;15,7
-Sus scrofa;LM2;WP;16,5
-Sus scrofa;LM3;L;41,5
-Sus scrofa;LM3;WA;18,3
+Sus scrofa;dP4 upper;L;17,2
+Sus scrofa;dP4 upper;WP;13,2
+Sus scrofa;M1 upper;L;20,3
+Sus scrofa;M1 upper;WA;15,9
+Sus scrofa;M1 upper;WP;16,2
+Sus scrofa;M2 upper;L;25,2
+Sus scrofa;M2 upper;WA;20,0
+Sus scrofa;M2 upper;WP;19,5
+Sus scrofa;M3 upper;L;38,8
+Sus scrofa;M3 upper;WA;21,7
+Sus scrofa;dP4 lower;L;22,7
+Sus scrofa;dP4 lower;WP;10,1
+Sus scrofa;M1 lower;L;20,4
+Sus scrofa;M1 lower;WA;11,9
+Sus scrofa;M1 lower;WP;13,0
+Sus scrofa;M2 lower;L;25,4
+Sus scrofa;M2 lower;WA;15,7
+Sus scrofa;M2 lower;WP;16,5
+Sus scrofa;M3 lower;L;41,5
+Sus scrofa;M3 lower;WA;18,3
