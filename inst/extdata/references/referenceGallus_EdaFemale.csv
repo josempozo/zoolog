@@ -1,0 +1,32 @@
+##########################################
+## REFERENCE: Eda_female
+## *Gallus gallus*.
+## Mean values of 5 wild female red junglefowl (Gallus gallus spadiceus)
+## from Laos, Thailand and Indonesia
+## \insertCite{Eda2022}{zoolog}.
+## SOURCE:
+## Eda, M. (2022). "The osteological microevolution of red junglefowl and
+## domestic fowl under the domestication process."
+## Quaternary International 626-627: 14-21
+##########################################
+TAX;EL;Measure;Standard
+Gallus gallus;Humerus;GL;60,41
+Gallus gallus;Humerus;Bp;15,98
+Gallus gallus;Humerus;Bd;12,97
+Gallus gallus;Ulna;GL;58,91
+Gallus gallus;Ulna;Bp;7,47
+Gallus gallus;Ulna;Did;8,23
+Gallus gallus;Radius;GL;53,42
+Gallus gallus;Radius;Bd;5,75
+Gallus gallus;Carpometacarpus;GL;32,2
+Gallus gallus;Carpometacarpus;Bp;10,17
+Gallus gallus;Femur;GL;67,57
+Gallus gallus;Femur;Bd;12,23
+Gallus gallus;Tibiotarsus;GL;96,28
+Gallus gallus;Tibiotarsus;BP;10,77
+Gallus gallus;Tibiotarsus;Bd;9,13
+Gallus gallus;Tarsusmetatarsus;GL;68,62
+Gallus gallus;Tarsusmetatarsus;Bp;11,24
+Gallus gallus;Tarsusmetatarsus;Bd;11,4
+Gallus gallus;Coracoid;GL;45,56
+Gallus gallus;Coracoid;BF;9,28

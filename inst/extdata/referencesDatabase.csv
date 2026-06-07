@@ -22,4 +22,5 @@ Equid - *Equus*;Equus asinus;Haifa;references/referenceEquid_Haifa.csv
 Equid - *Equus*;Equus caballus;Johnstone;references/referenceEquid_Johnstone.csv
 European rabbit - *Oryctolagus*;Oryctolagus cuniculus;Nottingham;references/referenceRabbit_Nottingham.csv
 Canid - *Canis*;Canis lupus;Russell;references/referenceCanid_Russell.csv
-Hen - *Gallus*;Gallus gallus;Bouchite;references/referenceGallus_Bouchite.csv
+Hen - *Gallus*;Gallus gallus;Eda_female;references/referenceGallus_EdaFemale.csv
+Hen - *Gallus*;Gallus gallus;Eda_male;references/referenceGallus_EdaMale.csv
