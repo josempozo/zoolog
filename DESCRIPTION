@@ -40,7 +40,6 @@ Encoding: UTF-8
 Language: en-GB
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Suggests: 
     testthat,
     knitr,
@@ -59,3 +58,4 @@ Config/testthat/edition: 3
 RdMacros: Rdpack
 VignetteBuilder: knitr
 URL: https://josempozo.github.io/zoolog/
+Config/roxygen2/version: 8.0.0
