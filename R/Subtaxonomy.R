@@ -91,12 +91,12 @@ GetSpeciesIn <- function(taxon, taxonomy = zoologTaxonomy,
   as.character(Subtaxonomy(taxon, taxonomy, thesaurus)$Species)
 }
 
-# Check if including this InCategory.data.frame into the InCategory
-# Check if we want that InCategory include the own name when it is not
+# Check if including this InCategory.array into the InCategory
+# Check if we want InCategory to include the own name when it is not
 # included in the thesaurus.
 InCategory.array <- function(x, category, thesaurus)
 {
-  sapply(x, function(y) InCategory(y, category, thesaurus) | y == category)
+  sapply(x, function(y) InCategory(y, category, thesaurus) | y %in% category)
 }
 
 TaxonomyLevel <- function(taxon,
