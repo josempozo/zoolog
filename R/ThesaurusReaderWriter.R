@@ -87,8 +87,6 @@ ReadThesaurusSet <- function(file)
   x <- ReadDataAndAttributes(file, FALSE)
   dir <- dirname(file)
   filenames <- file.path(dir, x$data$FileName)
-  structuredByLanguage <- x$data$StructuredByLanguage
-  if(is.null(structuredByLanguage)) structuredByLanguage <- FALSE
   thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- x$data$ThesaurusName
   attr(thesaurusSet, "applyToColNames") <- x$data$ApplyToColNames
