@@ -60,22 +60,22 @@ ReadThesaurus <- function(file)
 {
   da <- ReadDataAndAttributes(file)
   if(isTRUE(da$attr$structuredByLanguage))
+  {
     thesaurus <- ReadThesaurusLanguageSet(da$data, file)
+  }
   else
+  {
     thesaurus <- da$data
+    if(ambiguity <- ThesaurusAmbiguity(thesaurus))
+      stop(paste0("Ambiguous thesaurus in ", file , ":\n",
+                  attr(ambiguity, "errmessage")))
+  }
 
   for(variable in c("caseSensitive", "accentSensitive", "punctuationSensitive",
                     "wordOrderSensitive",
                     "structuredByLanguage", "description"))
   {
-      attr(thesaurus, variable) <- da$attr[[variable]]
-  }
-
-  if(!isTRUE(da$attr$structuredByLanguage) &&
-     (ambiguity <- ThesaurusAmbiguity(thesaurus)))
-  {
-    stop(paste0("Ambiguous thesaurus in ", file , ":\n",
-                attr(ambiguity, "errmessage")))
+    attr(thesaurus, variable) <- da$attr[[variable]]
   }
   return(thesaurus)
 }
@@ -100,16 +100,14 @@ ReadThesaurusSet <- function(file)
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
-  structuredByLanguage <- isTRUE(attr(thesaurus, "structuredByLanguage"))
-  if(structuredByLanguage)
+  if(isTRUE(attr(thesaurus, "structuredByLanguage")))
   {
-    data <- thesaurus
-    thesaurus <- BuildThesaurusLanguageSetData(thesaurus)
+    WriteThesaurusLanguageSet(thesaurus, file)
   }
-
-  WriteDataAndAttributes(thesaurus, file, col.names = structuredByLanguage)
-
-  if(structuredByLanguage) WriteThesaurusLanguageSet(data, file)
+  else
+  {
+    WriteDataAndAttributes(thesaurus, file, col.names = FALSE)
+  }
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -253,6 +251,7 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
   data <- ReadThesaurusData(file, attr$encoding)
   names(data) <- data[1,]
   if(!repeatHeader) data <- data[-1,]
+  rownames(data) <- NULL
   data <- utils::type.convert(data, as.is = TRUE)
   data[is.na(data)] <- ""
   list(data = data, attr = attr)
@@ -285,10 +284,23 @@ ReadThesaurusLanguageSet <- function(data, file)
 {
   dir <- dirname(file)
   filenames <- file.path(dir, data$FileName)
-  thesaurusSet <- lapply(filenames, ReadThesaurus)
+  thesaurusSet <- mapply(ReadThesaurusForLanguage, filenames,
+                         repeatHeader = (data$Language == "Base"),
+                         SIMPLIFY = FALSE)
   names(thesaurusSet) <- data$Language
   attr(thesaurusSet, "fileName") <- data$FileName
   return(thesaurusSet)
+}
+
+ReadThesaurusForLanguage <- function(file, repeatHeader)
+{
+  da <- ReadDataAndAttributes(file, repeatHeader)
+  thesaurus <- da$data
+  if(ambiguity <- ThesaurusAmbiguity(thesaurus))
+    stop(paste0("Ambiguous thesaurus in ", file , ":\n",
+                attr(ambiguity, "errmessage")))
+  attr(thesaurus, "description") <- da$attr$description
+  return(thesaurus)
 }
 
 BuildThesaurusLanguageSetData <- function(thesaurus)
@@ -302,11 +314,14 @@ BuildThesaurusLanguageSetData <- function(thesaurus)
   return(data)
 }
 
-WriteThesaurusLanguageSet <- function(data, file)
+WriteThesaurusLanguageSet <- function(thesaurus, file)
 {
+  thesaurusSetData <- BuildThesaurusLanguageSetData(thesaurus)
+  WriteDataAndAttributes(thesaurusSetData, file, col.names = TRUE)
   dir <- dirname(file)
-  filenames <- file.path(dir, attr(data, "fileName"))
-  noreturn <- mapply(WriteThesaurus, data, filenames)
+  filenames <- file.path(dir, attr(thesaurus, "fileName"))
+  noreturn <- mapply(WriteDataAndAttributes, thesaurus, filenames,
+                     col.names = (names(thesaurus) != "Base"))
 }
 
 CreateDirsIfNeeded <- function(file)
