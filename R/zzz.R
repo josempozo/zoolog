@@ -5,6 +5,7 @@
 NULL
 
 .onLoad <- function(libname, pkgname) {
+  internalEnvironment$standardLanguage <- "Base"
   internalEnvironment$zoologThesaurus <- AssembleThesaurusSet(
     zoologThesaurusByLanguage)
   internalEnvironment$activeLanguages <- AllAvailableLanguages()

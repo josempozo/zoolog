@@ -5,6 +5,8 @@
 \alias{AllAvailableLanguages}
 \alias{SetActiveLanguages}
 \alias{GetActiveLanguages}
+\alias{SetStandardLanguage}
+\alias{GetStandardLanguage}
 \title{Active Languages}
 \usage{
 AllAvailableLanguages()
@@ -12,9 +14,15 @@ AllAvailableLanguages()
 SetActiveLanguages(languages)
 
 GetActiveLanguages()
+
+SetStandardLanguage(language)
+
+GetStandardLanguage()
 }
 \arguments{
 \item{languages}{A character vector indicating the desired set of languages.}
+
+\item{language}{Name of the language desired as standard nomenclature.}
 }
 \value{
 \code{AllAvailableLanguages} returns a character vector containing the
@@ -25,6 +33,11 @@ modified in agreement. No value is returned.
 
 \code{GetActiveLanguages} returns a character vector containing the list
 of active languages.
+
+\code{SetStandardLanguage} set the standard to the indicated language.
+The thesaurus is modified in agreement. No value is returned.
+
+\code{GetActiveLanguages} returns the name of the current standard language.
 }
 \description{
 Functions to get and activate the languages to be included in the thesauri.
@@ -36,7 +49,7 @@ Observe that the function \code{SetActiveLanguages} globally changes the
 behaviour of the package by modifying the thesaurus in use.
 
 There is a specially treated language "Base" including the scientific
-nomenclature, which is always active.
+nomenclature, which is always active and is the standard language on loading.
 }
 \examples{
 ## Viewing all available languages:
