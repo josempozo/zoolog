@@ -109,7 +109,6 @@ StandardizeDataSet <- function(data, thesaurusSet = zoologThesaurus)
     type <- names(thesaurusSet)[i]
     data[, type] <- StandardizeNomenclature(data[, type], thesaurusSet[[type]])
   }
-  data$Measure <- StandardizeNomenclature(data$Measure, thesaurusSet$measure)
   class(data) <- originalDataClasses
   return(data)
 }
