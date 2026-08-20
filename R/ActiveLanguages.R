@@ -60,6 +60,18 @@
 #'
 #' ## Reseting all available languages as active
 #' SetActiveLanguages(AllAvailableLanguages())
+#'
+#' ## See the difference of the nomenclature standardization by default
+#' StandardizeNomenclature(c("Craneo", "Húmero"), zoologThesaurus$element)
+#' # "Cranium" "Humerus"
+#' ## after changing the standard language to English
+#' SetStandardLanguage("English")
+#' StandardizeNomenclature(c("Craneo", "Húmero"), zoologThesaurus$element)
+#' # "Skull"   "Humerus"
+#' ## and after changing the standard to German
+#' SetStandardLanguage("German")
+#' StandardizeNomenclature(c("Craneo", "Húmero"), zoologThesaurus$element)
+#' # "Schädel" "Oberarmknochen"
 
 #' @name ActiveLanguages
 

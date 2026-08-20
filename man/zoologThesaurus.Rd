@@ -30,7 +30,8 @@ column, since this would make the thesaurus ambiguous (see
 
 Each thesaurus has the following attributes:
 \describe{
-\item{names}{The standard name for the categories.}
+\item{names}{The name identifying the categories and their standard name
+by default.}
 \item{class}{"data.frame"}
 \item{row.names}{Irrelevant}
 \item{caseSensitive}{Logical indicating whether the names in the thesaurus
@@ -60,16 +61,18 @@ in datasets created by different authors.
 The \code{zoologThesaurus} is generated from an internal thesaurus set
 structured by language. The set of available languages can be
 accessed and the active languages can be controlled by the user
-(see \code{\link{ActiveLanguages}}).
-The user can also use other
-thesaurus sets, or can modify the provided thesaurus set (see
+(see \code{\link{ActiveLanguages}}). The language defining the standard
+nomenclature can also be controlled by the user (see
+\code{\link{SetStandardLanguage}}). Alternativelly, the user can use other
+thesaurus sets or modify the provided thesaurus set (see
 \code{\link{ThesaurusManagement}} and \code{\link{ThesaurusReaderWriter}}).
 }
 \section{File Structure}{
 
 \code{zoologThesaurus} is an exported variable automatically loaded in
 memory. It is automatically generated from an internal thesaurus structured
-by languages and according to the selected active languages. In addition,
+by languages and according to the selected active languages and standard
+language. In addition,
 the source files generating the internal thesarus are included in the
 \pkg{zoolog} \code{extdata} folder. There is one file for the thesaurus set
 main structure, one file for each included thesaurus, and one file for each
@@ -112,6 +115,9 @@ language. One column for each anatomical element.}
 thesarurus is not structured by language. One column for each category.
 Still, the case, accent, punctuation, and word-order sensitivenesses are
 included in the file as initial comments.}
+
+For each language-specific thesaurus, except for "Base", the first row
+defines the language-specific standard terms.
 }
 }
 

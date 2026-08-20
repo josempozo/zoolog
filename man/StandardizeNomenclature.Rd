@@ -82,5 +82,8 @@ head(dataStandardized[,1:5])
 \code{\link{zoologThesaurus}} for a description of the thesaurus and
 thesaurus set structure,
 
+\code{\link{ActiveLanguages}} to control the languages recognized by the
+zoologThesaurus and the language defining the standard terms,
+
 \code{\link{ThesaurusReaderWriter}}, \code{\link{ThesaurusManagement}}
 }
