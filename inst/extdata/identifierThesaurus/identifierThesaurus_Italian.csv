@@ -4,6 +4,6 @@
 ## encoding UTF-8
 ############################################################
 Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
-Taxon;Elemento;Frammento;Lateralità;Misura;Standard;Paese;Regione;Tipo di sito;Sito;SU;Anno;Area;Struttura;Cronologia;Periodo;Fase;Commenti
-Specie;Osso;Framm;Lato;Misurazione;;;;Tipo;;Unità stratigrafica;campagna;;Strutt.;Crono;;;Comms
-Animale;EL;Porzione;;;;;;;;US;Scavo;;;;;;
+Taxon;Elemento;Frammento;Lateralità;Misura;Standard;Paese;Regione;Tipo di sito;Sito;Unità stratigrafica;Anno;Area;Struttura;Cronologia;Periodo;Fase;Commenti
+Specie;Osso;Framm;Lato;Misurazione;;;;Tipo;;US;campagna;;Strutt.;Crono;;;Comms
+Animale;EL;Porzione;;;;;;;;;Scavo;;;;;;
