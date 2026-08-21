@@ -39,7 +39,7 @@ For each thesaurus and language, there is a csv file, which can be edited in any
 A language-specific file must be generated for each of the language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. For each of them, there is a folder with the same name in the package repository `inst/extdata/`.
 Let's consider, for instance, the identifierThesaurus. In the folder `inst/extdata/identifierThesaurus/` there is a file for each language. In particular, the file `identifierThesaurus_Base.csv` can be used as a template to generate the new language-specific thesaurus. The file can be found in the source of the installed package or can be downloaded from the GitHub repository [https://github.com/josempozo/zoolog].
 
-We recomend to copy the file `identifierThesaurus_Base.csv` into `identifierThesaurus_[NewLanguage].csv`, and then to edit the latter as an initial template. First, all rows can be removed except the first one giving the column names and representing the standard name of the category. Second, any number of rows can be added, including in each column alternative terms in the intended language for the corresponding category. Each column can have a different number of terms, leaving a blank in any remaining cell. See for instance `identifierThesaurus_English.csv`
+We recomend to copy the file `identifierThesaurus_Base.csv` into `identifierThesaurus_[NewLanguage].csv`, and then to edit the latter as an initial template. First, all rows can be removed except the header giving the column names, which are the identifiers of each category. These names are also the default standard names. Second, a first row must be added with the standard terms in the new language. Third, any number of rows can be added, including in each column alternative terms in the intended language for the corresponding category. Each column can have a different number of terms, leaving a blank in any remaining cell. See for instance `identifierThesaurus_French.csv`.
 
 It is expected that the contributor provides the language-specific thesaurus for each of the three language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. But any partial contribution is also welcome.
 
@@ -49,6 +49,6 @@ The contributor can also complement existing language-specific thesauri by addin
 
 ## Contributing the files
 
-The generated new files shoud be sent to the maintainer through the email address josmpozo@gmail.com
+The generated new files shoud be sent to the maintainer through the email address [josmpozo@gmail.com].
 
 

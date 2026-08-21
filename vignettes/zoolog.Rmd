@@ -109,6 +109,8 @@ cat(paste0(res, "."))
 ```
 This allows the user to set which languages are [active](../help/ActiveLanguages). This modular structure facilitates the contribution of new languages by the user (see [creating new thesaurus languages](thesaurusLanguages.html)). In addition, the capacity to activate only the required languages, might avoid potential ambiguities between conflicting terms in different languages.
 
+The structure in languages also allows the user to [set a language as the nomenclature standard](../help/ActiveLanguages). With this, the [nomenclature standardization](../help/StandardizeNomenclature) can convert any dataset to the desired language, effectively acting as a translator for the managed terms.
+
 The user can also use other thesaurus sets or modify the provided one. In this latter case, we encourage the user to contact the maintainer at the provided email address [josmpozo@gmail.com] so that the additions can be incorporated into the new versions of the package.
 
 The zoolog thesaurus set includes four thesauri:
@@ -237,6 +239,9 @@ The full list of functions is available under the zoolog *help* page. We list th
     * `StandardizeDataSet` standardizes column names and values of a data 
       frame according to a thesaurus set.
 
+    Remember that, when using the `zoologThesaurus`, the behaviour is 
+    dependent on the active languages and on the standard language.
+
 [**Subtaxonomy**](../help/Subtaxonomy)
   : This includes three functions enabling the user to query for some 
   information on the subtaxonomy under a queried taxon at any taxonomic 
@@ -258,8 +263,11 @@ The full list of functions is available under the zoolog *help* page. We list th
     taxon-specific references included in the *zoolog* `referencesDataSet` or
     in any other provided by the user.
 
-[**ActiveLanguages**](../help/ActiveLanguages)
-  : This includes functions to get the inventory of available languages (`AllAvailableLanguages`) for the thesaurus and to get and set the active languages (`GetActiveLanguages` and `SetActiveLanguages`).
+[**ActiveLanguages and StandardLanguage**](../help/ActiveLanguages)
+  : This includes functions to get the inventory of available languages
+    (`AllAvailableLanguages`) for the thesaurus, to get and set the active
+    languages (`GetActiveLanguages` and `SetActiveLanguages`), and to get and
+    set the standard language (`GetStandardLanguage` and `SetStandardLanguage`).
 
 [**Thesaurus readers and writers**](../help/ThesaurusReaderWriter)
   : This includes functions to read and write a single thesaurus 
@@ -382,11 +390,20 @@ Nevertheless, other options (e.g. average of all width log values for a given sp
 ## Standardizing the dataset nomenclature
 The integration of the thesaurus functionality facilitates the use of datasets with heterogeneous nomenclatures, without further preprocessing. An extensive catalogue of names for equivalent categories has been integrated in the provided thesaurus set `zoologThesaurus`. These equivalences are internally and silently managed without requiring any action from the user. However, it can be also interesting to explicitly standardize the data to make figures legible to a wider audience. This is especially useful when different nomenclature for the same concept is found in the same dataset, for instance "sheep" and "ovis" for the same taxon or "hum" and "HU" for the bone element.
 
-If we standardize the studied data, we can see that `zoologThesaurus` will change "ovar" to "Ovis aries", "hum" to "humerus", and "Especie" to "Taxon", for instance.
+If we standardize the studied data, we can see that `zoologThesaurus` will change "bota" to "Bos taurus", "hum" to "Humerus", and "Os" to "Element", for instance.
 ```{r}
 dataStandardized <- StandardizeDataSet(dataWithSummary)
 knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
 ```
+
+In contrast, if we first set the standard language to "Italian", for instance, the changes will be from "bota" to "Vacca", "hum" to "Omero", and "Os" to "Elemento".
+```{r}
+SetStandardLanguage("Italian")
+dataStandardized <- StandardizeDataSet(dataWithSummary)
+knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
+SetStandardLanguage("Base")
+```
+In the last line, we reset the standard language to the default "Base".
 
 ## Selecting only caprines
 We may be interested in selecting all caprine elements. This can be done even without standardizing the data using the function `InCategory`:

@@ -4,6 +4,6 @@
 ## encoding UTF-8
 ############################################################
 Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Site;Region;Site type;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
-Taxon;Élément;Portion;Côté;Mesure;Standard;Pays;Gisement;Région;Type site;Unité Stratigraphique;Année;Aire;Fait;Chronologie;Periode;Phase;Commentaires
-Espèce;Os;;Lateralité;;;;;;Type;US;Campagne;;Structure;;;;Observations
+Taxon;Élément;Portion;Côté;Mesure;Standard;Pays;Site;Région;Type site;Unité Stratigraphique;Année;Aire;Fait;Chronologie;Periode;Phase;Commentaires
+Espèce;Os;;Lateralité;;;;Gisement;;Type;US;Campagne;;Structure;;;;Observations
 Animal;;;;;;;;;Type gisement;;;;;;;;
