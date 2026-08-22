@@ -43,7 +43,7 @@ Several different sets of standard reference values are included in the package.
 
 In general, zooarchaeological datasets are composed of skeletal remains representing many different anatomical body parts. In investigation of animal size, the analysis of measurements from a given anatomical element provides the best control for the variables affecting size and shape and, as such, it is the preferable option. Unfortunately, this approach is not always viable due to low sample sizes in some archaeological assemblages. This problem can be mitigated by calculating the LSI values for measurements with respect to a reference, which provides a means of aggregating biometric information from different body parts. The resulting log ratios can be compared and statistically analysed under reasonable conditions [@albarella2002size]. However, length, width, and depth measurements of the anatomical elements still should not be directly aggregated for statistical analysis. 
 
-The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognises many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
+The package includes a *zoolog thesaurus* to facilitate its usage by research teams across the globe, and working in different languages and with different recording traditions. The thesaurus enables the *zoolog* package to recognise many different names for taxa and skeletal elements (e.g. "Bos taurus", "cattle", "BT",  "bovino", "bota"). Consequently, there is no need to use a particular, standardised recording code for the names of different taxa or elements.
 
 The package also includes a *zoolog taxonomy* to facilitate the management of cases recorded as identified at different taxonomic ranks (Species, Genus, Tribe) and their match with the corresponding references.
 
@@ -154,7 +154,7 @@ measureThesaurus
 
 # Taxonomy
 
-A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa has been introduced in the *zoolog* major release 1.0.0. The taxonomic hierarchy is structured up to the class level:
+A [taxonomy](../help/zoologTaxonomy) for the most typical zooarchaeological taxa was introduced in the *zoolog* major release 1.0.0 and has been extended in release 2.0.0. The taxonomic hierarchy is structured up to the class level:
 ``` {r, echo=FALSE}
 knitr::kable(zoologTaxonomy)
 ```
@@ -277,9 +277,9 @@ The full list of functions is available under the zoolog *help* page. We list th
 [**Thesaurus management**](../help/ThesaurusManagement)
   : This includes functions to modify and check thesauri:
   
-    * `NewThesaurus` generates an empty thesarus.
+    * `NewThesaurus` generates an empty thesaurus.
     * `AddToThesaurus` adds new terms and categories to an existing thesaurus.
-    * `RemoveRepeatedNames` cleans a thesarus from any repeated terms on any 
+    * `RemoveRepeatedNames` cleans a thesaurus from any repeated terms on any
       category.
     * `ThesaurusAmbiguity` checks if there are terms included in more than one
       category in a thesaurus.

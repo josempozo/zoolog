@@ -46,6 +46,16 @@ marks.}
 should be differentiated by the order of the words.}
 }
 
+Each thesaurus has different sensitiveness.
+The identifier thesaurus is case, accent, and punctuation insensitive, so
+that, for instance, "Especie" is equivalent to "ESPECIE" or "Espècie".
+The taxon thesaurus is case, accent, and punctuation insensitive, so that
+"Bos" is equivalent to "bos" or "Bos.".
+The element thesaurus is case, accent, punctuation, and also word-order
+insensitive, so that "Molar 1 inferior" is equivalent to "Inferior Molar 1".
+In contrast, the measure thesaurus is case, punctuation and word-order
+sensitive, so that, for instance, "Dd" is distinguished from "DD".
+
 The examples below show the content and characteristics of the identifier
 thesaurus in \code{zoologThesaurus}.
 }
@@ -103,12 +113,12 @@ It also includes other categories structuring the data such as
 \emph{Laterality}, among others.}
 \item{\code{taxonThesaurus.csv}}{Thesaurus for the taxa.
 This file gives the language structure of the thesaurus and the
-sensitivenesses}
+sensitivenesses.}
 \item{\code{taxonThesaurus_####.csv}}{Each of the listed files for each
 language. There is one column for each category of taxon considered.}
 \item{\code{elementThesaurus.csv}}{Thesaurus for the skeletal elements.
 This file gives the language structure of the thesaurus and the
-sensitivenesses}
+sensitivenesses.}
 \item{\code{elementThesaurus_####.csv}}{Each of the listed files for each
 language. One column for each anatomical element.}
 \item{\code{measureThesaurus.csv}}{Thesaurus for the measure names. This
