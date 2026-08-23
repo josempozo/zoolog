@@ -76,8 +76,8 @@
 StandardizeNomenclature <- function(x, thesaurus,
                                     mark.unknown = FALSE)
 {
-  n <- length(x)
-  if(is.null(thesaurus) || n == 0 || length(thesaurus) == 0) return(x)
+  if(all(x %in% names(thesaurus))) return(x)
+  if(is.null(thesaurus) || length(thesaurus) == 0) return(x)
   x.isfactor <- is.factor(x)
   if(x.isfactor) x <- as.character(x)
   thesaurus <- ExpandThesaurusForWordOrderSensitiveness(thesaurus)
@@ -87,6 +87,7 @@ StandardizeNomenclature <- function(x, thesaurus,
   y <- sapply(thesaurus, is.element, el = normalizedX)
   if(mark.unknown) x[] <- NA
   if(length(x)>1) ynames <- colnames(y) else ynames <- names(y)
+  n <- length(x)
   x[(which(y)-1) %% n + 1] <- ynames[ceiling(which(y)/n)]
   if(x.isfactor) x <- as.factor(x)
   return(x)
