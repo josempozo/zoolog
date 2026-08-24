@@ -142,13 +142,14 @@ AddToThesaurus <- function(thesaurus, newName, category = NULL)
          "Provide them as names of the argument newName\n",
          "or explicitly in the argument category.")
   standardNames <- StandardizeNomenclature(category, thesaurus)
-  newName <- as.list(newName)
-
+  newName <- lapply(newName, function(a) a[a!=""])
   thesNew <- lapply(thesaurus, function(a) a[a!=""])
+  newCategories <- setdiff(standardNames, names(thesNew))
+  thesNew[newCategories] <- newCategories
   for(i in seq_len(length(newName)))
   {
-    case <- standardNames[min(i, length(standardNames))]
-    thesNew[[case]] <- c(case, thesNew[[case]], newName[[i]])
+    category <- standardNames[min(i, length(standardNames))]
+    thesNew[[category]] <- c(thesNew[[category]], newName[[i]])
   }
   thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
   if(ambiguity <- ThesaurusAmbiguity(thesNew))
