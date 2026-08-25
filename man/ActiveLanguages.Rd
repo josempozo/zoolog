@@ -92,6 +92,8 @@ StandardizeNomenclature(c("Craneo", "Húmero"), zoologThesaurus$element)
 SetStandardLanguage("German")
 StandardizeNomenclature(c("Craneo", "Húmero"), zoologThesaurus$element)
 # "Schädel" "Oberarmknochen"
+## Finally, we reset to the default stantard language, to avoid side-effects
+SetStandardLanguage("Base")
 }
 \seealso{
 \code{\link{zoologThesaurus}}
