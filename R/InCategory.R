@@ -66,7 +66,7 @@ SensitiveIncluded <- function(x, y, thesaurus)
     x <- ExpandWordOrder(x)
     y <- unlist(ExpandWordOrder(y))
   }
-  x <- lapply(x, function(z) NormalizeForSensitiveness(z, thesaurus))
+  x <- NormalizeForSensitiveness(x, thesaurus)
   y <- NormalizeForSensitiveness(y, thesaurus)
   sapply(x, function(z) any(all(z %in% y)))
 }
@@ -81,8 +81,8 @@ SensitiveEqual <- function(x, y, thesaurus)
     x <- ExpandWordOrder(x)
     y <- ExpandWordOrder(y)
   }
-  x <- lapply(x, function(z) NormalizeForSensitiveness(z, thesaurus))
-  y <- lapply(y, function(z) NormalizeForSensitiveness(z, thesaurus))
+  x <- NormalizeForSensitiveness(x, thesaurus)
+  y <- NormalizeForSensitiveness(y, thesaurus)
   mapply(setequal, x, y)
 }
 
