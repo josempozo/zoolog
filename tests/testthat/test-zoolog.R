@@ -86,7 +86,7 @@ test_that("ReadThesaurusSet is the exact inverse of WriteThesaurusSet.", {
   expect_equal(thesaurusSet, zoologThesaurusByLanguage)
 })
 
-test_that("SetActiveLanguage correctly taken into account by LogRatios (1).", {
+test_that("SetActiveLanguages correctly taken into account by LogRatios (1).", {
   testData2 <- testData[1:50, ]
   testDataWithLog_Basel2 <- testDataWithLog_Basel[1:50, ]
   testDataWithLog_Basel2$TAX[2] <- testData2$TAX[2] <- "vaca"
@@ -96,13 +96,20 @@ test_that("SetActiveLanguage correctly taken into account by LogRatios (1).", {
   expect_equal(testData2Log, testDataWithLog_Basel2)
 })
 
-test_that("SetActiveLanguage correctly taken into account by LogRatios (2).", {
+test_that("SetActiveLanguages correctly taken into account by LogRatios (2).", {
   testData2 <- testData[1:50, ]
   testDataWithLog_Basel2 <- testDataWithLog_Basel[1:50, ]
   testDataWithLog_Basel2$TAX[2] <- testData2$TAX[2] <- "vaca"
   SetActiveLanguages(AllAvailableLanguages())
   suppressWarnings(testData2Log <- LogRatios(testData2, ref = reference$Basel))
   expect_equal(testData2Log, testDataWithLog_Basel2)
+})
+
+test_that("StandardizeDataSet with SetStandardLanguage to Portuguese.", {
+  SetStandardLanguage("Portuguese")
+  suppressWarnings(testDataPruned_std <- StandardizeDataSet(testDataPruned))
+  SetStandardLanguage("Base")
+  expect_equal(testDataPruned_std, testDataPruned_Portuguese)
 })
 
 test_that("References' Taxa, elements, and measures included in thesauri.", {

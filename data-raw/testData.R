@@ -27,6 +27,9 @@ lcCollateC({
                                      ref = reference$NietoDavisAlbarella,
                                      joinCategories = caprineCategories,
                                      mergedMeasures = c("GL", "GLl", "GLpe"))
+  SetStandardLanguage("Portuguese")
+  testDataPruned_Portuguese <- StandardizeDataSet(testDataPruned)
+  SetStandardLanguage("Base")
 })
 
 write.csv2(testDataWithLog_Basel,
@@ -56,6 +59,10 @@ write.csv2(testDataPrunedWithLog,
            "inst/testdata/testDataPrunedWithLog.csv",
            row.names=FALSE, quote=FALSE, na="",
            fileEncoding = "UTF-8")
+write.csv2(testDataPruned_Portuguese,
+           "inst/testdata/testDataPruned_Portuguese.csv",
+           row.names=FALSE, quote=FALSE, na="",
+           fileEncoding = "UTF-8")
 
 
 save(testData,
@@ -66,6 +73,6 @@ save(testData,
      testDataWithLogPrunedPrioritized,
      testDataPruned,
      testDataPrunedWithLog,
-     file = file.path(system.file("testdata", package="zoolog"),
-                      "testData.rda"),
+     testDataPruned_Portuguese,
+     file = "inst/testdata/testData.rda",
      version = 2)
