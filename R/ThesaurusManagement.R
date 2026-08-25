@@ -153,8 +153,8 @@ AddToThesaurus <- function(thesaurus, newName, category = NULL)
   }
   thesNew <- ThesaurusFromList(thesNew, attributes(thesaurus))
   if(ambiguity <- ThesaurusAmbiguity(thesNew))
-    stop(paste0("The resulting thesaurus would be ambiguous.\n",
-                attr(ambiguity, "errmessage")))
+    stop("The resulting thesaurus would be ambiguous.\n",
+         attr(ambiguity, "errmessage"))
   thesNew <- RemoveRepeatedNames(thesNew)
   return(thesNew)
 }
@@ -212,9 +212,10 @@ RemoveTermFromThesaurus <- function(thesaurus, term)
   foundTerm <- InCategory(term, names(thesaurus), thesaurus)
   if(!all(foundTerm))
   {
-    warning(paste(FormatListOfNames(term[!foundTerm], c("\"", "\""),
-                                    c("Term", "Terms"), c("is", "are")),
-                  "not present in the thesaurus."))
+    warning(FormatListOfNames(term[!foundTerm],
+                              preMessage = c("Term", "Terms"),
+                              postMessage = c("is", "are")),
+            " not present in the thesaurus.")
     term <- term[foundTerm]
   }
 
@@ -222,10 +223,10 @@ RemoveTermFromThesaurus <- function(thesaurus, term)
   foundStandard <- SensitiveEqual(term, standardTerm, thesaurus)
   if(any(foundStandard))
   {
-    warning(paste("The standard",
-                  FormatListOfNames(standardTerm[foundStandard],
-                                    c("\"", "\""), c("term", "terms")),
-                  "cannot be removed from the thesaurus.\n"),
+    warning("The standard ",
+            FormatListOfNames(standardTerm[foundStandard],
+                              preMessage = c("term", "terms")),
+            " cannot be removed from the thesaurus.\n",
             "To change the standard term use ChangeStandardInThesaurus.\n",
             "To remove the category from the thesaurus use RemoveCategory.")
     term <- term[!foundStandard]
@@ -251,9 +252,10 @@ ChangeStandardInThesaurus <- function(thesaurus, term)
   foundTerm <- InCategory(term, names(thesaurus), thesaurus)
   if(!all(foundTerm))
   {
-    warning(paste(FormatListOfNames(term[!foundTerm], c("\"", "\""),
-                                    c("Term", "Terms"), c("is", "are")),
-                  "not present in the thesaurus."))
+    warning(FormatListOfNames(term[!foundTerm],
+                              preMessage = c("Term", "Terms"),
+                              postMessage = c("is", "are")),
+            " not present in the thesaurus.")
     term <- term[foundTerm]
   }
 
@@ -282,10 +284,10 @@ RemoveCategory <- function(thesaurus, category)
   foundCategory <- standardCategory %in% names(thesaurus)
   if(!all(foundCategory))
   {
-    warning(paste(FormatListOfNames(category[!foundCategory], c("\"", "\""),
-                                    c("Category", "Categories"),
-                                    c("is", "are")),
-                  "not present in the thesaurus."))
+    warning(FormatListOfNames(category[!foundCategory],
+                              preMessage = c("Category", "Categories"),
+                              postMessage = c("is", "are")),
+            " not present in the thesaurus.")
     standardCategory <- standardCategory[foundCategory]
   }
 

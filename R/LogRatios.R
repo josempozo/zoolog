@@ -219,7 +219,7 @@ GetGroup <- function(x, groups)
   if(!is.list(groups)) groups <- list(groups)
   xInGroup <- which(as.logical(lapply(groups, is.element, el=x)))
   if(length(xInGroup)==0) return(x)
-  if(length(xInGroup)>1) stop(paste(x, "is included in more than one group."))
+  if(length(xInGroup)>1) stop(x, " is included in more than one group.")
   groups[[xInGroup]]
 }
 

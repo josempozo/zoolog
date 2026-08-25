@@ -1,5 +1,5 @@
 # Function to help format vector of names to be used in the documentation.
-FormatListOfNames <- function(names, formatMarks = c("\\emph{", "}"),
+FormatListOfNames <- function(names, formatMarks = c("\"", "\""),
                               preMessage = NULL, postMessage = NULL,
                               conjunction = "and")
 {

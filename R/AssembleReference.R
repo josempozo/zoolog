@@ -41,11 +41,11 @@ AssembleReference <- function(combination, ref.db = referencesDatabase,
                                        names(ref.db) %in% x))
   if(any(duplicated(taxIds) & sapply(taxIds, length)>0 -> dup))
   {
-    stop(paste0("The taxon",
-                FormatListOfNames(names(ref.db)[taxIds[dup]], c("\"", "\""),
-                                  preMessage = c("", "s"),
-                                  postMessage = c("is", "are")),
-                " duplicated in the requested combination."))
+    stop("The taxon",
+         FormatListOfNames(names(ref.db)[taxIds[dup]],
+                           preMessage = c("", "s"),
+                           postMessage = c("is", "are")),
+         " duplicated in the requested combination.")
   }
   for(tax in names(combination))
   {
@@ -62,21 +62,21 @@ catchError.AssembleReference <- function(source, taxId, tax, ref.db)
 {
   if(length(source) > 1)
   {
-    stop(paste0("More than one component requested for taxon ", tax, "."))
+    stop("More than one component requested for taxon ", tax, ".")
   }
   if(length(taxId) == 0)
   {
-    stop(paste("The name", tax, "does not correspond to any taxon",
-               "in the references' database."))
+    stop("The name ", tax,
+         " does not correspond to any taxon in the references' database.")
   }
   if(length(taxId) > 1)
   {
-    stop(paste("The refereces' database is badly formatted: Taxon", tax,
-               "appears more than once."))
+    stop("The refereces' database is badly formatted: Taxon ", tax,
+         " appears more than once.")
   }
   if(!(is.na(source) || source == "" || source %in% names(ref.db[[taxId]])))
   {
-    stop(paste0("The references' database does not include any component ",
-                source, " for the taxon ", tax, "."))
+    stop("The references' database does not include any component ",
+         source, " for the taxon ", tax, ".")
   }
 }

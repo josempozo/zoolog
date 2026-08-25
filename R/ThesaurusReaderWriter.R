@@ -67,8 +67,8 @@ ReadThesaurus <- function(file)
   {
     thesaurus <- da$data
     if(ambiguity <- ThesaurusAmbiguity(thesaurus))
-      stop(paste0("Ambiguous thesaurus in ", file , ":\n",
-                  attr(ambiguity, "errmessage")))
+      stop("Ambiguous thesaurus in ", file , ":\n",
+           attr(ambiguity, "errmessage"))
   }
 
   for(variable in c("caseSensitive", "accentSensitive", "punctuationSensitive",
@@ -297,8 +297,8 @@ ReadThesaurusForLanguage <- function(file, repeatHeader)
   da <- ReadDataAndAttributes(file, repeatHeader)
   thesaurus <- da$data
   if(ambiguity <- ThesaurusAmbiguity(thesaurus))
-    stop(paste0("Ambiguous thesaurus in ", file , ":\n",
-                attr(ambiguity, "errmessage")))
+    stop("Ambiguous thesaurus in ", file , ":\n",
+         attr(ambiguity, "errmessage"))
   attr(thesaurus, "description") <- da$attr$description
   return(thesaurus)
 }

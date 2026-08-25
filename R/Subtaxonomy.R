@@ -66,10 +66,10 @@ Subtaxonomy <- function(taxon, taxonomy = zoologTaxonomy,
   groupLevel <- which(sapply(taxonomyStandardized,
                              function(x) any(x == taxonStandardized)))
   if(length(groupLevel) == 0)
-    stop(paste0(taxon, " is not recognized in the taxonomy."))
+    stop(taxon, " is not recognized in the taxonomy.")
   if(length(groupLevel) > 1)
-    stop(paste0("Ambiguity detected in the taxonomy: \n",
-               taxon, " is in more than one level."))
+    stop("Ambiguity detected in the taxonomy: \n",
+         taxon, " is in more than one level.")
   selectedRows <- taxonomyStandardized[, groupLevel] == taxonStandardized
   taxonomy[selectedRows, 1:groupLevel]
 }

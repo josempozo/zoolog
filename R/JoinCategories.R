@@ -10,11 +10,10 @@ JoinCategories <- function(thesaurus, categories)
                                 categStandard, categories,
                                 SIMPLIFY = FALSE)
   if(any(is.na(unlist(categStandard))))
-    warning(paste0("The provided categories include the name",
-                   FormatListOfNames(unlist(termsNotInThesaurus),
-                                     formatMarks = c("\"", "\""),
-                                     preMessage = c("", "s")),
-                  " not belonging to any category in the thesaurus."))
+    warning("The provided categories include the name",
+            FormatListOfNames(unlist(termsNotInThesaurus),
+                              preMessage = c("", "s")),
+            " not belonging to any category in the thesaurus.")
 
 
   categStandard <- mapply(function(x,y) {
@@ -37,8 +36,8 @@ JoinCategories <- function(thesaurus, categories)
   thesList <- c(thesList, namesToAdd)
   thesNew <- ThesaurusFromList(thesList, attributes(thesaurus))
   if(ambiguity <- ThesaurusAmbiguity(thesNew))
-    stop(paste0("Joining these categories would result in ambiguous thesaurus.\n",
-                attr(ambiguity, "errmessage")))
+    stop("Joining these categories would result in ambiguous thesaurus.\n",
+         attr(ambiguity, "errmessage"))
   return(thesNew)
 }
 
@@ -54,11 +53,10 @@ SmartJoinCategories <- function(thesaurusSet, joinCategories)
     })
   })
   if(any(colSums(coincidences)>1))
-    stop(paste("Provided categories are ambiguous:",
-               "Some name is in more than one thesaurus."))
+    stop("Provided categories are ambiguous: ",
+         "Some name is in more than one thesaurus.")
   if(any(colSums(coincidences)<1))
-    stop(paste("Provided categories include one category",
-               "not matching any thesaurus."))
+    stop("Provided categories include one category not matching any thesaurus.")
   for(th in rownames(coincidences))
   {
     thesaurusSet[[th]] <- JoinCategories(thesaurusSet[[th]],

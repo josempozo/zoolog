@@ -106,8 +106,9 @@ SetActiveLanguages <- function(languages)
   if(length(notAvailableLanguages) > 0)
   {
     warning("The requested ",
-            FormatListOfNames(notAvailableLanguages, c("\"", "\""),
-                              c("language", "languages"), c("is", "are")),
+            FormatListOfNames(notAvailableLanguages,
+                              preMessage = c("language", "languages"),
+                              postMessage = c("is", "are")),
             " not available.")
     languages <- setdiff(languages, notAvailableLanguages)
   }

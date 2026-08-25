@@ -13,11 +13,11 @@ AssembleThesaurus <- function(
   nonPresentLanguages <- setdiff(combination, names(thesaurus.db))
   if(length(nonPresentLanguages) > 0)
   {
-    warning(paste0("The requested language",
-                   FormatListOfNames(nonPresentLanguages, c("\"", "\""),
-                                     preMessage = c("", "s"),
-                                     postMessage = c("is", "are")),
-                   " not present."))
+    warning("The requested language",
+            FormatListOfNames(nonPresentLanguages,
+                              preMessage = c("", "s"),
+                              postMessage = c("is", "are")),
+            " not present.")
     combination <- setdiff(combination, nonPresentLanguages)
   }
   errorMessage <- ""
@@ -31,11 +31,10 @@ AssembleThesaurus <- function(
         return(FALSE) }
     )
     if(isFALSE(assembledThesaurus))
-      stop(paste0("Language ", language,
-                  " incompatible with some previous language:\n    ",
-                  FormatListOfNames(includedLanguages, c("\"", "\""),
-                                    conjunction = "or"), ".\n",
-                  errorMessage))
+      stop("Language ", language,
+           " incompatible with some previous language:\n    ",
+           FormatListOfNames(includedLanguages, conjunction = "or"),
+           ".\n", errorMessage)
     includedLanguages <- c(includedLanguages, language)
   }
   return(assembledThesaurus)

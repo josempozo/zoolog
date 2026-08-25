@@ -124,11 +124,10 @@ CondenseLogs <- function(data,
   if(is.character(method) && (method %in% names(condenseMethod)))
     method <- condenseMethod[[method]]
   if(!is.function(method))
-    stop(paste0("Not recognized method.\n",
-                "Predefined accepted methods are ",
-                paste0(paste0("\"", names(condenseMethod), "\""),
-                       collapse = ", "), ".\n",
-                "Alternatively, it can be a user defined function."))
+    stop("Not recognized method.\n",
+         "Predefined accepted methods are ",
+         FormatListOfNames(names(condenseMethod)), ".\n",
+         "Alternatively, it can be a user defined function.")
 
   summaryMeasures <- names(grouping)
   data[, summaryMeasures] <- NA
