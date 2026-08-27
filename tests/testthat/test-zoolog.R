@@ -112,6 +112,21 @@ test_that("StandardizeDataSet with SetStandardLanguage to Portuguese.", {
   expect_equal(testDataPruned_std, testDataPruned_Portuguese)
 })
 
+test_that("Check correct error message for thesaurus ambiguity", {
+  expect_error(
+    AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE),
+      list(red = c("vermilion", "scarlet", "ruby", "cherry", "carmine"),
+           blue = c("sky blue", "azure", "sapphire", "cyan", "let scar"),
+           brown = c("hazel", "chocolate-coloured", "brunette", "blueSky"))
+    ),
+    paste0("The resulting thesaurus would be ambiguous.", smthng,
+           "categories", smthng, "red", smthng, "blue", smthng,
+           "Shared", smthng, "scarlet", smthng,
+           "categories", smthng, "blue", smthng, "brown", smthng,
+           "Shared", smthng, "bluesky", smthng)
+  )
+})
+
 test_that("References' Taxa, elements, and measures included in thesauri.", {
   refCheckMessage <- capture_output(
     zoolog:::CheckReferenceStructure(referencesDatabase))
