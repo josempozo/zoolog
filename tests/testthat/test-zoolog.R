@@ -117,7 +117,7 @@ test_that("Check correct error message for thesaurus ambiguity", {
     AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE),
       list(red = c("vermilion", "scarlet", "ruby", "cherry", "carmine"),
            blue = c("sky blue", "azure", "sapphire", "cyan", "let scar"),
-           brown = c("hazel", "chocolate-coloured", "brunette", "blueSky"))
+           brown = c("hazel", "chocolate-coloured", "blues Ky", "brunette"))
     ),
     paste0("The resulting thesaurus would be ambiguous.", smthng,
            "categories", smthng, "red", smthng, "blue", smthng,
@@ -125,6 +125,19 @@ test_that("Check correct error message for thesaurus ambiguity", {
            "categories", smthng, "blue", smthng, "brown", smthng,
            "Shared", smthng, "bluesky", smthng)
   )
+})
+
+test_that("Check correct removal of repeated terms in thesaurus", {
+  thesList <- list(red = c("scarlet", "ruby", "let scar"),
+                   blue = c("sky blue", "blues Ky", "cyan"),
+                   brown = c("hazel", "brunette"))
+  # Set ["scarlet"] is subset of ["let scar"], so "scarlet" is removed.
+  # ["sky blue"] and ["blues Ky"] intersect but neither is subset.
+  thesDfGT <- data.frame(red = c("red", "ruby", "let scar", ""),
+                         blue = c("blue", "sky blue", "blues Ky", "cyan"),
+                         brown = c("brown", "hazel", "brunette", ""))
+  thes <- AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE), thesList)
+  expect_equal(thes, thesDfGT, check.attributes = FALSE)
 })
 
 test_that("References' Taxa, elements, and measures included in thesauri.", {
