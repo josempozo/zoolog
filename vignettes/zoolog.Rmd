@@ -124,7 +124,7 @@ identifierThesaurus
     category provides a series of equivalent names.
     For instance, with all languages active, *Taxon* includes the options
     `r a <- zoologThesaurus$identifier$Taxon;
-      zoolog:::FormatListOfNames(a[a != ""], c("*", "*"))`.
+      zoolog:::FormatListOfNames(a, c("*", "*"))`.
     This thesaurus is case, accent, and punctuation insensitive, so that, for
     instance, "Especie" is equivalent to
     "ESPECIE" or "Espècie".

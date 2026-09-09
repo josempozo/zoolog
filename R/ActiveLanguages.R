@@ -164,7 +164,8 @@ AssignStandardLanguageToThesaurus <- function(thesaurus, language,
   if(isTRUE(attr(thesaurusByLanguage, "structuredByLanguage")))
   {
     categoryIds <- names(thesaurusByLanguage$Base)
-    names(thesaurus) <- thesaurusByLanguage[[language]][1, categoryIds]
+    names(thesaurus) <- lapply(thesaurusByLanguage[[language]][categoryIds],
+                               function(x) x[1])
   }
   return(thesaurus)
 }

@@ -27,21 +27,21 @@
 #' The examples below show the list of four thesauri included in the provided
 #' \code{zoologThesurus}.
 #'
-#' Each thesaurus is a data frame also with additional attributes. Each column
-#' of the data frame is a category of names with equivalent meaning in the
-#' intended application. The column name identifies the category and is used
-#' as the standard when applying \code{\link{StandardizeNomenclature}}.
+#' Each thesaurus is an object of an S3 class named "thesaurus", internally
+#' based on a list of categories and some additional attributes. Each category
+#' is a vector of characters, representing terms with equivalent meaning in the
+#' intended application. The name of each list element identifies the category
+#' and is used as the standard when applying
+#' \code{\link{StandardizeNomenclature}}.
 #'
-#' The terms in each column (category) must not be included in any other
-#' column, since this would make the thesaurus ambiguous (see
-#' \code{\link{ThesaurusAmbiguity}}).
+#' The terms in each category must not be included in any other, since this
+#' would make the thesaurus ambiguous (see \code{\link{ThesaurusAmbiguity}}).
 #'
 #' Each thesaurus has the following attributes:
 #' \describe{
 #'   \item{names}{The name identifying the categories and their standard name
 #'           by default.}
-#'   \item{class}{"data.frame"}
-#'   \item{row.names}{Irrelevant}
+#'   \item{class}{"thesaurus".}
 #'   \item{caseSensitive}{Logical indicating whether the names in the thesaurus
 #'           should be considered case-sensitive.}
 #'   \item{accentSensitive}{Logical indicating whether the names in the
@@ -52,7 +52,14 @@
 #'           marks.}
 #'   \item{wordOrderSensitive}{Logical indicating whether multi-word names
 #'           should be differentiated by the order of the words.}
+#'   \item{description}{Character summarazing the thesaurus purpose and/or
+#'           source.}
 #' }
+#'
+#' The class "thesaurus" has a specialized method print, which shows the list
+#' of categories as if they were columns of a data.frame, and conveniently
+#' formats the attributes on sensitiveness and description
+#' (see \code{\link{print.thesaurus}})
 #'
 #' Each thesaurus has different sensitiveness.
 #' The identifier thesaurus is case, accent, and punctuation insensitive, so

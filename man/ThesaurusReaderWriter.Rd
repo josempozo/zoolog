@@ -34,7 +34,7 @@ thesaurusSet, respectively.
 Functions to read and write thesauri and thesaurus sets.
 }
 \examples{
-## Read a thesaurus for taxa:
+## Read a thesaurus for measures:
 thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
 ## The attributes of the thesaurus include the fields 'caseSensitive',

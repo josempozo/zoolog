@@ -82,8 +82,7 @@ StandardizeNomenclature <- function(x, thesaurus,
   if(x.isfactor) x <- as.character(x)
   thesaurus <- ExpandThesaurusForWordOrderSensitiveness(thesaurus)
   normalizedX <- NormalizeForSensitiveness(x, thesaurus)
-  normalizedThes <- lapply(thesaurus, function(a) a[a!=""])
-  normalizedThes <- NormalizeForSensitiveness(normalizedThes, thesaurus)
+  normalizedThes <- NormalizeForSensitiveness(thesaurus, thesaurus)
   y <- sapply(normalizedThes, is.element, el = normalizedX)
   if(mark.unknown) x[] <- NA
   if(length(x)>1) ynames <- colnames(y) else ynames <- names(y)

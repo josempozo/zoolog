@@ -2,6 +2,7 @@
 % Please edit documentation in R/ThesaurusManagement.R
 \name{ThesaurusManagement}
 \alias{ThesaurusManagement}
+\alias{Thesaurus}
 \alias{NewThesaurus}
 \alias{AddToThesaurus}
 \alias{RemoveRepeatedNames}
@@ -11,11 +12,18 @@
 \alias{RemoveCategory}
 \title{Thesaurus Management}
 \usage{
+Thesaurus(
+  termList,
+  thesAttrib = list(caseSensitive = FALSE, accentSensitive = FALSE, punctuationSensitive
+    = FALSE, wordOrderSensitive = TRUE, description = "")
+)
+
 NewThesaurus(
   caseSensitive = FALSE,
   accentSensitive = FALSE,
   punctuationSensitive = FALSE,
-  wordOrderSensitive = TRUE
+  wordOrderSensitive = TRUE,
+  description = ""
 )
 
 AddToThesaurus(thesaurus, newName, category = NULL)
@@ -124,8 +132,8 @@ try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 
 ## Remove repeated names in the same category:
-## If we included any repetitions
-thesaurusNew[8:9,1] <- c("scarlet", "ruby")
+## If we forced the inclusion of repetitions
+thesaurusNew$red[8:9] <- c("scarlet", "ruby")
 thesaurusNew
 ## they can be removed with
 thesaurusNew <- RemoveRepeatedNames(thesaurusNew)

@@ -24,21 +24,24 @@ JoinCategories <- function(thesaurus, categories)
                           categStandard, names(categStandard),
                           SIMPLIFY = FALSE)
 
-  thesList <- lapply(thesaurus, function(a) a[a!=""])
   namesToAdd <- lapply(categStandard,
-                       function(x) as.character(unlist(thesList[x])))
-  namesToAdd <- mapply(function(x,y,z) c(x,y,z),
-                       names(namesToAdd), namesToAdd, termsNotInThesaurus,
+                       function(x) unlist(thesaurus[x], use.names = FALSE))
+  namesToAdd <- mapply(function(x,y) c(x,y),
+                       namesToAdd, termsNotInThesaurus,
                        SIMPLIFY = FALSE)
-  thesList <- thesList[!(names(thesList) %in%
-                           c(names(namesToAdd),
-                             as.character(unlist(categStandard))))]
-  thesList <- c(thesList, namesToAdd)
-  thesNew <- ThesaurusFromList(thesList, attributes(thesaurus))
-  if(ambiguity <- ThesaurusAmbiguity(thesNew))
-    stop("Joining these categories would result in ambiguous thesaurus.\n",
-         attr(ambiguity, "errmessage"))
-  return(thesNew)
+  jointThes <- thesaurus[!(names(thesaurus) %in%
+                         c(names(namesToAdd),
+                           unlist(categStandard, use.names = FALSE)))]
+  jointThes <- c(jointThes, namesToAdd)
+  thesAttrib <- attributes(thesaurus)
+  thesAttrib <- thesAttrib[names(thesAttrib) != "names"]
+  jointDescription <- lapply(categories, FormatListOfNames,
+                             formatMarks = c("", ""))
+  jointDescription <- mapply(paste, names(categories), jointDescription,
+                             sep = " <- ", USE.NAMES = FALSE)
+  thesAttrib$description <- c(thesAttrib$description,
+                              "with joint categories", jointDescription)
+  Thesaurus(jointThes, thesAttrib)
 }
 
 SmartJoinCategories <- function(thesaurusSet, joinCategories)

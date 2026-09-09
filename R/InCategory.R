@@ -28,9 +28,8 @@
 #' @export
 InCategory <- function(x, category, thesaurus)
 {
-  thesList <- lapply(thesaurus, function(a) a[a!=""])
   category <- StandardizeNomenclature(category, thesaurus)
-  namesInCategory <- as.character(unlist(thesList[category]))
+  namesInCategory <- unlist(thesaurus[category], use.names = FALSE)
   SensitiveIn(x, namesInCategory, thesaurus)
 }
 
@@ -90,9 +89,7 @@ ExpandThesaurusForWordOrderSensitiveness <- function(thesaurus)
 {
   if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
   {
-    thesList <- lapply(thesaurus, function(a) unique(a[a!=""]))
-    thesList <- ExpandWordOrder(thesList)
-    thesaurus <- ThesaurusFromList(thesList, attributes(thesaurus))
+    thesaurus[] <- ExpandWordOrder(thesaurus)
   }
   return(thesaurus)
 }

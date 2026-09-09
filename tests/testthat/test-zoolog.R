@@ -133,9 +133,9 @@ test_that("Check correct removal of repeated terms in thesaurus", {
                    brown = c("hazel", "brunette"))
   # Set ["scarlet"] is subset of ["let scar"], so "scarlet" is removed.
   # ["sky blue"] and ["blues Ky"] intersect but neither is subset.
-  thesDfGT <- data.frame(red = c("red", "ruby", "let scar", ""),
-                         blue = c("blue", "sky blue", "blues Ky", "cyan"),
-                         brown = c("brown", "hazel", "brunette", ""))
+  thesDfGT <- list(red = c("red", "ruby", "let scar"),
+                   blue = c("blue", "sky blue", "blues Ky", "cyan"),
+                   brown = c("brown", "hazel", "brunette"))
   thes <- AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE), thesList)
   expect_equal(thes, thesDfGT, check.attributes = FALSE)
 })

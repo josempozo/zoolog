@@ -14,7 +14,7 @@
 #' thesaurusSet, respectively.
 #'
 #' @examples
-#' ## Read a thesaurus for taxa:
+#' ## Read a thesaurus for measures:
 #' thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
 #' ## The attributes of the thesaurus include the fields 'caseSensitive',
@@ -62,22 +62,19 @@ ReadThesaurus <- function(file)
   if(isTRUE(da$attr$structuredByLanguage))
   {
     thesaurus <- ReadThesaurusLanguageSet(da$data, file)
+    for(variable in c("caseSensitive", "accentSensitive",
+                      "punctuationSensitive", "wordOrderSensitive",
+                      "structuredByLanguage", "description"))
+    {
+      attr(thesaurus, variable) <- da$attr[[variable]]
+    }
+    return(thesaurus)
   }
   else
   {
-    thesaurus <- da$data
-    if(ambiguity <- ThesaurusAmbiguity(thesaurus))
-      stop("Ambiguous thesaurus in ", file , ":\n",
-           attr(ambiguity, "errmessage"))
+    tryCatch(Thesaurus(da$data, da$attr),
+             error = function(e) stop("File ", file , ": ", e[[1]]))
   }
-
-  for(variable in c("caseSensitive", "accentSensitive", "punctuationSensitive",
-                    "wordOrderSensitive",
-                    "structuredByLanguage", "description"))
-  {
-    attr(thesaurus, variable) <- da$attr[[variable]]
-  }
-  return(thesaurus)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -114,8 +111,8 @@ WriteThesaurus <- function(thesaurus, file)
 #' @export
 WriteThesaurusSet <- function(thesaurusSet, file)
 {
-  data <- data.frame()
-  data[1:length(thesaurusSet),"ThesaurusName"] <- names(thesaurusSet)
+  data <- list()
+  data$ThesaurusName <- names(thesaurusSet)
   data$FileName <- attr(thesaurusSet, "fileName")
   data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
   data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
@@ -145,19 +142,19 @@ ReadThesaurusAttributes <- function(file)
   return(y$attrib)
 }
 
-WriteThesaurusAttributes <- function(thesaurus, file)
+WriteThesaurusAttributes <- function(attributes, file)
 {
-  description <- attr(thesaurus, "description")
+  description <- attributes$description
   n <- min(max(nchar(description) + 10, 40), 60)
   commentLine = paste(rep("#", n), collapse = "")
   if(is.null(description))
     lines = c(commentLine, "## zoolog thesaurus")
   else
     lines = c(commentLine, paste("##", description))
-  for(attribute in c("caseSensitive", "accentSensitive", "punctuationSensitive",
-                     "wordOrderSensitive", "structuredByLanguage", "encoding"))
-    if(!is.null(value <- attr(thesaurus, attribute)))
-      lines = c(lines, paste("##", attribute, value))
+  for(trait in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                 "wordOrderSensitive", "structuredByLanguage", "encoding"))
+    if(!is.null(value <- attributes[[trait]]))
+      lines = c(lines, paste("##", trait, value))
   lines = c(lines, commentLine)
   CreateDirsIfNeeded(file)
   writeLines(lines, file)
@@ -192,8 +189,10 @@ ReadThesaurusData <- function(file, encoding)
   {
     data <- utils::read.csv2(file, comment.char = "#",
                              stringsAsFactors = FALSE,
+                             colClasses = "character",
                              encoding = encoding,
                              header = FALSE)
+    data <- lapply(data, function(a) a[a != ""])
   }
   else if(format == "hocon")
   {
@@ -207,8 +206,7 @@ ReadThesaurusData <- function(file, encoding)
       y <- gsub(", ", ",", y)
       strsplit(y, ",")
     }
-    dataList <- sapply(dataHocon, hoconToVector, USE.NAMES = FALSE)
-    data <- ThesaurusFromList(dataList, NULL)
+    data <- sapply(dataHocon, hoconToVector, USE.NAMES = FALSE)
   }
   else
     stop("Wrong file extension in ", file, ".")
@@ -220,7 +218,8 @@ WriteThesaurusData <- function(thesaurus, file, encoding)
   format <- tools::file_ext(file)
   if(format == "csv")
   {
-    utils::write.table(thesaurus, file,
+    data <- as.data.frame(thesaurus)
+    utils::write.table(data, file,
                        sep = ";", dec = ",", qmethod = "double",
                        row.names = FALSE, col.names = FALSE,
                        quote = FALSE,
@@ -228,10 +227,9 @@ WriteThesaurusData <- function(thesaurus, file, encoding)
   }
   else if(format == "hocon")
   {
-    thesaurusList <- lapply(thesaurus, function(a) a[a!=""])
     vectorToHocon <- function(x)
       paste0(x[1], ": [", paste(x[-1], collapse = ", "),"]")
-    thesaurusHocon <- sapply(thesaurusList, vectorToHocon)
+    thesaurusHocon <- sapply(thesaurus, vectorToHocon)
     fileConn <- file(file, encoding = encoding, open = "a")
     writeLines(thesaurusHocon, fileConn)
     close(fileConn)
@@ -249,11 +247,9 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
   if(is.null(attr$encoding)) attr$encoding <- "unknown"
   if(is.null(repeatHeader)) repeatHeader <- !isTRUE(attr$structuredByLanguage)
   data <- ReadThesaurusData(file, attr$encoding)
-  names(data) <- data[1,]
-  if(!repeatHeader) data <- data[-1,]
-  rownames(data) <- NULL
+  names(data) <- as.character(lapply(data, function(a) a[1]))
+  if(!repeatHeader) data <- lapply(data, function(a) a[-1])
   data <- utils::type.convert(data, as.is = TRUE)
-  data[is.na(data)] <- ""
   list(data = data, attr = attr)
 }
 
@@ -262,10 +258,11 @@ WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE)
   encoding <- GetFirstNonTrivialEncoding(unlist(thesaurus))
   if(encoding != "") attr(thesaurus, "encoding") <- encoding
 
-  WriteThesaurusAttributes(thesaurus, file)
+  WriteThesaurusAttributes(attributes(thesaurus), file)
   # Assigning the names as first row instead of write.table argument
   # col.names, avoids its warning when appending.
-  if(col.names) thesaurus <- rbind(names(thesaurus), thesaurus)
+  if(col.names) thesaurus[] <- mapply(c, names(thesaurus), thesaurus,
+                                      SIMPLIFY = FALSE)
   WriteThesaurusData(thesaurus, file, encoding)
 }
 
@@ -295,18 +292,14 @@ ReadThesaurusLanguageSet <- function(data, file)
 ReadThesaurusForLanguage <- function(file, repeatHeader)
 {
   da <- ReadDataAndAttributes(file, repeatHeader)
-  thesaurus <- da$data
-  if(ambiguity <- ThesaurusAmbiguity(thesaurus))
-    stop("Ambiguous thesaurus in ", file , ":\n",
-         attr(ambiguity, "errmessage"))
-  attr(thesaurus, "description") <- da$attr$description
-  return(thesaurus)
+#TODO: The Ambiguity must be tested with attributes
+  thes <- Thesaurus(da$data, da$attr)
+  return(thes)
 }
 
 BuildThesaurusLanguageSetData <- function(thesaurus)
 {
-  data <- as.data.frame(lapply(c("names", "fileName"), attr, x = thesaurus),
-                        stringsAsFactors = FALSE)
+  data <- lapply(c("names", "fileName"), attr, x = thesaurus)
   names(data) <- c("Language", "FileName")
   attribs <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
                "wordOrderSensitive", "structuredByLanguage", "description")
