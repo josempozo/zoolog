@@ -13,9 +13,12 @@
 \title{Thesaurus Management}
 \usage{
 Thesaurus(
-  termList,
-  thesAttrib = list(caseSensitive = FALSE, accentSensitive = FALSE, punctuationSensitive
-    = FALSE, wordOrderSensitive = TRUE, description = "")
+  terms,
+  caseSensitive = FALSE,
+  accentSensitive = FALSE,
+  punctuationSensitive = FALSE,
+  wordOrderSensitive = TRUE,
+  description = ""
 )
 
 NewThesaurus(
@@ -26,7 +29,7 @@ NewThesaurus(
   description = ""
 )
 
-AddToThesaurus(thesaurus, newName, category = NULL)
+AddToThesaurus(thesaurus, terms, category = NULL, newName = terms)
 
 RemoveRepeatedNames(thesaurus)
 
@@ -44,11 +47,11 @@ and word-order sensitivity (\code{TRUE} by default) of the thesaurus.}
 
 \item{thesaurus}{A thesaurus object.}
 
-\item{newName}{Character vector or named list of character vectors
-with new terms to be added to the thesaurus.}
-
 \item{category}{Character vector identifying the categories to be removed or
 where the new names should be included.}
+
+\item{newName}{Character vector or named list of character vectors
+with new terms to be added to the thesaurus.}
 
 \item{term}{Character vector of terms.}
 }

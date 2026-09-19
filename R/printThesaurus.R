@@ -2,16 +2,16 @@
 print.thesaurus <- function(x, ...)
 {
   print(as.data.frame(x), ...)
-  sensNames <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
-                 "wordOrderSensitive")
-  sensitiveness <- sapply(
-    sensNames,
-    function(a) {y <- attributes(x)[[a]]; if(is.null(y)) NA else y}
-  )
-  cat("\nSensitiveness:\n")
-  print(sensitiveness)
-  cat("\nDescription:\n")
-  cat(paste("  ", attributes(x)[["description"]], collapse = "\n"))
+  if(!is.null(attributes(x)$sensitiveness))
+  {
+    cat("\nSensitiveness:\n")
+    print(attributes(x)$sensitiveness)
+  }
+  if(!is.null(attributes(x)$description))
+  {
+    cat("\nDescription:\n")
+    cat(paste("  ", attributes(x)$description, collapse = "\n"))
+  }
 }
 
 #' @export

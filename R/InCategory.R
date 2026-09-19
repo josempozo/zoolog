@@ -30,7 +30,7 @@ InCategory <- function(x, category, thesaurus)
 {
   category <- StandardizeNomenclature(category, thesaurus)
   namesInCategory <- unlist(thesaurus[category], use.names = FALSE)
-  SensitiveIn(x, namesInCategory, thesaurus)
+  SensitiveIn(x, namesInCategory, attr(thesaurus, "sensitiveness"))
 }
 
 #
@@ -47,47 +47,48 @@ InCategory <- function(x, category, thesaurus)
 #
 # For each element of x, is it in y?
 # For x_i \in x, is x_i \in [y]?
-SensitiveIn <- function(x, y, thesaurus)
+SensitiveIn <- function(x, y, sensitiveness)
 {
-  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  if(isFALSE(sensitiveness["wordOrderSensitive"]))
     y <- unlist(ExpandWordOrder(y))
-  xNormalized <- NormalizeForSensitiveness(x, thesaurus)
-  yNormalized <- NormalizeForSensitiveness(y, thesaurus)
+  xNormalized <- NormalizeForSensitiveness(x, sensitiveness)
+  yNormalized <- NormalizeForSensitiveness(y, sensitiveness)
   xNormalized %in% yNormalized
 }
 
 # For each element of x, is the set of terms it represents a subset of y?
 # For x_i \in x, does [x_i] \subset [y]?
-SensitiveIncluded <- function(x, y, thesaurus)
+SensitiveIncluded <- function(x, y, sensitiveness)
 {
-  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  if(isFALSE(sensitiveness["wordOrderSensitive"]))
   {
     x <- ExpandWordOrder(x)
     y <- unlist(ExpandWordOrder(y))
   }
-  x <- NormalizeForSensitiveness(x, thesaurus)
-  y <- NormalizeForSensitiveness(y, thesaurus)
+  x <- NormalizeForSensitiveness(x, sensitiveness)
+  y <- NormalizeForSensitiveness(y, sensitiveness)
   sapply(x, function(z) any(all(z %in% y)))
 }
 
 # Does the i-th element of x and the i-th element of y represent the same set?
 # Does [x_i] = [y_i]?
 # If y is a single term, then each element of x is compared with it.
-SensitiveEqual <- function(x, y, thesaurus)
+SensitiveEqual <- function(x, y, sensitiveness)
 {
-  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  if(isFALSE(sensitiveness["wordOrderSensitive"]))
   {
     x <- ExpandWordOrder(x)
     y <- ExpandWordOrder(y)
   }
-  x <- NormalizeForSensitiveness(x, thesaurus)
-  y <- NormalizeForSensitiveness(y, thesaurus)
+  x <- NormalizeForSensitiveness(x, sensitiveness)
+  y <- NormalizeForSensitiveness(y, sensitiveness)
   mapply(setequal, x, y)
 }
 
 ExpandThesaurusForWordOrderSensitiveness <- function(thesaurus)
 {
-  if(isFALSE(attr(thesaurus, "wordOrderSensitive")))
+  sensitiveness <- attr(thesaurus, "sensitiveness")
+  if(isFALSE(sensitiveness["wordOrderSensitive"]))
   {
     thesaurus[] <- ExpandWordOrder(thesaurus)
   }

@@ -62,9 +62,7 @@ ReadThesaurus <- function(file)
   if(isTRUE(da$attr$structuredByLanguage))
   {
     thesaurus <- ReadThesaurusLanguageSet(da$data, file)
-    for(variable in c("caseSensitive", "accentSensitive",
-                      "punctuationSensitive", "wordOrderSensitive",
-                      "structuredByLanguage", "description"))
+    for(variable in c("sensitiveness", "structuredByLanguage", "description"))
     {
       attr(thesaurus, variable) <- da$attr[[variable]]
     }
@@ -72,7 +70,7 @@ ReadThesaurus <- function(file)
   }
   else
   {
-    tryCatch(Thesaurus(da$data, da$attr),
+    tryCatch(Thesaurus0(da$data, da$attr),
              error = function(e) stop("File ", file , ": ", e[[1]]))
   }
 }
@@ -138,6 +136,7 @@ ReadThesaurusAttributes <- function(file)
     c("caseSensitive", "accentSensitive", "punctuationSensitive",
       "wordOrderSensitive", "structuredByLanguage", "encoding")
   )
+  y$attrib <- JoinSensitivenessVector(y$attrib)
   y$attrib[["description"]] <- y$text[y$text != ""]
   return(y$attrib)
 }
@@ -151,6 +150,7 @@ WriteThesaurusAttributes <- function(attributes, file)
     lines = c(commentLine, "## zoolog thesaurus")
   else
     lines = c(commentLine, paste("##", description))
+  attributes <- ExpandSensitivenessVector(attributes)
   for(trait in c("caseSensitive", "accentSensitive", "punctuationSensitive",
                  "wordOrderSensitive", "structuredByLanguage", "encoding"))
     if(!is.null(value <- attributes[[trait]]))
@@ -175,6 +175,23 @@ ExtractComplementVariables <- function(text, variables)
     }
   }
   return(list(attrib = attrib, text = text))
+}
+
+JoinSensitivenessVector <- function(attrib)
+{
+  sensNames <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
+                 "wordOrderSensitive")
+  sensitiveness = unlist(attrib[sensNames])
+  attrib[sensNames] <- NULL
+  attrib$sensitiveness = sensitiveness
+  return(attrib)
+}
+
+ExpandSensitivenessVector <- function(attrib)
+{
+  sensitiveness <- attrib$sensitiveness
+  attrib$sensitiveness <- NULL
+  c(attrib, sensitiveness)
 }
 
 ###########################################
@@ -293,7 +310,7 @@ ReadThesaurusForLanguage <- function(file, repeatHeader)
 {
   da <- ReadDataAndAttributes(file, repeatHeader)
 #TODO: The Ambiguity must be tested with attributes
-  thes <- Thesaurus(da$data, da$attr)
+  thes <- Thesaurus0(da$data, da$attr)
   return(thes)
 }
 
@@ -301,8 +318,7 @@ BuildThesaurusLanguageSetData <- function(thesaurus)
 {
   data <- lapply(c("names", "fileName"), attr, x = thesaurus)
   names(data) <- c("Language", "FileName")
-  attribs <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
-               "wordOrderSensitive", "structuredByLanguage", "description")
+  attribs <- c("sensitiveness", "structuredByLanguage", "description")
   attributes(data)[attribs] <- attributes(thesaurus)[attribs]
   return(data)
 }

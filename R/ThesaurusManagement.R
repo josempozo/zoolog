@@ -120,21 +120,29 @@
 
 #' @rdname ThesaurusManagement
 #' @export
-Thesaurus <- function(
-    termList,
-    thesAttrib = list(caseSensitive = FALSE, accentSensitive = FALSE,
+Thesaurus <- function(terms,
+                      caseSensitive = FALSE, accentSensitive = FALSE,
                       punctuationSensitive = FALSE, wordOrderSensitive = TRUE,
                       description = "")
+{
+  sensitiveness = c(caseSensitive = caseSensitive,
+                    accentSensitive = accentSensitive,
+                    punctuationSensitive = punctuationSensitive,
+                    wordOrderSensitive = wordOrderSensitive)
+  Thesaurus0(terms,
+             list(sensitiveness = sensitiveness, description = description))
+}
+
+Thesaurus0 <- function(
+    terms,
+    traits
 )
 {
-  if(!is.list(termList)) termList <- as.list(termList)
-  termList <- lapply(termList, function(a) a[a != ""])
-  thesaurus <- structure(termList,
-                         caseSensitive = thesAttrib$caseSensitive,
-                         accentSensitive = thesAttrib$accentSensitive,
-                         punctuationSensitive = thesAttrib$punctuationSensitive,
-                         wordOrderSensitive = thesAttrib$wordOrderSensitive,
-                         description = thesAttrib$description,
+  if(!is.list(terms)) terms <- as.list(terms)
+  terms <- lapply(terms, function(a) a[a != ""])
+  thesaurus <- structure(terms,
+                         sensitiveness = traits$sensitiveness,
+                         description = traits$description,
                          class = "thesaurus")
   if(ambiguity <- ThesaurusAmbiguity(thesaurus))
     stop("The resulting thesaurus would be ambiguous.\n",
@@ -151,10 +159,10 @@ NewThesaurus <- function(caseSensitive = FALSE, accentSensitive = FALSE,
                          description = "")
 {
   structure(list(),
-            caseSensitive = caseSensitive,
-            accentSensitive = accentSensitive,
-            punctuationSensitive = punctuationSensitive,
-            wordOrderSensitive = wordOrderSensitive,
+            sensitiveness = c(caseSensitive = caseSensitive,
+                              accentSensitive = accentSensitive,
+                              punctuationSensitive = punctuationSensitive,
+                              wordOrderSensitive = wordOrderSensitive),
             description = description,
             class = "thesaurus")
 }
@@ -165,7 +173,7 @@ as.data.frame.thesaurus <- function(x, ...,
                                     fix.empty.names = FALSE,
                                     stringsAsFactors = FALSE)
 {
-  n <- max(sapply(x, length))
+  n <- max(unlist(sapply(x, length)), 0)
   paddedThes <- lapply(x, function(a) c(as.character(a), rep("", n-length(a))))
   data.frame(paddedThes, row.names = NULL, check.rows = FALSE,
              check.names = check.names, fix.empty.names = fix.empty.names,
@@ -174,7 +182,7 @@ as.data.frame.thesaurus <- function(x, ...,
 
 #' @rdname ThesaurusManagement
 #' @export
-AddToThesaurus <- function(thesaurus, newName, category = NULL)
+AddToThesaurus <- function(thesaurus, terms, category = NULL, newName = terms)
 {
   if(is.null(category)) category <- names(newName)
   if(is.null(category))
@@ -200,11 +208,9 @@ AddToThesaurus <- function(thesaurus, newName, category = NULL)
 #' @export
 RemoveRepeatedNames <- function(thesaurus)
 {
-#  thesClean <- mapply(function(x,y) x[!duplicated(y) & y!=""],
-#                      thesaurus,
-#                      lapply(thesaurus, NormalizeForSensitiveness, thesaurus),
-#                      SIMPLIFY = FALSE)
-  thesaurus[] <- lapply(thesaurus, function(a) a[!RedundantTerms(a, thesaurus)])
+  sensitiveness <- attr(thesaurus, "sensitiveness")
+  thesaurus[] <- lapply(thesaurus,
+                        function(a) a[!RedundantTerms(a, sensitiveness)])
   return(thesaurus)
 }
 
@@ -214,8 +220,8 @@ ThesaurusAmbiguity <- function(thesaurus)
 {
   if(length(thesaurus)<2) return(FALSE)
   thesaurus <- ExpandThesaurusForWordOrderSensitiveness(thesaurus)
-  thesVec <- unlist(thesaurus, use.names = FALSE)
-  thesVec <- NormalizeForSensitiveness(thesVec, thesaurus)
+  thesVec <- NormalizeForSensitiveness(unlist(thesaurus, use.names = FALSE),
+                                       attr(thesaurus, "sensitiveness"))
   class(thesaurus) <- "list"
   thesList <- utils::relist(thesVec, thesaurus)
   duplications <- duplicated(thesVec)
@@ -256,7 +262,8 @@ RemoveTermFromThesaurus <- function(thesaurus, term)
   }
 
   standardTerm <- StandardizeNomenclature(term, thesaurus)
-  foundStandard <- SensitiveEqual(term, standardTerm, thesaurus)
+  sensitiveness <- attr(thesaurus, "sensitiveness")
+  foundStandard <- SensitiveEqual(term, standardTerm, sensitiveness)
   if(any(foundStandard))
   {
     warning("The standard ",
@@ -272,7 +279,7 @@ RemoveTermFromThesaurus <- function(thesaurus, term)
   for(i in seq_len(length(term)))
   {
     stdTerm <- standardTerm[i]
-    termId <- SensitiveEqual(thesaurus[[stdTerm]], term[i], thesaurus)
+    termId <- SensitiveEqual(thesaurus[[stdTerm]], term[i], sensitiveness)
     thesaurus[[stdTerm]] <- thesaurus[[stdTerm]][!termId]
   }
   return(thesaurus)
@@ -297,7 +304,8 @@ ChangeStandardInThesaurus <- function(thesaurus, term)
   for(i in seq_len(length(term)))
   {
     categoryId <- which(names(thesaurus) == standardTerm[i])
-    termId <- which(SensitiveEqual(thesaurus[[categoryId]], term[i], thesaurus))
+    termId <- which(SensitiveEqual(thesaurus[[categoryId]], term[i],
+                                   attr(thesaurus, "sensitiveness")))
     names(thesaurus)[categoryId] <- term[i]
     thesaurus[[categoryId]][termId[1]] <- thesaurus[[categoryId]][1]
     thesaurus[[categoryId]][1] <- term[i]
@@ -322,27 +330,23 @@ RemoveCategory <- function(thesaurus, category)
   }
 
   toRemove <- names(thesaurus) %in% standardCategory
-  Thesaurus(thesaurus[!toRemove], attributes(thesaurus))
+  Thesaurus0(thesaurus[!toRemove], attributes(thesaurus))
 }
 
 #
 # From here internal functions. Not exported.
 #
-NormalizeForSensitiveness <- function(x, thesaurus)
+NormalizeForSensitiveness <- function(x, sensitiveness)
 {
   if(is.list(x))
   {
     xClass <- class(x)
     class(x) <- "list"
-    x <- utils::relist(NormalizeForSensitiveness(unlist(x), thesaurus), x)
+    x <- utils::relist(NormalizeForSensitiveness(unlist(x), sensitiveness), x)
     class(x) <- xClass
     return(x)
   }
-  sensitivenessAttrNames <- c("caseSensitive",
-                              "accentSensitive",
-                              "punctuationSensitive")
-  sensitivenessAttr <- unlist(attributes(thesaurus)[sensitivenessAttrNames])
-  normalizedX <- SensitivenessTransformation(x, sensitivenessAttr)
+  normalizedX <- SensitivenessTransformation(x, sensitiveness)
   return(normalizedX)
 }
 
@@ -357,10 +361,10 @@ SensitivenessTransformation <- function(x, sensitiveness)
   return(x)
 }
 
-RedundantTerms <- function(x, thesaurus)
+RedundantTerms <- function(x, sensitiveness)
 {
-  if(isFALSE(attr(thesaurus, "wordOrderSensitive"))) x <- ExpandWordOrder(x)
-  x <- NormalizeForSensitiveness(x, thesaurus)
+  if(isFALSE(sensitiveness["wordOrderSensitive"])) x <- ExpandWordOrder(x)
+  x <- NormalizeForSensitiveness(x, sensitiveness)
   redundant <- rep(FALSE, length(x))
   for(i in rev(seq_len(length(x))))
   {
@@ -377,7 +381,8 @@ RedundantTerms <- function(x, thesaurus)
 #  gsub("\f", "", x)
 #  thesList <- lapply(thesaurus, function(a) a[a!=""])
 #  thesaurusTerms <- as.character(unlist(thesList))
-#  sapply(x, function(y) any(SensitiveIn(thesaurusTerms, x, thesaurus)))
+#  sapply(x, function(y) any(SensitiveIn(thesaurusTerms, x,
+#                                        attr(thesaurus, "sensitiveness"))))
 #}
 
 ThesaurusMissingLanguageStandard <- function(thesaurus)

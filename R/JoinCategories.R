@@ -41,7 +41,7 @@ JoinCategories <- function(thesaurus, categories)
                              sep = " <- ", USE.NAMES = FALSE)
   thesAttrib$description <- c(thesAttrib$description,
                               "with joint categories", jointDescription)
-  Thesaurus(jointThes, thesAttrib)
+  Thesaurus0(jointThes, thesAttrib)
 }
 
 SmartJoinCategories <- function(thesaurusSet, joinCategories)
@@ -49,8 +49,8 @@ SmartJoinCategories <- function(thesaurusSet, joinCategories)
   if(length(joinCategories)==0) return(thesaurusSet)
   coincidences <- sapply(joinCategories, function(x) {
     sapply(thesaurusSet, function(y) {
-      normalizedThes <- NormalizeForSensitiveness(y, y)
-      normalizedX <- NormalizeForSensitiveness(x, y)
+      normalizedThes <- NormalizeForSensitiveness(y, attr(y, "sensitiveness"))
+      normalizedX <- NormalizeForSensitiveness(x, attr(y, "sensitiveness"))
       any(normalizedX %in% as.character(
         unlist(lapply(normalizedThes, function(a) a[a!=""]))))
     })

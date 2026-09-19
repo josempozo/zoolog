@@ -6,8 +6,7 @@ AssembleThesaurus <- function(
   if(!isTRUE(attr(thesaurus.db, "structuredByLanguage"))) return(thesaurus.db)
 
   assembledThesaurus <- NewThesaurus()
-  for(attrib in c("caseSensitive", "accentSensitive", "punctuationSensitive",
-                  "wordOrderSensitive", "description"))
+  for(attrib in c("sensitiveness", "description"))
     attr(assembledThesaurus, attrib) <- attr(thesaurus.db, attrib)
 
   nonPresentLanguages <- setdiff(combination, names(thesaurus.db))
