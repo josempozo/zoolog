@@ -7,7 +7,8 @@ print.thesaurus <- function(x, ...)
     cat("\nSensitiveness:\n")
     print(attributes(x)$sensitiveness)
   }
-  if(!is.null(attributes(x)$description))
+  if(!(is.null(attributes(x)$description) ||
+       isTRUE(attributes(x)$description == "")))
   {
     cat("\nDescription:\n")
     cat(paste("  ", attributes(x)$description, collapse = "\n"))
