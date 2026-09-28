@@ -34,7 +34,6 @@ JoinCategories <- function(thesaurus, categories)
                            unlist(categStandard, use.names = FALSE)))]
   jointThes <- c(jointThes, namesToAdd)
   thesAttrib <- attributes(thesaurus)
-  thesAttrib <- thesAttrib[names(thesAttrib) != "names"]
   jointDescription <- lapply(categories, FormatListOfNames,
                              formatMarks = c("", ""))
   jointDescription <- mapply(paste, names(categories), jointDescription,

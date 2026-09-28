@@ -114,7 +114,7 @@ test_that("StandardizeDataSet with SetStandardLanguage to Portuguese.", {
 
 test_that("Check correct error message for thesaurus ambiguity", {
   expect_error(
-    AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE),
+    AddToThesaurus(Thesaurus(wordOrderSensitive = FALSE),
       list(red = c("vermilion", "scarlet", "ruby", "cherry", "carmine"),
            blue = c("sky blue", "azure", "sapphire", "cyan", "let scar"),
            brown = c("hazel", "chocolate-coloured", "blues Ky", "brunette"))
@@ -136,8 +136,9 @@ test_that("Check correct removal of repeated terms in thesaurus", {
   thesDfGT <- list(red = c("red", "ruby", "let scar"),
                    blue = c("blue", "sky blue", "blues Ky", "cyan"),
                    brown = c("brown", "hazel", "brunette"))
-  thes <- AddToThesaurus(NewThesaurus(wordOrderSensitive = FALSE), thesList)
-  expect_equal(thes, thesDfGT, check.attributes = FALSE)
+  thes <- AddToThesaurus(Thesaurus(wordOrderSensitive = FALSE), thesList)
+  expect_equal(thes, thesDfGT,
+               ignore_attr = c("class", "sensitiveness", "description"))
 })
 
 test_that("References' Taxa, elements, and measures included in thesauri.", {

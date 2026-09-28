@@ -53,9 +53,10 @@ Imports:
     stringi,
     pracma,
     tools,
-    Rdpack (>= 0.7)
+    Rdpack (>= 0.7),
+    lifecycle
 Config/testthat/edition: 3
 RdMacros: Rdpack
 VignetteBuilder: knitr
 URL: https://josempozo.github.io/zoolog/
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.0

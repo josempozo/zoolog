@@ -277,16 +277,17 @@ The full list of functions is available under the zoolog *help* page. We list th
 [**Thesaurus management**](../help/ThesaurusManagement)
   : This includes functions to modify and check thesauri:
   
-    * `NewThesaurus` generates an empty thesaurus.
-    * `AddToThesaurus` adds new terms and categories to an existing thesaurus.
-    * `RemoveRepeatedNames` cleans a thesaurus from any repeated terms on any
+    * `Thesaurus` generates a thesaurus.
+    * `AddToThesaurus` adds new terms and/or categories to an existing
+      thesaurus.
+    * `RemoveFromThesaurus` remove terms and/or categories from an existing
+      thesaurus.
+    * `RemoveRedundantTerms` cleans a thesaurus from any repeated terms on any
       category.
     * `ThesaurusAmbiguity` checks if there are terms included in more than one
       category in a thesaurus.
-    * `RemoveTermFromThesaurus` remove terms from a thesaurus.
     * `ChangeStandardInThesaurus` change the terms defining the standard on a
       thesaurus.
-    * `RemoveCategory` remove categories from a thesaurus.
 
 # Examples
 The following examples are designed to be read and run sequentially. They 
@@ -553,7 +554,7 @@ pairwise.t.test(dataOCStandardized$Width, dataOCStandardized$Site,
 # How to cite the package *zoolog*
 
 We have invested a lot of time and effort in creating zoolog. Please cite the package if you publish an analysis or results obtained using *zoolog*.
-For example, "Log ratios calculation and analysis was done using the package zoolog  [@pozo2023zoolog] in R 4.0.3 [@RCoreTeam2020]."
+For example, "Log ratios calculation and analysis was done using the package zoolog [@pozo2023zoolog] in R 4.6.0 [@RCoreTeam2020]."
 
 To get the details of the most recent version of the package, you can use the R citation function: `citation("zoolog")`.
 

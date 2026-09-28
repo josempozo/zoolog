@@ -3,17 +3,15 @@
 \name{ThesaurusManagement}
 \alias{ThesaurusManagement}
 \alias{Thesaurus}
-\alias{NewThesaurus}
 \alias{AddToThesaurus}
-\alias{RemoveRepeatedNames}
+\alias{RemoveFromThesaurus}
+\alias{RemoveRedundantTerms}
 \alias{ThesaurusAmbiguity}
-\alias{RemoveTermFromThesaurus}
 \alias{ChangeStandardInThesaurus}
-\alias{RemoveCategory}
 \title{Thesaurus Management}
 \usage{
 Thesaurus(
-  terms,
+  terms = list(),
   caseSensitive = FALSE,
   accentSensitive = FALSE,
   punctuationSensitive = FALSE,
@@ -21,51 +19,47 @@ Thesaurus(
   description = ""
 )
 
-NewThesaurus(
-  caseSensitive = FALSE,
-  accentSensitive = FALSE,
-  punctuationSensitive = FALSE,
-  wordOrderSensitive = TRUE,
-  description = ""
-)
+AddToThesaurus(thesaurus, terms, category = NULL, newName = deprecated())
 
-AddToThesaurus(thesaurus, terms, category = NULL, newName = terms)
+RemoveFromThesaurus(thesaurus, terms = NULL, category = NULL)
 
-RemoveRepeatedNames(thesaurus)
+RemoveRedundantTerms(thesaurus)
 
 ThesaurusAmbiguity(thesaurus)
 
-RemoveTermFromThesaurus(thesaurus, term)
-
-ChangeStandardInThesaurus(thesaurus, term)
-
-RemoveCategory(thesaurus, category)
+ChangeStandardInThesaurus(thesaurus, terms)
 }
 \arguments{
+\item{terms}{Character vector or named list of character vectors with terms.}
+
 \item{caseSensitive, accentSensitive, punctuationSensitive, wordOrderSensitive}{Logical. They set the case, accent, punctuation (\code{FALSE} by default),
 and word-order sensitivity (\code{TRUE} by default) of the thesaurus.}
+
+\item{description}{Character summarizing the thesaurus purpose and/or source.}
 
 \item{thesaurus}{A thesaurus object.}
 
 \item{category}{Character vector identifying the categories to be removed or
-where the new names should be included.}
+where the new terms should be included.}
 
-\item{newName}{Character vector or named list of character vectors
-with new terms to be added to the thesaurus.}
-
-\item{term}{Character vector of terms.}
+\item{newName}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Alias of parameter
+\code{terms} in \code{AddToThesurus}, for backwards compatibility.}
 }
 \value{
-\code{NewThesaurus} returns an empty thesaurus. This can then be
-populated by \code{AddToThesaurus}.
+\code{Thesaurus} returns a thesaurus including the specified terms and with
+the requested sensitiveness and description.
 
 \code{AddToThesaurus} returns the input thesaurus complemented with new
 terms in the categories identified. If any of the categories is not present
 in the input thesaurus, new categories are added as required.
+From version 2.0.0, any resulting redundant term is silently removed.
 
-\code{RemoveRepeatedNames} returns the input thesaurus pruned of redundant
-terms in each category. The redundancy is evaluated in agreement with the
-case and accent sensitivity of the thesaurus.
+\code{RemoveFromThesaurus} returns the thesaurus after removing the
+specified terms and/or the specified categories.
+
+\code{RemoveRedundantTerms} returns the input thesaurus pruned of redundant
+terms in each category. The redundancy is evaluated in agreement with
+sensitiveness of the thesaurus.
 
 \code{ThesaurusAmbiguity} returns FALSE if no ambiguity is present. When any
 ambiguity is found, it returns TRUE with an attribute \code{errmessage}
@@ -74,26 +68,24 @@ the involved categories. This is internally used by
 \code{\link{ReadThesaurus}} and \code{\link{AddToThesaurus}} to generate an
 error in case they attempt to read or generate an ambiguous thesaurus.
 
-\code{RemoveTermFromThesaurus} returns the thesaurus after removing the
-specified terms.
-
-\code{ChangeStandardInThesaurus} returns the thesaurus where each of the
-specified terms is set as the standard for category including it.
-
-\code{RemoveCategory} returns the thesaurus after removing the specified
-categories.
+\code{ChangeStandardInThesaurus} returns the thesaurus after setting each of
+the specified terms as the standard for the category including it.
 }
 \description{
-Functions to modify and check thesauri.
+Functions to generate, modify, and check thesauri.
 }
 \details{
+From version 2.0.0, \code{thesaurus} has been more cleanly defined as an S3 class.
+A more general constructor \code{Thesaurus} has been defined, deprecating
+the previous \code{\link{NewThesaurus}}, and the nomenclature of functions and
+arguments has been improved. Thus, the function
+\code{\link{RemoveRepeatedNames}} has been renamed as
+\code{RemoveRedundantTerms} and the argument \code{newName} as \code{terms}.
+
 In the function \code{AddToThesaurus} the categories in which to add new
 terms can be specified either as names of a named list given as argument
-\code{newName} or explicitly in the argument \code{category}. See the
+\code{terms} or explicitly in the argument \code{category}. See the
 examples below illustrating both alternatives.
-
-From version 1.2.0 \code{AddToThesurus} directly removes repeated names in
-the resulting thesaurus.
 }
 \examples{
 ## Load an example thesaurus:
@@ -103,35 +95,29 @@ thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurusExample.csv",
 names(thesaurus) #  "Bos taurus"  "Ovis aries"  "Sus domesticus"
 ## Add names to several categories:
 thesaurusExtended <- AddToThesaurus(thesaurus,
-                                    c("Kuh", "Schwein"),
-                                    c("bos taurus","sus domesticus"))
+                                    list("bos taurus" = "Kuh",
+                                         "sus domesticus" = "Schwein"))
 ## This adds the name "Kuh" to the category "Bos taurus" and
 ## the name "Schwein" to the category "Sus domesticus".
 
-## Generate a new thesaurus and populate it with two categories
-## ("red" and "blue"):
-thesaurusNew <- NewThesaurus()
-thesaurusNew <- AddToThesaurus(thesaurusNew,
-                               c("scarlet", "vermilion", "ruby", "cherry",
-                                 "carmine", "wine"),
-                               "red")
-thesaurusNew
-thesaurusNew <- AddToThesaurus(thesaurusNew,
-                               c("sky blue", "azure", "sapphire", "cerulean",
-                                 "navy"),
-                               "blue")
+## Generate a new thesaurus populated with two categories ("red" and "blue"):
+thesaurusNew <- Thesaurus(list(
+  red = c("scarlet", "vermilion", "ruby", "cherry", "carmine", "wine"),
+  blue = c("sky blue", "azure", "sapphire", "cerulean", "navy")
+))
 thesaurusNew
 
-## Categories and names can also be included as named list
+## Add new terms to existing category and new categories to the thesaurus:
 thesaurusNew <- AddToThesaurus(thesaurusNew, list(
   blue = c("lapis lazuli", "indigo", "cyan"),
-  brown = c("hazel", "chocolate-coloured", "brunette", "mousy", "beige")) )
+  brown = c("hazel", "chocolate-coloured", "brunette", "mousy", "beige")
+))
 thesaurusNew
 
 ## Attempt to generate an ambiguous thesaurus
 try(AddToThesaurus(thesaurusNew, "scarlet", "blue"))
 
-## From version 2.0.0 AddToThesurus directly removes repeated names:
+## From version 2.0.0 AddToThesurus directly removes repeated terms:
 AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 
 ## Remove repeated names in the same category:
@@ -139,16 +125,16 @@ AddToThesaurus(thesaurusNew, c("scarlet", "ruby"), "red")
 thesaurusNew$red[8:9] <- c("scarlet", "ruby")
 thesaurusNew
 ## they can be removed with
-thesaurusNew <- RemoveRepeatedNames(thesaurusNew)
+thesaurusNew <- RemoveRedundantTerms(thesaurusNew)
 thesaurusNew
 
 ## Terms can also be explicitly removed from the thesaurus:
-thesaurusNew <- RemoveTermFromThesaurus(thesaurusNew,
-                                        c("vermilion", "cerulean", "indigo"))
+thesaurusNew <- RemoveFromThesaurus(thesaurusNew,
+                                    c("vermilion", "cerulean", "indigo"))
 thesaurusNew
 
 ## Also categories can be removed:
-thesaurusNew <- RemoveCategory(thesaurusNew, "azure")
+thesaurusNew <- RemoveFromThesaurus(thesaurusNew, category = "azure")
 thesaurusNew
 
 ## The standard term of any category can be changed to a different term in
