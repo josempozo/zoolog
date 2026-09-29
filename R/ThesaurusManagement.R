@@ -351,10 +351,11 @@ RemoveCategory <- function(thesaurus, category)
   Thesaurus0(thesaurus[!toRemove], attributes(thesaurus))
 }
 
-warnParent <- function(...)
+warnParent <- function(..., levels = 2)
 {
-  # Call from the grandparent of `warnParent` if it exist, else its parent.
-  parent_call <- sys.call(sys.parent(3) + 1)
+  # Call from at most as many levels up. By default (levels = 2)
+  # coll the grandparent of `warnParent` if it exist, else its parent.
+  parent_call <- sys.call(sys.parent(levels + 1) + 1)
   warning(simpleWarning(paste0(...), call = parent_call))
 }
 

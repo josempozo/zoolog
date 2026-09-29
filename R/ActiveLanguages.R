@@ -164,8 +164,18 @@ AssignStandardLanguageToThesaurus <- function(thesaurus, language,
   if(isTRUE(attr(thesaurusByLanguage, "structuredByLanguage")))
   {
     categoryIds <- names(thesaurusByLanguage$Base)
-    names(thesaurus) <- lapply(thesaurusByLanguage[[language]][categoryIds],
-                               function(x) x[1])
+    newStandards <- lapply(thesaurusByLanguage[[language]][categoryIds],
+                           function(x) x[1])
+    missingStandard <- is.na(newStandards)
+    names(thesaurus)[!missingStandard] <- newStandards[!missingStandard]
+    if(any(missingStandard))
+    {
+      warnParent("Missing language standard for ",
+                 FormatListOfNames(categoryIds[missingStandard],
+                                   preMessage = c("category:", "categories:")),
+                 ",\n  for which previous standard has been kept.",
+                 levels = 3)
+    }
   }
   return(thesaurus)
 }
