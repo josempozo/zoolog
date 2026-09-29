@@ -17,9 +17,8 @@
 #' ## Read a thesaurus for measures:
 #' thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
-#' ## The attributes of the thesaurus include the fields 'caseSensitive',
-#' ## 'accentSensitive', 'punctuationSensitive', "wordOrderSensitive', and
-#' ## 'description' as read from the file.
+#' ## The attributes of the thesaurus include the fields 'sensitiveness',
+#' ## and 'description' as read from the file.
 #' attributes(thesaurus)
 #'
 #' ## Write the thesarus to a file:
