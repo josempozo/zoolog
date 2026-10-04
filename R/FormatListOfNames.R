@@ -5,6 +5,7 @@ FormatListOfNames <- function(names, formatMarks = c("\"", "\""),
 {
   n <- length(names)
   if(n == 0) return("")
+  if(length(formatMarks) == 1) formatMarks <- rep(formatMarks, 2)
   formatedNames <- paste0(formatMarks[1], names, formatMarks[2])
   preN <- min(length(preMessage), n)
   postN <- min(length(postMessage), n)
