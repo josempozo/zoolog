@@ -91,7 +91,7 @@ GetAvailableLanguages <- function(thesaurusSet.db)
   languageNames <- c()
   for(thesaurus.db in thesaurusSet.db)
   {
-    if(isTRUE(attr(thesaurus.db, "structuredByLanguage")))
+    if(inherits(thesaurus.db, "thesaurusLanguageSet"))
       languageNames <- union(languageNames, names(thesaurus.db))
   }
   return(languageNames)
@@ -161,7 +161,7 @@ internalEnvironment <- new.env()
 AssignStandardLanguageToThesaurus <- function(thesaurus, language,
                                               thesaurusByLanguage)
 {
-  if(isTRUE(attr(thesaurusByLanguage, "structuredByLanguage")))
+  if(inherits(thesaurusByLanguage, "thesaurusLanguageSet"))
   {
     categoryIds <- names(thesaurusByLanguage$Base)
     newStandards <- lapply(thesaurusByLanguage[[language]][categoryIds],

@@ -3,7 +3,7 @@ AssembleThesaurus <- function(
     combination = names(thesaurus.db)
 )
 {
-  if(!isTRUE(attr(thesaurus.db, "structuredByLanguage"))) return(thesaurus.db)
+  if(!inherits(thesaurus.db, "thesaurusLanguageSet")) return(thesaurus.db)
 
   assembledThesaurus <- Thesaurus0(list(), attributes(thesaurus.db))
 
@@ -42,18 +42,17 @@ AssembleThesaurusSet <- function(
   combination = GetAvailableLanguages(thesaurusSet.db)
 )
 {
-  thesaurusSet <- lapply(thesaurusSet.db, AssembleThesaurus, combination)
-  for(attrib in c("applyToColNames", "applyToColValues"))
-    attr(thesaurusSet, attrib) <- attr(thesaurusSet.db, attrib)
-
-  structuredByLanguage <- lapply(thesaurusSet.db, attr, "structuredByLanguage")
-  attr(thesaurusSet, "fileName") <- MarkFileNamesWhenAssembled(thesaurusSet.db)
-  return(thesaurusSet)
+  ThesaurusSet(lapply(thesaurusSet.db, AssembleThesaurus, combination),
+               attr(thesaurusSet.db, "applyToColNames"),
+               attr(thesaurusSet.db, "applyToColValues"),
+               fileName = MarkFileNamesWhenAssembled(thesaurusSet.db))
 }
 
 MarkFileNamesWhenAssembled <- function(thesaurusSet.db)
 {
-  structuredByLanguage <- lapply(thesaurusSet.db, attr, "structuredByLanguage")
+  structuredByLanguage <- as.logical(
+    sapply(thesaurusSet.db, inherits, "thesaurusLanguageSet")
+  )
   fileNames <- mapply(
     function(x, y)
       paste0(tools::file_path_sans_ext(x), "(Assembled)"[y],

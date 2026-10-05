@@ -60,11 +60,7 @@ ReadThesaurus <- function(file)
   da <- ReadDataAndAttributes(file)
   if(isTRUE(da$attr$structuredByLanguage))
   {
-    thesaurus <- ReadThesaurusLanguageSet(da$data, file)
-    for(variable in c("sensitiveness", "structuredByLanguage", "description"))
-    {
-      attr(thesaurus, variable) <- da$attr[[variable]]
-    }
+    thesaurus <- ReadThesaurusLanguageSet(da, file)
     return(thesaurus)
   }
   else
@@ -83,24 +79,26 @@ ReadThesaurusSet <- function(file)
   filenames <- file.path(dir, x$data$FileName)
   thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- x$data$ThesaurusName
-  attr(thesaurusSet, "applyToColNames") <- x$data$ApplyToColNames
-  attr(thesaurusSet, "applyToColValues") <- x$data$ApplyToColValues
-  attr(thesaurusSet, "fileName") <- x$data$FileName
-  attr(thesaurusSet, "description") <- x$attr$description
-  return(thesaurusSet)
+  ThesaurusSet(thesaurusSet,
+               x$data$ApplyToColNames, x$data$ApplyToColValues,
+               x$attr$description, x$data$FileName)
 }
 
 #' @rdname ThesaurusReaderWriter
 #' @export
 WriteThesaurus <- function(thesaurus, file)
 {
-  if(isTRUE(attr(thesaurus, "structuredByLanguage")))
+  if(inherits(thesaurus, "thesaurusLanguageSet"))
   {
     WriteThesaurusLanguageSet(thesaurus, file)
   }
-  else
+  else if(inherits(thesaurus, "thesaurus"))
   {
     WriteDataAndAttributes(thesaurus, file, col.names = FALSE)
+  }
+  else
+  {
+    stop("'thesaurus' must be of class 'thesaurus' or 'thesaurusLanguageSet'")
   }
 }
 
@@ -150,6 +148,8 @@ WriteThesaurusAttributes <- function(attributes, file)
   else
     lines = c(commentLine, paste("##", description))
   attributes <- ExpandSensitivenessVector(attributes)
+  if("thesaurusLanguageSet" %in% attributes$class)
+    attributes$structuredByLanguage <- TRUE
   for(trait in c("caseSensitive", "accentSensitive", "punctuationSensitive",
                  "wordOrderSensitive", "structuredByLanguage", "encoding"))
     if(!is.null(value <- attributes[[trait]]))
@@ -293,15 +293,16 @@ GetFirstNonTrivialEncoding <- function(x)
 ###########################################
 # Help functions to connect with the
 # structured by language thesauri:
-ReadThesaurusLanguageSet <- function(data, file)
+ReadThesaurusLanguageSet <- function(da, file)
 {
   dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
+  filenames <- file.path(dir, da$data$FileName)
   thesaurusSet <- mapply(ReadThesaurusForLanguage, filenames,
-                         repeatHeader = (data$Language == "Base"),
+                         repeatHeader = (da$data$Language == "Base"),
                          SIMPLIFY = FALSE)
-  names(thesaurusSet) <- data$Language
-  attr(thesaurusSet, "fileName") <- data$FileName
+  names(thesaurusSet) <- da$data$Language
+  thesaurusSet <- ThesaurusLanguageSet0(thesaurusSet, da$attr)
+  thesaurusSet <- SetFileNames(thesaurusSet, da$data$FileName)
   return(thesaurusSet)
 }
 
@@ -317,8 +318,9 @@ BuildThesaurusLanguageSetData <- function(thesaurus)
 {
   data <- lapply(c("names", "fileName"), attr, x = thesaurus)
   names(data) <- c("Language", "FileName")
-  attribs <- c("sensitiveness", "structuredByLanguage", "description")
+  attribs <- c("sensitiveness", "description")
   attributes(data)[attribs] <- attributes(thesaurus)[attribs]
+  attr(data, "structuredByLanguage") <- TRUE
   return(data)
 }
 
