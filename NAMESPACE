@@ -2,6 +2,11 @@
 
 S3method(as.data.frame,thesaurus)
 S3method(print,thesaurus)
+S3method(print,thesaurusLanguageSet)
+S3method(print,thesaurusSet)
+S3method(summary,thesaurus)
+S3method(summary,thesaurusLanguageSet)
+S3method(summary,thesaurusSet)
 export(AddToThesaurus)
 export(AllAvailableLanguages)
 export(AssembleReference)
