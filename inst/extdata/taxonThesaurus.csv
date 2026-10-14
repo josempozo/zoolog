@@ -1,12 +1,13 @@
 ########################################
+## thesaurusLanguageSet
+## --------------------
 ## zoolog thesaurus for taxa
 ## caseSensitive FALSE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ## wordOrderSensitive TRUE
-## structuredByLanguage TRUE
 ########################################
-Language;FileName
+language;fileName
 Base;taxonThesaurus/taxonThesaurus_Base.csv
 Catalan;taxonThesaurus/taxonThesaurus_Catalan.csv
 English;taxonThesaurus/taxonThesaurus_English.csv

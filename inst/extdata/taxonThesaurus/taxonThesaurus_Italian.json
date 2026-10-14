@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language Italian"
+    ],
+    "categories": {
+      "Bos taurus": ["Vacca", "toro"],
+      "Bos primigenius": ["Uro"],
+      "Bos": [],
+      "Ovis aries": ["Pecora"],
+      "Ovis orientalis": ["Muflone"],
+      "Ovis": [],
+      "Capra hircus": ["Capra domestica"],
+      "Capra aegagrus": ["Egagro"],
+      "Capra": [],
+      "Caprini": [],
+      "Sus domesticus": ["Maiale"],
+      "Sus scrofa": ["Cinghiale"],
+      "Sus": [],
+      "Cervus elaphus": ["Cervo nobile", "cervo reale", "cervo rosso", "cervo europeo"],
+      "Cervus": ["Cervo"],
+      "Dama mesopotamica": ["Daino persiano"],
+      "Dama": ["Daino"],
+      "Gazella gazella": ["Gazzella di montagna"],
+      "Gazella": ["Gazzella"],
+      "Equus asinus": ["Asino"],
+      "Equus caballus": ["Cavallo domestico", "cavallo"],
+      "Equus": [],
+      "Oryctolagus cuniculus": ["Coniglio selvatico europeo", "coniglio europeo"],
+      "Oryctolagus": ["Coniglio"],
+      "Canis familiaris": ["Cane domestico", "cane"],
+      "Canis lupus": ["Lupo girigo", "lupo"],
+      "Canis": [],
+      "Gallus gallus": ["Gallina", "gallo", "pollo"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": ["Galliforme"],
+      "Aves": ["Uccello"]
+    }
+  }
+}

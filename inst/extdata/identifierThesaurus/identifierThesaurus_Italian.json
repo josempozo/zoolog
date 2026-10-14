@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language Italian"
+    ],
+    "categories": {
+      "Taxon": ["Taxon", "Specie", "Animale"],
+      "Element": ["Elemento", "Osso", "EL"],
+      "Fragment": ["Frammento", "Framm", "Porzione"],
+      "Laterality": ["Lateralità", "Lato"],
+      "Measure": ["Misura", "Misurazione"],
+      "Standard": ["Standard"],
+      "Country": ["Paese"],
+      "Region": ["Regione"],
+      "Site type": ["Tipo di sito", "Tipo"],
+      "Site": ["Sito"],
+      "Stratigraphic Unit": ["Unità stratigrafica", "US"],
+      "Year": ["Anno", "campagna", "Scavo"],
+      "Area": ["Area"],
+      "Feature": ["Struttura", "Strutt."],
+      "Chronology": ["Cronologia", "Crono"],
+      "Period": ["Periodo"],
+      "Phase": ["Fase"],
+      "Comments": ["Commenti", "Comms"]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language Spanish"
+    ],
+    "categories": {
+      "Taxon": ["Taxón", "Especie", "Animal"],
+      "Element": ["Elemento", "Hueso", "Elemento anatómico", "Anat"],
+      "Fragment": ["Fragmento", "Parte", "Porción"],
+      "Laterality": ["Lateralidad", "Lat"],
+      "Measure": ["Medida"],
+      "Standard": ["Estándar"],
+      "Country": ["País"],
+      "Region": ["Región geográfica", "Región"],
+      "Site type": ["Tipo de yacimiento", "Tipo yacimiento", "Tipo"],
+      "Site": ["Yacimiento", "Sitio"],
+      "Stratigraphic Unit": ["Unidad Estratigráfica", "UE"],
+      "Year": ["Año", "Campaña excavación", "Campaña"],
+      "Area": ["Área", "Zona"],
+      "Feature": ["Estructura", "Hecho", "Estruct."],
+      "Chronology": ["Cronología"],
+      "Period": ["Periodo"],
+      "Phase": ["Fase"],
+      "Comments": ["Comentarios", "Observaciones"]
+    }
+  }
+}

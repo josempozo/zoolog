@@ -1,0 +1,30 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language Base",
+      "Base corresponds to the scientific nomenclature",
+      "and some variants and acronyms."
+    ],
+    "categories": {
+      "Taxon": ["TAX", "TX"],
+      "Element": ["EL", "anat"],
+      "Fragment": [],
+      "Laterality": ["Lat"],
+      "Measure": ["Mass"],
+      "Standard": [],
+      "Country": [],
+      "Region": [],
+      "Site type": ["Type"],
+      "Site": [],
+      "Stratigraphic Unit": ["SU"],
+      "Year": [],
+      "Area": [],
+      "Feature": [],
+      "Chronology": ["Chrono"],
+      "Period": [],
+      "Phase": [],
+      "Comments": []
+    }
+  }
+}

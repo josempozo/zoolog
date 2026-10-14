@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language French"
+    ],
+    "categories": {
+      "Bos taurus": ["Bœuf domestique", "Grands Bovides Bœuf"],
+      "Bos primigenius": ["Aurochs", "Auroch"],
+      "Bos": [],
+      "Ovis aries": ["Mouton", "Ovicaprines mouton"],
+      "Ovis orientalis": ["Mouflon"],
+      "Ovis": ["Ovin"],
+      "Capra hircus": ["Chèvre domestique"],
+      "Capra aegagrus": ["Chèvre sauvage"],
+      "Capra": ["Chèvre", "Ovicaprines chèvre"],
+      "Caprini": ["Caprin", "Capriné"],
+      "Sus domesticus": ["Porc", "Suidés porc"],
+      "Sus scrofa": ["Sanglier", "Porc sanglier"],
+      "Sus": ["Suidé"],
+      "Cervus elaphus": ["Cerf élaphe", "Cervides cerf"],
+      "Cervus": [],
+      "Dama mesopotamica": ["Daim Persan"],
+      "Dama": ["Daim"],
+      "Gazella gazella": ["Gazelle de montagne", "Gazelle Edmi"],
+      "Gazella": ["Gazelle"],
+      "Equus asinus": ["Âne commun", "Âne"],
+      "Equus caballus": ["Cheval"],
+      "Equus": [],
+      "Oryctolagus cuniculus": ["Lapin", "Lapin commun"],
+      "Oryctolagus": [],
+      "Canis familiaris": ["Chien"],
+      "Canis lupus": ["Loup gris", "Loup"],
+      "Canis": [],
+      "Gallus gallus": ["Poule", "Coq", "Poulet"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": ["Galliforme"],
+      "Aves": ["Oiseau"]
+    }
+  }
+}

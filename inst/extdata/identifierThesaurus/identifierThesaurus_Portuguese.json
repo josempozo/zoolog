@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language Portuguese"
+    ],
+    "categories": {
+      "Taxon": ["Táxon", "Espécie", "Animal"],
+      "Element": ["Elemento", "Osso"],
+      "Fragment": ["Fragmento", "Fragm", "Frag", "Porção", "Parte", "Segmento"],
+      "Laterality": ["Lateralidade", "Lat"],
+      "Measure": ["Medida"],
+      "Standard": ["Padrão"],
+      "Country": ["País"],
+      "Region": ["Região"],
+      "Site type": ["Tipologia sítio", "Tipologia", "Tipo sítio", "Tipo"],
+      "Site": ["Sítio"],
+      "Stratigraphic Unit": ["Unidade Estratigrafica", "UE"],
+      "Year": ["Ano", "Campanha", "Excavação"],
+      "Area": ["Área"],
+      "Feature": ["Estrutura", "Estruct"],
+      "Chronology": ["Cronologia", "Crono"],
+      "Period": ["Período"],
+      "Phase": ["Fase"],
+      "Comments": ["Comentários", "Observações", "Observ"]
+    }
+  }
+}

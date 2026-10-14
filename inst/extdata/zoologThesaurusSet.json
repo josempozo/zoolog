@@ -1,0 +1,13 @@
+{
+  "thesaurusSet": {
+    "description": "zoolog thesaurus set structure.",
+    "thesaurus": {
+      "identifier": "identifierThesaurus.json",
+      "taxon": "taxonThesaurus.json",
+      "element": "elementThesaurus.json",
+      "measure": "measureThesaurus.json"
+    },
+    "applyToColNames": [true, false, false, true],
+    "applyToColValues": [false, true, true, true]
+  }
+}

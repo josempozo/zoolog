@@ -37,7 +37,7 @@ summary.thesaurusSet <- function(object, ...)
     da[[what]] <- as.logical(sensitiveness[sens, ])
   }
   languageSet <- sapply(object, function(x) class(x) == "thesaurusLanguageSet")
-  da[["LanguageSet"]] <- as.logical(languageSet)
+  da[["languageSet"]] <- as.logical(languageSet)
   da <- as.data.frame(da)
   row.names(da) <- attr(object, "names")
   attr(da, "description") <- attr(object, "description")
@@ -49,9 +49,9 @@ summary.thesaurusSet <- function(object, ...)
 print.thesaurusLanguageSet <- function(x, full = FALSE, ...)
 {
   PrintDescription(attributes(x)$description, "-")
-  PrintCategories(attributes(x)$names, "Languages")
+  PrintCategories(attributes(x)$names, "languages")
   if(!full) PrintCategories(unique(unlist(lapply(x, names), use.names = FALSE)),
-                            "\nCategories")
+                            "\ncategories")
   PrintSensitiveness(attributes(x)$sensitiveness)
   if(full) lPrintWithNames(x)
   invisible(x)
@@ -88,13 +88,13 @@ PrintSensitiveness <- function(sensitiveness)
 {
   if(!is.null(sensitiveness))
   {
-    cat("\nSensitiveness:\n")
+    cat("\nsensitiveness:\n")
     print(sensitiveness)
   }
   invisible(NULL)
 }
 
-PrintCategories<- function(categories, title = "Categories")
+PrintCategories<- function(categories, title = "categories")
 {
   cat(paste0(title, ":\n   "))
   cat(paste(categories, collapse = ", "), "\n")

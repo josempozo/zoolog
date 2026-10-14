@@ -1,0 +1,44 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language Base",
+      "Base corresponds to the scientific nomenclature",
+      "and some variants and acronyms."
+    ],
+    "categories": {
+      "Bos taurus": ["bota", "BT"],
+      "Bos primigenius": ["BP", "bos prim"],
+      "Bos": ["BoSP", "B", "Bos sp."],
+      "Ovis aries": ["ovar", "OA", "ov", "OVA"],
+      "Ovis orientalis": ["ovis musimon", "Ovis gmelini"],
+      "Ovis": ["OvSP", "Ovis sp."],
+      "Capra hircus": ["cahi", "CH", "CAH"],
+      "Capra aegagrus": [],
+      "Capra": ["CaSP", "Capra sp."],
+      "Caprini": ["Ovis/Capra", "o/c", "s/g", "O"],
+      "Sus domesticus": ["sudo", "SS"],
+      "Sus scrofa": ["susc", "wss"],
+      "Sus": ["SuSP", "Sus sp."],
+      "Cervus elaphus": ["ceel", "CE", "CEE"],
+      "Cervus": ["Cervus sp."],
+      "Dama mesopotamica": [],
+      "Dama": ["Dama sp."],
+      "Gazella gazella": [],
+      "Gazella": ["Gazella sp."],
+      "Equus asinus": ["Equus africanus asinus", "E asinus", "eqas"],
+      "Equus caballus": ["Equus ferus caballus", "E caballus", "eqca"],
+      "Equus": ["EqSP", "EquSP", "Equus sp."],
+      "Oryctolagus cuniculus": ["O cuniculus", "orcu"],
+      "Oryctolagus": ["oryct", "Oryctolagus sp."],
+      "Canis familiaris": ["Canis lupus familiaris"],
+      "Canis lupus": [],
+      "Canis": ["Canis sp."],
+      "Gallus gallus": [],
+      "Gallus": ["Gallus sp."],
+      "Gallini": [],
+      "Galliformes": [],
+      "Aves": ["Avifauna", "Avif"]
+    }
+  }
+}

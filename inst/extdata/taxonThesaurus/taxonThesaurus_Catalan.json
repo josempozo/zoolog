@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language Catalan"
+    ],
+    "categories": {
+      "Bos taurus": ["Vaca"],
+      "Bos primigenius": ["Ur"],
+      "Bos": [],
+      "Ovis aries": ["Ovella"],
+      "Ovis orientalis": ["Mufló"],
+      "Ovis": [],
+      "Capra hircus": ["Cabra"],
+      "Capra aegagrus": ["Cabra salvatge"],
+      "Capra": [],
+      "Caprini": ["Ovicapri"],
+      "Sus domesticus": ["Porc"],
+      "Sus scrofa": ["Senglar", "porc senglar"],
+      "Sus": [],
+      "Cervus elaphus": ["Cérvol comú"],
+      "Cervus": ["Cérvol"],
+      "Dama mesopotamica": ["Daina persa"],
+      "Dama": ["Daina"],
+      "Gazella gazella": ["Gasela d’Aràbia"],
+      "Gazella": ["Gasela"],
+      "Equus asinus": ["Ase"],
+      "Equus caballus": ["Cavall"],
+      "Equus": [],
+      "Oryctolagus cuniculus": ["Conill"],
+      "Oryctolagus": [],
+      "Canis familiaris": ["Gos"],
+      "Canis lupus": ["Llop"],
+      "Canis": [],
+      "Gallus gallus": ["Gallina", "Pollastre", "Gall"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": ["Galliforme"],
+      "Aves": ["Ocell", "Au"]
+    }
+  }
+}

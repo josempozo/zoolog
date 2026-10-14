@@ -1,7 +1,9 @@
 #########################################
+## thesaurusSet
+## ------------
 ## zoolog thesaurus set structure.
 #########################################
-ThesaurusName;FileName;ApplyToColNames;ApplyToColValues
+thesaurusName;fileName;applyToColNames;applyToColValues
 identifier;identifierThesaurus.csv;TRUE;FALSE
 taxon;taxonThesaurus.csv;FALSE;TRUE
 element;elementThesaurus.csv;FALSE;TRUE

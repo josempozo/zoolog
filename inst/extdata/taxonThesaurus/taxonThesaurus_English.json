@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language English"
+    ],
+    "categories": {
+      "Bos taurus": ["Cattle"],
+      "Bos primigenius": ["Aurochs", "auroch", "urus", "ure"],
+      "Bos": [],
+      "Ovis aries": ["Sheep"],
+      "Ovis orientalis": ["Mouflon"],
+      "Ovis": [],
+      "Capra hircus": ["Goat"],
+      "Capra aegagrus": ["Wild goat"],
+      "Capra": [],
+      "Caprini": ["Caprine", "ovicaprid", "sheep/goat", "Sh/G", "Ovicaprines Ovis-Capra"],
+      "Sus domesticus": ["Pig"],
+      "Sus scrofa": ["Wild boar"],
+      "Sus": [],
+      "Cervus elaphus": ["Red deer"],
+      "Cervus": [],
+      "Dama mesopotamica": ["Persian fallow deer"],
+      "Dama": ["Fallow deer"],
+      "Gazella gazella": ["Mountain gazelle"],
+      "Gazella": ["Gazelle"],
+      "Equus asinus": ["Donkey", "ass"],
+      "Equus caballus": ["Horse"],
+      "Equus": ["Equine"],
+      "Oryctolagus cuniculus": ["European rabbit", "rabbit"],
+      "Oryctolagus": [],
+      "Canis familiaris": ["Dog", "domestic dog"],
+      "Canis lupus": ["Grey wolf", "wolf", "gray wolf"],
+      "Canis": ["Canine"],
+      "Gallus gallus": ["Chicken", "Hen"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": ["Gallinaceous", "gallinaceous birds", "landfowl"],
+      "Aves": ["Bird"]
+    }
+  }
+}

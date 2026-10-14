@@ -15,20 +15,22 @@
 #'
 #' @examples
 #' ## Read a thesaurus for measures:
-#' thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
+#' thesaurusFile <- system.file("extdata", "measureThesaurus.json",
+#'                              package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
 #' ## The attributes of the thesaurus include the fields 'sensitiveness',
 #' ## and 'description' as read from the file.
 #' attributes(thesaurus)
 #'
 #' ## Write the thesarus to a file:
-#' fileExample <- file.path(tempdir(), "thesaurusExample.csv")
+#' fileExample <- file.path(tempdir(), "thesaurusExample.json")
 #' WriteThesaurus(thesaurus, fileExample)
 #' ## Replace tempdir() for your preferred local path if you want to easily
 #' ## examine the written file.
 #'
 #' ## Read a thesaurus set:
-#' thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
+#' thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.json",
+#'                                 package="zoolog")
 #' thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 #' ## The attributes of the thesaurus set include information of the constituent
 #' ## thesauri: names, source file names, and their mode of application on datasets.
@@ -37,7 +39,7 @@
 #' attributes(thesaurusSet$measure)
 #'
 #' ## Write the thesaurus set to a file:
-#' fileSetExample <- file.path(tempdir(), "thesaurusSetExample.csv")
+#' fileSetExample <- file.path(tempdir(), "thesaurusSetExample.json")
 #' WriteThesaurusSet(thesaurusSet, fileSetExample)
 #' ## It writes the thesaurus-set main data frame and each of the included
 #' ## thesaurus files.
@@ -58,14 +60,14 @@
 ReadThesaurus <- function(file)
 {
   da <- ReadDataAndAttributes(file)
-  if(isTRUE(da$attr$structuredByLanguage))
+  if(da$traits$class == "thesaurusLanguageSet")
   {
     thesaurus <- ReadThesaurusLanguageSet(da, file)
     return(thesaurus)
   }
   else
   {
-    tryCatch(Thesaurus0(da$data, da$attr),
+    tryCatch(Thesaurus0(da$data, da$traits),
              error = function(e) stop("File ", file , ": ", e[[1]]))
   }
 }
@@ -76,12 +78,12 @@ ReadThesaurusSet <- function(file)
 {
   x <- ReadDataAndAttributes(file, FALSE)
   dir <- dirname(file)
-  filenames <- file.path(dir, x$data$FileName)
+  filenames <- file.path(dir, x$data$fileName)
   thesaurusSet <- lapply(filenames, ReadThesaurus)
-  names(thesaurusSet) <- x$data$ThesaurusName
+  names(thesaurusSet) <- x$data$thesaurusName
   ThesaurusSet(thesaurusSet,
-               x$data$ApplyToColNames, x$data$ApplyToColValues,
-               x$attr$description, x$data$FileName)
+               x$data$applyToColNames, x$data$applyToColValues,
+               x$traits$description, x$data$fileName)
 }
 
 #' @rdname ThesaurusReaderWriter
@@ -94,11 +96,11 @@ WriteThesaurus <- function(thesaurus, file)
   }
   else if(inherits(thesaurus, "thesaurus"))
   {
-    WriteDataAndAttributes(thesaurus, file, col.names = FALSE)
+    WriteThesaurus0(thesaurus, file)
   }
   else
   {
-    stop("'thesaurus' must be of class 'thesaurus' or 'thesaurusLanguageSet'")
+    stop("Input is not of class 'thesaurus' or 'thesaurusLanguageSet'.")
   }
 }
 
@@ -106,19 +108,17 @@ WriteThesaurus <- function(thesaurus, file)
 #' @export
 WriteThesaurusSet <- function(thesaurusSet, file)
 {
-  data <- list()
-  data$ThesaurusName <- names(thesaurusSet)
-  data$FileName <- attr(thesaurusSet, "fileName")
-  data$ApplyToColNames <- attr(thesaurusSet, "applyToColNames")
-  data$ApplyToColValues <- attr(thesaurusSet, "applyToColValues")
-  attr(data, "description") <- attr(thesaurusSet, "description")
-  WriteDataAndAttributes(data, file)
+  if(!inherits(thesaurusSet, "thesaurusSet"))
+    stop("Input is not of class 'thesaurusSet'.")
+  if(is.null(attr(thesaurusSet, "fileName")))
+    attr(thesaurusSet, "fileName") <- MakeFileNames(thesaurusSet)
+
+  WriteDataAndAttributes(thesaurusSet, file)
 
   dir <- dirname(file)
-  filenames <- file.path(dir, data$FileName)
+  filenames <- file.path(dir, attr(thesaurusSet, "fileName"))
   noreturn <- mapply(WriteThesaurus, thesaurusSet, filenames)
 }
-
 
 ###########################################
 # From here, internal help functions
@@ -131,37 +131,43 @@ ReadThesaurusAttributes <- function(file)
   y <- ExtractComplementVariables(
     lines,
     c("caseSensitive", "accentSensitive", "punctuationSensitive",
-      "wordOrderSensitive", "structuredByLanguage", "encoding")
+      "wordOrderSensitive", "encoding")
   )
-  y$attrib <- JoinSensitivenessVector(y$attrib)
-  y$attrib[["description"]] <- y$text[y$text != ""]
-  return(y$attrib)
+  y$traits <- JoinSensitivenessVector(y$traits)
+  y$text <- y$text[y$text != ""]
+  underline <- which(stringi::stri_count_fixed(y$text, "-") == nchar(y$text))
+  if(length(underline) == 0) underline <- length(y$text) + 1
+  if(length(underline) > 1) stop("Bad formating: More than one underline.")
+  if(underline == 1) stop("No class declared in file.")
+  if(underline > 2) stop("More than one class declared in file.")
+
+  y$traits$class <- y$text[1]
+  if(length(y$text) > 2)
+    y$traits$description <- utils::tail(y$text, length(y$text) - 2)
+  return(y$traits)
 }
 
-WriteThesaurusAttributes <- function(attributes, file)
+WriteThesaurusAttributes <- function(traits, file)
 {
-  description <- attributes$description
+  description <- traits$description
   n <- min(max(nchar(description) + 10, 40), 60)
-  commentLine = paste(rep("#", n), collapse = "")
-  if(is.null(description))
-    lines = c(commentLine, "## zoolog thesaurus")
-  else
-    lines = c(commentLine, paste("##", description))
-  attributes <- ExpandSensitivenessVector(attributes)
-  if("thesaurusLanguageSet" %in% attributes$class)
-    attributes$structuredByLanguage <- TRUE
-  for(trait in c("caseSensitive", "accentSensitive", "punctuationSensitive",
-                 "wordOrderSensitive", "structuredByLanguage", "encoding"))
-    if(!is.null(value <- attributes[[trait]]))
-      lines = c(lines, paste("##", trait, value))
-  lines = c(lines, commentLine)
-  CreateDirsIfNeeded(file)
+  commentLine <- paste(rep("#", n), collapse = "")
+  lines <- c(commentLine, paste("##", traits$class),
+             paste("##", paste(rep("-", nchar(traits$class)), collapse = "")))
+  if(!is.null(description))
+    lines <- c(lines, paste("##", description))
+  traits <- ExpandSensitivenessVector(traits)
+  for(x in c("caseSensitive", "accentSensitive", "punctuationSensitive",
+             "wordOrderSensitive", "encoding"))
+    if(!is.null(value <- traits[[x]]))
+      lines <- c(lines, paste("##", x, value))
+  lines <- c(lines, commentLine)
   writeLines(lines, file)
 }
 
 ExtractComplementVariables <- function(text, variables)
 {
-  attrib <- list()
+  traits <- list()
   for(variable in variables)
   {
     line <- which(StartsBy(text, variable))
@@ -169,117 +175,177 @@ ExtractComplementVariables <- function(text, variables)
     {
       line <- line[1]
       value <- DiscardPattern(text[line], variable)
-      attrib[[variable]] <- value
+      traits[[variable]] <- value
       text <- text[-line]
     }
   }
-  return(list(attrib = attrib, text = text))
+  return(list(traits = traits, text = text))
 }
 
-JoinSensitivenessVector <- function(attrib)
+JoinSensitivenessVector <- function(traits)
 {
   sensNames <- c("caseSensitive", "accentSensitive", "punctuationSensitive",
                  "wordOrderSensitive")
-  sensitiveness = unlist(attrib[sensNames])
-  attrib[sensNames] <- NULL
-  attrib$sensitiveness = sensitiveness
-  return(attrib)
+  sensitiveness = unlist(traits[sensNames])
+  traits[sensNames] <- NULL
+  traits$sensitiveness = sensitiveness
+  return(traits)
 }
 
-ExpandSensitivenessVector <- function(attrib)
+ExpandSensitivenessVector <- function(traits)
 {
-  sensitiveness <- attrib$sensitiveness
-  attrib$sensitiveness <- NULL
-  c(attrib, sensitiveness)
-}
-
-###########################################
-# Read and write data:
-# Alternative formats are possible depending on the file-extension:
-# csv (the default and documented) and hocon (only simplified version).
-# The alternative formats can help to modify the thesaurus more easily.
-ReadThesaurusData <- function(file, encoding)
-{
-  format <- tools::file_ext(file)
-  if(format == "csv")
-  {
-    data <- utils::read.csv2(file, comment.char = "#",
-                             stringsAsFactors = FALSE,
-                             colClasses = "character",
-                             encoding = encoding,
-                             header = FALSE)
-    data <- lapply(data, function(a) a[a != ""])
-  }
-  else if(format == "hocon")
-  {
-    dataHocon <- readLines(file, encoding = encoding)
-    attrLines <- sapply(dataHocon, function(x) substr(x, 1, 1) == "#")
-    dataHocon <- dataHocon[!attrLines]
-    hoconToVector <- function(x)
-    {
-      y <- gsub("\\[|\\]", "", x)
-      y <- gsub(":", ",", y)
-      y <- gsub(", ", ",", y)
-      strsplit(y, ",")
-    }
-    data <- sapply(dataHocon, hoconToVector, USE.NAMES = FALSE)
-  }
-  else
-    stop("Wrong file extension in ", file, ".")
-  return(data)
-}
-
-WriteThesaurusData <- function(thesaurus, file, encoding)
-{
-  format <- tools::file_ext(file)
-  if(format == "csv")
-  {
-    data <- as.data.frame(thesaurus)
-    utils::write.table(data, file,
-                       sep = ";", dec = ",", qmethod = "double",
-                       row.names = FALSE, col.names = FALSE,
-                       quote = FALSE,
-                       append = TRUE, fileEncoding = encoding)
-  }
-  else if(format == "hocon")
-  {
-    vectorToHocon <- function(x)
-      paste0(x[1], ": [", paste(x[-1], collapse = ", "),"]")
-    thesaurusHocon <- sapply(thesaurus, vectorToHocon)
-    fileConn <- file(file, encoding = encoding, open = "a")
-    writeLines(thesaurusHocon, fileConn)
-    close(fileConn)
-  }
-  else
-    stop("Wrong file extension in ", file, ".")
+  sensitiveness <- traits$sensitiveness
+  traits$sensitiveness <- NULL
+  c(traits, sensitiveness)
 }
 
 ###########################################
 # Read and write attributes and data
-# taking into account the string encoding.
+# taking into account the file format and the string encoding.
+# Alternative formats are possible depending on the file-extension:
+# json (default) and csv.
+# The alternative formats can help to modify the thesaurus more easily.
 ReadDataAndAttributes <- function(file, repeatHeader = NULL)
 {
-  attr <- ReadThesaurusAttributes(file)
-  if(is.null(attr$encoding)) attr$encoding <- "unknown"
-  if(is.null(repeatHeader)) repeatHeader <- !isTRUE(attr$structuredByLanguage)
-  data <- ReadThesaurusData(file, attr$encoding)
-  names(data) <- as.character(lapply(data, function(a) a[1]))
-  if(!repeatHeader) data <- lapply(data, function(a) a[-1])
+  format <- tools::file_ext(file)
+  if(format == "csv")
+  {
+    traits <- ReadThesaurusAttributes(file)
+    if(is.null(traits$encoding)) traits$encoding <- "unknown"
+    data <- utils::read.csv2(file, comment.char = "#",
+                             stringsAsFactors = FALSE,
+                             colClasses = "character",
+                             encoding = traits$encoding,
+                             header = FALSE)
+    data <- lapply(data, function(a) a[a != ""])
+    names(data) <- as.character(lapply(data, function(a) a[1]))
+    if(is.null(repeatHeader)) repeatHeader <- (traits$class == "thesaurus")
+    if(!repeatHeader) data <- lapply(data, function(a) a[-1])
+  }
+  else if(format == "json")
+  {
+    thesList <- jsonlite::fromJSON(file)
+    traits <- thesList[[1]][c("description", "sensitiveness")]
+    traits$sensitiveness <- unlist(traits$sensitiveness)
+    traits$class <- names(thesList)
+    data <- BuildDataFromJsonList(thesList)
+    if(is.null(repeatHeader)) repeatHeader <- (traits$class == "thesaurus")
+    if(repeatHeader) data <- mapply(c, names(data), data)
+  }
+  else
+    stop("Wrong file extension in ", file, ".\n",
+         "Please use 'json' or 'csv' for the corresponding file formats.")
+
   data <- utils::type.convert(data, as.is = TRUE)
-  list(data = data, attr = attr)
+  list(data = data, traits = traits)
 }
 
-WriteDataAndAttributes <- function(thesaurus, file, col.names = TRUE)
+WriteThesaurus0 <- function(thesaurus, file, rm.first = TRUE)
 {
-  encoding <- GetFirstNonTrivialEncoding(unlist(thesaurus))
-  if(encoding != "") attr(thesaurus, "encoding") <- encoding
+  if(!inherits(thesaurus, "thesaurus"))
+    stop("Input is not of class 'thesaurus'.")
+  WriteDataAndAttributes(thesaurus, file, rm.first)
+}
 
-  WriteThesaurusAttributes(attributes(thesaurus), file)
-  # Assigning the names as first row instead of write.table argument
-  # col.names, avoids its warning when appending.
-  if(col.names) thesaurus[] <- mapply(c, names(thesaurus), thesaurus,
-                                      SIMPLIFY = FALSE)
-  WriteThesaurusData(thesaurus, file, encoding)
+WriteDataAndAttributes <- function(thesaurus, file, rm.first = FALSE)
+{
+  CreateDirsIfNeeded(file)
+  format <- tools::file_ext(file)
+  if(format == "csv")
+  {
+    data <- BuildDataForCSV(thesaurus, rm.first)
+    encoding <- GetFirstNonTrivialEncoding(unlist(data))
+    if(encoding != "") attr(thesaurus, "encoding") <- encoding
+    WriteThesaurusAttributes(attributes(thesaurus), file)
+    utils::write.table(data, file,
+                       sep = ";", dec = ",", quote = FALSE,
+                       row.names = FALSE, col.names = FALSE,
+                       append = TRUE, fileEncoding = encoding)
+  }
+  else if(format == "json")
+  {
+    thes <- BuildListForJson(thesaurus, rm.first)
+    jsonlite::write_json(thes, file, pretty = TRUE)
+  }
+  else
+    stop("Wrong file extension in ", file, ".\n",
+         "Please use 'json' or 'csv' for the corresponding file formats.")
+}
+
+
+###########################################
+# Help functions to write attributes and data
+BuildDataForCSV <- function(x, rm.first)
+{
+  if(inherits(x, "thesaurus"))
+  {
+    data <- as.data.frame(x)
+  }
+  else if(inherits(x, "thesaurusLanguageSet"))
+  {
+    data <- as.data.frame(attributes(x)[c("names", "fileName")])
+    names(data) <- c("language", "fileName")
+  }
+  else if(inherits(x, "thesaurusSet"))
+  {
+    traitNames <- c("names", "fileName", "applyToColNames", "applyToColValues")
+    data <- as.data.frame(attributes(x)[traitNames])
+    names(data) <- c("thesaurusName", "fileName", "applyToColNames",
+                     "applyToColValues")
+  }
+  else
+    stop("Object of unrecognized class.")
+  # if rm.first is false, a first row is added with the names, instead of
+  # argument col.names set to TRUE in write.table.
+  # This avoids the warning of write.table when appending.
+  if(!rm.first) data <- rbind(names(data), data)
+  return(data)
+}
+
+BuildListForJson <- function(x, rm.first)
+{
+  if(!inherits(x, c("thesaurus", "thesaurusLanguageSet", "thesaurusSet")))
+    stop("Object of unrecognized class.")
+  thesList <- list()
+  traits <- attributes(x)
+  thesList$description <- FormatDescriptionForJson(traits$description)
+  thesList$sensitiveness <- FormatSensitivenessForJson(traits$sensitiveness)
+  # json is alway UTF-8 encoded. Thus, no need to annotate for it.
+  if(rm.first) x[] <- lapply(x, function(y) y[-1])
+  if(inherits(x, "thesaurus"))
+  {
+    thesList$categories <- unclass(x)
+    return(list(thesaurus = thesList))
+  }
+  else if(inherits(x, "thesaurusLanguageSet"))
+  {
+    thesList$language <- lapply(traits$fileName, jsonlite::unbox)
+    names(thesList$language) <- names(x)
+    return(list(thesaurusLanguageSet = thesList))
+  }
+  else if(inherits(x, "thesaurusSet"))
+  {
+    thesList$thesaurus <- lapply(traits$fileName, jsonlite::unbox)
+    names(thesList$thesaurus) <- names(x)
+    thesList$applyToColNames <- traits$applyToColNames
+    thesList$applyToColValues <- traits$applyToColValues
+    return(list(thesaurusSet = thesList))
+  }
+}
+
+FormatDescriptionForJson <- function(description)
+{
+  if(is.null(description)) return(NULL)
+  if(length(description) == 1)
+    return(jsonlite::unbox(description))
+  else
+    return(lapply(description, jsonlite::unbox))
+}
+
+FormatSensitivenessForJson <- function(sensitiveness)
+{
+  if(is.null(sensitiveness)) return(NULL)
+  return(lapply(sensitiveness, jsonlite::unbox))
 }
 
 GetFirstNonTrivialEncoding <- function(x)
@@ -290,49 +356,74 @@ GetFirstNonTrivialEncoding <- function(x)
   return(encoding)
 }
 
+BuildDataFromJsonList <- function(thesList)
+{
+  x <- thesList[[1]]
+  data <- list()
+  if(names(thesList) == "thesaurus")
+  {
+    data <- lapply(x$categories, as.character)
+  }
+  else if(names(thesList) == "thesaurusLanguageSet")
+  {
+    data$language <- names(x$language)
+    data$fileName <- unlist(x$language)
+  }
+  else if(names(thesList) == "thesaurusSet")
+  {
+    data$thesaurusName <- names(x$thesaurus)
+    data$fileName <- unlist(x$thesaurus)
+    data$applyToColNames <- x$applyToColNames
+    data$applyToColValues <- x$applyToColValues
+  }
+  else
+    stop("Unrecongnized class in json file.")
+  return(data)
+}
+
 ###########################################
 # Help functions to connect with the
 # structured by language thesauri:
 ReadThesaurusLanguageSet <- function(da, file)
 {
   dir <- dirname(file)
-  filenames <- file.path(dir, da$data$FileName)
+  filenames <- file.path(dir, da$data$fileName)
   thesaurusSet <- mapply(ReadThesaurusForLanguage, filenames,
-                         repeatHeader = (da$data$Language == "Base"),
+                         repeatHeader = (da$data$language == "Base"),
+                         sensitiveness = da$traits$sensitiveness,
                          SIMPLIFY = FALSE)
-  names(thesaurusSet) <- da$data$Language
-  thesaurusSet <- ThesaurusLanguageSet0(thesaurusSet, da$attr)
-  thesaurusSet <- SetFileNames(thesaurusSet, da$data$FileName)
+  names(thesaurusSet) <- da$data$language
+  thesaurusSet <- ThesaurusLanguageSet0(thesaurusSet, da$traits)
+  thesaurusSet <- SetFileNames(thesaurusSet, da$data$fileName)
   return(thesaurusSet)
 }
 
-ReadThesaurusForLanguage <- function(file, repeatHeader)
+ReadThesaurusForLanguage <- function(file, repeatHeader, sensitiveness)
 {
   da <- ReadDataAndAttributes(file, repeatHeader)
-#TODO: The Ambiguity must be tested with attributes
-  thes <- Thesaurus0(da$data, da$attr)
+  # The Ambiguity must be tested with sensitiveness
+  da$traits$sensitiveness <- sensitiveness
+  thes <- Thesaurus0(da$data, da$traits)
+  attr(thes, "sensitiveness") <- NULL
   return(thes)
-}
-
-BuildThesaurusLanguageSetData <- function(thesaurus)
-{
-  data <- lapply(c("names", "fileName"), attr, x = thesaurus)
-  names(data) <- c("Language", "FileName")
-  attribs <- c("sensitiveness", "description")
-  attributes(data)[attribs] <- attributes(thesaurus)[attribs]
-  attr(data, "structuredByLanguage") <- TRUE
-  return(data)
 }
 
 WriteThesaurusLanguageSet <- function(thesaurus, file)
 {
-  thesaurusSetData <- BuildThesaurusLanguageSetData(thesaurus)
-  WriteDataAndAttributes(thesaurusSetData, file, col.names = TRUE)
+  if(!inherits(thesaurus, "thesaurusLanguageSet"))
+    stop("Input is not of class 'thesaurusLanguageSet'.")
+  if(is.null(attr(thesaurus, "fileName")))
+     attr(thesaurus, "fileName") <- MakeFileNames(thesaurus)
+
+  WriteDataAndAttributes(thesaurus, file)
+
   dir <- dirname(file)
   filenames <- file.path(dir, attr(thesaurus, "fileName"))
-  noreturn <- mapply(WriteDataAndAttributes, thesaurus, filenames,
-                     col.names = (names(thesaurus) != "Base"))
+  noreturn <- mapply(WriteThesaurus0, thesaurus, filenames,
+                     rm.first = (names(thesaurus) == "Base"))
 }
+
+###########################################
 
 CreateDirsIfNeeded <- function(file)
 {

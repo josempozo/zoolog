@@ -1,0 +1,21 @@
+{
+  "thesaurusLanguageSet": {
+    "description": "zoolog thesaurus for bone elements.",
+    "sensitiveness": {
+      "caseSensitive": false,
+      "accentSensitive": false,
+      "punctuationSensitive": false,
+      "wordOrderSensitive": false
+    },
+    "language": {
+      "Base": "elementThesaurus/elementThesaurus_Base.json",
+      "Catalan": "elementThesaurus/elementThesaurus_Catalan.json",
+      "English": "elementThesaurus/elementThesaurus_English.json",
+      "French": "elementThesaurus/elementThesaurus_French.json",
+      "German": "elementThesaurus/elementThesaurus_German.json",
+      "Italian": "elementThesaurus/elementThesaurus_Italian.json",
+      "Portuguese": "elementThesaurus/elementThesaurus_Portuguese.json",
+      "Spanish": "elementThesaurus/elementThesaurus_Spanish.json"
+    }
+  }
+}

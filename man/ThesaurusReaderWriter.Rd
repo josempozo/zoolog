@@ -35,20 +35,22 @@ Functions to read and write thesauri and thesaurus sets.
 }
 \examples{
 ## Read a thesaurus for measures:
-thesaurusFile <- system.file("extdata", "measureThesaurus.csv", package="zoolog")
+thesaurusFile <- system.file("extdata", "measureThesaurus.json",
+                             package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
 ## The attributes of the thesaurus include the fields 'sensitiveness',
 ## and 'description' as read from the file.
 attributes(thesaurus)
 
 ## Write the thesarus to a file:
-fileExample <- file.path(tempdir(), "thesaurusExample.csv")
+fileExample <- file.path(tempdir(), "thesaurusExample.json")
 WriteThesaurus(thesaurus, fileExample)
 ## Replace tempdir() for your preferred local path if you want to easily
 ## examine the written file.
 
 ## Read a thesaurus set:
-thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.csv", package="zoolog")
+thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.json",
+                                package="zoolog")
 thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
 ## The attributes of the thesaurus set include information of the constituent
 ## thesauri: names, source file names, and their mode of application on datasets.
@@ -57,7 +59,7 @@ attributes(thesaurusSet)
 attributes(thesaurusSet$measure)
 
 ## Write the thesaurus set to a file:
-fileSetExample <- file.path(tempdir(), "thesaurusSetExample.csv")
+fileSetExample <- file.path(tempdir(), "thesaurusSetExample.json")
 WriteThesaurusSet(thesaurusSet, fileSetExample)
 ## It writes the thesaurus-set main data frame and each of the included
 ## thesaurus files.

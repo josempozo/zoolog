@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language Portuguese"
+    ],
+    "categories": {
+      "Bos taurus": ["Vaca", "Gado bovino doméstico"],
+      "Bos primigenius": ["Auroque", "uro"],
+      "Bos": ["Bos"],
+      "Ovis aries": ["Ovelha doméstica", "ovelha"],
+      "Ovis orientalis": ["Muflão asiático", "muflão"],
+      "Ovis": ["Ovino"],
+      "Capra hircus": ["Cabra"],
+      "Capra aegagrus": ["Cabra selvagem"],
+      "Capra": ["Capra"],
+      "Caprini": ["Caprini"],
+      "Sus domesticus": ["Porco doméstico", "porco"],
+      "Sus scrofa": ["Javali"],
+      "Sus": ["Sus"],
+      "Cervus elaphus": ["Veado vermelho", "cervo vermelho"],
+      "Cervus": ["Veado"],
+      "Dama mesopotamica": ["Gamo persa"],
+      "Dama": ["Gamo"],
+      "Gazella gazella": ["Gazela da montanha"],
+      "Gazella": ["Gazela"],
+      "Equus asinus": ["Asno"],
+      "Equus caballus": ["Cavalo"],
+      "Equus": ["Equino"],
+      "Oryctolagus cuniculus": ["Coelho europeu"],
+      "Oryctolagus": ["Coelho"],
+      "Canis familiaris": ["Cão"],
+      "Canis lupus": ["Lobo"],
+      "Canis": ["Cánido"],
+      "Gallus gallus": ["Galinha", "galo", "frango"],
+      "Gallus": ["Gallus"],
+      "Gallini": ["Gallini"],
+      "Galliformes": ["Galiforme"],
+      "Aves": ["Ave", "pássaro"]
+    }
+  }
+}

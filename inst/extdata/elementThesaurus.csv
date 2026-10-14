@@ -1,12 +1,13 @@
 #############################################
+## thesaurusLanguageSet
+## --------------------
 ## zoolog thesaurus for bone elements.
 ## caseSensitive FALSE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ## wordOrderSensitive FALSE
-## structuredByLanguage TRUE
 #############################################
-Language;FileName
+language;fileName
 Base;elementThesaurus/elementThesaurus_Base.csv
 Catalan;elementThesaurus/elementThesaurus_Catalan.csv
 English;elementThesaurus/elementThesaurus_English.csv

@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language Spanish"
+    ],
+    "categories": {
+      "Bos taurus": ["Vaca"],
+      "Bos primigenius": ["Uro"],
+      "Bos": ["Bovino"],
+      "Ovis aries": ["Oveja"],
+      "Ovis orientalis": ["Muflón"],
+      "Ovis": [],
+      "Capra hircus": ["Cabra"],
+      "Capra aegagrus": ["Cabra salvaje"],
+      "Capra": [],
+      "Caprini": ["Ovicaprino"],
+      "Sus domesticus": ["Cerdo"],
+      "Sus scrofa": ["Jabalí"],
+      "Sus": [],
+      "Cervus elaphus": ["Ciervo común", "ciervo rojo", "ciervo europeo", "venado"],
+      "Cervus": ["Ciervo"],
+      "Dama mesopotamica": ["Gamo persa"],
+      "Dama": ["Gamo"],
+      "Gazella gazella": ["Gacela arábiga"],
+      "Gazella": ["Gacela"],
+      "Equus asinus": ["Asno"],
+      "Equus caballus": ["Caballo"],
+      "Equus": ["Equino", "équido"],
+      "Oryctolagus cuniculus": ["Conejo"],
+      "Oryctolagus": [],
+      "Canis familiaris": ["Perro"],
+      "Canis lupus": ["Lobo"],
+      "Canis": [],
+      "Gallus gallus": ["Gallo", "Gallina", "Pollo"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": ["Galliforme"],
+      "Aves": ["Ave", "Pájaro"]
+    }
+  }
+}

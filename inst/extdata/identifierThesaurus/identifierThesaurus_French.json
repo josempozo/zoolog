@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language French"
+    ],
+    "categories": {
+      "Taxon": ["Taxon", "Espèce", "Animal"],
+      "Element": ["Élément", "Os"],
+      "Fragment": ["Portion"],
+      "Laterality": ["Côté", "Lateralité"],
+      "Measure": ["Mesure"],
+      "Standard": ["Standard"],
+      "Country": ["Pays"],
+      "Site": ["Site", "Gisement"],
+      "Region": ["Région"],
+      "Site type": ["Type site", "Type", "Type gisement"],
+      "Stratigraphic Unit": ["Unité Stratigraphique", "US"],
+      "Year": ["Année", "Campagne"],
+      "Area": ["Aire"],
+      "Feature": ["Fait", "Structure"],
+      "Chronology": ["Chronologie"],
+      "Period": ["Periode"],
+      "Phase": ["Phase"],
+      "Comments": ["Commentaires", "Observations"]
+    }
+  }
+}

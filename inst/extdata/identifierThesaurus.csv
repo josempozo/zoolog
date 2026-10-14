@@ -1,12 +1,13 @@
 ############################################################
+## thesaurusLanguageSet
+## --------------------
 ## zoolog thesaurus for identifiers of reference values.
 ## caseSensitive FALSE
 ## accentSensitive FALSE
 ## punctuationSensitive FALSE
 ## wordOrderSensitive TRUE
-## structuredByLanguage TRUE
 ############################################################
-Language;FileName
+language;fileName
 Base;identifierThesaurus/identifierThesaurus_Base.csv
 Catalan;identifierThesaurus/identifierThesaurus_Catalan.csv
 English;identifierThesaurus/identifierThesaurus_English.csv

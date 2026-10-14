@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language English"
+    ],
+    "categories": {
+      "Taxon": ["Taxon", "Species", "Animal"],
+      "Element": ["Element", "Bone", "Bone Element"],
+      "Fragment": ["Fragment"],
+      "Laterality": ["Laterality"],
+      "Measure": ["Measure", "Measurement", "Measurements", "Measures"],
+      "Standard": ["Standard"],
+      "Country": ["Country"],
+      "Region": ["Region"],
+      "Site type": ["Site type"],
+      "Site": ["Site"],
+      "Stratigraphic Unit": ["Stratigraphic Unit", "SU"],
+      "Year": ["Year"],
+      "Area": ["Area"],
+      "Feature": ["Feature"],
+      "Chronology": ["Chronology", "Chrono"],
+      "Period": ["Period"],
+      "Phase": ["Phase"],
+      "Comments": ["Comments", "Comms"]
+    }
+  }
+}

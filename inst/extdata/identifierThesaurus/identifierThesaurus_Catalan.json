@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language Catalan"
+    ],
+    "categories": {
+      "Taxon": ["Tàxon", "Espècie"],
+      "Element": ["Element", "Os", "Element anatòmic", "Anat"],
+      "Fragment": ["Fragment", "Part", "Porció"],
+      "Laterality": ["Lateralitat", "Costat"],
+      "Measure": ["Mesura", "Mida"],
+      "Standard": ["Estàndard"],
+      "Country": ["País"],
+      "Region": ["Regió"],
+      "Site type": ["Tipus jaciment", "Tipus"],
+      "Site": ["Jaciment"],
+      "Stratigraphic Unit": ["Unitat Estratigràfica", "UE"],
+      "Year": ["Any", "Campanya"],
+      "Area": ["Àrea", "Zona"],
+      "Feature": ["Fet", "Estructura"],
+      "Chronology": ["Cronologia", "Crono"],
+      "Period": ["Periode"],
+      "Phase": ["Fase"],
+      "Comments": ["Comentaris", "Observacions"]
+    }
+  }
+}

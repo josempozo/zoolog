@@ -1,0 +1,42 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for taxa.",
+      "Language German"
+    ],
+    "categories": {
+      "Bos taurus": ["Hausrind", "Rind"],
+      "Bos primigenius": ["Auerochse"],
+      "Bos": ["Rinder"],
+      "Ovis aries": ["Hausschaf", "Schaf"],
+      "Ovis orientalis": ["Asiatisches Mufflon", "Mufflon"],
+      "Ovis": ["Schafe"],
+      "Capra hircus": ["Hausziege", "Ziege"],
+      "Capra aegagrus": ["Bezoarziege"],
+      "Capra": ["Ziegen"],
+      "Caprini": ["Ziegenartige"],
+      "Sus domesticus": ["Hausschwein", "Schwein"],
+      "Sus scrofa": ["Wildschwein"],
+      "Sus": ["Schweine"],
+      "Cervus elaphus": ["Rotwild", "Rothirsch"],
+      "Cervus": ["Hirsche"],
+      "Dama mesopotamica": ["Mesopotamisches Damwild"],
+      "Dama": ["Damhirsche"],
+      "Gazella gazella": ["Kropfgazelle"],
+      "Gazella": ["Gazellen"],
+      "Equus asinus": ["Esel", "Hausesel"],
+      "Equus caballus": ["Hauspferd", "Pferd"],
+      "Equus": ["Pferdeartige"],
+      "Oryctolagus cuniculus": ["Wildkaninchen"],
+      "Oryctolagus": ["Kaninchen"],
+      "Canis familiaris": ["Haushund", "Hund"],
+      "Canis lupus": ["Wolf"],
+      "Canis": ["Hundeartige"],
+      "Gallus gallus": ["Henne", "Huhn", "Hahn"],
+      "Gallus": [],
+      "Gallini": [],
+      "Galliformes": [],
+      "Aves": ["Vogel"]
+    }
+  }
+}

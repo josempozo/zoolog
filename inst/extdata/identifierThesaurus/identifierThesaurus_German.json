@@ -1,0 +1,28 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values.",
+      "Language German"
+    ],
+    "categories": {
+      "Taxon": ["Taxon", "Spezies", "Tier"],
+      "Element": ["Skelettteil", "Knochen", "Element"],
+      "Fragment": ["Fragment", "Frag", "Portion", "Segment"],
+      "Laterality": ["Lateralisierung", "Later", "Lat"],
+      "Measure": ["Maßnahme", "Maß", "Mass"],
+      "Standard": ["Standard"],
+      "Country": ["Land"],
+      "Region": ["Region"],
+      "Site type": ["Fundstellentyp", "Typ"],
+      "Site": ["Fundstelle", "Funds.", "Fund.", "archäologischer Fundplatz", "Arch. Fund."],
+      "Stratigraphic Unit": ["Stratigraphische Einheit", "SE"],
+      "Year": ["Jahr", "Ausgrabungskampagne", "Kampagne"],
+      "Area": ["Gebiet"],
+      "Feature": ["Struktur", "Strukt.", "Gefüge", "Befund", "Bef"],
+      "Chronology": ["Chronologie", "Chrono"],
+      "Period": ["Periode", "Period"],
+      "Phase": ["Phase"],
+      "Comments": ["Kommentare", "Komm."]
+    }
+  }
+}
