@@ -2,10 +2,10 @@
   "thesaurusSet": {
     "description": "zoolog thesaurus set structure.",
     "thesaurus": {
-      "identifier": "identifierThesaurus.json",
-      "taxon": "taxonThesaurus.json",
-      "element": "elementThesaurus.json",
-      "measure": "measureThesaurus.json"
+      "identifier": "identifierThesaurus",
+      "taxon": "taxonThesaurus",
+      "element": "elementThesaurus",
+      "measure": "measureThesaurus"
     },
     "applyToColNames": [true, false, false, true],
     "applyToColValues": [false, true, true, true]

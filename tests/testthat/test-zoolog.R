@@ -79,11 +79,26 @@ test_that("LogRatios provides expected result on pruned data example.", {
                testDataPrunedWithLog, tolerance=1e-10)
 })
 
-test_that("ReadThesaurusSet is the exact inverse of WriteThesaurusSet.", {
+test_that("ReadThesaurusSet is the exact inverse of WriteThesaurusSet (json)", {
+  file <- file.path(tempdir(), "thesaurusSet.json")
+  WriteThesaurusSet(zoologThesaurusByLanguage, file)
+  thesaurusSet <- ReadThesaurusSet(file)
+  expect_equal(thesaurusSet, zoologThesaurusByLanguage)
+  firstThesFile <- attr(zoologThesaurusByLanguage, "fileName")[1]
+  firstThesFile <- file.path(dirname(file), paste0(firstThesFile, ".json"))
+  firstThesaurus <- ReadThesaurus(firstThesFile)
+  expect_equal(firstThesaurus, zoologThesaurusByLanguage[[1]])
+})
+
+test_that("ReadThesaurusSet is the exact inverse of WriteThesaurusSet (csv).", {
   file <- file.path(tempdir(), "thesaurusSet.csv")
   WriteThesaurusSet(zoologThesaurusByLanguage, file)
   thesaurusSet <- ReadThesaurusSet(file)
   expect_equal(thesaurusSet, zoologThesaurusByLanguage)
+  firstThesFile <- attr(zoologThesaurusByLanguage, "fileName")[1]
+  firstThesFile <- file.path(dirname(file), paste0(firstThesFile, ".csv"))
+  firstThesaurus <- ReadThesaurus(firstThesFile)
+  expect_equal(firstThesaurus, zoologThesaurusByLanguage[[1]])
 })
 
 test_that("SetActiveLanguages correctly taken into account by LogRatios (1).", {

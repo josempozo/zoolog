@@ -8,14 +8,14 @@
       "wordOrderSensitive": true
     },
     "language": {
-      "Base": "identifierThesaurus/identifierThesaurus_Base.json",
-      "Catalan": "identifierThesaurus/identifierThesaurus_Catalan.json",
-      "English": "identifierThesaurus/identifierThesaurus_English.json",
-      "French": "identifierThesaurus/identifierThesaurus_French.json",
-      "German": "identifierThesaurus/identifierThesaurus_German.json",
-      "Italian": "identifierThesaurus/identifierThesaurus_Italian.json",
-      "Portuguese": "identifierThesaurus/identifierThesaurus_Portuguese.json",
-      "Spanish": "identifierThesaurus/identifierThesaurus_Spanish.json"
+      "Base": "identifierThesaurus/identifierThesaurus_Base",
+      "Catalan": "identifierThesaurus/identifierThesaurus_Catalan",
+      "English": "identifierThesaurus/identifierThesaurus_English",
+      "French": "identifierThesaurus/identifierThesaurus_French",
+      "German": "identifierThesaurus/identifierThesaurus_German",
+      "Italian": "identifierThesaurus/identifierThesaurus_Italian",
+      "Portuguese": "identifierThesaurus/identifierThesaurus_Portuguese",
+      "Spanish": "identifierThesaurus/identifierThesaurus_Spanish"
     }
   }
 }

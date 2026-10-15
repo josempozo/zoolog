@@ -8,14 +8,14 @@
       "wordOrderSensitive": true
     },
     "language": {
-      "Base": "taxonThesaurus/taxonThesaurus_Base.json",
-      "Catalan": "taxonThesaurus/taxonThesaurus_Catalan.json",
-      "English": "taxonThesaurus/taxonThesaurus_English.json",
-      "French": "taxonThesaurus/taxonThesaurus_French.json",
-      "German": "taxonThesaurus/taxonThesaurus_German.json",
-      "Italian": "taxonThesaurus/taxonThesaurus_Italian.json",
-      "Portuguese": "taxonThesaurus/taxonThesaurus_Portuguese.json",
-      "Spanish": "taxonThesaurus/taxonThesaurus_Spanish.json"
+      "Base": "taxonThesaurus/taxonThesaurus_Base",
+      "Catalan": "taxonThesaurus/taxonThesaurus_Catalan",
+      "English": "taxonThesaurus/taxonThesaurus_English",
+      "French": "taxonThesaurus/taxonThesaurus_French",
+      "German": "taxonThesaurus/taxonThesaurus_German",
+      "Italian": "taxonThesaurus/taxonThesaurus_Italian",
+      "Portuguese": "taxonThesaurus/taxonThesaurus_Portuguese",
+      "Spanish": "taxonThesaurus/taxonThesaurus_Spanish"
     }
   }
 }

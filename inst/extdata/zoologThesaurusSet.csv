@@ -4,7 +4,7 @@
 ## zoolog thesaurus set structure.
 #########################################
 thesaurusName;fileName;applyToColNames;applyToColValues
-identifier;identifierThesaurus.csv;TRUE;FALSE
-taxon;taxonThesaurus.csv;FALSE;TRUE
-element;elementThesaurus.csv;FALSE;TRUE
-measure;measureThesaurus.csv;TRUE;TRUE
+identifier;identifierThesaurus;TRUE;FALSE
+taxon;taxonThesaurus;FALSE;TRUE
+element;elementThesaurus;FALSE;TRUE
+measure;measureThesaurus;TRUE;TRUE

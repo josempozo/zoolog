@@ -8,11 +8,11 @@
 ## wordOrderSensitive FALSE
 #############################################
 language;fileName
-Base;elementThesaurus/elementThesaurus_Base.csv
-Catalan;elementThesaurus/elementThesaurus_Catalan.csv
-English;elementThesaurus/elementThesaurus_English.csv
-French;elementThesaurus/elementThesaurus_French.csv
-German;elementThesaurus/elementThesaurus_German.csv
-Italian;elementThesaurus/elementThesaurus_Italian.csv
-Portuguese;elementThesaurus/elementThesaurus_Portuguese.csv
-Spanish;elementThesaurus/elementThesaurus_Spanish.csv
+Base;elementThesaurus/elementThesaurus_Base
+Catalan;elementThesaurus/elementThesaurus_Catalan
+English;elementThesaurus/elementThesaurus_English
+French;elementThesaurus/elementThesaurus_French
+German;elementThesaurus/elementThesaurus_German
+Italian;elementThesaurus/elementThesaurus_Italian
+Portuguese;elementThesaurus/elementThesaurus_Portuguese
+Spanish;elementThesaurus/elementThesaurus_Spanish

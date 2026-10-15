@@ -77,8 +77,7 @@ ReadThesaurus <- function(file)
 ReadThesaurusSet <- function(file)
 {
   x <- ReadDataAndAttributes(file, FALSE)
-  dir <- dirname(file)
-  filenames <- file.path(dir, x$data$fileName)
+  filenames <- InheritFileDirAndExtension(x$data$fileName, file)
   thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- x$data$thesaurusName
   ThesaurusSet(thesaurusSet,
@@ -115,8 +114,7 @@ WriteThesaurusSet <- function(thesaurusSet, file)
 
   WriteDataAndAttributes(thesaurusSet, file)
 
-  dir <- dirname(file)
-  filenames <- file.path(dir, attr(thesaurusSet, "fileName"))
+  filenames <- InheritFileDirAndExtension(attr(thesaurusSet, "fileName"), file)
   noreturn <- mapply(WriteThesaurus, thesaurusSet, filenames)
 }
 
@@ -386,8 +384,7 @@ BuildDataFromJsonList <- function(thesList)
 # structured by language thesauri:
 ReadThesaurusLanguageSet <- function(da, file)
 {
-  dir <- dirname(file)
-  filenames <- file.path(dir, da$data$fileName)
+  filenames <- InheritFileDirAndExtension(da$data$fileName, file)
   thesaurusSet <- mapply(ReadThesaurusForLanguage, filenames,
                          repeatHeader = (da$data$language == "Base"),
                          sensitiveness = da$traits$sensitiveness,
@@ -417,8 +414,7 @@ WriteThesaurusLanguageSet <- function(thesaurus, file)
 
   WriteDataAndAttributes(thesaurus, file)
 
-  dir <- dirname(file)
-  filenames <- file.path(dir, attr(thesaurus, "fileName"))
+  filenames <- InheritFileDirAndExtension(attr(thesaurus, "fileName"), file)
   noreturn <- mapply(WriteThesaurus0, thesaurus, filenames,
                      rm.first = (names(thesaurus) == "Base"))
 }
@@ -438,4 +434,15 @@ CreateDirsIfNeeded <- function(file)
   {
     dir.create(dir)
   }
+}
+
+InheritFileDirAndExtension <- function(basenames, file)
+{
+  dir <- dirname(file)
+  filenames <- file.path(dir, basenames)
+  ext <- tools::file_ext(file)
+  missingExt <- tools::file_ext(filenames) == ""
+  stem <- tools::file_path_sans_ext(filenames)
+  filenames[missingExt] <- paste0(stem[missingExt], ".", ext)
+  return(filenames)
 }

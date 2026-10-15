@@ -8,11 +8,11 @@
 ## wordOrderSensitive TRUE
 ########################################
 language;fileName
-Base;taxonThesaurus/taxonThesaurus_Base.csv
-Catalan;taxonThesaurus/taxonThesaurus_Catalan.csv
-English;taxonThesaurus/taxonThesaurus_English.csv
-French;taxonThesaurus/taxonThesaurus_French.csv
-German;taxonThesaurus/taxonThesaurus_German.csv
-Italian;taxonThesaurus/taxonThesaurus_Italian.csv
-Portuguese;taxonThesaurus/taxonThesaurus_Portuguese.csv
-Spanish;taxonThesaurus/taxonThesaurus_Spanish.csv
+Base;taxonThesaurus/taxonThesaurus_Base
+Catalan;taxonThesaurus/taxonThesaurus_Catalan
+English;taxonThesaurus/taxonThesaurus_English
+French;taxonThesaurus/taxonThesaurus_French
+German;taxonThesaurus/taxonThesaurus_German
+Italian;taxonThesaurus/taxonThesaurus_Italian
+Portuguese;taxonThesaurus/taxonThesaurus_Portuguese
+Spanish;taxonThesaurus/taxonThesaurus_Spanish
