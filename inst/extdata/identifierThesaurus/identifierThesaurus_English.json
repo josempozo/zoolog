@@ -5,8 +5,8 @@
       "Language English"
     ],
     "categories": {
-      "Taxon": ["Taxon", "Species", "Animal"],
-      "Element": ["Element", "Bone", "Bone Element"],
+      "Taxon": ["Taxon", "Species", "Animal", "GenusSpecies"],
+      "Element": ["Element", "Bone", "Bone Element", "BoneBoneElement"],
       "Fragment": ["Fragment"],
       "Laterality": ["Laterality"],
       "Measure": ["Measure", "Measurement", "Measurements", "Measures"],
