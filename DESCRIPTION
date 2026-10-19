@@ -54,6 +54,7 @@ Imports:
     pracma,
     tools,
     jsonlite,
+    cli,
     Rdpack (>= 0.7),
     lifecycle
 Config/testthat/edition: 3
