@@ -6,8 +6,8 @@
 #' writing, the file format is determined by the filename extension.
 #' The internal \code{\link{zoologThesaurus}} is provided in the
 #' \pkg{zoolog} \code{extdata} folder in json format, which is also the
-#' recomended file format. It can be visualized and edited in any text editor,
-#' or can be parsed to most modern programming languages.
+#' recomended file format. This format can be visualized and edited in any
+#' text editor, or can be parsed to most modern programming languages.
 #'
 #' The alternative csv format is actually a semicolon separated format with
 #' some additional initial comments complementing the thesaurus attributes.
