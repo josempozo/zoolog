@@ -17,7 +17,7 @@ WriteThesaurus(thesaurus, file)
 WriteThesaurusSet(thesaurusSet, file)
 }
 \arguments{
-\item{file}{Name of a file.}
+\item{file}{Name of a file with extension json (recommended) or csv.}
 
 \item{thesaurus}{A thesaurus object.}
 
@@ -33,14 +33,29 @@ thesaurusSet, respectively.
 \description{
 Functions to read and write thesauri and thesaurus sets.
 }
+\details{
+Two alternative file formats are accepted: json and csv. In both reading and
+writing, the file format is determined by the filename extension.
+The internal \code{\link{zoologThesaurus}} is provided in the
+\pkg{zoolog} \code{extdata} folder in json format, which is also the
+recomended file format. It can be visualized and edited in any text editor,
+or can be parsed to most modern programming languages.
+
+The alternative csv format is actually a semicolon separated format with
+some additional initial comments complementing the thesaurus attributes.
+It is compatible with the legacy format used in versions zoolog 1.x. This
+facilitates to upgrade any previous user-defined thesaurus.
+This format can be examined in any text editor or imported into any
+spreadsheet application.
+}
 \examples{
 ## Read a thesaurus for measures:
 thesaurusFile <- system.file("extdata", "measureThesaurus.json",
                              package="zoolog")
 thesaurus <- ReadThesaurus(thesaurusFile)
-## The attributes of the thesaurus include the fields 'sensitiveness',
-## and 'description' as read from the file.
-attributes(thesaurus)
+## The main features of the thesaurus (description, term categories
+## included, and sensitiveness) can be displayed by
+summary(thesaurus)
 
 ## Write the thesarus to a file:
 fileExample <- file.path(tempdir(), "thesaurusExample.json")
@@ -52,11 +67,8 @@ WriteThesaurus(thesaurus, fileExample)
 thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.json",
                                 package="zoolog")
 thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
-## The attributes of the thesaurus set include information of the constituent
-## thesauri: names, source file names, and their mode of application on datasets.
-attributes(thesaurusSet)
-## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.
-attributes(thesaurusSet$measure)
+## The main features of the thesaurus set are summarized by
+summary(thesaurusSet)
 
 ## Write the thesaurus set to a file:
 fileSetExample <- file.path(tempdir(), "thesaurusSetExample.json")
@@ -72,5 +84,6 @@ WriteThesaurusSet(thesaurusSet, fileSetExample)
 thesaurus set structure,
 
 \code{\link{ThesaurusManagement}},
-\code{\link{StandardizeNomenclature}}
+\code{\link{StandardizeNomenclature}},
+\code{\link{print.thesaurus}}
 }

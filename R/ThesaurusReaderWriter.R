@@ -2,7 +2,21 @@
 #'
 #' Functions to read and write thesauri and thesaurus sets.
 #'
-#' @param file Name of a file.
+#' Two alternative file formats are accepted: json and csv. In both reading and
+#' writing, the file format is determined by the filename extension.
+#' The internal \code{\link{zoologThesaurus}} is provided in the
+#' \pkg{zoolog} \code{extdata} folder in json format, which is also the
+#' recomended file format. It can be visualized and edited in any text editor,
+#' or can be parsed to most modern programming languages.
+#'
+#' The alternative csv format is actually a semicolon separated format with
+#' some additional initial comments complementing the thesaurus attributes.
+#' It is compatible with the legacy format used in versions zoolog 1.x. This
+#' facilitates to upgrade any previous user-defined thesaurus.
+#' This format can be examined in any text editor or imported into any
+#' spreadsheet application.
+#'
+#' @param file Name of a file with extension json (recommended) or csv.
 #' @param thesaurus A thesaurus object.
 #' @param thesaurusSet A thesaurus set.
 #'
@@ -18,9 +32,9 @@
 #' thesaurusFile <- system.file("extdata", "measureThesaurus.json",
 #'                              package="zoolog")
 #' thesaurus <- ReadThesaurus(thesaurusFile)
-#' ## The attributes of the thesaurus include the fields 'sensitiveness',
-#' ## and 'description' as read from the file.
-#' attributes(thesaurus)
+#' ## The main features of the thesaurus (description, term categories
+#' ## included, and sensitiveness) can be displayed by
+#' summary(thesaurus)
 #'
 #' ## Write the thesarus to a file:
 #' fileExample <- file.path(tempdir(), "thesaurusExample.json")
@@ -32,11 +46,8 @@
 #' thesaurusSetFile <- system.file("extdata", "zoologThesaurusSet.json",
 #'                                 package="zoolog")
 #' thesaurusSet <- ReadThesaurusSet(thesaurusSetFile)
-#' ## The attributes of the thesaurus set include information of the constituent
-#' ## thesauri: names, source file names, and their mode of application on datasets.
-#' attributes(thesaurusSet)
-#' ## The attributes of each thesaurus are also set by 'ReadThesaurusSet'.
-#' attributes(thesaurusSet$measure)
+#' ## The main features of the thesaurus set are summarized by
+#' summary(thesaurusSet)
 #'
 #' ## Write the thesaurus set to a file:
 #' fileSetExample <- file.path(tempdir(), "thesaurusSetExample.json")
@@ -51,7 +62,8 @@
 #' thesaurus set structure,
 #'
 #' \code{\link{ThesaurusManagement}},
-#' \code{\link{StandardizeNomenclature}}
+#' \code{\link{StandardizeNomenclature}},
+#' \code{\link{print.thesaurus}}
 
 #' @name ThesaurusReaderWriter
 
@@ -60,7 +72,7 @@
 ReadThesaurus <- function(file)
 {
   da <- ReadDataAndAttributes(file)
-  if(da$traits$class == "thesaurusLanguageSet")
+  if(!is.null(da$traits$class) && da$traits$class == "thesaurusLanguageSet")
   {
     thesaurus <- ReadThesaurusLanguageSet(da, file)
     return(thesaurus)
@@ -77,6 +89,7 @@ ReadThesaurus <- function(file)
 ReadThesaurusSet <- function(file)
 {
   x <- ReadDataAndAttributes(file, FALSE)
+  if(is.null(x$traits$class)) x$data <- LegacyFormatAdaption(x$data)
   filenames <- InheritFileDirAndExtension(x$data$fileName, file)
   thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- x$data$thesaurusName
@@ -134,14 +147,19 @@ ReadThesaurusAttributes <- function(file)
   y$traits <- JoinSensitivenessVector(y$traits)
   y$text <- y$text[y$text != ""]
   underline <- which(stringi::stri_count_fixed(y$text, "-") == nchar(y$text))
-  if(length(underline) == 0) underline <- length(y$text) + 1
-  if(length(underline) > 1) stop("Bad formating: More than one underline.")
-  if(underline == 1) stop("No class declared in file.")
-  if(underline > 2) stop("More than one class declared in file.")
-
-  y$traits$class <- y$text[1]
-  if(length(y$text) > 2)
-    y$traits$description <- utils::tail(y$text, length(y$text) - 2)
+  if(length(underline) > 0)
+  {
+    if(length(underline) > 1) stop("Bad formating: More than one underline.")
+    if(underline == 1) stop("No class declared in file.")
+    if(underline > 2) stop("More than one class declared in file.")
+    y$traits$class <- y$text[1]
+    if(length(y$text) > 2)
+      y$traits$description <- utils::tail(y$text, length(y$text) - 2)
+  }
+  else if(length(y$text) > 0)
+  {
+    y$traits$description <- y$text
+  }
   return(y$traits)
 }
 
@@ -217,7 +235,8 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
                              header = FALSE)
     data <- lapply(data, function(a) a[a != ""])
     names(data) <- as.character(lapply(data, function(a) a[1]))
-    if(is.null(repeatHeader)) repeatHeader <- (traits$class == "thesaurus")
+    if(is.null(repeatHeader))
+      repeatHeader <- (is.null(traits$class) || traits$class == "thesaurus")
     if(!repeatHeader) data <- lapply(data, function(a) a[-1])
   }
   else if(format == "json")
@@ -376,6 +395,13 @@ BuildDataFromJsonList <- function(thesList)
   }
   else
     stop("Unrecongnized class in json file.")
+  return(data)
+}
+
+LegacyFormatAdaption <- function(data)
+{
+  # Convert names first character to lowercase.
+  names(data) <- sub('^(.)', '\\L\\1', names(data), perl=TRUE)
   return(data)
 }
 
