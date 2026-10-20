@@ -16,9 +16,9 @@ Each reference is a data.frame including 4 columns:
 All the measurements are expressed in millimetres.}
 }
 
-An object of class \code{data.frame} with 4 rows and 16 columns.
+{}
 
-An object of class \code{list} of length 16.
+{}
 }
 \usage{
 reference

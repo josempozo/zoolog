@@ -4,7 +4,8 @@
 #'
 #' On loading the package, all available languages are active.
 #'
-#' Observe that the function \code{SetActiveLanguages} globally changes the
+#' Observe that the functions \code{SetActiveLanguages} and
+#' \code{SetStandardLanguage} globally change the
 #' behaviour of the package by modifying the thesaurus in use.
 #'
 #' There is a specially treated language "Base" including the scientific

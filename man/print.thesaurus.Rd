@@ -38,7 +38,8 @@ thesaurusLanguageSet fully print its constituent thesauri for every language?}
 All these functions return the input object invisibly.
 }
 \description{
-Functions to print thesauri and thesaurus sets in a human readable form.
+Functions to print thesauri and thesaurus sets in a convenient human
+readable form.
 }
 \examples{
 ## Print the thesaurus for identifiers:

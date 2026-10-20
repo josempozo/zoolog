@@ -1,6 +1,7 @@
 #' Print thesauri to the terminal
 #'
-#' Functions to print thesauri and thesaurus sets in a human readable form.
+#' Functions to print thesauri and thesaurus sets in a convenient human
+#' readable form.
 #'
 #' @param x,object A thesaurus, thesaurusSet, or thesaurusLanguageSet.
 #' @param ... Additional arguments to be passed to other methods.

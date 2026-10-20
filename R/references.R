@@ -130,11 +130,11 @@
 #' reference for cattle \insertCite{johnstone2002late}{zoolog}.
 #'
 #' We are also grateful to Sierra Harding and Nimrod Marom (University of Haifa)
-#' for providing the Haifa standard measurements for donkey, mountain gazelle, 
+#' for providing the Haifa standard measurements for donkey, mountain gazelle,
 #' and Persian fallow deer \insertCite{Harding2021}{zoolog}.
 #'
 #' We thank Carly Ameen and Helene Benkert (University of Exeter) for providing
-#' references for horse \insertCite{johnstone2004biometric}{zoolog} and 
+#' references for horse \insertCite{johnstone2004biometric}{zoolog} and
 #' European rabbit \insertCite{Ameen2021}{zoolog}.
 #'
 #' We thank Mikolaj Lisowski (University of York) for pointing to the existence
@@ -146,12 +146,12 @@
 "reference"
 
 #' @format
-#'
+#' {}
 #' @rdname referencesDatabase
 "referenceSets"
 
 #' @format
-#'
+#' {}
 #' @rdname referencesDatabase
 "referencesDatabase"
 
