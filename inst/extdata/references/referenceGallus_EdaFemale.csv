@@ -9,7 +9,7 @@
 ## domestic fowl under the domestication process."
 ## Quaternary International 626-627: 14-21
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Gallus gallus;Humerus;GL;60,41
 Gallus gallus;Humerus;Bp;15,98
 Gallus gallus;Humerus;Bd;12,97

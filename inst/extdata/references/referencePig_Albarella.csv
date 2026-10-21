@@ -9,7 +9,7 @@
 ## Wiltshire, England: a biometrical database."
 ## Journal of Archaeological Science, 32(4), 589-599.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 sudo;Atlas;H;46,9
 sudo;Atlas;BFcr;56,8
 sudo;SC;GLP;36,7

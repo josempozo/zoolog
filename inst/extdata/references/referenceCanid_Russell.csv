@@ -10,7 +10,7 @@
 ## Neolithic Southeast Europe.
 ## PhD thesis, University of California, Berkeley.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Canis lupus;Atlas;GL;43,2
 Canis lupus;Atlas;GLF;37,4
 Canis lupus;Atlas;GB;99

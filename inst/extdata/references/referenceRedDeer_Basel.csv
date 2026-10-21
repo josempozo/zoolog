@@ -10,7 +10,7 @@
 ## Personal communication,
 ## included permission to publish them as part of the package zoolog.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 CEEL;Scapula;SLC;40,5
 CEEL;Humerus;Bp;76,6
 CEEL;Humerus;Bd;60,0

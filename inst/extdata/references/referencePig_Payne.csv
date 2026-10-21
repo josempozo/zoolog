@@ -11,7 +11,7 @@
 ## Archaeozoologia, 2(1), 27-66.
 ## (Appendix 2)
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Sus scrofa;Scapula;SLC;29,8
 Sus scrofa;Scapula;GLP;42,6
 Sus scrofa;Humerus;Bd;50,0

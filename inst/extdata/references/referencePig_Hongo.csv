@@ -12,7 +12,7 @@
 ## international symposium on the archaeozoology of southwestern Asia and
 ## adjacent areas. Groningen: ARC Publications, 121-139.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Sus scrofa;Scapula;SLC;26,5
 Sus scrofa;Scapula;GLP;39,4
 Sus scrofa;Scapula;LG;32,5

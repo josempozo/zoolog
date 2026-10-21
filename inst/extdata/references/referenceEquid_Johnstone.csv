@@ -10,7 +10,7 @@
 ## Johnstone CJ (2004). A biometric study of equids in the Roman world.
 ## Ph.D. thesis, University of York.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Equus caballus;CR;1;515
 Equus caballus;CR;2;480
 Equus caballus;CR;3;455

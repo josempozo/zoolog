@@ -8,7 +8,7 @@
 ## "Osteology of the Soay sheep."
 ## Bulletin of the British Museum, Natural History. Zoology, 56(1), 1-56.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 OVAR;Scapula;SLC;18,26
 OVAR;Scapula;GLP;30,54
 OVAR;Scapula;LG;22,95

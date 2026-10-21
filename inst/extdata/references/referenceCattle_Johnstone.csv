@@ -10,7 +10,7 @@
 ## from Elms Farm, Heybridge, Essex (Site Code: Hyef93-95)"
 ## Centre for Archaeology, Report 45/2002, tab.16, p. 70.
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Bos taurus;M3 inf;W;15,4
 Bos taurus;M3 inf;L;35,6
 Bos taurus;Scapula;SLC;43,1

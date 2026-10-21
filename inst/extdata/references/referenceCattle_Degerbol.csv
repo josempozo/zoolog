@@ -10,7 +10,7 @@
 ## Zoological and Palynological Investigations, Biologiske skrifter, 17:1.
 ## Kobenhavn, (Munksgaard).
 ##########################################
-TAX;EL;Measure;Standard
+Taxon;Element;Measure;Standard
 Bos primigenius;Scapula;SLC;69
 Bos primigenius;Scapula;LG;70
 Bos primigenius;Scapula;BG;60
