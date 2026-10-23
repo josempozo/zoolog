@@ -56,7 +56,8 @@ MarkFileNamesWhenAssembled <- function(thesaurusSet.db)
   fileNames <- mapply(
     function(x, y)
       paste0(tools::file_path_sans_ext(x), "(Assembled)"[y],
-             ".", tools::file_ext(x)),
+             ifelse(tools::file_ext(x) == "", "", "."),
+             tools::file_ext(x)),
     attr(thesaurusSet.db, "fileName"), structuredByLanguage,
     USE.NAMES = FALSE
   )
