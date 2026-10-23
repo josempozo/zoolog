@@ -94,13 +94,12 @@ ToCamelCase <- function(x)
 }
 
 MakeFileNames <- function(thesaurusSet,
-                          root = stringi::stri_rand_strings(1, 20),
-                          format = "json")
+                          root = stringi::stri_rand_strings(1, 20))
 {
   description <- attr(thesaurusSet, "description")[1]
   if(missing(root) && !is.null(description) && description != "")
     root <- ToCamelCase(description)
-  paste0(root, "/", root, "_", names(thesaurusSet), ".", format)
+  paste0(root, "/", root, "_", names(thesaurusSet))
 }
 
 SetFileNames <- function(thesaurusSet, fileNames)
