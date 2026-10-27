@@ -7,24 +7,24 @@
       "and some variants and acronyms."
     ],
     "categories": {
-      "Taxon": ["TAX", "TX"],
-      "Element": ["EL", "anat"],
-      "Fragment": [],
-      "Laterality": ["Lat"],
-      "Measure": ["Mass"],
-      "Standard": [],
-      "Country": [],
-      "Region": [],
-      "Site type": ["Type"],
-      "Site": [],
-      "Stratigraphic Unit": ["SU"],
-      "Year": [],
-      "Area": [],
-      "Feature": [],
-      "Chronology": ["Chrono"],
-      "Period": [],
-      "Phase": [],
-      "Comments": []
+      "Taxon": ["Taxon", "TAX", "TX"],
+      "Element": ["Element", "EL", "anat"],
+      "Fragment": ["Fragment"],
+      "Laterality": ["Laterality", "Lat"],
+      "Measure": ["Measure", "Mass"],
+      "Standard": ["Standard"],
+      "Country": ["Country"],
+      "Region": ["Region"],
+      "Site type": ["Site type", "Type"],
+      "Site": ["Site"],
+      "Stratigraphic Unit": ["Stratigraphic Unit", "SU"],
+      "Year": ["Year"],
+      "Area": ["Area"],
+      "Feature": ["Feature"],
+      "Chronology": ["Chronology", "Chrono"],
+      "Period": ["Period"],
+      "Phase": ["Phase"],
+      "Comments": ["Comments"]
     }
   }
 }

@@ -39,14 +39,22 @@ writing, the file format is determined by the filename extension.
 The internal \code{\link{zoologThesaurus}} is provided in the
 \pkg{zoolog} \code{extdata} folder in json format, which is also the
 recomended file format. This format can be visualized and edited in any
-text editor, or can be parsed to most modern programming languages.
+text editor, including any R code IDE such as RStudio. It can also be parsed
+to most modern programming languages.
 
 The alternative csv format is actually a semicolon separated format with
 some additional initial comments complementing the thesaurus attributes.
-It is compatible with the legacy format used in versions zoolog 1.x. This
-facilitates to upgrade any previous user-defined thesaurus.
 This format can be examined in any text editor or imported into any
 spreadsheet application.
+
+The csv format is compatible with the legacy format used in versions
+zoolog 1.x, but includes additional information.
+For this reason, a deprecation warning message is issued when read.
+This facilitates to upgrade any previous user-defined thesaurus. For this
+upgrade, the user can simply read the thesaurus with \code{ReadThesaurus} and
+directly write it with \code{WriteThesaurus} in any of the alternative formats,
+json or csv. Analogously for a thesaurus set, with \code{ReadThesaurusSet}
+followed by \code{WriteThesaurusSet}.
 }
 \examples{
 ## Read a thesaurus for measures:

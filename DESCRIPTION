@@ -55,6 +55,7 @@ Imports:
     tools,
     jsonlite,
     cli,
+    rlang,
     Rdpack (>= 0.7),
     lifecycle
 Config/testthat/edition: 3

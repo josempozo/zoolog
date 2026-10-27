@@ -7,14 +7,22 @@
 #' The internal \code{\link{zoologThesaurus}} is provided in the
 #' \pkg{zoolog} \code{extdata} folder in json format, which is also the
 #' recomended file format. This format can be visualized and edited in any
-#' text editor, or can be parsed to most modern programming languages.
+#' text editor, including any R code IDE such as RStudio. It can also be parsed
+#' to most modern programming languages.
 #'
 #' The alternative csv format is actually a semicolon separated format with
 #' some additional initial comments complementing the thesaurus attributes.
-#' It is compatible with the legacy format used in versions zoolog 1.x. This
-#' facilitates to upgrade any previous user-defined thesaurus.
 #' This format can be examined in any text editor or imported into any
 #' spreadsheet application.
+#'
+#' The csv format is compatible with the legacy format used in versions
+#' zoolog 1.x, but includes additional information.
+#' For this reason, a deprecation warning message is issued when read.
+#' This facilitates to upgrade any previous user-defined thesaurus. For this
+#' upgrade, the user can simply read the thesaurus with `ReadThesaurus` and
+#' directly write it with `WriteThesaurus` in any of the alternative formats,
+#' json or csv. Analogously for a thesaurus set, with `ReadThesaurusSet`
+#' followed by `WriteThesaurusSet`.
 #'
 #' @param file Name of a file with extension json (recommended) or csv.
 #' @param thesaurus A thesaurus object.
@@ -71,16 +79,21 @@
 #' @export
 ReadThesaurus <- function(file)
 {
-  da <- ReadDataAndAttributes(file)
-  if(!is.null(da$traits$class) && da$traits$class == "thesaurusLanguageSet")
+  x <- ReadDataAndAttributes(file)
+  if(is.null(x$traits$class))
+    x$data <- LegacyFormatAdaption(x$data, "thesaurus")
+  if(is.null(x$traits$class) || x$traits$class == "thesaurus")
   {
-    thesaurus <- ReadThesaurusLanguageSet(da, file)
-    return(thesaurus)
+    return(tryCatch(Thesaurus0(x$data, x$traits),
+                    error = function(e) stop("File ", file , ": ", e[[1]])))
+  }
+  else if(x$traits$class == "thesaurusLanguageSet")
+  {
+    return(ReadThesaurusLanguageSet(x, file))
   }
   else
   {
-    tryCatch(Thesaurus0(da$data, da$traits),
-             error = function(e) stop("File ", file , ": ", e[[1]]))
+    stop("Not recognized thesaurus class in file.")
   }
 }
 
@@ -88,8 +101,9 @@ ReadThesaurus <- function(file)
 #' @export
 ReadThesaurusSet <- function(file)
 {
-  x <- ReadDataAndAttributes(file, FALSE)
-  if(is.null(x$traits$class)) x$data <- LegacyFormatAdaption(x$data)
+  x <- ReadDataAndAttributes(file)
+  if(is.null(x$traits$class))
+    x$data <- LegacyFormatAdaption(x$data, "thesaurusSet")
   filenames <- InheritFileDirAndExtension(x$data$fileName, file)
   thesaurusSet <- lapply(filenames, ReadThesaurus)
   names(thesaurusSet) <- x$data$thesaurusName
@@ -221,7 +235,7 @@ ExpandSensitivenessVector <- function(traits)
 # Alternative formats are possible depending on the file-extension:
 # json (default) and csv.
 # The alternative formats can help to modify the thesaurus more easily.
-ReadDataAndAttributes <- function(file, repeatHeader = NULL)
+ReadDataAndAttributes <- function(file)
 {
   format <- tools::file_ext(file)
   if(format == "csv")
@@ -232,12 +246,9 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
                              stringsAsFactors = FALSE,
                              colClasses = "character",
                              encoding = traits$encoding,
-                             header = FALSE)
+                             header = TRUE,
+                             check.names = FALSE)
     data <- lapply(data, function(a) a[a != ""])
-    names(data) <- as.character(lapply(data, function(a) a[1]))
-    if(is.null(repeatHeader))
-      repeatHeader <- (is.null(traits$class) || traits$class == "thesaurus")
-    if(!repeatHeader) data <- lapply(data, function(a) a[-1])
   }
   else if(format == "json")
   {
@@ -246,8 +257,6 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
     traits$sensitiveness <- unlist(traits$sensitiveness)
     traits$class <- names(thesList)
     data <- BuildDataFromJsonList(thesList)
-    if(is.null(repeatHeader)) repeatHeader <- (traits$class == "thesaurus")
-    if(repeatHeader) data <- mapply(c, names(data), data)
   }
   else
     stop("Wrong file extension in ", file, ".\n",
@@ -257,20 +266,20 @@ ReadDataAndAttributes <- function(file, repeatHeader = NULL)
   list(data = data, traits = traits)
 }
 
-WriteThesaurus0 <- function(thesaurus, file, rm.first = TRUE)
+WriteThesaurus0 <- function(thesaurus, file)
 {
   if(!inherits(thesaurus, "thesaurus"))
     stop("Input is not of class 'thesaurus'.")
-  WriteDataAndAttributes(thesaurus, file, rm.first)
+  WriteDataAndAttributes(thesaurus, file)
 }
 
-WriteDataAndAttributes <- function(thesaurus, file, rm.first = FALSE)
+WriteDataAndAttributes <- function(thesaurus, file)
 {
   CreateDirsIfNeeded(file)
   format <- tools::file_ext(file)
   if(format == "csv")
   {
-    data <- BuildDataForCSV(thesaurus, rm.first)
+    data <- BuildDataForCSV(thesaurus)
     encoding <- GetFirstNonTrivialEncoding(unlist(data))
     if(encoding != "") attr(thesaurus, "encoding") <- encoding
     WriteThesaurusAttributes(attributes(thesaurus), file)
@@ -281,7 +290,7 @@ WriteDataAndAttributes <- function(thesaurus, file, rm.first = FALSE)
   }
   else if(format == "json")
   {
-    thes <- BuildListForJson(thesaurus, rm.first)
+    thes <- BuildListForJson(thesaurus)
     jsonlite::write_json(thes, file, pretty = TRUE)
   }
   else
@@ -292,7 +301,7 @@ WriteDataAndAttributes <- function(thesaurus, file, rm.first = FALSE)
 
 ###########################################
 # Help functions to write attributes and data
-BuildDataForCSV <- function(x, rm.first)
+BuildDataForCSV <- function(x)
 {
   if(inherits(x, "thesaurus"))
   {
@@ -312,14 +321,14 @@ BuildDataForCSV <- function(x, rm.first)
   }
   else
     stop("Object of unrecognized class.")
-  # if rm.first is false, a first row is added with the names, instead of
+  # A first row is added with the names, instead of
   # argument col.names set to TRUE in write.table.
   # This avoids the warning of write.table when appending.
-  if(!rm.first) data <- rbind(names(data), data)
+  data <- rbind(names(data), data)
   return(data)
 }
 
-BuildListForJson <- function(x, rm.first)
+BuildListForJson <- function(x)
 {
   if(!inherits(x, c("thesaurus", "thesaurusLanguageSet", "thesaurusSet")))
     stop("Object of unrecognized class.")
@@ -328,10 +337,9 @@ BuildListForJson <- function(x, rm.first)
   thesList$description <- FormatDescriptionForJson(traits$description)
   thesList$sensitiveness <- FormatSensitivenessForJson(traits$sensitiveness)
   # json is alway UTF-8 encoded. Thus, no need to annotate for it.
-  if(rm.first) x[] <- lapply(x, function(y) y[-1])
   if(inherits(x, "thesaurus"))
   {
-    thesList$categories <- unclass(x)
+    thesList$categories <- lapply(x, as.character)
     return(list(thesaurus = thesList))
   }
   else if(inherits(x, "thesaurusLanguageSet"))
@@ -398,10 +406,25 @@ BuildDataFromJsonList <- function(thesList)
   return(data)
 }
 
-LegacyFormatAdaption <- function(data)
+LegacyFormatAdaption <- function(data, class)
 {
   # Convert names first character to lowercase.
-  names(data) <- sub('^(.)', '\\L\\1', names(data), perl=TRUE)
+  lifecycle::deprecate_warn(
+    "2.0.0",
+    I(paste("Reading thesaurus file in legacy (zoolog 1.x) csv file-format.",
+            "This file-format can still be read but")),
+    details = c("Please update it to the new json or csv format,
+                 using WriteThesaurus or WriteThesaurusSet, as appropriate.",
+                "See description in help('WriteThesaurus')."),
+    env = rlang::caller_env(),
+    user_env = rlang::caller_env(2)
+  )
+  if(class == "thesaurus")
+    data <- mapply(c, names(data), data, SIMPLIFY = FALSE)
+  else if(class == "thesaurusSet")
+    names(data) <- sub('^(.)', '\\L\\1', names(data), perl=TRUE)
+  else
+    stop("Not recognized class", class)
   return(data)
 }
 
@@ -412,7 +435,6 @@ ReadThesaurusLanguageSet <- function(da, file)
 {
   filenames <- InheritFileDirAndExtension(da$data$fileName, file)
   thesaurusSet <- mapply(ReadThesaurusForLanguage, filenames,
-                         repeatHeader = (da$data$language == "Base"),
                          sensitiveness = da$traits$sensitiveness,
                          SIMPLIFY = FALSE)
   names(thesaurusSet) <- da$data$language
@@ -421,9 +443,9 @@ ReadThesaurusLanguageSet <- function(da, file)
   return(thesaurusSet)
 }
 
-ReadThesaurusForLanguage <- function(file, repeatHeader, sensitiveness)
+ReadThesaurusForLanguage <- function(file, sensitiveness)
 {
-  da <- ReadDataAndAttributes(file, repeatHeader)
+  da <- ReadDataAndAttributes(file)
   # The Ambiguity must be tested with sensitiveness
   da$traits$sensitiveness <- sensitiveness
   thes <- Thesaurus0(da$data, da$traits)
@@ -441,8 +463,7 @@ WriteThesaurusLanguageSet <- function(thesaurus, file)
   WriteDataAndAttributes(thesaurus, file)
 
   filenames <- InheritFileDirAndExtension(attr(thesaurus, "fileName"), file)
-  noreturn <- mapply(WriteThesaurus0, thesaurus, filenames,
-                     rm.first = (names(thesaurus) == "Base"))
+  noreturn <- mapply(WriteThesaurus0, thesaurus, filenames)
 }
 
 ###########################################
