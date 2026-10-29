@@ -262,7 +262,10 @@ ReadDataAndAttributes <- function(file)
     stop("Wrong file extension in ", file, ".\n",
          "Please use 'json' or 'csv' for the corresponding file formats.")
 
-  data <- utils::type.convert(data, as.is = TRUE)
+  if(traits$class == "thesaurusSet")
+    data <- utils::type.convert(data, as.is = TRUE)
+  else
+    data <- lapply(data, as.character)
   list(data = data, traits = traits)
 }
 
