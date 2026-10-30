@@ -1,0 +1,15 @@
+{
+  "thesaurus": {
+    "description": "example thesaurus for taxa",
+    "sensitiveness": {
+      "caseSensitive": false,
+      "accentSensitive": false,
+      "punctuationSensitive": false
+    },
+    "categories": {
+      "Bos taurus": ["Bos taurus", "bota", "BT", "cattle"],
+      "Ovis aries": ["Ovis aries", "ovar", "OA", "ov", "OVA", "sheep"],
+      "Sus domesticus": ["Sus domesticus", "sudo", "SS", "pig"]
+    }
+  }
+}

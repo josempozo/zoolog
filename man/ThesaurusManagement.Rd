@@ -89,8 +89,9 @@ examples below illustrating both alternatives.
 }
 \examples{
 ## Load an example thesaurus:
-thesaurus <- ReadThesaurus(system.file("extdata", "taxonThesaurusExample.csv",
-                                       package="zoolog"))
+exampleFile <- system.file("extdata", "taxonThesaurusExample.json",
+                           package="zoolog")
+thesaurus <- ReadThesaurus(exampleFile)
 ## with categories
 names(thesaurus) #  "Bos taurus"  "Ovis aries"  "Sus domesticus"
 ## Add names to several categories:
@@ -100,14 +101,16 @@ thesaurusExtended <- AddToThesaurus(thesaurus,
 ## This adds the name "Kuh" to the category "Bos taurus" and
 ## the name "Schwein" to the category "Sus domesticus".
 
-## Generate a new thesaurus populated with two categories ("red" and "blue"):
+## Generate a new thesaurus populated with two categories
+## ("red" and "blue"):
 thesaurusNew <- Thesaurus(list(
   red = c("scarlet", "vermilion", "ruby", "cherry", "carmine", "wine"),
   blue = c("sky blue", "azure", "sapphire", "cerulean", "navy")
 ))
 thesaurusNew
 
-## Add new terms to existing category and new categories to the thesaurus:
+## Add new terms to existing category and new categories
+## to the thesaurus:
 thesaurusNew <- AddToThesaurus(thesaurusNew, list(
   blue = c("lapis lazuli", "indigo", "cyan"),
   brown = c("hazel", "chocolate-coloured", "brunette", "mousy", "beige")
@@ -137,9 +140,10 @@ thesaurusNew
 thesaurusNew <- RemoveFromThesaurus(thesaurusNew, category = "azure")
 thesaurusNew
 
-## The standard term of any category can be changed to a different term in
-## the category:
-thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew, c("hazel", "wine"))
+## The standard term of any category can be changed
+## to a different term in the category:
+thesaurusNew <- ChangeStandardInThesaurus(thesaurusNew,
+                                          c("hazel", "wine"))
 thesaurusNew
 
 }
