@@ -28,27 +28,43 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-This document describes the process to generate a new language for the zoologThesaurus and contribute it to be integrated in the package *zoolog*.
+This document describes the process to generate a new language for the zoologThesaurus and potentially to contribute it to be integrated in the package *zoolog*.
 
 ## File format
 
-For each thesaurus and language, there is a csv file, which can be edited in any text editor or in any spreadsheet application. We recommend the use of the latter to visualize and generate the new language. Once generated, the files for the new language can be submitted in `.csv` format or directly in the spreadsheet application native format, such as `.xlsx` or `.numbers`.
+There are two possible file formats for the thesaurus: json and csv. Json format is the recommended one, but some users can find more convenient for them to use the csv format.
 
-## Generating the files
+For each thesaurus and language, there is a json file included in the zoolog source-code package repository `inst/extdata/`.
+In the installed package, this folder can be found by running `system.file("extdata", package="zoolog")`. The files can also be downloaded from the GitHub repository [https://github.com/josempozo/zoolog]. See [zoologThesaurus](../help/zoologThesaurus) for a description and list of these files. The user can open the json-format files and edit them in any text editor or R code IDE, such as RStudio.
 
-A language-specific file must be generated for each of the language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. For each of them, there is a folder with the same name in the package repository `inst/extdata/`.
-Let's consider, for instance, the identifierThesaurus. In the folder `inst/extdata/identifierThesaurus/` there is a file for each language. In particular, the file `identifierThesaurus_Base.csv` can be used as a template to generate the new language-specific thesaurus. The file can be found in the source of the installed package or can be downloaded from the GitHub repository [https://github.com/josempozo/zoolog].
+The alternative csv-format files are not included in the package data. But can be obtained using [WriteThesaurusSet](../help/WriteThesaurusSet). Let's say you want the files in a folder named "myFolder". Then the full set of files will be written by
+```{r, eval = FALSE, warning = FALSE}
+WriteThesaurusSet(zoolog:::zoologThesaurusByLanguage, "myFolder/zoologThesarusSet.csv")
+```
+The resulting csv files can be edited in any text editor or in any spreadsheet application. The latter is generally more user-friendly to edit the thesaurus categories. But a text editor is usually required for correctly formatting the initial comments declaring the thesaurus attributes.
 
-We recomend to copy the file `identifierThesaurus_Base.csv` into `identifierThesaurus_[NewLanguage].csv`, and then to edit the latter as an initial template. First, all rows can be removed except the header giving the column names, which are the identifiers of each category. These names are also the default standard names. Second, a first row must be added with the standard terms in the new language. Third, any number of rows can be added, including in each column alternative terms in the intended language for the corresponding category. Each column can have a different number of terms, leaving a blank in any remaining cell. See for instance `identifierThesaurus_French.csv`.
+## Generating new language-specific files
+
+A language-specific file must be generated for each of the language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. For convenience, a template of a thesaurus set with these three thesauri is included in the source-code package repository `inst/extdata/thesaurusTemplateForNewLanguage`. This template is privided in both formats, json and csv.
+
+We recomend to copy the template files in the desired format into a user folder, replacing the placeholder marks XXXX by the name of the intended language (let's denote it as [newLanguage]). For instance `identifierThesaurus_XXXX.json` can be copied as `identifierThesaurus_[NewLanguage].json`. For each thesaurus, the copied file can then be edited as an initial template. For each category, a list of appropriate terms in the intended language should be included. Take into account that the first term in each category will be used as the language-specific standard term for that category. After this first term, any number of alternative terms can be included in each category. The template files present mostly empty categories, except for the first one, which includes placeholders reminding the use of the to-be-included terms.
+
+For the thesaurus set file `thesaurusSet_[NewLanguage].json`, only the given list of filenames must be modified, replacing each of them with the actual filename used for each thesaurus.
+
+If the csv file format is preferred, the analogous procedure must be followed, copying the template files with the .csv extension and changing the placeholder marks XXXX by the name of the intended language. For each thesaurus, the first row (below the colnames) should include the standard terms in the new language. Then, any number of rows can be added, including in each column alternative terms in the intended language for the corresponding category. Each column can have a different number of terms, leaving a blank in any remaining cell.
+
+## Personal use the language thesaurus
+
+The generated thesaurusSet can be tested and used in the personal local system, without requiring it to be contributed if this is not desired. This is enabled by the function [AddNewLanguage](../help/AddNewLanguage), which allows the user to incorporate its own thesaurus set as a new language and activate it when desired.
+
+## Contributing the files
+
+The generated thesaurusSet for the new language can also be submitted in json or csv format. For this, the files should be sent to the maintainer at the email address [josmpozo@gmail.com].
 
 It is expected that the contributor provides the language-specific thesaurus for each of the three language-structured thesaurus: identifierThesaurus, taxonThesaurus, and elementThesaurus. But any partial contribution is also welcome.
 
 ## Complementing already existing languages
 
-The contributor can also complement existing language-specific thesauri by adding new terms that could have been missing. For this, they must copy the corresponding file, appending *Extension*. For instance, `identifierThesaurus_German.csv` can be copied into `identifierThesaurus_German_Extension.csv`. Then edit the new file adding as many cells or rows as necessary. The new terms should be added always below the already existing ones, to facilitate its revision.
-
-## Contributing the files
-
-The generated new files shoud be sent to the maintainer through the email address [josmpozo@gmail.com].
+The contributor can also complement existing language-specific thesauri by adding new terms that could have been missing. For this, they must copy the corresponding file, appending *Extension*. For instance, `identifierThesaurus_German.json` in the code folder `inst/extdata/identifierThesaurus` can be copied into `identifierThesaurus_German_Extension.json`. Then edit the new file adding as many terms as necessary. The new terms should be added always after the already existing ones, to facilitate its revision.
 
 
