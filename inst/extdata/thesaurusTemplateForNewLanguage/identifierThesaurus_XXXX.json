@@ -1,0 +1,33 @@
+{
+  "thesaurus": {
+    "description": [
+      "zoolog thesaurus for identifiers of reference values."
+    ],
+    "sensitiveness": {
+      "caseSensitive": false,
+      "accentSensitive": false,
+      "punctuationSensitive": false,
+      "wordOrderSensitive": true
+    },
+    "categories": {
+      "Taxon": ["LanguageStandardTermForTaxon", "AlternativeTerm1", "AlternativeTerm2"],
+      "Element": [],
+      "Fragment": [],
+      "Laterality": [],
+      "Measure": [],
+      "Standard": [],
+      "Country": [],
+      "Region": [],
+      "Site type": [],
+      "Site": [],
+      "Stratigraphic Unit": [],
+      "Year": [],
+      "Area": [],
+      "Feature": [],
+      "Chronology": [],
+      "Period": [],
+      "Phase": [],
+      "Comments": []
+    }
+  }
+}

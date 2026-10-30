@@ -1,0 +1,13 @@
+############################################################
+## thesaurus
+## ---------
+## zoolog thesaurus for identifiers of reference values.
+## caseSensitive FALSE
+## accentSensitive FALSE
+## punctuationSensitive FALSE
+## wordOrderSensitive TRUE
+############################################################
+Taxon;Element;Fragment;Laterality;Measure;Standard;Country;Region;Site type;Site;Stratigraphic Unit;Year;Area;Feature;Chronology;Period;Phase;Comments
+LanguageStandardTermForTaxon;;;;;;;;;;;;;;;;;
+AlternativeTerm1;;;;;;;;;;;;;;;;;
+AlternativeTerm2;;;;;;;;;;;;;;;;;

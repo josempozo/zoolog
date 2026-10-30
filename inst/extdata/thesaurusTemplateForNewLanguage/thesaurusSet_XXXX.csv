@@ -1,0 +1,8 @@
+########################################
+## thesaurusSet
+## ------------
+########################################
+thesaurusName;fileName;applyToColNames;applyToColValues
+identifier;identifierThesaurus_XXXX;TRUE;FALSE
+taxon;taxonThesaurus_XXXX;FALSE;TRUE
+element;elementThesaurus_XXXX;FALSE;TRUE

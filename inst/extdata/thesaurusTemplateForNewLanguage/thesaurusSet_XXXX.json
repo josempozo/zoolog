@@ -1,0 +1,11 @@
+{
+  "thesaurusSet": {
+    "thesaurus": {
+      "identifier": "identifierThesaurus_XXXX",
+      "taxon": "taxonThesaurus_XXXX",
+      "element": "elementThesaurus_XXXX"
+    },
+    "applyToColNames": [true, false, false],
+    "applyToColValues": [false, true, true]
+  }
+}
