@@ -1,8 +1,6 @@
 {
   "thesaurus": {
-    "description": [
-      "zoolog thesaurus for taxa."
-    ],
+    "description": "zoolog thesaurus for taxa.",
     "sensitiveness": {
       "caseSensitive": false,
       "accentSensitive": false,

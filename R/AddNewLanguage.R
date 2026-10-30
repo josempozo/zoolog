@@ -1,4 +1,4 @@
-#' Add New Languages
+#' Add New Language
 #'
 #' This function enables the user to incorporate a user-defined thesaurus set
 #' as a new language. Thus, the new language is included in the set of

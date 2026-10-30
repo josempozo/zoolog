@@ -3,7 +3,7 @@
 \name{AddNewLanguage}
 \alias{AddNewLanguage}
 \alias{ResetAvailableLanguages}
-\title{Add New Languages}
+\title{Add New Language}
 \usage{
 AddNewLanguage(thesaurusSet, language)
 

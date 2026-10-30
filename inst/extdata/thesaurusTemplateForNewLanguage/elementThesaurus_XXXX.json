@@ -1,8 +1,6 @@
 {
   "thesaurus": {
-    "description": [
-      "zoolog thesaurus for bone elements."
-    ],
+    "description": "zoolog thesaurus for bone elements.",
     "sensitiveness": {
       "caseSensitive": false,
       "accentSensitive": false,

@@ -1,8 +1,6 @@
 {
   "thesaurus": {
-    "description": [
-      "zoolog thesaurus for identifiers of reference values."
-    ],
+    "description": "zoolog thesaurus for identifiers of reference values.",
     "sensitiveness": {
       "caseSensitive": false,
       "accentSensitive": false,
