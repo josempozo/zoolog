@@ -5,6 +5,10 @@
 NULL
 
 .onLoad <- function(libname, pkgname) {
+  internalEnvironment$zoologThesaurusByLanguage <- zoologThesaurusByLanguage0
+  makeActiveBinding("zoologThesaurusByLanguage",
+                    GetZoologThesaurusByLanguage,
+                    getNamespace("zoolog"))
   internalEnvironment$standardLanguage <- "Base"
   internalEnvironment$zoologThesaurus <- AssembleThesaurusSet(
     zoologThesaurusByLanguage)
@@ -17,5 +21,10 @@ NULL
 GetZoologThesaurus <- function()
 {
   get("zoologThesaurus", internalEnvironment)
+}
+
+GetZoologThesaurusByLanguage <- function()
+{
+  get("zoologThesaurusByLanguage", internalEnvironment)
 }
 

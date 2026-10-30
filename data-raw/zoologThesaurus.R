@@ -1,7 +1,7 @@
 ## Code to prepare `zoologThesaurus` dataset goes here
 
-zoologThesaurusByLanguage <- ReadThesaurusSet("inst/extdata/zoologThesaurusSet.json")
+zoologThesaurusByLanguage0 <- ReadThesaurusSet("inst/extdata/zoologThesaurusSet.json")
 
-usethis::use_data(zoologThesaurusByLanguage, overwrite = TRUE, version = 2,
+usethis::use_data(zoologThesaurusByLanguage0, overwrite = TRUE, version = 2,
                   internal = TRUE)
 

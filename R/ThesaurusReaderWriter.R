@@ -262,7 +262,7 @@ ReadDataAndAttributes <- function(file)
     stop("Wrong file extension in ", file, ".\n",
          "Please use 'json' or 'csv' for the corresponding file formats.")
 
-  if(traits$class == "thesaurusSet")
+  if(!is.null(traits$class) && traits$class == "thesaurusSet")
     data <- utils::type.convert(data, as.is = TRUE)
   else
     data <- lapply(data, as.character)
@@ -423,11 +423,18 @@ LegacyFormatAdaption <- function(data, class)
     user_env = rlang::caller_env(2)
   )
   if(class == "thesaurus")
+  {
     data <- mapply(c, names(data), data, SIMPLIFY = FALSE)
+  }
   else if(class == "thesaurusSet")
+  {
     names(data) <- sub('^(.)', '\\L\\1', names(data), perl=TRUE)
+    data <- utils::type.convert(data, as.is = TRUE)
+  }
   else
+  {
     stop("Not recognized class", class)
+  }
   return(data)
 }
 
