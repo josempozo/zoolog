@@ -57,6 +57,8 @@ AllAvailableLanguages()
 SetActiveLanguages(AllAvailableLanguages())
 }
 \seealso{
+\href{../doc/thesaurusLanguages.html}{creating new thesaurus languages}
+
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{vignette("thesaurusLanguages", package = "zoolog")
 }\if{html}{\out{</div>}}
 }

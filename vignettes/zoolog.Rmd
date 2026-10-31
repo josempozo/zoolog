@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 The package *zoolog* includes functions and reference data to generate and 
 manipulate log-ratios (also known as log size index (LSI) values) from measurements obtained on zooarchaeological material. Log ratios are used to compare the relative (rather than the absolute) dimensions of animals from archaeological contexts [@meadow1999use]. Essentially, the method compares archaeological measurements to a standard, producing a value that indicates how much larger or smaller the archaeological specimen is compared to that standard. *zoolog* is also able to seamlessly integrate data and references with heterogeneous nomenclature, which is internally managed by a zoolog thesaurus.
 
-The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 [ZooMWest](https://zoomwest11.wixsite.com/zoomwest) 
+The package *zoolog* is described in detail in [@pozo2023zoolog]. The methods included in the package were first developed in the framework of the ERC-Starting Grant 716298 [ZooMWest](https://zoomwest11.wixsite.com/zoomwest) 
 (PI S. Valenzuela-Lamas), and were first used 
 in the paper [@trentacoste2018pre]. They are based on the techniques proposed by @simpson1941large and @simpson1960quantitative, which calculates *log size index* (LSI) values as: 
 $$
@@ -107,7 +107,7 @@ library(zoolog)
 res <- zoolog:::FormatListOfNames(AllAvailableLanguages(), c("*", "*"))
 cat(paste0(res, "."))
 ```
-This allows the user to set which languages are [active](../help/ActiveLanguages). This modular structure facilitates the contribution of new languages by the user (see [creating new thesaurus languages](thesaurusLanguages.html)). In addition, the capacity to activate only the required languages, might avoid potential ambiguities between conflicting terms in different languages.
+This allows the user to set which languages are [active](../help/ActiveLanguages). This modular structure facilitates the contribution of new languages by the user (see [creating new thesaurus languages](thesaurusLanguages.html) and [add new language](../help/AddNewLanguage)). In addition, the capacity to activate only the required languages, might avoid potential ambiguities between conflicting terms in different languages.
 
 The structure in languages also allows the user to [set a language as the nomenclature standard](../help/ActiveLanguages). With this, the [nomenclature standardization](../help/StandardizeNomenclature) can convert any dataset to the desired language, effectively acting as a translator for the managed terms.
 
@@ -288,6 +288,11 @@ The full list of functions is available under the zoolog *help* page. We list th
       category in a thesaurus.
     * `ChangeStandardInThesaurus` change the terms defining the standard on a
       thesaurus.
+
+[**AddNewLanguage**](../help/AddNewLanguage)
+  : It allows adding a user-defined thesaurus set as a new available language
+    (`AddNewLanguage`) and to reset to the original list of available languages
+    (`ResetAvailableLanguages`).
 
 # Examples
 The following examples are designed to be read and run sequentially. They 

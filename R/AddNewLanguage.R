@@ -16,6 +16,7 @@
 #' original list at package installation. No value is returned.
 #'
 #' @seealso
+#' [creating new thesaurus languages](../doc/thesaurusLanguages.html)
 #' ```r
 #' vignette("thesaurusLanguages", package = "zoolog")
 #' ```
