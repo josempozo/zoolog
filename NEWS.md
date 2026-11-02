@@ -1,15 +1,35 @@
 # zoolog 2.0.0
 1. Structuring of thesauri by language, together with the functionalities to
    allow the user to select which languages should be active or inactive.
-2. Separating metatarsus and metatarsus I as two different elements.
+2. Also the functionality to select a language-specific standard for the
+   thesaurus categories, potentially acting as a translator.
+3. Function to add a user-defined thesaurus set as a new language, together
+   new vignette with instructions to generate it and to contribute it to 
+   zoolog if desired.
+4. Extension of identifier thesaurus, including many categories typically used
+   in archaeological data.
+5. Large extension of element thesaurus, including most skeletal anatomical
+   elements included in Nomina Anatomica Veterinaria, and using as standard
+   term for every element its scientific nomenclature in Latin.
+6. Separating metatarsus and metatarsus I as two different elements.
    Analogously for metacarpus and metacarpus I. 
    Metatarsus and metacarpus are meant to species with a single element
    (result of fusion and lose).
-3. Documentation generated with the updated version of roxygen2 (7.2.3).
+7. Added two references for Gallus, and inclusion of Gallus in taxon thesaurus
+   and in taxonomy.
+8. Documentation generated with the updated version of roxygen2 (8.1.0).
+9. Added method "random" for CondenseLogs.
+10. Change of the file-format for writing and reading the thesauri, improving
+   its expressiveness and versatility. Two possible formats: json (recommended)
+   and csv.
+11. Formalize thesaurus and thesaurusSet as S3 classes, with specialized print
+   and summary methods.
+12. Deprecate functions NewThesaurus and RemoveRepeatedNames in favor of the
+   replacements Thesaurus and RemoveRedundantTerms.
 
 # zoolog 1.1.1
 1. Corrected bug when using RemoveRepeatedNames on a thesaurus with only one
-   cathegory.
+   category.
 2. Included option in AddToThesaurus to parse the new names and categories 
    better structured as a named list.
 3. AddToThesaurus now internally remove resulting repeated names.
